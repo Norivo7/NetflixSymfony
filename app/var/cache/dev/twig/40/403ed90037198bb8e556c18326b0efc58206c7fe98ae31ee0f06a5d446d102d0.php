@@ -223,91 +223,23 @@ class __TwigTemplate_fbdfc9593549e99b119dfdaaadd8f081dcd53085c40da17ed64db95bb24
         <div class=\"location\" id=\"home\">
             <h1 id=\"home\" class=\"title-home\">Popularne w serwisie Netflix</h1>
             <div class=\"box\">
-                ";
-        // line 107
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["popular"]) || array_key_exists("popular", $context) ? $context["popular"] : (function () { throw new RuntimeError('Variable "popular" does not exist.', 107, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["movie"]) {
-            // line 108
-            echo "                    <a href=\"/show/";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 108), "html", null, true);
-            echo "\"><img src=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 108), "html", null, true);
-            echo "\" alt=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 108), "html", null, true);
-            echo "\"></a>
-                ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movie'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
+";
         // line 110
         echo "            </div>
         </div>
     <h1 id=\"serials\" class=\"title-home\">Seriale</h1>
     <div class=\"box\">
-        ";
-        // line 114
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["serials"]) || array_key_exists("serials", $context) ? $context["serials"] : (function () { throw new RuntimeError('Variable "serials" does not exist.', 114, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["movie"]) {
-            // line 115
-            echo "            <a href=\"/show/";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 115), "html", null, true);
-            echo "\"><img src=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 115), "html", null, true);
-            echo "\" alt=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 115), "html", null, true);
-            echo "\"></a>
-        ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movie'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
+";
         // line 117
         echo "    </div>
     <h1 id=\"movies\" class=\"title-home\">Filmy</h1>
     <div class=\"box\">
-        ";
-        // line 120
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["movies"]) || array_key_exists("movies", $context) ? $context["movies"] : (function () { throw new RuntimeError('Variable "movies" does not exist.', 120, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["movie"]) {
-            // line 121
-            echo "            <a href=\"/show/";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 121), "html", null, true);
-            echo "\"><img src=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 121), "html", null, true);
-            echo "\" alt=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 121), "html", null, true);
-            echo "\"></a>
-        ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movie'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
+";
         // line 123
         echo "    </div>
     <h1 id=\"originals\" class=\"title-home\">Tylko na Netflix</h1>
     <div class=\"box\">
-        ";
-        // line 126
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["exclusive"]) || array_key_exists("exclusive", $context) ? $context["exclusive"] : (function () { throw new RuntimeError('Variable "exclusive" does not exist.', 126, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["movie"]) {
-            // line 127
-            echo "            <a href=\"/show/";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 127), "html", null, true);
-            echo "\"><img src=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 127), "html", null, true);
-            echo "\" alt=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 127), "html", null, true);
-            echo "\"></a>
-        ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movie'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
+";
         // line 129
         echo "    </div>
 </section>
@@ -327,7 +259,7 @@ class __TwigTemplate_fbdfc9593549e99b119dfdaaadd8f081dcd53085c40da17ed64db95bb24
 
     public function getDebugInfo()
     {
-        return array (  312 => 129,  299 => 127,  295 => 126,  290 => 123,  277 => 121,  273 => 120,  268 => 117,  255 => 115,  251 => 114,  245 => 110,  232 => 108,  228 => 107,  216 => 98,  210 => 95,  196 => 84,  191 => 81,  181 => 80,  169 => 132,  167 => 80,  164 => 79,  154 => 78,  72 => 5,  62 => 4,  52 => 78,  50 => 4,  46 => 2,);
+        return array (  244 => 129,  239 => 123,  234 => 117,  228 => 110,  216 => 98,  210 => 95,  196 => 84,  191 => 81,  181 => 80,  169 => 132,  167 => 80,  164 => 79,  154 => 78,  72 => 5,  62 => 4,  52 => 78,  50 => 4,  46 => 2,);
     }
 
     public function getSourceContext()
@@ -438,28 +370,28 @@ class __TwigTemplate_fbdfc9593549e99b119dfdaaadd8f081dcd53085c40da17ed64db95bb24
         <div class=\"location\" id=\"home\">
             <h1 id=\"home\" class=\"title-home\">Popularne w serwisie Netflix</h1>
             <div class=\"box\">
-                {% for movie in popular %}
-                    <a href=\"/show/{{movie.id}}\"><img src=\"{{movie.img}}\" alt=\"{{movie.title}}\"></a>
-                {% endfor %}
+{#                {% for movie in popular %}#}
+{#                    <a href=\"/show/{{movie.id}}\"><img src=\"{{movie.img}}\" alt=\"{{movie.title}}\"></a>#}
+{#                {% endfor %}#}
             </div>
         </div>
     <h1 id=\"serials\" class=\"title-home\">Seriale</h1>
     <div class=\"box\">
-        {% for movie in serials %}
-            <a href=\"/show/{{movie.id}}\"><img src=\"{{movie.img}}\" alt=\"{{movie.title}}\"></a>
-        {% endfor %}
+{#        {% for movie in serials %}#}
+{#            <a href=\"/show/{{movie.id}}\"><img src=\"{{movie.img}}\" alt=\"{{movie.title}}\"></a>#}
+{#        {% endfor %}#}
     </div>
     <h1 id=\"movies\" class=\"title-home\">Filmy</h1>
     <div class=\"box\">
-        {% for movie in movies %}
-            <a href=\"/show/{{movie.id}}\"><img src=\"{{ movie.img }}\" alt=\"{{ movie.title }}\"></a>
-        {% endfor %}
+{#        {% for movie in movies %}#}
+{#            <a href=\"/show/{{movie.id}}\"><img src=\"{{ movie.img }}\" alt=\"{{ movie.title }}\"></a>#}
+{#        {% endfor %}#}
     </div>
     <h1 id=\"originals\" class=\"title-home\">Tylko na Netflix</h1>
     <div class=\"box\">
-        {% for movie in exclusive %}
-            <a href=\"/show/{{ movie.id }}\"><img src=\"{{ movie.img }}\" alt=\"{{ movie.title }}\"></a>
-        {% endfor %}
+{#        {% for movie in exclusive %}#}
+{#            <a href=\"/show/{{ movie.id }}\"><img src=\"{{ movie.img }}\" alt=\"{{ movie.title }}\"></a>#}
+{#        {% endfor %}#}
     </div>
 </section>
     {% endblock %}

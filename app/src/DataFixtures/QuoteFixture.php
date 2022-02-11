@@ -7,7 +7,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 
-class QuoteFixture extends Fixture {
+class   QuoteFixture extends Fixture {
 
     private $faker;
 

@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Movie;
+use App\Repository\CategoryRepository;
 use App\Repository\MovieRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,12 +27,19 @@ class MoviesController extends AbstractController
      */
     public function index(): Response
     {
+        $categoryName = 'Seriale';
+        $category = $this->getDoctrine()->getRepository(Category::class)
+            ->findBy(['name' => $categoryName]);
+        dump($category);exit;
+        //$movies = $this->repo->findBy(['categories' => $category]);
+        //var_dump($movies);exit;
+
         return $this->render('movies/index.html.twig', [
             'controller_name' => 'MovieController',
-            'exclusive' =>$this->repo->homeFilter(1),
-            'popular' => $this->repo->popularFilter(),
-            'serials' =>$this->repo->homeFilter(2),
-            'movies' => $this->repo->homeFilter(3)
+//            'exclusive' =>$this->repo->homeFilter(1),
+//            'popular' => $this->repo->popularFilter(),
+//            'serials' =>$this->repo->homeFilter(2),
+//            'movies' => $this->repo->homeFilter(3)
         ]);
     }
     /**

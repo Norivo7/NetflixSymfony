@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\MovieRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,23 +48,24 @@ class Movie
      * @ORM\Column(type="integer")
      */
     private $likes;
-//
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="movies")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $category;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $link;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="movies")
+     */
+    private $categories;
+
     public function __construct()
     {
 //        $this->category = new ArrayCollection(); // many2many
         $this->likes = 0;
+        $this->categories = new ArrayCollection();
         return $this;
+
     }
 
     public function getId(): ?int
@@ -173,6 +176,30 @@ class Movie
     public function setIsSerial(bool $true)
     {
         
+    }
+
+    /**
+     * @return Collection|Category[]
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Category $category): self
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories[] = $category;
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Category $category): self
+    {
+        $this->categories->removeElement($category);
+
+        return $this;
     }
 
 }

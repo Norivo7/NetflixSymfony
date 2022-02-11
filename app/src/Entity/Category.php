@@ -29,7 +29,7 @@ class Category
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity=Movie::class, mappedBy="category")
+     * @ORM\ManyToMany(targetEntity=Movie::class, mappedBy="categories")
      */
     private $movies;
 
