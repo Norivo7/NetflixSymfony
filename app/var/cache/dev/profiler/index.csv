@@ -1,0 +1,13 @@
+ef0dab,172.21.0.1,GET,http://localhost:8080/,1644601115,,302
+deb6ce,172.21.0.1,GET,http://localhost:8080/login,1644601116,,200
+f76005,172.21.0.1,GET,http://localhost:8080/favicon.ico,1644601117,93a169,404
+93a169,172.21.0.1,GET,http://localhost:8080/favicon.ico,1644601117,,404
+01934d,172.21.0.1,POST,http://localhost:8080/login,1644601133,,302
+4ac11e,172.21.0.1,GET,http://localhost:8080/,1644601133,,200
+82234e,172.21.0.1,GET,http://localhost:8080/,1644601344,,200
+b384b8,172.21.0.1,GET,http://localhost:8080/,1644601544,,200
+974425,172.21.0.1,GET,http://localhost:8080/login,1644601548,,302
+c411a9,172.21.0.1,GET,http://localhost:8080/chooseUser,1644601548,,200
+1198e1,172.21.0.1,GET,http://localhost:8080/movieList,1644601549,,200
+f2b44f,172.21.0.1,GET,http://localhost:8080/show/71,1644601551,,200
+937347,172.21.0.1,GET,http://localhost:8080/serials,1644601554,,200

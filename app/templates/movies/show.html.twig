@@ -1,0 +1,42 @@
+{% extends 'movies/index.html.twig' %}
+
+{% block navigation %}
+    <style>
+    .navbar a.first {
+        font-weight:normal;
+    }
+    </style>
+{{ parent() }}
+{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-2 col-sm-12"></div>
+        <div class="col-8 col-sm-12 text-center">
+            <div class="jumbotron jumbotron-dark bg-darkness">
+                <h3 class="title my-3" href='#'>{{movie.title}}</h3>
+                <iframe width="560" height="315" src="{{movie.link}}" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                <div class="mt-3">
+                    <small>
+                        <p>Resume : <br>{{movie.description}}</p>
+                        <p>
+                            Year : {{movie.year}} <br>
+                            Likes : {{movie.likes}}<br>
+                            Category : {{movie.category}}
+                        </p>
+                    </small>
+                    <form method="POST" action="{{ path('like') }}">
+                        <input type="text" name="id" value="{{movie.id}}" style="display: none">
+                        <button type="submit" class="btn btn-sm btn-danger"><i
+                                    class="fas fa-heart sub-nav-logo"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-2 col-sm-12"></div>
+    </div>
+</div>
+{% endblock %}

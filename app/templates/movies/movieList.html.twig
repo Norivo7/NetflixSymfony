@@ -1,0 +1,200 @@
+{#{% extends 'movies/index.html.twig' %}#}
+
+{% block stylesheets %}
+
+<style>
+    body {
+    background-color: #141414;
+    color: #fff;
+    }
+
+    .bg-darkness {
+    background-color: #141414;
+    }
+
+    .red {
+    color: #e50914;
+    }
+
+    img {
+    max-width: 100%;
+    }
+
+    ul {
+    list-style: none;
+    }
+
+    ul li {
+    margin: 15px 0;
+    }
+
+    a {
+    text-decoration: none;
+    color: rgba(255,255,255,.5);
+    }
+
+    .title-home {
+    padding-top: 60px;
+    }
+
+    /* HEADER */
+    #logo {
+    color: #e50914;
+    margin: 0;
+    padding: 0;
+    }
+
+    /* MAIN CONTAINER */
+    .main-container {
+    padding: 50px;
+    }
+
+    .box {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(6, minmax(100px, 1fr));
+    }
+
+    .box a {
+    transition: transform 0.3s;
+    }
+
+    .box a:hover {
+    transition: transform 0.3s;
+    -ms-transform: scale(1.4);
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+    }
+
+    .box img {
+    border-radius: 2px;
+    }
+
+    .logos a {
+    padding: 10px;
+    }
+
+    .logo {
+    color: #686868;
+    }
+
+    /* FOOTER */
+    footer {
+    text-align: center;
+    color: #686868;
+    margin-top: 50px;
+    }
+
+    /* MEDIA QUERIES */
+    @media (max-width: 900px) {
+    header {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+    "nt nt nt  .  .  . sb . . . "
+    "mn mn mn mn mn mn  mn mn mn mn";
+    }
+
+    .box {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
+    }
+    }
+
+    @media (max-width: 700px) {
+    header {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+    "nt nt nt  .  .  . sb . . . "
+    "mn mn mn mn mn mn  mn mn mn mn";
+    }
+
+    .box {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    }
+    }
+
+    @media (max-width: 500px) {
+    header {
+    margin: 0;
+    padding: 20px 0 0 0;
+    position: static;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas:
+    "nt"
+    "mn"
+    "sb";
+    text-align: center;
+    }
+
+    .netflixLogo {
+    max-width: 100%;
+    margin: auto;
+    padding-right: 20px;
+    }
+
+    .box {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
+    text-align: center;
+    }
+
+    .box a:hover {
+    transition: transform 0.3s;
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1.2);
+    }
+
+    .logos {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+    }
+    }
+    </style>
+{% endblock %}
+{% block title %}Netflix - List{% endblock %}
+{% block body %}
+
+    <body></body>
+    <section class="main-container">
+        <div class="location" id="home">
+            <h1 id="home" class="title-home">Popular on Netflix</h1>
+            <div class="box">
+                {% for movie in popular %}
+                    <a href="/show/{{movie.id}}"><img src="{{movie.img}}" alt="{{movie.title}}"></a>
+                {% endfor %}
+            </div>
+        </div>
+        <h1 id="tvShows" class="title-home">TV Shows</h1>
+        <div class="box">
+            {% for movie in tvShows %}
+                <a href="/show/{{movie.id}}"><img src="{{movie.img}}" alt="{{movie.title}}"></a>
+            {% endfor %}
+        </div>
+        <h1 id="movies" class="title-home">Movies</h1>
+        <div class="box">
+            {% for movie in movies %}
+                <a href="/show/{{movie.id}}"><img src="{{movie.img}}" alt="{{movie.title}}"></a>
+            {% endfor %}
+        </div>
+        <h1 id="originals" class="title-home">Netflix Originals</h1>
+        <div class="box">
+            {% for movie in originals %}
+                <a href="/show/{{movie.id}}"><img src="{{movie.img}}" alt="{{movie.title}}"></a>
+            {% endfor %}
+        </div>
+    </section>
+
+{% endblock %}

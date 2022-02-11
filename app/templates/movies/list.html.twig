@@ -1,0 +1,14 @@
+
+{% block title %}Netflix - List{% endblock %}
+{% block body %}
+    <section class="main-container">
+        <div class="location" id="home">
+            <h1 id="home" class="title-home">LIST</h1>
+            <div class="box">
+                {% for movie in movies %}
+                    <a href="/show/{{movie.id}}"><img src="{{movie.img}}"alt="{{movie.title}} jacket"></a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'movies/index.html.twig' %}
+
+{% block navigation %}
+    <style>
+    .navbar a.first {
+        font-weight:normal;
+    }
+    .navbar a.second {
+    font-weight: 900;
+    }
+    </style>
+{{ parent() }}
+{% endblock %}
