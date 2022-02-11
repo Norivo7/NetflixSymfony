@@ -11,3 +11,10 @@ c411a9,172.21.0.1,GET,http://localhost:8080/chooseUser,1644601548,,200
 1198e1,172.21.0.1,GET,http://localhost:8080/movieList,1644601549,,200
 f2b44f,172.21.0.1,GET,http://localhost:8080/show/71,1644601551,,200
 937347,172.21.0.1,GET,http://localhost:8080/serials,1644601554,,200
+bc4174,172.19.0.1,GET,http://localhost:8080/login,1644605323,,200
+52f2e3,172.19.0.1,GET,http://localhost:8080/,1644605323,,302
+0d98d1,172.19.0.1,POST,http://localhost:8080/login,1644605326,,302
+f0583a,172.19.0.1,GET,http://localhost:8080/,1644605326,,200
+b494a0,172.19.0.1,GET,http://localhost:8080/login,1644605329,,302
+57bfd7,172.19.0.1,GET,http://localhost:8080/chooseUser,1644605329,,200
+7a7d5c,172.19.0.1,GET,http://localhost:8080/movieList,1644605333,,200
