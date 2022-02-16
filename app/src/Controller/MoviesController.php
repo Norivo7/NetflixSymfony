@@ -24,19 +24,18 @@ class MoviesController extends AbstractController
     }
 
     /**
-     * @Route("/movieList", name="movieList")
+     * @Route("/browse", name="browse")
      * @return Response
      */
     public function index(): Response
     {
 
-        dump($this->getUser()->getRoles());
+//        dump($this->getUser()->getRoles());
         return $this->render('movies/index.html.twig', [
             'controller_name' => 'MovieController',
 //            'exclusive' =>$this->repo->homeFilter(1),//            'popular' => $this->repo->popularFilter(),
 //            'serials' =>$this->repo->getMoviesByCategory('Seriale'),
             'popular' => $this->repo->popularFilter(),
-
             'movies' => $this->repo->getMoviesByCategory('Filmy'),
             'originals' => $this->repo->getMoviesByCategory('Eksluzywne'),
             'serials' => $this->repo->getMoviesByCategory('Seriale')
@@ -53,8 +52,9 @@ class MoviesController extends AbstractController
     public function exclusive(): Response
     {
         return $this->render(
-            'movies/list.html.twig'
-            ,['movies' => $this->repo->findByCategoryField(3)]);
+            'movies/list.html.twig',
+            ['movies' => $this->repo->getMoviesByCategory('Eksluzywne')]
+        );
     }
     /**
      * @Route("/serials", name="serials")
@@ -63,8 +63,9 @@ class MoviesController extends AbstractController
     public function serials(): Response
     {
         return $this->render(
-            'movies/list.html.twig'
-                ,['movies' => $this->repo->findByCategoryField(1)]);
+            'movies/list.html.twig',
+            ['movies' => $this->repo->getMoviesByCategory('Seriale')]
+        );
     }
     /**
      * @Route("/movies", name="movies")
@@ -73,7 +74,8 @@ class MoviesController extends AbstractController
     public function movies(): Response
     {
         return $this->render(
-            'movies/list.html.twig', ['movies' => $this->repo->getMoviesByCategory('Filmy'),]
+            'movies/list.html.twig',
+            ['movies' => $this->repo->getMoviesByCategory('Filmy')]
         );
     }
     /**
@@ -83,7 +85,8 @@ class MoviesController extends AbstractController
     public function new(): Response
     {
         return $this->render(
-            'movies/list.html.twig', ['movies' => $this->repo->recentlyAdd()]
+            'movies/list.html.twig',
+            ['movies' => $this->repo->recentlyAdd()]
         );
     }
 
@@ -106,9 +109,6 @@ class MoviesController extends AbstractController
         $entityManager->persist($user);
         $entityManager->flush();
         return $this->redirectToRoute('show-one', ['id' => $id['id']]);
-//        return $this->render(
-//            'movies/like.html.twig'
-//        );
     }
 
     /**
@@ -166,8 +166,8 @@ class MoviesController extends AbstractController
           $request->query->get('v')
       );
 
-      return $this->render('movies/search.html.twig', [
-          'search' => $movies
+      return $this->render('movies/list.html.twig', [
+          'movies' => $movies
       ]);
 }
 

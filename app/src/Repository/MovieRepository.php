@@ -30,8 +30,20 @@ class MovieRepository extends ServiceEntityRepository
             ->leftJoin('movie.categories', 'category')
             ->andWhere('category.name = :categoryName')
             ->setParameter('categoryName', $category)
-            ->getQuery()->getResult();
+            ->getQuery()
+            ->getResult();
     }
+
+
+    public function recentlyAdd()
+    {
+        return $this->createQueryBuilder('movie')
+            ->orderBy('movie.id', 'ASC')
+            ->setMaxResults(12)
+            ->getQuery()
+            ->getResult();
+    }
+
 
     public function popularFilter()
     {
@@ -42,8 +54,9 @@ class MovieRepository extends ServiceEntityRepository
             ->setMaxResults(12)
             ->getQuery()
             ->getResult();
-
     }
+
+
     public function search($value)
     {
         return $this->createQueryBuilder('movie')

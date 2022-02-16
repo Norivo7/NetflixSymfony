@@ -39,7 +39,7 @@ class AppFixtures extends Fixture
         $movie2->setTitle('Rytuał');
         $movie2->setDescription('horror');
         $movie2->setYear(2020);
-        $movie2->setImg('https://a.allegroimg.com/original/115135/980542cb415eb4f298c588fddda5/RYTUAL-Anthony-HOPKINS-DVD');
+        $movie2->setImg('https://img.wallpapersafari.com/desktop/1600/900/55/71/M7hKkS.jpg');
         $movie2->setLikes(6);
         $movie2->setLink("https://www.youtube.com/embed/U57cykY5mmk");
 
@@ -67,7 +67,7 @@ class AppFixtures extends Fixture
         $movie5->setTitle('Game of Thrones');
         $movie5->setDescription('lorem ipsum');
         $movie5->setYear(2011);
-        $movie5->setImg('https://www.clementoni.com/media/prod/pl/35091/game-of-thrones-500-el-game-of-thrones_EGGMBHg.jpg');
+        $movie5->setImg('https://uhdwallpapers.org/uploads/converted/19/03/09/game-of-thrones-8-1600x900_949765-mm-90.jpg');
         $movie5->setLikes(15);
         $movie5->setLink("https://www.youtube.com/embed/KPLWWIOCOOQ");
 
@@ -76,7 +76,7 @@ class AppFixtures extends Fixture
         $movie6->setTitle('Euforia');
         $movie6->setDescription('lorem ipsum');
         $movie6->setYear(2019);
-        $movie6->setImg('https://www.gloskultury.pl/wp-content/uploads/2019/08/euf.jpg');
+        $movie6->setImg('https://1.bp.blogspot.com/-w-GVhZnqYME/XU_4jcY8ERI/AAAAAAAAFy8/i5PRr9ZAEm4EpFQKLrRgtgBqR55RulqHgCLcBGAs/s1600/euphoria-s01-1920.jpg');
         $movie6->setLikes(11);
         $movie6->setLink("https://www.youtube.com/embed/reeTpPsBFEA");
 
@@ -94,7 +94,7 @@ class AppFixtures extends Fixture
         $movie8->setTitle('Podziemny krąg');
         $movie8->setDescription('lorem ipsum');
         $movie8->setYear(1999);
-        $movie8->setImg('https://meteor.amu.edu.pl/wp-content/uploads/2020/12/1_NdVNT5WO1ASGOCNq2PAv1g.png');
+        $movie8->setImg('https://wallpapermemory.com/uploads/204/fight-club-wallpaper-hd-1600x900-47738.jpg');
         $movie8->setLikes(54);
         $movie8->setLink("https://www.youtube.com/embed/BdJKm16Co6M");
 

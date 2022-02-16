@@ -13,7 +13,7 @@ return [
         '/_profiler/search_bar' => [[['_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'], null, null, null, false, false, null]],
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
-        '/movieList' => [[['_route' => 'movieList', '_controller' => 'App\\Controller\\MoviesController::index'], null, null, null, false, false, null]],
+        '/browse' => [[['_route' => 'browse', '_controller' => 'App\\Controller\\MoviesController::index'], null, null, null, false, false, null]],
         '/serials' => [[['_route' => 'serials', '_controller' => 'App\\Controller\\MoviesController::serials'], null, null, null, false, false, null]],
         '/movies' => [[['_route' => 'movies', '_controller' => 'App\\Controller\\MoviesController::movies'], null, null, null, false, false, null]],
         '/new' => [[['_route' => 'new', '_controller' => 'App\\Controller\\MoviesController::new'], null, null, null, false, false, null]],

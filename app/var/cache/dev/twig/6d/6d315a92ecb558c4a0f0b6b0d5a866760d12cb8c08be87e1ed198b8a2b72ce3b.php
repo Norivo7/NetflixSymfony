@@ -208,7 +208,7 @@ class __TwigTemplate_87682afbaf815a906ec779de8e65f084085f636cc7c1f5b6e0e8ebad974
 
                     <li class=\"profile\">
                         <div id=\"choice\">
-                            <a class=\"profileLink\" href=\"/movieList\">
+                            <a class=\"profileLink\" href=\"/browse\">
                                 <img src=\"";
         // line 124
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/av1.png"), "html", null, true);
@@ -414,7 +414,7 @@ class __TwigTemplate_87682afbaf815a906ec779de8e65f084085f636cc7c1f5b6e0e8ebad974
 
                     <li class=\"profile\">
                         <div id=\"choice\">
-                            <a class=\"profileLink\" href=\"/movieList\">
+                            <a class=\"profileLink\" href=\"/browse\">
                                 <img src=\"{{ asset('images/av1.png') }}\" class=\"round\"  alt=\"av1\"/>
                             </a>
                         </div>
