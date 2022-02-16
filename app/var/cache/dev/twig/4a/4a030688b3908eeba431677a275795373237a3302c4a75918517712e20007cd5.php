@@ -24,16 +24,12 @@ class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f441
 
         $this->source = $this->getSourceContext();
 
+        $this->parent = false;
+
         $this->blocks = [
             'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
         ];
-    }
-
-    protected function doGetParent(array $context)
-    {
-        // line 1
-        return "base.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -45,8 +41,16 @@ class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f441
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "registration/register.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "registration/register.html.twig", 1);
-        $this->parent->display($context, array_merge($this->blocks, $blocks));
+        // line 2
+        echo "
+";
+        // line 3
+        $this->displayBlock('title', $context, $blocks);
+        // line 4
+        echo "
+";
+        // line 5
+        $this->displayBlock('body', $context, $blocks);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -139,19 +143,14 @@ class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f441
         return "registration/register.html.twig";
     }
 
-    public function isTraitable()
-    {
-        return false;
-    }
-
     public function getDebugInfo()
     {
-        return array (  126 => 20,  120 => 17,  117 => 16,  115 => 14,  111 => 13,  107 => 12,  102 => 9,  93 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  130 => 20,  124 => 17,  121 => 16,  119 => 14,  115 => 13,  111 => 12,  106 => 9,  97 => 7,  92 => 6,  82 => 5,  63 => 3,  53 => 5,  50 => 4,  48 => 3,  45 => 2,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
+        return new Source("{#{% extends 'base.html.twig' %}#}
 
 {% block title %}Register{% endblock %}
 

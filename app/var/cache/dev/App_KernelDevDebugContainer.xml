@@ -313,6 +313,7 @@
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <argument type="service" id="App\Repository\MovieRepository"/>
+      <argument type="service" id="App\Repository\CategoryRepository"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.W9y3dzm.App\Controller\MoviesController"/>
       </call>
@@ -3939,6 +3940,13 @@
         <argument>null</argument>
       </call>
       <call method="add">
+        <argument type="service" id=".security.request_matcher.O7Tsk.w"/>
+        <argument type="collection">
+          <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
         <argument type="service" id=".security.request_matcher.hxjan1m"/>
         <argument type="collection">
           <argument>ROLE_USER</argument>
@@ -4553,6 +4561,9 @@
     <service id=".security.request_matcher.eKXDm4f" class="Symfony\Component\HttpFoundation\RequestMatcher">
       <argument>^/login$</argument>
     </service>
+    <service id=".security.request_matcher.O7Tsk.w" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/register</argument>
+    </service>
     <service id=".security.request_matcher.hxjan1m" class="Symfony\Component\HttpFoundation\RequestMatcher">
       <argument>^/*</argument>
     </service>
@@ -4954,6 +4965,12 @@
         <argument key="movie" type="service_closure" id=".errored..service_locator.V5oNiHc.App\Entity\Movie"/>
       </argument>
     </service>
+    <service id=".service_locator.eWsEuD9" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="movieRepository" type="service_closure" id="App\Repository\MovieRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.3UmvDkK" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4972,9 +4989,10 @@
         <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.P9SRuXm" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.P4b0RKl" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\MoviesController::search" type="service_closure" id=".service_locator.eWsEuD9"/>
         <argument key="App\Controller\MoviesController::show" type="service_closure" id=".service_locator.V5oNiHc"/>
         <argument key="App\Controller\QuoteController::quote" type="service_closure" id=".service_locator.3UmvDkK"/>
         <argument key="App\Controller\RegistrationController::register" type="service_closure" id=".service_locator.pwZ6MTM"/>
@@ -4985,6 +5003,7 @@
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::terminate" type="service_closure" id=".service_locator.KfwZsne"/>
+        <argument key="App\Controller\MoviesController:search" type="service_closure" id=".service_locator.eWsEuD9"/>
         <argument key="App\Controller\MoviesController:show" type="service_closure" id=".service_locator.V5oNiHc"/>
         <argument key="App\Controller\QuoteController:quote" type="service_closure" id=".service_locator.3UmvDkK"/>
         <argument key="App\Controller\RegistrationController:register" type="service_closure" id=".service_locator.pwZ6MTM"/>
@@ -5297,12 +5316,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.P9SRuXm"/>
+      <argument type="service" id=".service_locator.P4b0RKl"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.P9SRuXm"/>
+      <argument type="service" id=".service_locator.P4b0RKl"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -6066,7 +6085,7 @@
     <service id="SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface" alias="symfonycasts.verify_email.helper"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.0GV1BZZ" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.P9SRuXm"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.P4b0RKl"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -6094,6 +6113,7 @@
     <service id=".service_locator._5g_Wvc" alias=".service_locator.KfwZsne"/>
     <service id=".service_locator.JBAFp66" alias=".service_locator.KfbR3DY"/>
     <service id=".service_locator.3dzWHKH" alias=".service_locator.V5oNiHc"/>
+    <service id=".service_locator.LSFio2W" alias=".service_locator.eWsEuD9"/>
     <service id=".service_locator.X_NI0dI" alias=".service_locator.3UmvDkK"/>
     <service id=".service_locator.F2VpVm6" alias=".service_locator.pwZ6MTM"/>
     <service id=".service_locator.kXCVHeG" alias=".service_locator.UDgw6Ol"/>

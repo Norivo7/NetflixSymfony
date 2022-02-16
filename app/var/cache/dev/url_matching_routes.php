@@ -19,7 +19,7 @@ return [
         '/new' => [[['_route' => 'new', '_controller' => 'App\\Controller\\MoviesController::new'], null, null, null, false, false, null]],
         '/like' => [[['_route' => 'like', '_controller' => 'App\\Controller\\MoviesController::like'], null, ['POST' => 0], null, false, false, null]],
         '/dislike' => [[['_route' => 'dislike', '_controller' => 'App\\Controller\\MoviesController::dislike'], null, ['POST' => 0], null, false, false, null]],
-        '/search' => [[['_route' => 'search', '_controller' => 'App\\Controller\\MoviesController::search'], null, ['POST' => 0], null, false, false, null]],
+        '/search' => [[['_route' => 'search', '_controller' => 'App\\Controller\\MoviesController::search'], null, ['GET' => 0], null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\QuoteController::home'], null, null, null, false, false, null]],
         '/user' => [[['_route' => 'user', '_controller' => 'App\\Controller\\QuoteController::user'], null, null, null, false, false, null]],
         '/chooseUser' => [[['_route' => 'chooseUser', '_controller' => 'App\\Controller\\QuoteController::chooseUser'], null, null, null, false, false, null]],

@@ -21,19 +21,21 @@ class AppFixtures extends Fixture
         $catExclusive->setName('Eksluzywne');
 
         $movie1 = new Movie();
-        $movie1->setCategory($catSerials);
-        $movie1->setIsSerial(true);
+        $movie1->addCategory($catSerials);
+        $movie1->addCategory($catExclusive);
+//        $movie1->setIsSerial(true);                 //////// zle podejscie !!!!!! isPies nie na mojej warcie
 //        $movie1->addCategory($catNew);
-//        $movie1->addCategory($catExclusive);
+//        $movie1->addCategory($catExclusive);             // TODO addCategory($categoryName);
         $movie1->setTitle('Wiedźmin');
         $movie1->setDescription('lorem ipsum');
         $movie1->setYear(2021);
-        $movie1->setImg('https://www.mansworldindia.com/wp-content/uploads/2019/08/witcher-fr.jpg');
+        $movie1->setImg('https://occ-0-2507-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABQoAToTA6f9ubdOWjtbqo5hD0KqxCqiqbX2ZpwCoyy7z7W_BhQJlJHBoJ0geQN-UK12Opdmmu1qFyS9z8np5gFxKoz1Foj_nfNu2v4kJAh8X9pFHmD1qyXi_59yv.jpg?r=cc1');
         $movie1->setLikes(10);
         $movie1->setLink("https://www.youtube.com/embed/ndl1W4ltcmg");
 
         $movie2 = new Movie();
-        $movie2->setCategory($catMovies);
+        $movie2->addCategory($catMovies);
+        $movie2->addCategory($catExclusive);
         $movie2->setTitle('Rytuał');
         $movie2->setDescription('horror');
         $movie2->setYear(2020);
@@ -42,23 +44,59 @@ class AppFixtures extends Fixture
         $movie2->setLink("https://www.youtube.com/embed/U57cykY5mmk");
 
         $movie3 = new Movie();
-        $movie3->setCategory($catExclusive); // bedzie potrzebna funkcja setExclusive
-//        $movie3->addCategory($catSerials); // <=========   TO POWINNO DZIAŁAĆ
-        $movie3->setTitle('Peaky Blinders'); // albo many to many w kategorii
+        $movie3->addCategory($catSerials);
+        $movie3->addCategory($catExclusive);
+        $movie3->setTitle('Peaky Blinders'); // albo many to many w kategorii  edit2: good good, dzialczy
         $movie3->setDescription('lorem ipsum');
         $movie3->setYear(2018);
-        $movie3->setImg('https://upload.wikimedia.org/wikipedia/commons/1/13/Peaky_Blinders_Logo.png');
+        $movie3->setImg('https://occ-0-2507-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABe5HswoEnt177Tub7t7PayOliSGYL0dX1EdgRNNjmIhKPgp8j1vvLpRH7SMK5b-Ts30ZUQyOxue517b35q9nTqW-Cf9SCFuu0GJpkrzS61tEXsNkCgs7ZjgCghrI.jpg?r=aa0');
         $movie3->setLikes(20);
         $movie3->setLink("https://www.youtube.com/embed/oVzVdvGIC7U");
 
         $movie4 = new Movie();
-        $movie4->setCategory($catNew);
+        $movie4->addCategory($catMovies);
         $movie4->setTitle('Sausage Party');
         $movie4->setDescription('lorem ipsum');
         $movie4->setYear(2016);
-        $movie4->setImg('https://www.ponapisach.pl/wp-content/uploads/2016/08/sausage-party-7.jpg');
+        $movie4->setImg('https://occ-0-2507-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcBVNjOx-bAq34tGLpGCiOkJcY3kdmi2ko_wKidXLeqoN7NuouDu1YakOupwHPl3RZt0BqsMekBMfBfAMwZTuWsqs_8.webp?r=09d');
         $movie4->setLikes(1);
         $movie4->setLink("https://www.youtube.com/embed/RDm_jsvksQQ");
+
+        $movie5 = new Movie();
+        $movie5->addCategory($catSerials);
+        $movie5->setTitle('Game of Thrones');
+        $movie5->setDescription('lorem ipsum');
+        $movie5->setYear(2011);
+        $movie5->setImg('https://www.clementoni.com/media/prod/pl/35091/game-of-thrones-500-el-game-of-thrones_EGGMBHg.jpg');
+        $movie5->setLikes(15);
+        $movie5->setLink("https://www.youtube.com/embed/KPLWWIOCOOQ");
+
+        $movie6 = new Movie();
+        $movie6->addCategory($catSerials);
+        $movie6->setTitle('Euforia');
+        $movie6->setDescription('lorem ipsum');
+        $movie6->setYear(2019);
+        $movie6->setImg('https://www.gloskultury.pl/wp-content/uploads/2019/08/euf.jpg');
+        $movie6->setLikes(11);
+        $movie6->setLink("https://www.youtube.com/embed/reeTpPsBFEA");
+
+        $movie7 = new Movie();
+        $movie7->addCategory($catMovies);
+        $movie7->setTitle('W cieniu księżyca');
+        $movie7->setDescription('lorem ipsum');
+        $movie7->setYear(2019);
+        $movie7->setImg('https://i.ytimg.com/vi/lsxVvQOtph0/maxresdefault.jpg');
+        $movie7->setLikes(16);
+        $movie7->setLink("https://www.youtube.com/embed/lsxVvQOtph0");
+
+        $movie8 = new Movie();
+        $movie8->addCategory($catMovies);
+        $movie8->setTitle('Podziemny krąg');
+        $movie8->setDescription('lorem ipsum');
+        $movie8->setYear(1999);
+        $movie8->setImg('https://meteor.amu.edu.pl/wp-content/uploads/2020/12/1_NdVNT5WO1ASGOCNq2PAv1g.png');
+        $movie8->setLikes(54);
+        $movie8->setLink("https://www.youtube.com/embed/BdJKm16Co6M");
 
         $manager->persist($catExclusive);
         $manager->persist($catSerials);
@@ -70,6 +108,11 @@ class AppFixtures extends Fixture
         $manager->persist($movie2);
         $manager->persist($movie3);
         $manager->persist($movie4);
+        $manager->persist($movie5);
+        $manager->persist($movie6);
+        $manager->persist($movie7);
+        $manager->persist($movie8);
+
         $manager->flush();
 
         $manager->flush();

@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Category;
+use App\Entity\Movie;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -19,5 +20,18 @@ class CategoryRepository extends ServiceEntityRepository
         parent::__construct($registry, Category::class);
     }
 
-
+    /**
+     * @param $movie
+     * @return Category[] Returns an array of Movie objects
+     */
+    public function getCategoryByMovie($movie)
+    {
+        return $this->createQueryBuilder('category')
+            ->select('category', 'movie')
+            ->leftJoin('category.movies', 'movie')
+            ->where('movie.title = :movieName')
+            ->setParameter('movieName', $movie)
+            ->getQuery()
+            ->getArrayResult();
     }
+}

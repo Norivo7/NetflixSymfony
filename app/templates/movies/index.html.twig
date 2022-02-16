@@ -94,39 +94,48 @@
                 <a class="right" href="/notif">
                     <img class="notif" src="{{ asset('images/notif.png') }}" alt="av1"/>
                 </a>
-                <a class="right" href="/search">
-                    <img class="search" src="{{ asset('images/search.png') }}" alt="av1"/>
+                    <form method="GET" action="{{ path('search') }}" >
+                        <input
+                            name="v"
+                            type="search"
+                            class="form-control"
+                            placeholder="Wyszukaj.."
+                            aria-label="Search"
+                        >
+                    </form>
+{#                    <img class="search" src="{{ asset('images/search.png') }}" alt="av1"/>#}
                 </a>
 
         </div>
     </div>
 <section class="main-container">
         <div class="location" id="home">
-            <h1 id="home" class="title-home">Popularne w serwisie Netflix</h1>
-            <div class="box">
-{#                {% for movie in popular %}#}
-{#                    <a href="/show/{{movie.id}}"><img src="{{movie.img}}" alt="{{movie.title}}"></a>#}
-{#                {% endfor %}#}
-            </div>
-        </div>
+    <h1 id="serials" class="title-home">Filmy</h1>
+
+    <div class="box">
+        {% for movie in movies %}
+            <a href="/show/{{movie.id}}"><img src="{{movie.img}}" alt="{{movie.title}}"></a>
+        {% endfor %}
+    </div>
     <h1 id="serials" class="title-home">Seriale</h1>
     <div class="box">
-{#        {% for movie in serials %}#}
-{#            <a href="/show/{{movie.id}}"><img src="{{movie.img}}" alt="{{movie.title}}"></a>#}
-{#        {% endfor %}#}
+        {% for movie in serials %}
+            <a href="/show/{{movie.id}}"><img src="{{movie.img}}" alt="{{movie.title}}"></a>
+        {% endfor %}
     </div>
-    <h1 id="movies" class="title-home">Filmy</h1>
+    <h1 id="movies" class="title-home">Tylko na Netflxie</h1>
     <div class="box">
-{#        {% for movie in movies %}#}
-{#            <a href="/show/{{movie.id}}"><img src="{{ movie.img }}" alt="{{ movie.title }}"></a>#}
-{#        {% endfor %}#}
+        {% for movie in originals %}
+            <a href="/show/{{movie.id}}"><img src="{{ movie.img }}" alt="{{ movie.title }}"></a>
+        {% endfor %}
     </div>
-    <h1 id="originals" class="title-home">Tylko na Netflix</h1>
+    <h1 id="movies" class="title-home">Popularne</h1>
     <div class="box">
-{#        {% for movie in exclusive %}#}
-{#            <a href="/show/{{ movie.id }}"><img src="{{ movie.img }}" alt="{{ movie.title }}"></a>#}
-{#        {% endfor %}#}
+        {% for movie in popular %}
+            <a href="/show/{{movie.id}}"><img src="{{ movie.img }}" alt="{{ movie.title }}"></a>
+        {% endfor %}
     </div>
+
 </section>
     {% endblock %}
 

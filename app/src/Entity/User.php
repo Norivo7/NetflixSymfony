@@ -47,6 +47,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $isVerified = false;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $subaccountOf;
+
 
     public function getId(): ?int
     {
@@ -97,6 +102,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function setRoles(array $roles): self
     {
+        $roles = empty($roles) ? ['ROLE_USER'] : $roles;
+
+//        if (empty($roles)) {
+//            $roles = ['ROLE_USER'];
+//        }
         $this->roles = $roles;
 
         return $this;
@@ -168,6 +178,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    public function getSubaccountOf(): ?int
+    {
+        return $this->subaccountOf;
+    }
+
+    public function setSubaccountOf(?int $subaccountOf): self
+    {
+        $this->subaccountOf = $subaccountOf;
 
         return $this;
     }

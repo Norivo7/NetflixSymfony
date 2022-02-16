@@ -15,10 +15,12 @@ class MoviesController extends AbstractController
 {
 //test
     private MovieRepository $repo;
+    private CategoryRepository $categoryRepo;
 
-    public function __construct(MovieRepository $repo)
+    public function __construct(MovieRepository $repo, CategoryRepository $categoryRepo)
     {
         $this->repo = $repo;
+        $this->categoryRepo = $categoryRepo;
     }
 
     /**
@@ -27,19 +29,17 @@ class MoviesController extends AbstractController
      */
     public function index(): Response
     {
-        $categoryName = 'Seriale';
-        $category = $this->getDoctrine()->getRepository(Category::class)
-            ->findBy(['name' => $categoryName]);
-        dump($category);exit;
-        //$movies = $this->repo->findBy(['categories' => $category]);
-        //var_dump($movies);exit;
 
+        dump($this->getUser()->getRoles());
         return $this->render('movies/index.html.twig', [
             'controller_name' => 'MovieController',
-//            'exclusive' =>$this->repo->homeFilter(1),
-//            'popular' => $this->repo->popularFilter(),
-//            'serials' =>$this->repo->homeFilter(2),
-//            'movies' => $this->repo->homeFilter(3)
+//            'exclusive' =>$this->repo->homeFilter(1),//            'popular' => $this->repo->popularFilter(),
+//            'serials' =>$this->repo->getMoviesByCategory('Seriale'),
+            'popular' => $this->repo->popularFilter(),
+
+            'movies' => $this->repo->getMoviesByCategory('Filmy'),
+            'originals' => $this->repo->getMoviesByCategory('Eksluzywne'),
+            'serials' => $this->repo->getMoviesByCategory('Seriale')
         ]);
     }
     /**
@@ -47,7 +47,8 @@ class MoviesController extends AbstractController
      */
     public function show(Movie $movie): Response
     {
-        return $this->render('movies/show.html.twig', ['movie' => $this->repo->find($movie)]);
+        return $this->render('movies/show.html.twig', ['movie' => $this->repo->find($movie),
+            'categories' => $this->categoryRepo->getCategoryByMovie($movie->getTitle())]);
     }
     public function exclusive(): Response
     {
@@ -72,7 +73,7 @@ class MoviesController extends AbstractController
     public function movies(): Response
     {
         return $this->render(
-            'movies/list.html.twig', ['movies' => $this->repo->findByCategoryField(2)]
+            'movies/list.html.twig', ['movies' => $this->repo->getMoviesByCategory('Filmy'),]
         );
     }
     /**
@@ -152,17 +153,44 @@ class MoviesController extends AbstractController
 //        return $this->render('movies/notif.html.twig', ['notifications' => $this->repo->isShown($notif)]);
 //    }
 
+
     /**
-     * @Route("/search", name="search", methods={"POST"})
+     * @Route("/search", name="search", methods={"GET"})
+     * @param MovieRepository $movieRepository
      * @param Request $request
      * @return Response
      */
-    public function search(Request $request): Response
+    public function search(MovieRepository $movieRepository, Request $request): Response
     {
-        $string = $request->request->all();
-        return $this->render(
-            'movies/list.html.twig', ['movies' => $this->repo->search($string['search'])
-            ]
-        );
-    }
+      $movies = $movieRepository->search(
+          $request->query->get('v')
+      );
+
+      return $this->render('movies/search.html.twig', [
+          'search' => $movies
+      ]);
+}
+
+
+//    /**
+//     * @Route("/search", name="search", methods={"GET"})
+//     */
+//    public function search(Request $request)
+//    {
+//
+//        $value = $request->get("find");
+//        //implement your search here,
+//        $result = $this->repo->findBy(array("title" => $value));
+//        //Here you can return your data in JSON format or in a twig template
+//        dump($result);
+//        return $this->render('movies/search.html.twig', ['search' => $result]);
+//    }
+
+//    /**
+//     * @Route("/search", name="search", methods={"GET"})
+//     */
+//    public function searchTitle($value) {
+//        return $this->getDoctrine()->getRepository(Movie::class)->search($value);
+//
+//    }
 }

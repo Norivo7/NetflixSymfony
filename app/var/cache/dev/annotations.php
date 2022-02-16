@@ -174,6 +174,14 @@ return [[
 '[C]App%5CEntity%5CMovie%23getLink' => 1,
 'App%5CEntity%5CMovie%23setLink' => 0,
 '[C]App%5CEntity%5CMovie%23setLink' => 1,
+'App%5CEntity%5CMovie%23setIsSerial' => 0,
+'[C]App%5CEntity%5CMovie%23setIsSerial' => 1,
+'App%5CEntity%5CMovie%23getCategories' => 0,
+'[C]App%5CEntity%5CMovie%23getCategories' => 1,
+'App%5CEntity%5CMovie%23addCategory' => 0,
+'[C]App%5CEntity%5CMovie%23addCategory' => 1,
+'App%5CEntity%5CMovie%23removeCategory' => 0,
+'[C]App%5CEntity%5CMovie%23removeCategory' => 1,
 'App%5CEntity%5CMovie%24id' => 19,
 '[C]App%5CEntity%5CMovie%24id' => 1,
 'App%5CEntity%5CMovie%24title' => 20,
@@ -186,10 +194,10 @@ return [[
 '[C]App%5CEntity%5CMovie%24img' => 1,
 'App%5CEntity%5CMovie%24likes' => 24,
 '[C]App%5CEntity%5CMovie%24likes' => 1,
-'App%5CEntity%5CMovie%24category' => 25,
-'[C]App%5CEntity%5CMovie%24category' => 1,
 'App%5CEntity%5CMovie%24link' => 20,
 '[C]App%5CEntity%5CMovie%24link' => 1,
+'App%5CEntity%5CMovie%24categories' => 25,
+'[C]App%5CEntity%5CMovie%24categories' => 1,
 'App%5CEntity%5CPost' => 26,
 '[C]App%5CEntity%5CPost' => 1,
 'App%5CEntity%5CPost%23getId' => 0,
@@ -822,7 +830,7 @@ return [[
 ], [
 
 0 => [],
-1 => 1644601541,
+1 => 1644687366,
 2 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
@@ -1269,16 +1277,16 @@ return [[
 21 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
-            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\OneToMany'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\OneToMany')),
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\ManyToMany'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ManyToMany')),
         ],
         null,
         [
             'stdClass' => [
-                'mappedBy' => [
-                    'category',
-                ],
                 'targetEntity' => [
                     'App\\Entity\\Movie',
+                ],
+                'mappedBy' => [
+                    'categories',
                 ],
             ],
         ],
@@ -1365,8 +1373,7 @@ return [[
 25 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
-            clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ManyToOne'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ManyToOne')),
-            clone ($p['Doctrine\\ORM\\Mapping\\JoinColumn'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\JoinColumn')),
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\ManyToMany'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ManyToMany')),
         ],
         null,
         [
@@ -1377,14 +1384,10 @@ return [[
                 'inversedBy' => [
                     'movies',
                 ],
-                'nullable' => [
-                    1 => false,
-                ],
             ],
         ],
         [
             $o[0],
-            $o[1],
         ],
         []
     );
