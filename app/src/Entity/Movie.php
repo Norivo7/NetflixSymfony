@@ -59,14 +59,19 @@ class Movie
      */
     private $categories;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="likes")
+     */
+    private $users;
+
     public function __construct()
     {
 //        $this->category = new ArrayCollection(); // many2many
-        $this->likes = 0;
+        $this->likes = new ArrayCollection();
         $this->categories = new ArrayCollection();
-        return $this;
-
     }
+
+
 
     public function getId(): ?int
     {

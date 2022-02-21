@@ -32,14 +32,6 @@ h3 {
     font-size: 1.2rem;
     color: #FFFFFF;
 }
-
-li {
-    font-size: 13px;
-    list-style: none;
-    float: left;
-    padding-bottom: 10px;
-}
-
 label {
     font-size: 1.2rem;
 }
@@ -53,11 +45,6 @@ label {
     flex-direction: row;
     justify-content: space-between;
     margin: 0 3.5rem;
-}
-
-.footer {
-    max-width: 1000px;
-    margin: 0 auto;
 }
 
 .concord-img-wrapper {

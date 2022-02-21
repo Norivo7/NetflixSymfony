@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Movie;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -39,7 +40,7 @@ class MovieRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('movie')
             ->orderBy('movie.id', 'ASC')
-            ->setMaxResults(12)
+            ->setMaxResults(6)
             ->getQuery()
             ->getResult();
     }
@@ -66,4 +67,10 @@ class MovieRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+//    public function getLikedMoviesByUser(User $User)
+//    {
+//        return $this->createQueryBuilder('movie')
+//            ->andWhere('movie.likes like')
+//    }
 }

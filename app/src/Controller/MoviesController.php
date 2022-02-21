@@ -41,6 +41,20 @@ class MoviesController extends AbstractController
             'serials' => $this->repo->getMoviesByCategory('Seriale')
         ]);
     }
+
+
+    /**
+     * @Route("/profile", name="profile")
+     * @return Response
+     */
+    public function profile(): Response
+    {
+        return $this->render('user/profile.html.twig', [
+            'liked' =>$this->repo->getLikedMoviesByUser()
+            ]);
+    }
+
+
     /**
      * @Route("/show/{id}", name="show-one")
      */
@@ -49,8 +63,10 @@ class MoviesController extends AbstractController
         return $this->render('movies/show.html.twig', ['movie' => $this->repo->find($movie),
             'categories' => $this->categoryRepo->getCategoryByMovie($movie->getTitle())]);
     }
+
     public function exclusive(): Response
     {
+
         return $this->render(
             'movies/list.html.twig',
             ['movies' => $this->repo->getMoviesByCategory('Eksluzywne')]
@@ -64,7 +80,7 @@ class MoviesController extends AbstractController
     {
         return $this->render(
             'movies/list.html.twig',
-            ['movies' => $this->repo->getMoviesByCategory('Seriale')]
+            ['movies' => $this->repo->getMoviesByCategory('Seriale'),]
         );
     }
     /**

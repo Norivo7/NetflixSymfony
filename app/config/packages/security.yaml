@@ -17,7 +17,8 @@ security:
             security: false
         main:
             # allow authentication using a form or HTTP basic
-            form_login: ~
+            form_login:
+                login_path: /login
             http_basic: ~
             lazy: true
             provider: app_user_provider
@@ -27,7 +28,7 @@ security:
             logout:
                 path: app_logout
                 # where to redirect after logout
-                # target: app_any_route
+                target: home
     password_hashers:
         # use your user class name here
         App\Entity\User:
@@ -43,9 +44,11 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-         - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
          - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-         - { path: ^/login$, roles: ROLE_USER }
-         - { path: ^/*, roles: ROLE_USER }
+         - { path: ^/browse, roles: ROLE_USER }
+         - { path: ^/chooseUser, roles: ROLE_USER }
+         - { path: ^/, roles: PUBLIC_ACCESS }
+         - { path: ^/login, roles: ROLE_USER }
          - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }

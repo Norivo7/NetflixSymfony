@@ -21,6 +21,7 @@ class AppFixtures extends Fixture
         $catExclusive->setName('Eksluzywne');
 
         $movie1 = new Movie();
+
         $movie1->addCategory($catSerials);
         $movie1->addCategory($catExclusive);
 //        $movie1->setIsSerial(true);                 //////// zle podejscie !!!!!! isPies nie na mojej warcie

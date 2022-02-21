@@ -3926,7 +3926,7 @@
     </service>
     <service id="security.access_map" class="Symfony\Component\Security\Http\AccessMap">
       <call method="add">
-        <argument type="service" id=".security.request_matcher.eKXDm4f"/>
+        <argument type="service" id=".security.request_matcher.QWkwKV5"/>
         <argument type="collection">
           <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
         </argument>
@@ -3940,14 +3940,28 @@
         <argument>null</argument>
       </call>
       <call method="add">
-        <argument type="service" id=".security.request_matcher.eKXDm4f"/>
+        <argument type="service" id=".security.request_matcher.T3rlZCa"/>
         <argument type="collection">
           <argument>ROLE_USER</argument>
         </argument>
         <argument>null</argument>
       </call>
       <call method="add">
-        <argument type="service" id=".security.request_matcher.hxjan1m"/>
+        <argument type="service" id=".security.request_matcher.CYiUrgA"/>
+        <argument type="collection">
+          <argument>ROLE_USER</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.PhQgZ9B"/>
+        <argument type="collection">
+          <argument>PUBLIC_ACCESS</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.QWkwKV5"/>
         <argument type="collection">
           <argument>ROLE_USER</argument>
         </argument>
@@ -4448,7 +4462,7 @@
     <service id="security.logout.listener.default.main" class="Symfony\Component\Security\Http\EventListener\DefaultLogoutListener">
       <tag name="kernel.event_subscriber" dispatcher="security.event_dispatcher.main"/>
       <argument type="service" id="security.http_utils"/>
-      <argument>/</argument>
+      <argument>home</argument>
     </service>
     <service id="security.logout.listener.session.main" class="Symfony\Component\Security\Http\EventListener\SessionLogoutListener">
       <tag name="kernel.event_subscriber" dispatcher="security.event_dispatcher.main"/>
@@ -4459,10 +4473,10 @@
       <argument type="service" id="security.authentication.success_handler.main.form_login"/>
       <argument type="service" id="security.authentication.failure_handler.main.form_login"/>
       <argument type="collection">
+        <argument key="login_path">/login</argument>
         <argument key="check_path">/login_check</argument>
         <argument key="use_forward">false</argument>
         <argument key="require_previous_session">false</argument>
-        <argument key="login_path">/login</argument>
         <argument key="username_parameter">_username</argument>
         <argument key="password_parameter">_password</argument>
         <argument key="csrf_parameter">_csrf_token</argument>
@@ -4558,14 +4572,20 @@
         <argument key="security.firewall.map.context.main" type="service_closure" id="security.firewall.map.context.main"/>
       </argument>
     </service>
-    <service id=".security.request_matcher.eKXDm4f" class="Symfony\Component\HttpFoundation\RequestMatcher">
-      <argument>^/login$</argument>
+    <service id=".security.request_matcher.QWkwKV5" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/login</argument>
     </service>
     <service id=".security.request_matcher.O7Tsk.w" class="Symfony\Component\HttpFoundation\RequestMatcher">
       <argument>^/register</argument>
     </service>
-    <service id=".security.request_matcher.hxjan1m" class="Symfony\Component\HttpFoundation\RequestMatcher">
-      <argument>^/*</argument>
+    <service id=".security.request_matcher.T3rlZCa" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/browse</argument>
+    </service>
+    <service id=".security.request_matcher.CYiUrgA" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/chooseUser</argument>
+    </service>
+    <service id=".security.request_matcher.PhQgZ9B" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/</argument>
     </service>
     <service id=".security.request_matcher.5dJADCx" class="Symfony\Component\HttpFoundation\RequestMatcher">
       <argument>^/admin</argument>

@@ -1,0 +1,10 @@
+li {
+    font-size: 13px;
+    list-style: none;
+    float: left;
+    padding-bottom: 10px;
+}
+.footer {
+    max-width: 1000px;
+    margin: 0 auto;
+}
