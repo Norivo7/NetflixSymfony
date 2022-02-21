@@ -43,19 +43,19 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
 
         // line 1
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 87
+        // line 4
         echo "<div id=\"headerContainer\">
     <div class=\"brandLogoWrapper\">
         <a class=\"logo\" href=\"/\" target=\"_parent\">
             <img class=\"logo\" src=\"";
-        // line 90
+        // line 7
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/netflixLogo.svg.png"), "html", null, true);
         echo "\" alt=\"av1\"/>
         </a>
     </div>
 </div>
 ";
-        // line 94
+        // line 11
         $this->displayBlock('body', $context, $blocks);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -76,90 +76,7 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 2
-        echo "
-<style>
-    html {
-        margin-left: -8px;
-    }
-    body{
-
-        background-color: #141414;
-    }
-    .main {
-        margin: 0 auto;
-        display: flex;
-        height: 80%;
-        align-items: center;
-        /*vertical-align: center;*/
-        justify-content: space-evenly;
-        /*width: 100%;*/
-    }
-    h1 {
-        color: white;
-        text-align: center;
-    }
-    .profilesContainer{
-        color: gray;
-        text-align: center;
-    }
-    .chooseProfile{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        flex: 1;
-    }
-    .profileButton {
-        color: gray;
-        padding: .5em 1.5em;
-        letter-spacing: 2px;
-        cursor: pointer;
-        background-color: transparent;
-        border: 1px solid grey;
-        text-decoration: none;
-
-    }
-    ul{
-        list-style-type: none;
-    }
-    li {
-        padding: 20px;
-
-    }
-    img.round {
-        border: 0px solid;
-        border-radius: 10px;
-    }
-    .brandLogoWrapper {
-
-    }
-    .logo {
-        margin-left: 25px;
-        margin-top: 10px;
-        align-items: center;
-        vertical-align: middle;
-        display: inline-block;
-        height: 60%;
-        justify-content: center;
-
-    }
-    #buttonDiv {
-        align-items: center;
-        text-align: center;
-        width: 100%;
-    }
-    .brandLogoWrapper {
-        height: 68px;
-        background-image: linear-gradient(to bottom,rgba(0,0,0,.7) 10%,rgba(0,0,0,0));
-    }
-    #headerContainer {
-        vertical-align: top;
-        margin: -0.4em auto 2em auto;
-        width: 100vw;
-        height: 5vh;
-    }
-    </style>
-
+        echo "    <link rel=\"stylesheet\" href=\"assets/user.css\">
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -169,7 +86,7 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
 
     }
 
-    // line 94
+    // line 11
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -179,71 +96,47 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 95
+        // line 12
         echo "
     <body></body>
     <div class=\"main\">
-
-
-
         <div class=\"profilesContainer\">
             <div class=\"profilesList\">
-
                 <h1 class=\"profilesLabel\"> Zarządzaj profilami:</h1>
                 <ul class=\"chooseProfile\">
-
-                    <li class=\"profile\">
-                        <div>
-                            <a class=\"profileLink\">
-                                <img src=\"";
-        // line 110
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/av1.png"), "html", null, true);
-        echo "\" class=\"round\" alt=\"av1\"/>
-                            </a>
-                        </div>
-                        <span class=\"profileName\">Kamil</span>
-                    </li>
-                    <li class=\"profile\">
-                        <div>
-                            <a class=\"profileLink\">
-                                <img src=\"";
-        // line 118
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/av2.png"), "html", null, true);
-        echo "\" class=\"round\" alt=\"av2\"/>
-                            </a>
-                        </div>
-                        <span class=\"profileName\">Marek</span>
-                    </li>
-                    <li class=\"profile\">
-                        <div>
-                            <a class=\"profileLink\">
-                                <img src=\"";
-        // line 126
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/av3.png"), "html", null, true);
-        echo "\" class=\"round\" alt=\"av3\"/>
-                            </a>
-                        </div>
-                        <span class=\"profileName\">Konrad</span>
-                    </li>
-                    <li class=\"profile\">
-                        <div>
-                            <a class=\"profileLink\">
-                                <img src=\"";
-        // line 134
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/av4.png"), "html", null, true);
-        echo "\" class=\"round\" alt=\"av4\"/>
-                            </a>
-                        </div>
-                        <span class=\"profileName\">Maria</span>
-                    </li>
-
-                </ul>
+                    ";
+        // line 19
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["subUsers"]) || array_key_exists("subUsers", $context) ? $context["subUsers"] : (function () { throw new RuntimeError('Variable "subUsers" does not exist.', 19, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["subuser"]) {
+            // line 20
+            echo "                        <li class=\"profile\">
+                            <div>
+                                <a class=\"profileLink\" href=\"/browse\">
+                                    <img src=\"";
+            // line 23
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "avatar", [], "any", false, false, false, 23), "html", null, true);
+            echo "\" class=\"round\" alt=\"av1\"/>
+                                </a>
+                            </div>
+                            <span class=\"profileName\">";
+            // line 26
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "name", [], "any", false, false, false, 26), "html", null, true);
+            echo "</span>
+                        </li>
+                    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['subuser'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 29
+        echo "                </ul>
 ";
-        // line 149
+        // line 38
         echo "            </div>
             <div id=\"buttonDiv\">
                 <a>
-                    <a class=\"profileButton\" href=\"/browse\">Gotowe</a>
+                    <a class=\"profileButton\" href=\"/chooseUser\">Gotowe</a>
                 </a>
             </div>
         </div>
@@ -273,96 +166,13 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
 
     public function getDebugInfo()
     {
-        return array (  243 => 149,  233 => 134,  222 => 126,  211 => 118,  200 => 110,  183 => 95,  173 => 94,  79 => 2,  69 => 1,  59 => 94,  52 => 90,  47 => 87,  45 => 1,);
+        return array (  136 => 38,  133 => 29,  124 => 26,  118 => 23,  113 => 20,  109 => 19,  100 => 12,  90 => 11,  79 => 2,  69 => 1,  59 => 11,  52 => 7,  47 => 4,  45 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% block stylesheets %}
-
-<style>
-    html {
-        margin-left: -8px;
-    }
-    body{
-
-        background-color: #141414;
-    }
-    .main {
-        margin: 0 auto;
-        display: flex;
-        height: 80%;
-        align-items: center;
-        /*vertical-align: center;*/
-        justify-content: space-evenly;
-        /*width: 100%;*/
-    }
-    h1 {
-        color: white;
-        text-align: center;
-    }
-    .profilesContainer{
-        color: gray;
-        text-align: center;
-    }
-    .chooseProfile{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        flex: 1;
-    }
-    .profileButton {
-        color: gray;
-        padding: .5em 1.5em;
-        letter-spacing: 2px;
-        cursor: pointer;
-        background-color: transparent;
-        border: 1px solid grey;
-        text-decoration: none;
-
-    }
-    ul{
-        list-style-type: none;
-    }
-    li {
-        padding: 20px;
-
-    }
-    img.round {
-        border: 0px solid;
-        border-radius: 10px;
-    }
-    .brandLogoWrapper {
-
-    }
-    .logo {
-        margin-left: 25px;
-        margin-top: 10px;
-        align-items: center;
-        vertical-align: middle;
-        display: inline-block;
-        height: 60%;
-        justify-content: center;
-
-    }
-    #buttonDiv {
-        align-items: center;
-        text-align: center;
-        width: 100%;
-    }
-    .brandLogoWrapper {
-        height: 68px;
-        background-image: linear-gradient(to bottom,rgba(0,0,0,.7) 10%,rgba(0,0,0,0));
-    }
-    #headerContainer {
-        vertical-align: top;
-        margin: -0.4em auto 2em auto;
-        width: 100vw;
-        height: 5vh;
-    }
-    </style>
-
+    <link rel=\"stylesheet\" href=\"assets/user.css\">
 {% endblock %}
 <div id=\"headerContainer\">
     <div class=\"brandLogoWrapper\">
@@ -375,48 +185,20 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
 
     <body></body>
     <div class=\"main\">
-
-
-
         <div class=\"profilesContainer\">
             <div class=\"profilesList\">
-
                 <h1 class=\"profilesLabel\"> Zarządzaj profilami:</h1>
                 <ul class=\"chooseProfile\">
-
-                    <li class=\"profile\">
-                        <div>
-                            <a class=\"profileLink\">
-                                <img src=\"{{ asset('images/av1.png') }}\" class=\"round\" alt=\"av1\"/>
-                            </a>
-                        </div>
-                        <span class=\"profileName\">Kamil</span>
-                    </li>
-                    <li class=\"profile\">
-                        <div>
-                            <a class=\"profileLink\">
-                                <img src=\"{{ asset('images/av2.png') }}\" class=\"round\" alt=\"av2\"/>
-                            </a>
-                        </div>
-                        <span class=\"profileName\">Marek</span>
-                    </li>
-                    <li class=\"profile\">
-                        <div>
-                            <a class=\"profileLink\">
-                                <img src=\"{{ asset('images/av3.png') }}\" class=\"round\" alt=\"av3\"/>
-                            </a>
-                        </div>
-                        <span class=\"profileName\">Konrad</span>
-                    </li>
-                    <li class=\"profile\">
-                        <div>
-                            <a class=\"profileLink\">
-                                <img src=\"{{ asset('images/av4.png') }}\" class=\"round\" alt=\"av4\"/>
-                            </a>
-                        </div>
-                        <span class=\"profileName\">Maria</span>
-                    </li>
-
+                    {% for subuser in subUsers %}
+                        <li class=\"profile\">
+                            <div>
+                                <a class=\"profileLink\" href=\"/browse\">
+                                    <img src=\"{{subuser.avatar}}\" class=\"round\" alt=\"av1\"/>
+                                </a>
+                            </div>
+                            <span class=\"profileName\">{{ subuser.name }}</span>
+                        </li>
+                    {% endfor %}
                 </ul>
 {#            <a class=\"navbar-brand\" href=\"/\">#}
 {#                <img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png\"
@@ -429,7 +211,7 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
             </div>
             <div id=\"buttonDiv\">
                 <a>
-                    <a class=\"profileButton\" href=\"/browse\">Gotowe</a>
+                    <a class=\"profileButton\" href=\"/chooseUser\">Gotowe</a>
                 </a>
             </div>
         </div>

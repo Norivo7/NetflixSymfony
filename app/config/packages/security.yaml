@@ -48,6 +48,7 @@ security:
          - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
          - { path: ^/browse, roles: ROLE_USER }
          - { path: ^/chooseUser, roles: ROLE_USER }
+         - { path: ^/newuser, roles: ROLE_USER }
          - { path: ^/, roles: PUBLIC_ACCESS }
          - { path: ^/login, roles: ROLE_USER }
          - { path: ^/admin, roles: ROLE_ADMIN }

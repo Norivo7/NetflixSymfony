@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -49,13 +50,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $isVerified = false;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\OneToMany(targetEntity=Subuser::class, mappedBy="subaccountOf", orphanRemoval=true)
      */
-    private $subaccountOf;
+    private $subusers;
 
-    public function __construct(){
-        $this->likes = new ArrayCollection();
+    public function __construct()
+    {
+        $this->subusers = new ArrayCollection();
     }
+
+//    public function __construct(){
+//        $this->likes = new ArrayCollection();
+//    }
 
     public function getId(): ?int
     {
@@ -152,7 +158,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @return Collection|Movie[]
      */
-    public function getLikes()
+    public function getLikes(): Collection
     {
         return $this->likes;
     }
@@ -186,14 +192,32 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getSubaccountOf(): ?int
+    /**
+     * @return Collection|Subuser[]
+     */
+    public function getSubusers(): Collection
     {
-        return $this->subaccountOf;
+        return $this->subusers;
     }
 
-    public function setSubaccountOf(?int $subaccountOf): self
+    public function addSubuser(Subuser $subuser): self
     {
-        $this->subaccountOf = $subaccountOf;
+        if (!$this->subusers->contains($subuser)) {
+            $this->subusers[] = $subuser;
+            $subuser->setSubaccountOf($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSubuser(Subuser $subuser): self
+    {
+        if ($this->subusers->removeElement($subuser)) {
+            // set the owning side to null (unless already changed)
+            if ($subuser->getSubaccountOf() === $this) {
+                $subuser->setSubaccountOf(null);
+            }
+        }
 
         return $this;
     }

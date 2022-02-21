@@ -1,88 +1,5 @@
 {% block stylesheets %}
-
-<style>
-    html {
-        margin-left: -8px;
-    }
-    body{
-
-        background-color: #141414;
-    }
-    .main {
-        margin: 0 auto;
-        display: flex;
-        height: 80%;
-        align-items: center;
-        /*vertical-align: center;*/
-        justify-content: space-evenly;
-        /*width: 100%;*/
-    }
-    h1 {
-        color: white;
-        text-align: center;
-    }
-    .profilesContainer{
-        color: gray;
-        text-align: center;
-    }
-    .chooseProfile{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        flex: 1;
-    }
-    .profileButton {
-        color: gray;
-        padding: .5em 1.5em;
-        letter-spacing: 2px;
-        cursor: pointer;
-        background-color: transparent;
-        border: 1px solid grey;
-        text-decoration: none;
-
-    }
-    ul{
-        list-style-type: none;
-    }
-    li {
-        padding: 20px;
-
-    }
-    img.round {
-        border: 0px solid;
-        border-radius: 10px;
-    }
-    .brandLogoWrapper {
-
-    }
-    .logo {
-        margin-left: 25px;
-        margin-top: 10px;
-        align-items: center;
-        vertical-align: middle;
-        display: inline-block;
-        height: 60%;
-        justify-content: center;
-
-    }
-    #buttonDiv {
-        align-items: center;
-        text-align: center;
-        width: 100%;
-    }
-    .brandLogoWrapper {
-        height: 68px;
-        background-image: linear-gradient(to bottom,rgba(0,0,0,.7) 10%,rgba(0,0,0,0));
-    }
-    #headerContainer {
-        vertical-align: top;
-        margin: -0.4em auto 2em auto;
-        width: 100vw;
-        height: 5vh;
-    }
-    </style>
-
+    <link rel="stylesheet" href="assets/user.css">
 {% endblock %}
 <div id="headerContainer">
     <div class="brandLogoWrapper">
@@ -95,48 +12,20 @@
 
     <body></body>
     <div class="main">
-
-
-
         <div class="profilesContainer">
             <div class="profilesList">
-
                 <h1 class="profilesLabel"> Zarządzaj profilami:</h1>
                 <ul class="chooseProfile">
-
-                    <li class="profile">
-                        <div>
-                            <a class="profileLink">
-                                <img src="{{ asset('images/av1.png') }}" class="round" alt="av1"/>
-                            </a>
-                        </div>
-                        <span class="profileName">Kamil</span>
-                    </li>
-                    <li class="profile">
-                        <div>
-                            <a class="profileLink">
-                                <img src="{{ asset('images/av2.png') }}" class="round" alt="av2"/>
-                            </a>
-                        </div>
-                        <span class="profileName">Marek</span>
-                    </li>
-                    <li class="profile">
-                        <div>
-                            <a class="profileLink">
-                                <img src="{{ asset('images/av3.png') }}" class="round" alt="av3"/>
-                            </a>
-                        </div>
-                        <span class="profileName">Konrad</span>
-                    </li>
-                    <li class="profile">
-                        <div>
-                            <a class="profileLink">
-                                <img src="{{ asset('images/av4.png') }}" class="round" alt="av4"/>
-                            </a>
-                        </div>
-                        <span class="profileName">Maria</span>
-                    </li>
-
+                    {% for subuser in subUsers %}
+                        <li class="profile">
+                            <div>
+                                <a class="profileLink" href="/browse">
+                                    <img src="{{subuser.avatar}}" class="round" alt="av1"/>
+                                </a>
+                            </div>
+                            <span class="profileName">{{ subuser.name }}</span>
+                        </li>
+                    {% endfor %}
                 </ul>
 {#            <a class="navbar-brand" href="/">#}
 {#                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png"
@@ -149,7 +38,7 @@
             </div>
             <div id="buttonDiv">
                 <a>
-                    <a class="profileButton" href="/browse">Gotowe</a>
+                    <a class="profileButton" href="/chooseUser">Gotowe</a>
                 </a>
             </div>
         </div>

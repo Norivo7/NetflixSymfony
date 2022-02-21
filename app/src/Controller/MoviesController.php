@@ -4,8 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Entity\Movie;
+use App\Entity\Subuser;
+use App\Entity\User;
 use App\Repository\CategoryRepository;
 use App\Repository\MovieRepository;
+use App\Repository\SubuserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,9 +19,13 @@ class MoviesController extends AbstractController
 //test
     private MovieRepository $repo;
     private CategoryRepository $categoryRepo;
+    private SubuserRepository $subuserRepository;
 
-    public function __construct(MovieRepository $repo, CategoryRepository $categoryRepo)
+    public function __construct(MovieRepository $repo,
+                                CategoryRepository $categoryRepo,
+                                SubuserRepository $subuserRepository)
     {
+        $this->subuserRepository = $subuserRepository;
         $this->repo = $repo;
         $this->categoryRepo = $categoryRepo;
     }
@@ -29,8 +36,8 @@ class MoviesController extends AbstractController
      */
     public function index(): Response
     {
-
-//        dump($this->getUser()->getRoles());
+        $currentUser = $this->getUser();
+        dump($this->subuserRepository->findBy(array('subaccountOf' => $currentUser)));
         return $this->render('movies/index.html.twig', [
             'controller_name' => 'MovieController',
 //            'exclusive' =>$this->repo->homeFilter(1),//            'popular' => $this->repo->popularFilter(),
@@ -42,6 +49,71 @@ class MoviesController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/chooseUser", name="chooseUser")
+     */
+    public function chooseUser(): Response
+    {
+//        $currentUser = $this->getUser();
+//        dump($currentUser);
+//        $currentUser->getUserIdentifier();
+//        dump($currentUser);
+//
+//        $subuser = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
+//        dump($subuser);
+
+        $currentUser = $this->getUser();
+
+        return $this->render(
+            'user/user.html.twig', [
+                'subUsers' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
+            ]
+        );
+    }
+
+    /**
+     * @Route("/manageUser", name="manageUser")
+     * @return Response
+     */
+    public function manageUser(): Response
+    {
+        $currentUser = $this->getUser();
+
+        return $this->render(
+            'user/manage.html.twig', [
+                'subUsers' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
+            ]
+        );
+    }
+    /**
+     * @Route ("/newuser", name="createSubuser")
+     * @param $value
+     * @return Response
+     */
+    public function createSubuser(): Response
+    {
+        $newSubuser = new Subuser();
+
+        $value ="wojtek";
+        $newSubuser->setName($value);
+
+        $currentUser = $this->getUser();
+        $currentUser->getUserIdentifier();
+
+        dump($currentUser);
+        $newSubuser->setSubaccountOf($currentUser);
+        $newSubuser->setAvatar('https://i.imgur.com/9nWtdiZ.png');
+        dump($newSubuser);
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($newSubuser);
+        $entityManager->flush();
+
+        return $this->redirectToRoute(
+            'chooseUser',
+            ['subUsers' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))]
+        );
+    }
 
     /**
      * @Route("/profile", name="profile")

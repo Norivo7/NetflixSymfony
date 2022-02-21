@@ -3646,6 +3646,8 @@ return array(
     'Symfony\\Component\\HttpKernel\\RebootableInterface' => $vendorDir . '/symfony/http-kernel/RebootableInterface.php',
     'Symfony\\Component\\HttpKernel\\TerminableInterface' => $vendorDir . '/symfony/http-kernel/TerminableInterface.php',
     'Symfony\\Component\\HttpKernel\\UriSigner' => $vendorDir . '/symfony/http-kernel/UriSigner.php',
+    'Symfony\\Component\\Mailer\\Bridge\\Google\\Transport\\GmailSmtpTransport' => $vendorDir . '/symfony/google-mailer/Transport/GmailSmtpTransport.php',
+    'Symfony\\Component\\Mailer\\Bridge\\Google\\Transport\\GmailTransportFactory' => $vendorDir . '/symfony/google-mailer/Transport/GmailTransportFactory.php',
     'Symfony\\Component\\Mailer\\DataCollector\\MessageDataCollector' => $vendorDir . '/symfony/mailer/DataCollector/MessageDataCollector.php',
     'Symfony\\Component\\Mailer\\DelayedEnvelope' => $vendorDir . '/symfony/mailer/DelayedEnvelope.php',
     'Symfony\\Component\\Mailer\\Envelope' => $vendorDir . '/symfony/mailer/Envelope.php',

@@ -309,11 +309,13 @@
       <tag name="knp_menu.menu_builder" method="createMainMenu" alias="main"/>
       <argument type="service" id="knp_menu.factory"/>
     </service>
+    <service id="App\Controller\MailerController" class="App\Controller\MailerController" autowire="true" autoconfigure="true"/>
     <service id="App\Controller\MoviesController" class="App\Controller\MoviesController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <argument type="service" id="App\Repository\MovieRepository"/>
       <argument type="service" id="App\Repository\CategoryRepository"/>
+      <argument type="service" id="App\Repository\SubuserRepository"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.W9y3dzm.App\Controller\MoviesController"/>
       </call>
@@ -366,6 +368,10 @@
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\QuoteRepository" class="App\Repository\QuoteRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\SubuserRepository" class="App\Repository\SubuserRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -1215,6 +1221,12 @@
       <tag name="monolog.logger" channel="mailer"/>
       <argument type="service" id="debug.event_dispatcher"/>
       <argument type="service" id="http_client" on-invalid="ignore"/>
+      <argument type="service" id="logger" on-invalid="ignore"/>
+    </service>
+    <service id="mailer.transport_factory.gmail" class="Symfony\Component\Mailer\Bridge\Google\Transport\GmailTransportFactory">
+      <tag name="mailer.transport_factory"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument>null</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
     </service>
     <service id="mailer.transport_factory.null" class="Symfony\Component\Mailer\Transport\NullTransportFactory">
@@ -2605,7 +2617,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.2r8J2QC"/>
+      <argument type="service" id=".service_locator.csu_Wvj"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -3954,6 +3966,13 @@
         <argument>null</argument>
       </call>
       <call method="add">
+        <argument type="service" id=".security.request_matcher.j36xFDA"/>
+        <argument type="collection">
+          <argument>ROLE_USER</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
         <argument type="service" id=".security.request_matcher.PhQgZ9B"/>
         <argument type="collection">
           <argument>PUBLIC_ACCESS</argument>
@@ -4584,6 +4603,9 @@
     <service id=".security.request_matcher.CYiUrgA" class="Symfony\Component\HttpFoundation\RequestMatcher">
       <argument>^/chooseUser</argument>
     </service>
+    <service id=".security.request_matcher.j36xFDA" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/newuser</argument>
+    </service>
     <service id=".security.request_matcher.PhQgZ9B" class="Symfony\Component\HttpFoundation\RequestMatcher">
       <argument>^/</argument>
     </service>
@@ -4662,6 +4684,8 @@
     <service id=".abstract.instanceof.App\Repository\PostRepository" class="App\Repository\PostRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\QuoteRepository" class="App\Repository\QuoteRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\QuoteRepository" class="App\Repository\QuoteRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\SubuserRepository" class="App\Repository\SubuserRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\SubuserRepository" class="App\Repository\SubuserRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.0GV1BZZ" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -5119,13 +5143,14 @@
       <argument type="service" id="cache.doctrine.orm.default.result"/>
       <factory class="Doctrine\Common\Cache\Psr6\DoctrineProvider" method="wrap"/>
     </service>
-    <service id=".service_locator.2r8J2QC" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.csu_Wvj" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\CategoryRepository" type="service_closure" id="App\Repository\CategoryRepository"/>
         <argument key="App\Repository\MovieRepository" type="service_closure" id="App\Repository\MovieRepository"/>
         <argument key="App\Repository\PostRepository" type="service_closure" id="App\Repository\PostRepository"/>
         <argument key="App\Repository\QuoteRepository" type="service_closure" id="App\Repository\QuoteRepository"/>
+        <argument key="App\Repository\SubuserRepository" type="service_closure" id="App\Repository\SubuserRepository"/>
         <argument key="App\Repository\UserRepository" type="service_closure" id="App\Repository\UserRepository"/>
       </argument>
     </service>

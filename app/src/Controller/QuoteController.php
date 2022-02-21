@@ -30,26 +30,8 @@ class QuoteController extends AbstractController
             'user/user.html.twig'
         );
     }
-    /**
-     * @Route("/chooseUser", name="chooseUser")
-     * @return Response
-     */
-    public function chooseUser(): Response
-    {
-        return $this->render(
-            'user/user.html.twig'
-        );
-    }
-    /**
-     * @Route("/ManageProfiles", name="manageProfiles")
-     * @return Response
-     */
-    public function manageProfiles(): Response
-    {
-        return $this->render(
-            'user/manage.html.twig'
-        );
-    }
+
+
     /**
      * @Route("/quotes", name="quotes")
      */
