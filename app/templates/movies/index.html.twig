@@ -1,4 +1,17 @@
 {#{% extends 'base.html.twig' %}#}
+
+{% block javascript %}
+<script>
+    function scrollLeft() {
+    var element = document.getElementsByClassName('box');
+    console.log(element);
+    element.scrollLeft += 20;
+}
+</script>
+
+{% endblock %}
+
+
 {% block stylesheets %}
 <style>
     body {
@@ -43,9 +56,10 @@
     }
     .box {
         margin-left: 20px;
-        display: grid;
+        display: flex;
         grid-gap: 25px;
-        grid-template-columns: repeat(6, minmax(100px, 1fr));
+
+        /*grid-template-columns: repeat(6, minmax(100px, 1fr));*/
     }
     box a {
         transition: transform 0.3s;
@@ -67,7 +81,8 @@
     #search {
         margin-top: 12px;
     }
-    .main-container{
+    #main-container{
+        overflow-x: scroll;
         margin-left: 30px;
     }
 </style>
@@ -120,7 +135,7 @@
         </div>
     {% endblock %}
     </div>
-<section class="main-container">
+<section id="main-container">
 
     <h1 id="serials" class="title-home">Filmy</h1>
     <div class="box">
@@ -128,6 +143,7 @@
             <a href="/show/{{movie.id}}"><img src="{{movie.img}}" alt="{{movie.title}}"></a>
         {% endfor %}
     </div>
+    <button id="slide" onclick="scrollLeft()"  type="button">Slide right</button>
 
     <h1 id="serials" class="title-home">Seriale</h1>
     <div class="box">
@@ -135,6 +151,7 @@
             <a href="/show/{{movie.id}}"><img src="{{movie.img}}" alt="{{movie.title}}"></a>
         {% endfor %}
     </div>
+    <button id="slide" type="button">Slide right</button>
 
     <h1 id="movies" class="title-home">Tylko na Netflxie</h1>
     <div class="box">

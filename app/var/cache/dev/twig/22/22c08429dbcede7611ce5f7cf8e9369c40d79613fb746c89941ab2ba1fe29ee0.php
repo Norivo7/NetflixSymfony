@@ -130,9 +130,20 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['subuser'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 29
+        echo "
+                    ";
+        // line 30
+        if (array_key_exists("form", $context)) {
+            // line 31
+            echo "                    ";
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 31, $this->source); })()), 'form');
+            echo "
+                    ";
+        }
+        // line 33
         echo "                </ul>
 ";
-        // line 38
+        // line 42
         echo "            </div>
             <div id=\"buttonDiv\">
                 <a>
@@ -166,7 +177,7 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
 
     public function getDebugInfo()
     {
-        return array (  136 => 38,  133 => 29,  124 => 26,  118 => 23,  113 => 20,  109 => 19,  100 => 12,  90 => 11,  79 => 2,  69 => 1,  59 => 11,  52 => 7,  47 => 4,  45 => 1,);
+        return array (  147 => 42,  144 => 33,  138 => 31,  136 => 30,  133 => 29,  124 => 26,  118 => 23,  113 => 20,  109 => 19,  100 => 12,  90 => 11,  79 => 2,  69 => 1,  59 => 11,  52 => 7,  47 => 4,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -199,6 +210,10 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
                             <span class=\"profileName\">{{ subuser.name }}</span>
                         </li>
                     {% endfor %}
+
+                    {% if form is defined %}
+                    {{ form(form) }}
+                    {% endif %}
                 </ul>
 {#            <a class=\"navbar-brand\" href=\"/\">#}
 {#                <img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png\"

@@ -6,10 +6,13 @@ use App\Entity\Category;
 use App\Entity\Movie;
 use App\Entity\Subuser;
 use App\Entity\User;
+use App\Form\SubuserType;
 use App\Repository\CategoryRepository;
 use App\Repository\MovieRepository;
 use App\Repository\SubuserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -34,10 +37,74 @@ class MoviesController extends AbstractController
      * @Route("/browse", name="browse")
      * @return Response
      */
-    public function index(): Response
+    public function index(Request $request): Response
     {
-        $currentUser = $this->getUser();
-        dump($this->subuserRepository->findBy(array('subaccountOf' => $currentUser)));
+//        session_start();
+//    $_SESSION['subuser_name'] =$_GET['subuser_name'];
+//
+//        dump($this->$request->getSession()->set('subuser_name', '$value'));
+//        $session = $this->get('session');
+//        $session->set('filter', array(
+//            'subuser_name' => sub
+////        ))
+//        $subusername = $request->get('subuser_name');
+//        dump($subusername);
+//        dump($request->get('subuser_name'));
+
+
+
+
+
+//        dump($currentUserId);
+
+
+//        dump($allSubusers);
+
+//        $secondElement = getArray()[0];
+
+//        dump($secondElement);
+//        dump(array_search(22 ,array_column($allSubusers, 'id')));
+
+//        $currentSubuser= $this->subuserRepository->findSubuserById($subuserId, $currentUserId);
+//        dump($currentSubuser);
+
+
+
+        $currentUserId = $this->getUser()->getId();
+        $subuserId = $request->get('id');
+
+
+        $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUserId));
+
+
+        $subuserCount = count($allSubusers);
+
+        // TESTOWAŃSKO
+        dump('ID subusera z frontu: '.$subuserId);
+        dump('Ilość subuserów: '.$subuserCount);
+
+//        dump($allSubusers[$subuserId]);
+
+
+        //  $subuserId to wiadomość z fronta od użytkownika (od 0 do 4)
+        //  $subuserCount to liczba subuserów w systemie ( max 5 )
+
+
+
+        // TODO: Strona z redirectem zapisująca dane o aktualnym subaccouncie np ./success (persist) => /browse
+
+        if ($subuserId < $subuserCount && isset($subuserId)){
+
+        dump($allSubusers[$subuserId]);
+
+        } else {
+            $errorMessage= "404: Nie znaleziono subusera";
+            dump($errorMessage);
+
+            return $this->render('/error/error.html.twig', [
+                'error' => $errorMessage,
+            ]);
+        }
         return $this->render('movies/index.html.twig', [
             'controller_name' => 'MovieController',
 //            'exclusive' =>$this->repo->homeFilter(1),//            'popular' => $this->repo->popularFilter(),
@@ -51,9 +118,14 @@ class MoviesController extends AbstractController
 
     /**
      * @Route("/chooseUser", name="chooseUser")
+     * @param $request
+     * @return Response
      */
-    public function chooseUser(): Response
+    public function chooseUser(Request $request): Response
     {
+//        $session = $this->get('session');
+//        $session->set('subuser_name', 'Default');
+//        dump($session);
 //        $currentUser = $this->getUser();
 //        dump($currentUser);
 //        $currentUser->getUserIdentifier();
@@ -61,8 +133,21 @@ class MoviesController extends AbstractController
 //
 //        $subuser = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
 //        dump($subuser);
-
+//        $request->get('subuser_name');
         $currentUser = $this->getUser();
+        if($request->getMethod() == 'POST') {
+//            $subuser_name = $request->request->get('subuser_name');
+//            $avatar = $request->request->get('avatar');
+            $id = $request->request->get('id');
+            return $this->redirectToRoute('browse', [
+//                    'subuser_name' => $subuser_name,
+//                    'avatar' => $avatar,
+                    'id' => $id,
+                ]
+        );
+//            dump($subuser_name);
+//            dump($avatar);
+        }
 
         return $this->render(
             'user/user.html.twig', [
@@ -70,6 +155,44 @@ class MoviesController extends AbstractController
             ]
         );
     }
+
+
+    /**
+     * @Route("/newSubuser", name="newSubuser")
+     * @return Response
+     */
+    public function newSubuser(): Response
+    {
+        $currentUser = $this->getUser();
+
+        $subuser = new Subuser();
+        $subuser->setName("Nowy profil");
+        $subuser->setAvatar("https://i.imgur.com/9nWtdiZ.png");
+        $subuser->setSubaccountOf($currentUser);
+
+        $form = $this->createForm(SubuserType::class, $subuser);
+        dump($form);
+        return $this->renderForm('user/manage.html.twig', [
+            'form' => $form,
+            'subUsers' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser)),
+        ]);
+    }
+
+    /**
+     * @Route("/switchSubuser", name="switchSubuser", methods={"POST"})
+     * @param $name
+     * @return Response
+     */
+    public function switchSubuser(Request $request): Response
+    {
+//        $request->get('subuser_name');
+//        dump($request);
+//    session_start();
+//    $_SESSION['subuser_name'] =$_GET['subuser_name'];
+
+//        dump($this->$request->getSession()->set('subuser_name', '$value'));
+    return $this->redirectToRoute('browse');
+}
 
     /**
      * @Route("/manageUser", name="manageUser")
@@ -113,6 +236,17 @@ class MoviesController extends AbstractController
             'chooseUser',
             ['subUsers' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))]
         );
+    }
+
+    /**
+     * @Route("/error", name="error")
+     * @param Request $request
+     * @return Response
+     */
+    public function handleError(Request $request): Response
+    {
+//        dump($request->get('error'));
+        return $this->render('error/error.html.twig');
     }
 
     /**

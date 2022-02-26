@@ -48,7 +48,7 @@ class MovieRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('movie')
             ->orderBy('movie.id', 'ASC')
-            ->setMaxResults(6)
+            ->setMaxResults(30)
             ->getQuery()
             ->getResult();
     }

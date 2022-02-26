@@ -21,12 +21,8 @@ class AppFixtures extends Fixture
         $catExclusive->setName('Eksluzywne');
 
         $movie1 = new Movie();
-
         $movie1->addCategory($catSerials);
         $movie1->addCategory($catExclusive);
-//        $movie1->setIsSerial(true);                 //////// zle podejscie !!!!!! isPies nie na mojej warcie
-//        $movie1->addCategory($catNew);
-//        $movie1->addCategory($catExclusive);             // TODO addCategory($categoryName);
         $movie1->setTitle('Wiedźmin');
         $movie1->setDescription('lorem ipsum');
         $movie1->setYear(2021);
@@ -99,6 +95,47 @@ class AppFixtures extends Fixture
         $movie8->setLikes(54);
         $movie8->setLink("https://www.youtube.com/embed/BdJKm16Co6M");
 
+        $movie9 = new Movie();
+        $movie9->addCategory($catSerials);
+        $movie9->setTitle('Dark');
+        $movie9->setDescription('lorem ipsum');
+        $movie9->setYear(2020);
+        $movie9->setImg('https://occ-0-2507-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABSEl8LWx4tMJIM9Atm3F1Y49Uq6X01tnDe8gPA6d84-gQ767saz9z7Jxj9sFozuI8bcM2vlxeP9IPq3Aa7jxLlkMu8JGjizRLblNEcmD7g-Z2NeZvkvV5nWF9DmJ.jpg?r=393');
+        $movie9->setLikes(10);
+        $movie9->setLink("https://www.youtube.com/embed/watch?v=GXbR0BR6Q2c");
+
+        $movie10 = new Movie();
+        $movie10->addCategory($catSerials);
+        $movie10->setTitle('Miłość, śmierć i roboty');
+        $movie10->setDescription('lorem ipsum');
+        $movie10->setYear(2021);
+        $movie10->setImg('https://occ-0-2507-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABVitvg6x3-xT8ffv-aTxPX69UiCMwE27oct5_OXz3vLBePgN59ZjFjUVwpJ7bhBcj8-FeLeCPQJ0Y_eKR04CPzPPBtnV5Jzo3ATu73Yfz-NPC_snj72y63gKat8u.jpg?r=2de');
+        $movie10->setLikes(42);
+        $movie10->setLink("https://www.youtube.com/embed/watch?v=bFfYF2UKmKg");
+
+        $movie11 = new Movie();
+        $movie11->addCategory($catSerials);
+        $movie11->setTitle('Czarne lustro');
+        $movie11->setDescription('lorem ipsum');
+        $movie11->setYear(2019);
+        $movie11->setImg('https://occ-0-2507-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcMGeOdiKYJBgIZQNlNzy3aXsGwJiyTLURw8d0wdDgQw0XKIBpbpXKYWdPXe7QmDS8rjOZpjRVwwd-3I8CyqGCwlhOa4WvLF2-IVEDjjW-EgCR-lrAJqaGDh5h1s.jpg?r=dbb');
+        $movie11->setLikes(34);
+        $movie11->setLink("https://www.youtube.com/embed/watch?v=HKGaB-jcpAM");
+
+        $movie12 = new Movie();
+        $movie12->addCategory($catMovies);
+        $movie12->setTitle('Hobbit');
+        $movie12->setDescription('lorem ipsum');
+        $movie12->setYear(2012);
+        $movie12->setImg('https://occ-0-2507-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABQ_4JE4cMuNaGqzdGO4Ah2PS6vEbWsitj1cZFGL02eQ08EGHGMeLjJ0ffMBQPbMYdxqMApKZW6APPL7DS0IF6PegBe8.webp?r=46f');
+        $movie12->setLikes(64);
+        $movie12->setLink("https://www.youtube.com/embed/watch?v=a_eM_80RveI");
+
+
+
+
+
+
         $manager->persist($catExclusive);
         $manager->persist($catSerials);
         $manager->persist($catMovies);
@@ -113,6 +150,10 @@ class AppFixtures extends Fixture
         $manager->persist($movie6);
         $manager->persist($movie7);
         $manager->persist($movie8);
+        $manager->persist($movie9);
+        $manager->persist($movie10);
+        $manager->persist($movie11);
+        $manager->persist($movie12);
 
         $manager->flush();
 
