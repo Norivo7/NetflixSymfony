@@ -98,7 +98,7 @@ class MoviesController extends AbstractController
         dump($allSubusers[$subuserId]);
 
         } else {
-            $errorMessage= "404: Nie znaleziono subusera";
+            $errorMessage= "404: Nie znaleziono użytkownika.";
             dump($errorMessage);
 
             return $this->render('/error/error.html.twig', [

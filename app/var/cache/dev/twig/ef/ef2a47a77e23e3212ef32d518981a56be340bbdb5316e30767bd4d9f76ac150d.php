@@ -49,23 +49,22 @@ class __TwigTemplate_bb604402bda6d5029ed8fce4fefbc5ac57058c831e0381c00262c5f2c09
 <head>
     <meta charset=\"UTF-8\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
-    <title>";
+    ";
         // line 6
         $this->displayBlock('title', $context, $blocks);
-        echo "</title>
-    <link
-            href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css\"
-            rel=\"stylesheet\"
-            integrity=\"sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6\"
-            crossorigin=\"anonymous\">
+        // line 7
+        echo "    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\"
+          rel=\"stylesheet\"
+          integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
+          crossorigin=\"anonymous\">
     <link rel=\"stylesheet\" href=\"assets/style.css\">
     ";
-        // line 13
+        // line 12
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 29
+        // line 28
         echo "    ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 52
+        // line 51
         echo "</head>
 
 <body>
@@ -86,21 +85,21 @@ class __TwigTemplate_bb604402bda6d5029ed8fce4fefbc5ac57058c831e0381c00262c5f2c09
                 </div>
                 <a href=\"/login\">
                     ";
-        // line 71
+        // line 70
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
-            // line 72
+            // line 71
             echo "                        <button type=\"button\" class=\"buttonLogin\">
                             Przejdź dalej
                         </button>
                     ";
         } else {
-            // line 76
+            // line 75
             echo "                        <button type=\"button\" class=\"buttonLogin\">
                             Zaloguj się
                         </button>
                     ";
         }
-        // line 80
+        // line 79
         echo "                </a>
             </div>
         </nav>
@@ -108,19 +107,19 @@ class __TwigTemplate_bb604402bda6d5029ed8fce4fefbc5ac57058c831e0381c00262c5f2c09
     <div class=\"blockColumn\">
         <div class=\"blockIntro\">
             ";
-        // line 86
+        // line 85
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
-            // line 87
+            // line 86
             echo "                    <p>Debug: zalogowany użytkownik: ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 87, $this->source); })()), "user", [], "any", false, false, false, 87), "email", [], "any", false, false, false, 87), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 86, $this->source); })()), "user", [], "any", false, false, false, 86), "email", [], "any", false, false, false, 86), "html", null, true);
             echo "</p>
                 ";
         } else {
-            // line 89
+            // line 88
             echo "                    <p>Debug: nie jesteś zalogowany.</p>
             ";
         }
-        // line 91
+        // line 90
         echo "            <h1> Nieograniczona oferta filmów, seriali, programów <br> i nie tylko. </h1>
             <h2> Oglądaj wszędzie. Anuluj w każdej chwili. </h2>
             <h3> </h3>
@@ -134,13 +133,13 @@ class __TwigTemplate_bb604402bda6d5029ed8fce4fefbc5ac57058c831e0381c00262c5f2c09
     </div>
 </div>
     ";
-        // line 103
+        // line 102
         $this->displayBlock('body', $context, $blocks);
-        // line 104
+        // line 103
         echo "
 <div class=\"blockWrapper\">
 ";
-        // line 118
+        // line 117
         echo "    <hr>
     <div class=\"block\">
         <div class=\"blockRow\">
@@ -252,18 +251,18 @@ class __TwigTemplate_bb604402bda6d5029ed8fce4fefbc5ac57058c831e0381c00262c5f2c09
     <hr>
 </div>
     ";
-        // line 228
-        $this->loadTemplate("base.html.twig", "base.html.twig", 228, "1197089209")->display($context);
-        // line 231
+        // line 227
+        $this->loadTemplate("base.html.twig", "base.html.twig", 227, "1860834395")->display($context);
+        // line 230
         echo "
 ";
-        // line 233
+        // line 232
         echo "
 ";
-        // line 290
+        // line 289
         echo "
 ";
-        // line 292
+        // line 291
         echo "            <script
                         src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js\"
                         integrity=\"sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf\"
@@ -292,7 +291,7 @@ class __TwigTemplate_bb604402bda6d5029ed8fce4fefbc5ac57058c831e0381c00262c5f2c09
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Welcome!";
+        echo "<title>Netflix - Symfony</title>";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -301,7 +300,7 @@ class __TwigTemplate_bb604402bda6d5029ed8fce4fefbc5ac57058c831e0381c00262c5f2c09
 
     }
 
-    // line 13
+    // line 12
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -311,7 +310,7 @@ class __TwigTemplate_bb604402bda6d5029ed8fce4fefbc5ac57058c831e0381c00262c5f2c09
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 14
+        // line 13
         echo "    <style>
         a.button, a.button:hover,a.button:visited, a.button:active {
             color: inherit;
@@ -335,7 +334,7 @@ class __TwigTemplate_bb604402bda6d5029ed8fce4fefbc5ac57058c831e0381c00262c5f2c09
 
     }
 
-    // line 29
+    // line 28
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -345,7 +344,7 @@ class __TwigTemplate_bb604402bda6d5029ed8fce4fefbc5ac57058c831e0381c00262c5f2c09
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 30
+        // line 29
         echo "        <script>
         /* When the user clicks on the button,
         toggle between hiding and showing the dropdown content */
@@ -376,7 +375,7 @@ class __TwigTemplate_bb604402bda6d5029ed8fce4fefbc5ac57058c831e0381c00262c5f2c09
 
     }
 
-    // line 103
+    // line 102
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -406,7 +405,7 @@ class __TwigTemplate_bb604402bda6d5029ed8fce4fefbc5ac57058c831e0381c00262c5f2c09
 
     public function getDebugInfo()
     {
-        return array (  380 => 103,  349 => 30,  339 => 29,  315 => 14,  305 => 13,  286 => 6,  267 => 292,  264 => 290,  261 => 233,  258 => 231,  256 => 228,  144 => 118,  140 => 104,  138 => 103,  124 => 91,  120 => 89,  114 => 87,  112 => 86,  104 => 80,  98 => 76,  92 => 72,  90 => 71,  69 => 52,  66 => 29,  64 => 13,  54 => 6,  47 => 1,);
+        return array (  379 => 102,  348 => 29,  338 => 28,  314 => 13,  304 => 12,  285 => 6,  266 => 291,  263 => 289,  260 => 232,  257 => 230,  255 => 227,  143 => 117,  139 => 103,  137 => 102,  123 => 90,  119 => 88,  113 => 86,  111 => 85,  103 => 79,  97 => 75,  91 => 71,  89 => 70,  68 => 51,  65 => 28,  63 => 12,  56 => 7,  54 => 6,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -416,12 +415,11 @@ class __TwigTemplate_bb604402bda6d5029ed8fce4fefbc5ac57058c831e0381c00262c5f2c09
 <head>
     <meta charset=\"UTF-8\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
-    <title>{% block title %}Welcome!{% endblock %}</title>
-    <link
-            href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css\"
-            rel=\"stylesheet\"
-            integrity=\"sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6\"
-            crossorigin=\"anonymous\">
+    {% block title %}<title>Netflix - Symfony</title>{% endblock %}
+    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\"
+          rel=\"stylesheet\"
+          integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
+          crossorigin=\"anonymous\">
     <link rel=\"stylesheet\" href=\"assets/style.css\">
     {% block stylesheets %}
     <style>
@@ -717,7 +715,7 @@ class __TwigTemplate_bb604402bda6d5029ed8fce4fefbc5ac57058c831e0381c00262c5f2c09
 
 
 /* base.html.twig */
-class __TwigTemplate_bb604402bda6d5029ed8fce4fefbc5ac57058c831e0381c00262c5f2c09f1094___1197089209 extends Template
+class __TwigTemplate_bb604402bda6d5029ed8fce4fefbc5ac57058c831e0381c00262c5f2c09f1094___1860834395 extends Template
 {
     private $source;
     private $macros = [];
@@ -734,7 +732,7 @@ class __TwigTemplate_bb604402bda6d5029ed8fce4fefbc5ac57058c831e0381c00262c5f2c09
 
     protected function doGetParent(array $context)
     {
-        // line 228
+        // line 227
         return "reusable/footer.html.twig";
     }
 
@@ -747,7 +745,7 @@ class __TwigTemplate_bb604402bda6d5029ed8fce4fefbc5ac57058c831e0381c00262c5f2c09
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "base.html.twig"));
 
-        $this->parent = $this->loadTemplate("reusable/footer.html.twig", "base.html.twig", 228);
+        $this->parent = $this->loadTemplate("reusable/footer.html.twig", "base.html.twig", 227);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -769,7 +767,7 @@ class __TwigTemplate_bb604402bda6d5029ed8fce4fefbc5ac57058c831e0381c00262c5f2c09
 
     public function getDebugInfo()
     {
-        return array (  738 => 228,  380 => 103,  349 => 30,  339 => 29,  315 => 14,  305 => 13,  286 => 6,  267 => 292,  264 => 290,  261 => 233,  258 => 231,  256 => 228,  144 => 118,  140 => 104,  138 => 103,  124 => 91,  120 => 89,  114 => 87,  112 => 86,  104 => 80,  98 => 76,  92 => 72,  90 => 71,  69 => 52,  66 => 29,  64 => 13,  54 => 6,  47 => 1,);
+        return array (  736 => 227,  379 => 102,  348 => 29,  338 => 28,  314 => 13,  304 => 12,  285 => 6,  266 => 291,  263 => 289,  260 => 232,  257 => 230,  255 => 227,  143 => 117,  139 => 103,  137 => 102,  123 => 90,  119 => 88,  113 => 86,  111 => 85,  103 => 79,  97 => 75,  91 => 71,  89 => 70,  68 => 51,  65 => 28,  63 => 12,  56 => 7,  54 => 6,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -779,12 +777,11 @@ class __TwigTemplate_bb604402bda6d5029ed8fce4fefbc5ac57058c831e0381c00262c5f2c09
 <head>
     <meta charset=\"UTF-8\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
-    <title>{% block title %}Welcome!{% endblock %}</title>
-    <link
-            href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css\"
-            rel=\"stylesheet\"
-            integrity=\"sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6\"
-            crossorigin=\"anonymous\">
+    {% block title %}<title>Netflix - Symfony</title>{% endblock %}
+    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\"
+          rel=\"stylesheet\"
+          integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
+          crossorigin=\"anonymous\">
     <link rel=\"stylesheet\" href=\"assets/style.css\">
     {% block stylesheets %}
     <style>
