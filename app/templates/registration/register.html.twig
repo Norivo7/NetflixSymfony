@@ -31,11 +31,23 @@
             height: 400px;
         }
         .main {
-            display: flex;git gi
+            display: flex;
+            justify-content: center;
             flex-direction: column;
             text-align: center;
             margin: auto;
             height: 600px;
+        }
+        .input {
+            /*margin: 30px;*/
+        }
+        .btn {
+            color:red;
+        }
+        .error {
+            display: flex;
+            justify-content: center;
+            color: red;
         }
     </style>
 {% endblock %}
@@ -49,26 +61,25 @@
     </div>
 </nav>
 <hr>
+
     <div class="main">
 
+        {% for flashError in app.flashes('verify_email_error') %}
+            <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        {% endfor %}
 
-    {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor %}
+        <h1>Rejestracja</h1>
+        {{ form_start(registrationForm) }}
 
-    <h1>Rejestracja</h1>
-
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Hasło'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms, {
-            label: 'Akceptuje warunki'
-        }) }}
-
+        <div class="input">Email: {{ form_widget(registrationForm.email) }}</div>
+        <div class="error">{{ form_errors(registrationForm.email) }}</div>
+        <div class="input">Hasło: {{ form_widget(registrationForm.plainPassword) }}</div>
+        <div class="error">{{ form_errors(registrationForm.plainPassword) }}</div>
+        <div class="input">Akceptuje warunki: {{ form_widget(registrationForm.agreeTerms) }}</div>
+        <div class="error">{{ form_errors(registrationForm.agreeTerms) }}</div>
         <button type="submit" class="btn">Zarejestruj</button>
-    {{ form_end(registrationForm) }}
+        {{ form_end(registrationForm) }}
+
     </div>
 {% endblock %}
 

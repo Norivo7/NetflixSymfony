@@ -889,6 +889,15 @@
             'reference' => 'aecd44697f7385178ff84a80f2b51d6318c15497',
             'dev_requirement' => false,
         ),
+        'twbs/bootstrap-icons' => array(
+            'pretty_version' => 'v1.8.1',
+            'version' => '1.8.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../twbs/bootstrap-icons',
+            'aliases' => array(),
+            'reference' => '190eb16e74404d27b1772f094ca7de7b37ca7415',
+            'dev_requirement' => false,
+        ),
         'twig/extra-bundle' => array(
             'pretty_version' => 'v3.3.8',
             'version' => '3.3.8.0',

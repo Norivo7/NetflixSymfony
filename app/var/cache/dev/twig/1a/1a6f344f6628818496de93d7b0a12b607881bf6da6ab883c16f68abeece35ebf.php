@@ -98,12 +98,14 @@ class __TwigTemplate_a3c5c4ab9aa16b633be382cb914ea885a312f8840e58b5e7f471e87b7c0
         echo "
     <style>
         .error_wrapper{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
         }
         .error_image{
             width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
         }
     </style>
 ";
@@ -115,7 +117,7 @@ class __TwigTemplate_a3c5c4ab9aa16b633be382cb914ea885a312f8840e58b5e7f471e87b7c0
 
     }
 
-    // line 24
+    // line 26
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -125,19 +127,24 @@ class __TwigTemplate_a3c5c4ab9aa16b633be382cb914ea885a312f8840e58b5e7f471e87b7c0
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 25
+        // line 27
         echo "<body>
+<div class=\"error_wrapper\">
     <h1>";
-        // line 26
-        echo twig_escape_filter($this->env, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 26, $this->source); })()), "html", null, true);
+        // line 29
+        echo twig_escape_filter($this->env, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 29, $this->source); })()), "html", null, true);
         echo "</h1>
-    <div class=\"error_wrapper\">
         <img class=\"error_image\" src=\"";
-        // line 28
+        // line 30
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/error.png"), "html", null, true);
         echo "\" alt=\"404\"/>
+        <div id=\"buttonDiv\">
+            <a>
+                <a class=\"profileButton\" href=\"/chooseUser\">Spróbuj ponownie</a>
+            </a>
+        </div>
     </div>
-    <button><a class=\"button\" href=\"/chooseUser\">Spróbuj ponownie</a></button>
+
 </body>
 ";
         
@@ -160,7 +167,7 @@ class __TwigTemplate_a3c5c4ab9aa16b633be382cb914ea885a312f8840e58b5e7f471e87b7c0
 
     public function getDebugInfo()
     {
-        return array (  137 => 28,  132 => 26,  129 => 25,  119 => 24,  96 => 11,  86 => 10,  70 => 3,  60 => 2,  37 => 1,);
+        return array (  139 => 30,  135 => 29,  131 => 27,  121 => 26,  96 => 11,  86 => 10,  70 => 3,  60 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -178,23 +185,30 @@ class __TwigTemplate_a3c5c4ab9aa16b633be382cb914ea885a312f8840e58b5e7f471e87b7c0
     {{ parent() }}
     <style>
         .error_wrapper{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
         }
         .error_image{
             width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
         }
     </style>
 {% endblock %}
 
 {% block body %}
 <body>
+<div class=\"error_wrapper\">
     <h1>{{ error }}</h1>
-    <div class=\"error_wrapper\">
         <img class=\"error_image\" src=\"{{ asset('images/error.png') }}\" alt=\"404\"/>
+        <div id=\"buttonDiv\">
+            <a>
+                <a class=\"profileButton\" href=\"/chooseUser\">Spróbuj ponownie</a>
+            </a>
+        </div>
     </div>
-    <button><a class=\"button\" href=\"/chooseUser\">Spróbuj ponownie</a></button>
+
 </body>
 {% endblock %}", "error/error.html.twig", "/var/www/symfony_docker/templates/error/error.html.twig");
     }

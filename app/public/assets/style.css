@@ -178,17 +178,13 @@ input[type=text] {
 select {
     text-align-last:center;
     align-content: center;
-    /*width: 15%;*/
     padding: 16px 20px 16px ;
-
-    border: none;
     border-radius: 4px;
     background-color: #222222;
     color: #FFF;
 }
 
 .selectMedium {
-    margin-right: 2rem;
     border-radius: 4px;
     background-color: #222222;
 

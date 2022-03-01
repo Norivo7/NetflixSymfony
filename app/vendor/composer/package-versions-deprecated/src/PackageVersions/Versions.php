@@ -114,6 +114,7 @@ final class Versions
   'symfony/var-exporter' => 'v5.3.14@1ca85c38c0c70201c599264923b86e588ddf8878',
   'symfony/yaml' => 'v5.3.14@c441e9d2e340642ac8b951b753dea962d55b669d',
   'symfonycasts/verify-email-bundle' => 'v1.8.0@aecd44697f7385178ff84a80f2b51d6318c15497',
+  'twbs/bootstrap-icons' => 'v1.8.1@190eb16e74404d27b1772f094ca7de7b37ca7415',
   'twig/extra-bundle' => 'v3.3.8@2e58256b0e9fe52f30149347c0547e4633304765',
   'twig/twig' => 'v3.3.8@972d8604a92b7054828b539f2febb0211dd5945c',
   'doctrine/data-fixtures' => '1.5.2@51c1890e8c5467c421c7cab4579f059ebf720278',

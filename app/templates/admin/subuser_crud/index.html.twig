@@ -1,0 +1,40 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Profile Użytkowników - Netflix{% endblock %}
+
+{% block navigation %}
+{% endblock %}
+{% block content %}
+    <h2>Profile użytkowników</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Avatar</th>
+            <th>Użytkownik</th>
+            <th>Akcje</th>
+        </tr>
+        </thead>
+        <tbody class="tbody">
+        {% for subuser in subusers %}
+            <tr>
+                <td>{{ subuser.id }}</td>
+                <td>{{ subuser.name }}</td>
+                <td>{{ subuser.avatar }}</td>
+                <td>{{ subuser.subaccountOf }}</td>
+                <td>
+                    <a href="{{ path('subuser_crud_show', {'id': subuser.id}) }}">wyświetl</a>
+                    <a href="{{ path('subuser_crud_edit', {'id': subuser.id}) }}">edytuj</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a class="profileButton" href="{{ path('subuser_crud_new') }}">Dodaj</a>
+    <a class="profileButton" href="{{ path('admin_panel') }}">Wróć</a>
+{% endblock %}

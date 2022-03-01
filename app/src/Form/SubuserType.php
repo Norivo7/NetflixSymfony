@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Subuser;
+use App\Entity\User;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -29,7 +31,9 @@ class SubuserType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('avatar', TextType::class)
-            ->add('save', SubmitType::class)
+            ->add('subaccountOf', EntityType::class, [
+                'class' => User::class
+            ])
         ;
     }
 

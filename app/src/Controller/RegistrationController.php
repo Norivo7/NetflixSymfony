@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Subuser;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Security\EmailVerifier;
@@ -16,14 +17,12 @@ use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
 class RegistrationController extends AbstractController
 {
-    private $emailVerifier;
+    private EmailVerifier $emailVerifier;
 
     public function __construct(EmailVerifier $emailVerifier)
     {
         $this->emailVerifier = $emailVerifier;
     }
-
-//    #[Route('/register', name: 'app_register')]
 
     /**
      * @Route("/register", name="app_register")
@@ -34,10 +33,16 @@ class RegistrationController extends AbstractController
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         $user = new User();
+        $subUser = new Subuser();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user->setRoles(['ROLE_USER']);
+            // add default subuser
+           $subUser->setName("Default");
+           $subUser->setSubaccountOf($user);
+           $subUser->setAvatar('https://i.imgur.com/9nWtdiZ.png');
             // encode the plain password
             $user->setPassword(
                 $passwordEncoder->encodePassword(
@@ -48,6 +53,7 @@ class RegistrationController extends AbstractController
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
+            $entityManager->persist($subUser);
             $entityManager->flush();
 
             // generate a signed url and email it to the user

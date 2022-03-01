@@ -309,6 +309,13 @@
       <tag name="knp_menu.menu_builder" method="createMainMenu" alias="main"/>
       <argument type="service" id="knp_menu.factory"/>
     </service>
+    <service id="App\Controller\AdminController" class="App\Controller\AdminController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.W9y3dzm.App\Controller\AdminController"/>
+      </call>
+    </service>
     <service id="App\Controller\MailerController" class="App\Controller\MailerController" autowire="true" autoconfigure="true"/>
     <service id="App\Controller\MoviesController" class="App\Controller\MoviesController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
@@ -342,6 +349,21 @@
         <argument type="service" id=".service_locator.W9y3dzm.App\Controller\SecurityController"/>
       </call>
     </service>
+    <service id="App\Controller\SubuserController" class="App\Controller\SubuserController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <argument type="service" id="App\Repository\SubuserRepository"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.W9y3dzm.App\Controller\SubuserController"/>
+      </call>
+    </service>
+    <service id="App\Controller\SubuserCrudController" class="App\Controller\SubuserCrudController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.W9y3dzm.App\Controller\SubuserCrudController"/>
+      </call>
+    </service>
     <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
     </service>
@@ -353,6 +375,9 @@
       <argument type="service" id="security.user_password_hasher"/>
     </service>
     <service id="App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\Subuser1Type" class="App\Form\Subuser1Type" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\SubuserType" class="App\Form\SubuserType" autowire="true" autoconfigure="true">
@@ -871,6 +896,7 @@
       </argument>
       <argument type="collection">
         <argument>App\Form\RegistrationFormType</argument>
+        <argument>App\Form\Subuser1Type</argument>
         <argument>App\Form\SubuserType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
@@ -2107,7 +2133,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.3_uKNxR"/>
+      <argument type="service" id=".service_locator.wut4ZI1"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -3977,13 +4003,6 @@
         <argument>null</argument>
       </call>
       <call method="add">
-        <argument type="service" id=".security.request_matcher.PhQgZ9B"/>
-        <argument type="collection">
-          <argument>PUBLIC_ACCESS</argument>
-        </argument>
-        <argument>null</argument>
-      </call>
-      <call method="add">
         <argument type="service" id=".security.request_matcher.QWkwKV5"/>
         <argument type="collection">
           <argument>ROLE_USER</argument>
@@ -3991,7 +4010,7 @@
         <argument>null</argument>
       </call>
       <call method="add">
-        <argument type="service" id=".security.request_matcher.5dJADCx"/>
+        <argument type="service" id=".security.request_matcher.4ppZU8f"/>
         <argument type="collection">
           <argument>ROLE_ADMIN</argument>
         </argument>
@@ -4610,11 +4629,8 @@
     <service id=".security.request_matcher.j36xFDA" class="Symfony\Component\HttpFoundation\RequestMatcher">
       <argument>^/newuser</argument>
     </service>
-    <service id=".security.request_matcher.PhQgZ9B" class="Symfony\Component\HttpFoundation\RequestMatcher">
-      <argument>^/</argument>
-    </service>
-    <service id=".security.request_matcher.5dJADCx" class="Symfony\Component\HttpFoundation\RequestMatcher">
-      <argument>^/admin</argument>
+    <service id=".security.request_matcher.4ppZU8f" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/admin/*</argument>
     </service>
     <service id="security.command.user_password_encoder" class="Symfony\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand">
       <tag name="console.command" command="security:encode-password"/>
@@ -4660,6 +4676,9 @@
       <argument type="service" id="symfonycasts.verify_email.token_generator"/>
       <argument>3600</argument>
     </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MoviesController" class="App\Controller\MoviesController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MoviesController" class="App\Controller\MoviesController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\MoviesController" class="App\Controller\MoviesController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -4672,6 +4691,12 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SubuserController" class="App\Controller\SubuserController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SubuserController" class="App\Controller\SubuserController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\SubuserController" class="App\Controller\SubuserController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SubuserCrudController" class="App\Controller\SubuserCrudController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SubuserCrudController" class="App\Controller\SubuserCrudController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\SubuserCrudController" class="App\Controller\SubuserCrudController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\QuoteFixture" class="App\DataFixtures\QuoteFixture" autowire="true" abstract="true"/>
@@ -4680,6 +4705,8 @@
     <service id=".abstract.instanceof.App\DataFixtures\UserFixtures" class="App\DataFixtures\UserFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\Subuser1Type" class="App\Form\Subuser1Type" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\Subuser1Type" class="App\Form\Subuser1Type" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SubuserType" class="App\Form\SubuserType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\SubuserType" class="App\Form\SubuserType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" abstract="true"/>
@@ -5039,7 +5066,32 @@
         <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.P4b0RKl" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.pPsXs3m" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="subuserRepository" type="service_closure" id="App\Repository\SubuserRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.l2QwsaZ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.SWF0qEr" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="subuser" type="service_closure" id=".errored..service_locator.SWF0qEr.App\Entity\Subuser"/>
+      </argument>
+    </service>
+    <service id=".service_locator.EVwVc65" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="subuser" type="service_closure" id=".errored..service_locator.EVwVc65.App\Entity\Subuser"/>
+      </argument>
+    </service>
+    <service id=".service_locator.miTBTFx" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\MoviesController::search" type="service_closure" id=".service_locator.eWsEuD9"/>
@@ -5047,6 +5099,11 @@
         <argument key="App\Controller\QuoteController::quote" type="service_closure" id=".service_locator.3UmvDkK"/>
         <argument key="App\Controller\RegistrationController::register" type="service_closure" id=".service_locator.pwZ6MTM"/>
         <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.UDgw6Ol"/>
+        <argument key="App\Controller\SubuserCrudController::delete" type="service_closure" id=".service_locator.EVwVc65"/>
+        <argument key="App\Controller\SubuserCrudController::edit" type="service_closure" id=".service_locator.EVwVc65"/>
+        <argument key="App\Controller\SubuserCrudController::index" type="service_closure" id=".service_locator.pPsXs3m"/>
+        <argument key="App\Controller\SubuserCrudController::new" type="service_closure" id=".service_locator.l2QwsaZ"/>
+        <argument key="App\Controller\SubuserCrudController::show" type="service_closure" id=".service_locator.SWF0qEr"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::terminate" type="service_closure" id=".service_locator.KfwZsne"/>
@@ -5058,6 +5115,11 @@
         <argument key="App\Controller\QuoteController:quote" type="service_closure" id=".service_locator.3UmvDkK"/>
         <argument key="App\Controller\RegistrationController:register" type="service_closure" id=".service_locator.pwZ6MTM"/>
         <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.UDgw6Ol"/>
+        <argument key="App\Controller\SubuserCrudController:delete" type="service_closure" id=".service_locator.EVwVc65"/>
+        <argument key="App\Controller\SubuserCrudController:edit" type="service_closure" id=".service_locator.EVwVc65"/>
+        <argument key="App\Controller\SubuserCrudController:index" type="service_closure" id=".service_locator.pPsXs3m"/>
+        <argument key="App\Controller\SubuserCrudController:new" type="service_closure" id=".service_locator.l2QwsaZ"/>
+        <argument key="App\Controller\SubuserCrudController:show" type="service_closure" id=".service_locator.SWF0qEr"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel:terminate" type="service_closure" id=".service_locator.KfwZsne"/>
@@ -5122,10 +5184,11 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.3_uKNxR" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.wut4ZI1" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\RegistrationFormType" type="service_closure" id="App\Form\RegistrationFormType"/>
+        <argument key="App\Form\Subuser1Type" type="service_closure" id="App\Form\Subuser1Type"/>
         <argument key="App\Form\SubuserType" type="service_closure" id="App\Form\SubuserType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service_closure" id="form.type.choice"/>
@@ -5215,6 +5278,12 @@
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
+    <service id=".service_locator.W9y3dzm.App\Controller\AdminController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\AdminController"/>
+      <argument>App\Controller\AdminController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.W9y3dzm" method="withContext"/>
+    </service>
     <service id=".service_locator.W9y3dzm.App\Controller\MoviesController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\MoviesController"/>
       <argument>App\Controller\MoviesController</argument>
@@ -5236,6 +5305,18 @@
     <service id=".service_locator.W9y3dzm.App\Controller\SecurityController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\SecurityController"/>
       <argument>App\Controller\SecurityController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.W9y3dzm" method="withContext"/>
+    </service>
+    <service id=".service_locator.W9y3dzm.App\Controller\SubuserController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\SubuserController"/>
+      <argument>App\Controller\SubuserController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.W9y3dzm" method="withContext"/>
+    </service>
+    <service id=".service_locator.W9y3dzm.App\Controller\SubuserCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\SubuserCrudController"/>
+      <argument>App\Controller\SubuserCrudController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.W9y3dzm" method="withContext"/>
     </service>
@@ -5368,12 +5449,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.P4b0RKl"/>
+      <argument type="service" id=".service_locator.miTBTFx"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.P4b0RKl"/>
+      <argument type="service" id=".service_locator.miTBTFx"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -5384,6 +5465,8 @@
     <service id=".errored..service_locator.KfwZsne.Symfony\Component\HttpFoundation\Response" class="Symfony\Component\HttpFoundation\Response"/>
     <service id=".errored..service_locator.KfbR3DY.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
     <service id=".errored..service_locator.V5oNiHc.App\Entity\Movie" class="App\Entity\Movie"/>
+    <service id=".errored..service_locator.SWF0qEr.App\Entity\Subuser" class="App\Entity\Subuser"/>
+    <service id=".errored..service_locator.EVwVc65.App\Entity\Subuser" class="App\Entity\Subuser"/>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>about</argument>
       <argument type="collection"/>
@@ -6137,7 +6220,7 @@
     <service id="SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface" alias="symfonycasts.verify_email.helper"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.0GV1BZZ" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.P4b0RKl"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.miTBTFx"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -6169,6 +6252,10 @@
     <service id=".service_locator.X_NI0dI" alias=".service_locator.3UmvDkK"/>
     <service id=".service_locator.F2VpVm6" alias=".service_locator.pwZ6MTM"/>
     <service id=".service_locator.kXCVHeG" alias=".service_locator.UDgw6Ol"/>
+    <service id=".service_locator.yhNPxgy" alias=".service_locator.pPsXs3m"/>
+    <service id=".service_locator.Er0_7SX" alias=".service_locator.l2QwsaZ"/>
+    <service id=".service_locator.Uelc4UP" alias=".service_locator.SWF0qEr"/>
+    <service id=".service_locator.9HsFndX" alias=".service_locator.EVwVc65"/>
     <service id=".service_locator.S3Bk2.h" alias=".service_locator.W9y3dzm"/>
   </services>
 </container>

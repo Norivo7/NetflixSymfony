@@ -1,0 +1,11 @@
+{#{% extends 'base.html.twig' %}#}
+
+{% block title %}New Subuser{% endblock %}
+
+{% block body %}
+    <h1>Create new Subuser</h1>
+
+    {{ include('admin/subuser_crud/_form.html.twig') }}
+
+    <a href="{{ path('subuser_crud_index') }}">back to list</a>
+{% endblock %}
