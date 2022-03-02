@@ -48,17 +48,19 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
           rel=\"stylesheet\"
           integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
           crossorigin=\"anonymous\">
+    <link rel=\"stylesheet\"
+          href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css\">
 </head>
 ";
-        // line 7
+        // line 9
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 36
+        // line 56
         echo " ";
         $this->displayBlock('title', $context, $blocks);
-        // line 37
+        // line 57
         echo "
 ";
-        // line 38
+        // line 58
         $this->displayBlock('body', $context, $blocks);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -68,7 +70,7 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
 
     }
 
-    // line 7
+    // line 9
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -78,7 +80,7 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 8
+        // line 10
         echo "    <link rel=\"stylesheet\" href=\"assets/user.css\">
     <style>
 
@@ -105,6 +107,24 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
         #buttonDiv{
             margin-top: 20px;
         }
+        a:link {
+            color: gray;
+        }
+        a:visited {
+            color: gray;
+        }
+        a:hover {
+            color: white;
+        }
+        a:active {
+            color: red;
+        }
+        .add {
+            text-decoration: none;
+            margin-bottom: 40px;
+            padding: 10px;
+            font-size: 200px;
+        }
     </style>
 ";
         
@@ -115,7 +135,7 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
 
     }
 
-    // line 36
+    // line 56
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -134,7 +154,7 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
 
     }
 
-    // line 38
+    // line 58
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -144,12 +164,12 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 39
+        // line 59
         echo "    <div id=\"headerContainer\">
         <div class=\"brandLogoWrapper\">
             <a class=\"logo\" href=\"/\" target=\"_parent\">
                 <img class=\"logo\" src=\"";
-        // line 42
+        // line 62
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/netflixLogo.svg.png"), "html", null, true);
         echo "\" alt=\"av1\"/>
             </a>
@@ -160,32 +180,32 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
     <div class=\"main\">
         <div class=\"profilesContainer\">
             <div class=\"profilesList\">
-                <h1 class=\"profilesLabel\"> Kto ogląda?</h1>
+                <h1 class=\"profilesLabel\"> Zarządzaj użytkownikami</h1>
                 <ul class=\"chooseProfile\">
                     ";
-        // line 53
+        // line 73
         $context["subuser_id"] = 0;
-        // line 54
+        // line 74
         echo "                    ";
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["subUsers"]) || array_key_exists("subUsers", $context) ? $context["subUsers"] : (function () { throw new RuntimeError('Variable "subUsers" does not exist.', 54, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["subUsers"]) || array_key_exists("subUsers", $context) ? $context["subUsers"] : (function () { throw new RuntimeError('Variable "subUsers" does not exist.', 74, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["subuser"]) {
-            // line 55
+            // line 75
             echo "                        ";
-            // line 56
+            // line 76
             echo "                        ";
-            // line 57
+            // line 77
             echo "
                         <li class=\"profile\">
                             ";
-            // line 60
+            // line 80
             echo "                            <form method=\"POST\">
                                 ";
-            // line 62
+            // line 82
             echo "                                <div class=\"subuser\">
                                     <a class=\"profileLink\" href=\"/browse\">
                                         ";
-            // line 65
+            // line 85
             echo "                                    </a>
                                     <span class=\"profileName\">
                                     </span>
@@ -195,8 +215,8 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
                                             type=\"hidden\"
                                             name=\"id\"
                                             value=\"";
-            // line 73
-            echo twig_escape_filter($this->env, (isset($context["subuser_id"]) || array_key_exists("subuser_id", $context) ? $context["subuser_id"] : (function () { throw new RuntimeError('Variable "subuser_id" does not exist.', 73, $this->source); })()), "html", null, true);
+            // line 93
+            echo twig_escape_filter($this->env, (isset($context["subuser_id"]) || array_key_exists("subuser_id", $context) ? $context["subuser_id"] : (function () { throw new RuntimeError('Variable "subuser_id" does not exist.', 93, $this->source); })()), "html", null, true);
             echo "\"
                                     >
                                     <input
@@ -206,12 +226,12 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
                                             type=\"image\"
                                             name=\"avatar\"
                                             value=\"";
-            // line 81
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "avatar", [], "any", false, false, false, 81), "html", null, true);
+            // line 101
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "avatar", [], "any", false, false, false, 101), "html", null, true);
             echo " \"
                                             src=\"";
-            // line 82
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "avatar", [], "any", false, false, false, 82), "html", null, true);
+            // line 102
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "avatar", [], "any", false, false, false, 102), "html", null, true);
             echo "\"
                                     >
                                     <span class=\"profileName\">
@@ -221,71 +241,57 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
                                                 type=\"hidden\"
                                                 name=\"subuser_name\"
                                                 value=\"";
-            // line 90
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "name", [], "any", false, false, false, 90), "html", null, true);
+            // line 110
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "name", [], "any", false, false, false, 110), "html", null, true);
             echo "\">
 
                                     </span>
                                     <span class=\"profileName\">";
-            // line 93
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "name", [], "any", false, false, false, 93), "html", null, true);
+            // line 113
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "name", [], "any", false, false, false, 113), "html", null, true);
             echo "</span>
                                     ";
-            // line 95
+            // line 115
             echo "                                    ";
-            // line 96
+            // line 116
             echo "                                </div>
                             </form>
                         </li>
 
                         ";
-            // line 100
-            $context["subuser_id"] = ((isset($context["subuser_id"]) || array_key_exists("subuser_id", $context) ? $context["subuser_id"] : (function () { throw new RuntimeError('Variable "subuser_id" does not exist.', 100, $this->source); })()) + 1);
-            // line 101
+            // line 120
+            $context["subuser_id"] = ((isset($context["subuser_id"]) || array_key_exists("subuser_id", $context) ? $context["subuser_id"] : (function () { throw new RuntimeError('Variable "subuser_id" does not exist.', 120, $this->source); })()) + 1);
+            // line 121
             echo "                    ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['subuser'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 102
-        echo "                    ";
-        // line 103
-        echo "                    ";
-        // line 104
-        echo "                    ";
-        // line 105
-        echo "                    ";
-        // line 106
-        echo "                    ";
-        // line 107
-        echo "                    ";
-        // line 108
-        echo "                    ";
-        // line 109
-        echo "                    ";
-        // line 110
-        echo "                    ";
-        // line 111
-        echo "                    ";
-        // line 112
-        echo "
-
-
-                </ul>
-                ";
-        // line 117
-        echo "                ";
-        // line 119
-        echo "                ";
-        // line 120
-        echo "                ";
-        // line 121
-        echo "                ";
         // line 122
+        echo "                    ";
+        if (((isset($context["subuser_id"]) || array_key_exists("subuser_id", $context) ? $context["subuser_id"] : (function () { throw new RuntimeError('Variable "subuser_id" does not exist.', 122, $this->source); })()) < 5)) {
+            // line 123
+            echo "                    <div class=\"add\"><a href=\"manageUser/add\">
+                        <i class=\"addUser bi bi-plus-square\"></i></a>
+                    </div>
+                    ";
+        }
+        // line 127
+        echo "                </ul>
+                ";
+        // line 129
         echo "                ";
-        // line 123
+        // line 131
         echo "                ";
-        // line 124
+        // line 132
+        echo "                ";
+        // line 133
+        echo "                ";
+        // line 134
+        echo "                ";
+        // line 135
+        echo "                ";
+        // line 136
         echo "            </div>
             <div id=\"buttonDiv\">
                 <a>
@@ -299,9 +305,9 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
 
 
     ";
-        // line 137
+        // line 149
         echo "    ";
-        // line 138
+        // line 150
         echo "    ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -318,7 +324,7 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
 
     public function getDebugInfo()
     {
-        return array (  305 => 138,  303 => 137,  289 => 124,  287 => 123,  285 => 122,  283 => 121,  281 => 120,  279 => 119,  277 => 117,  271 => 112,  269 => 111,  267 => 110,  265 => 109,  263 => 108,  261 => 107,  259 => 106,  257 => 105,  255 => 104,  253 => 103,  251 => 102,  245 => 101,  243 => 100,  237 => 96,  235 => 95,  231 => 93,  225 => 90,  214 => 82,  210 => 81,  199 => 73,  189 => 65,  185 => 62,  182 => 60,  178 => 57,  176 => 56,  174 => 55,  169 => 54,  167 => 53,  153 => 42,  148 => 39,  138 => 38,  119 => 36,  82 => 8,  72 => 7,  62 => 38,  59 => 37,  56 => 36,  54 => 7,  46 => 1,);
+        return array (  311 => 150,  309 => 149,  295 => 136,  293 => 135,  291 => 134,  289 => 133,  287 => 132,  285 => 131,  283 => 129,  280 => 127,  274 => 123,  271 => 122,  265 => 121,  263 => 120,  257 => 116,  255 => 115,  251 => 113,  245 => 110,  234 => 102,  230 => 101,  219 => 93,  209 => 85,  205 => 82,  202 => 80,  198 => 77,  196 => 76,  194 => 75,  189 => 74,  187 => 73,  173 => 62,  168 => 59,  158 => 58,  139 => 56,  84 => 10,  74 => 9,  64 => 58,  61 => 57,  58 => 56,  56 => 9,  46 => 1,);
     }
 
     public function getSourceContext()
@@ -328,6 +334,8 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
           rel=\"stylesheet\"
           integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
           crossorigin=\"anonymous\">
+    <link rel=\"stylesheet\"
+          href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css\">
 </head>
 {% block stylesheets %}
     <link rel=\"stylesheet\" href=\"assets/user.css\">
@@ -356,6 +364,24 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
         #buttonDiv{
             margin-top: 20px;
         }
+        a:link {
+            color: gray;
+        }
+        a:visited {
+            color: gray;
+        }
+        a:hover {
+            color: white;
+        }
+        a:active {
+            color: red;
+        }
+        .add {
+            text-decoration: none;
+            margin-bottom: 40px;
+            padding: 10px;
+            font-size: 200px;
+        }
     </style>
 {% endblock %}
  {% block title %}<title>Wybierz profil - Netflix</title>{% endblock %}
@@ -373,7 +399,7 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
     <div class=\"main\">
         <div class=\"profilesContainer\">
             <div class=\"profilesList\">
-                <h1 class=\"profilesLabel\"> Kto ogląda?</h1>
+                <h1 class=\"profilesLabel\"> Zarządzaj użytkownikami</h1>
                 <ul class=\"chooseProfile\">
                     {% set subuser_id = 0 %}
                     {% for subuser in subUsers %}
@@ -424,19 +450,11 @@ class __TwigTemplate_9c1fe49f29f92a3f4fc1438e53f4b172cf154ff65d14494d95c112e3fea
 
                         {% set subuser_id = subuser_id + 1 %}
                     {% endfor %}
-                    {#                    {% for subuser in subUsers %}#}
-                    {#                        <li class=\"profile\">#}
-                    {#                            <div>#}
-                    {#                                <a class=\"profileLink\" href=\"/browse\">#}
-                    {#                                    <img src=\"{{subuser.avatar}}\" class=\"round\" alt=\"av1\"/>#}
-                    {#                                </a>#}
-                    {#                            </div>#}
-                    {#                            <span class=\"profileName\">{{ subuser.name }}</span>#}
-                    {#                        </li>#}
-                    {#                    {% endfor %}#}
-
-
-
+                    {% if subuser_id < 5 %}
+                    <div class=\"add\"><a href=\"manageUser/add\">
+                        <i class=\"addUser bi bi-plus-square\"></i></a>
+                    </div>
+                    {% endif %}
                 </ul>
                 {#            <a class=\"navbar-brand\" href=\"/\">#}
                 {#                <img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png\"

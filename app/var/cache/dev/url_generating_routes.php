@@ -33,6 +33,8 @@ return [
     'app_verify_email' => [[], ['_controller' => 'App\\Controller\\RegistrationController::verifyUserEmail'], [], [['text', '/verify/email']], [], []],
     'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
+    'app_subuser_addsubuser' => [[], ['_controller' => 'App\\Controller\\SubuserController::addSubuser'], [], [['text', '/manageUser/add']], [], []],
+    'app_subuser_delete' => [['id'], ['_controller' => 'App\\Controller\\SubuserController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/manageUser/delete']], [], []],
     'app_subuser_update' => [['id'], ['_controller' => 'App\\Controller\\SubuserController::update'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/manageUser/edit']], [], []],
     'manageUser' => [[], ['_controller' => 'App\\Controller\\SubuserController::manageUser'], [], [['text', '/manageUser']], [], []],
     'chooseUser' => [[], ['_controller' => 'App\\Controller\\SubuserController::chooseUser'], [], [['text', '/chooseUser']], [], []],

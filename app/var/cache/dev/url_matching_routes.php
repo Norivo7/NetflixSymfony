@@ -31,6 +31,7 @@ return [
         '/verify/email' => [[['_route' => 'app_verify_email', '_controller' => 'App\\Controller\\RegistrationController::verifyUserEmail'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
+        '/manageUser/add' => [[['_route' => 'app_subuser_addsubuser', '_controller' => 'App\\Controller\\SubuserController::addSubuser'], null, null, null, false, false, null]],
         '/manageUser' => [[['_route' => 'manageUser', '_controller' => 'App\\Controller\\SubuserController::manageUser'], null, null, null, false, false, null]],
         '/chooseUser' => [[['_route' => 'chooseUser', '_controller' => 'App\\Controller\\SubuserController::chooseUser'], null, null, null, false, false, null]],
         '/success' => [[['_route' => 'success', '_controller' => 'App\\Controller\\SubuserController::success'], null, null, null, false, false, null]],
@@ -57,11 +58,14 @@ return [
                     .'|error/(\\d+)(?:\\.([^/]++))?(*:159)'
                 .')'
                 .'|/show/([^/]++)(*:182)'
-                .'|/manageUser/edit/([^/]++)(*:215)'
+                .'|/manageUser/(?'
+                    .'|delete/([^/]++)(*:220)'
+                    .'|edit/([^/]++)(*:241)'
+                .')'
                 .'|/admin/subuser/([^/]++)(?'
-                    .'|(*:249)'
-                    .'|/edit(*:262)'
-                    .'|(*:270)'
+                    .'|(*:276)'
+                    .'|/edit(*:289)'
+                    .'|(*:297)'
                 .')'
             .')/?$}sDu',
     ],
@@ -74,10 +78,11 @@ return [
         124 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         159 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
         182 => [[['_route' => 'show-one', '_controller' => 'App\\Controller\\MoviesController::show'], ['id'], null, null, false, true, null]],
-        215 => [[['_route' => 'app_subuser_update', '_controller' => 'App\\Controller\\SubuserController::update'], ['id'], null, null, false, true, null]],
-        249 => [[['_route' => 'subuser_crud_show', '_controller' => 'App\\Controller\\SubuserCrudController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        262 => [[['_route' => 'subuser_crud_edit', '_controller' => 'App\\Controller\\SubuserCrudController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        270 => [
+        220 => [[['_route' => 'app_subuser_delete', '_controller' => 'App\\Controller\\SubuserController::delete'], ['id'], null, null, false, true, null]],
+        241 => [[['_route' => 'app_subuser_update', '_controller' => 'App\\Controller\\SubuserController::update'], ['id'], null, null, false, true, null]],
+        276 => [[['_route' => 'subuser_crud_show', '_controller' => 'App\\Controller\\SubuserCrudController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        289 => [[['_route' => 'subuser_crud_edit', '_controller' => 'App\\Controller\\SubuserCrudController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        297 => [
             [['_route' => 'subuser_crud_delete', '_controller' => 'App\\Controller\\SubuserCrudController::delete'], ['id'], ['POST' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

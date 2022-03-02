@@ -26,12 +26,60 @@ class SubuserController extends AbstractController
 
 
     /**
-     * @Route ("/manageUser/edit/{id}")
-     * @param ManagerRegistry $doctrine
+     * @Route ("manageUser/add")
+     * @return Response
+     */
+    public function addSubuser(): Response{
+        $currentUser = $this->getUser();
+        $entityManager = $this->getDoctrine()->getManager();
+        $subusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
+        $subuserCount = count($subusers);
+        if($subuserCount < 5) {
+            $subuser = new Subuser();
+            $subuser->setName('Nowy');
+            $subuser->setAvatar('https://i.imgur.com/9nWtdiZ.png');
+            $subuser->setSubaccountOf($currentUser);
+            $entityManager->persist($subuser);
+            $entityManager->flush();
+        return $this->redirectToRoute('manageUser');
+        } else {
+            return $this->redirectToRoute('error', [
+               'error' => "Nie można dodać użytkownika"
+            ]);
+        }
+    }
+
+    /**
+     * @Route ("/manageUser/delete/{id}")
      * @param int $id
      * @return Response
      */
-    public function update(ManagerRegistry $doctrine, int $id): Response
+    public function delete(int $id): Response {
+         $currentUser = $this->getUser();
+         $entityManger = $this->getDoctrine()->getManager();
+         $subusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser, 'id' => $id));
+         $subuser = reset($subusers);
+         dump($subuser);
+        if ($subuser != false) {
+         $entityManger->remove($subuser);
+         $entityManger->flush();
+         return $this->redirectToRoute('manageUser', [
+             'id' => $subuser->getId(),
+             'subUsers' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
+         ]);
+        } else {
+            return $this->redirectToRoute('manageUser', [
+                'subUsers' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
+            ])
+        }
+    }
+
+    /**
+     * @Route ("/manageUser/edit/{id}")
+     * @param int $id
+     * @return Response
+     */
+    public function update(int $id): Response
     {
         $currentUser = $this->getUser();
         $entityManager= $this->getDoctrine()->getManager();
@@ -40,16 +88,14 @@ class SubuserController extends AbstractController
         if(!$subusers){
             return $this->redirectToRoute('error', [
                 'error' => '404: Nie znaleziono profilu.'
-            ]);
-//            throw $this->createNotFoundException(
+                //            throw $this->createNotFoundException(
 //                'No subuser found for id '.$id
 //            );
-        } else{
-        $subusers->setName('sdssa');
-        $entityManager->persist($subusers);
-
-
-        $entityManager->flush();
+            ]);
+        } else {
+            $subusers->setName('Zmieniono');
+            $entityManager->persist($subusers);
+            $entityManager->flush();
         return $this->redirectToRoute('manageUser', [
             'id' => $subusers->getId(),
             'subUsers' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
@@ -64,7 +110,7 @@ class SubuserController extends AbstractController
     {
         $currentUser = $this->getUser();
         $subusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
-        dump($subusers);
+//        dump($subusers);
         $currentUser = $this->getUser();
 
         return $this->render(
