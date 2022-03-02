@@ -24,12 +24,17 @@ class __TwigTemplate_bf30a4ba41f93082ee0c5940a7b0790f7d3f5d9a18591df5f750aea456a
 
         $this->source = $this->getSourceContext();
 
-        $this->parent = false;
-
         $this->blocks = [
             'title' => [$this, 'block_title'],
-            'body' => [$this, 'block_body'],
+            'navigation' => [$this, 'block_navigation'],
+            'content' => [$this, 'block_content'],
         ];
+    }
+
+    protected function doGetParent(array $context)
+    {
+        // line 1
+        return "admin/base.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -41,16 +46,8 @@ class __TwigTemplate_bf30a4ba41f93082ee0c5940a7b0790f7d3f5d9a18591df5f750aea456a
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "admin/subuser_crud/new.html.twig"));
 
-        // line 2
-        echo "
-";
-        // line 3
-        $this->displayBlock('title', $context, $blocks);
-        // line 4
-        echo "
-";
-        // line 5
-        $this->displayBlock('body', $context, $blocks);
+        $this->parent = $this->loadTemplate("admin/base.html.twig", "admin/subuser_crud/new.html.twig", 1);
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -78,29 +75,48 @@ class __TwigTemplate_bf30a4ba41f93082ee0c5940a7b0790f7d3f5d9a18591df5f750aea456a
 
     }
 
-    // line 5
-    public function block_body($context, array $blocks = [])
+    // line 4
+    public function block_navigation($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navigation"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navigation"));
 
-        // line 6
-        echo "    <h1>Create new Subuser</h1>
+        echo " ";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
-    ";
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 7
+    public function block_content($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
+
         // line 8
+        echo "        <h2>Create new Subuser</h2>
+        
+        ";
+        // line 10
         echo twig_include($this->env, $context, "admin/subuser_crud/_form.html.twig");
         echo "
 
-    <a href=\"";
-        // line 10
+        <a class=\"profileButton\" href=\"";
+        // line 12
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("subuser_crud_index");
-        echo "\">back to list</a>
-";
+        echo "\">wróć</a>
+    ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -114,24 +130,33 @@ class __TwigTemplate_bf30a4ba41f93082ee0c5940a7b0790f7d3f5d9a18591df5f750aea456a
         return "admin/subuser_crud/new.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  101 => 10,  96 => 8,  92 => 6,  82 => 5,  63 => 3,  53 => 5,  50 => 4,  48 => 3,  45 => 2,);
+        return array (  117 => 12,  112 => 10,  108 => 8,  98 => 7,  79 => 4,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{#{% extends 'base.html.twig' %}#}
+        return new Source("{% extends 'admin/base.html.twig' %}
 
 {% block title %}New Subuser{% endblock %}
+{% block navigation %} {% endblock %}
 
-{% block body %}
-    <h1>Create new Subuser</h1>
+{#{% block body%}#}
+    {% block content %}
+        <h2>Create new Subuser</h2>
+        
+        {{ include('admin/subuser_crud/_form.html.twig') }}
 
-    {{ include('admin/subuser_crud/_form.html.twig') }}
+        <a class=\"profileButton\" href=\"{{ path('subuser_crud_index') }}\">wróć</a>
+    {% endblock %}
+{#{% endblock %}#}
 
-    <a href=\"{{ path('subuser_crud_index') }}\">back to list</a>
-{% endblock %}
 ", "admin/subuser_crud/new.html.twig", "/var/www/symfony_docker/templates/admin/subuser_crud/new.html.twig");
     }
 }

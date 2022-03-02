@@ -27,7 +27,7 @@ class UserFixtures extends Fixture
         $admin->setPassword($this->passwordHasher->hashPassword($admin, 'admin'));
 
         $adminSub1 = new Subuser();
-        $adminSub1->setName('Default');
+        $adminSub1->setName('Domyślny');
         $adminSub1->setSubaccountOf($admin);
         $adminSub1->setAvatar('https://i.imgur.com/9nWtdiZ.png');
 
@@ -37,7 +37,7 @@ class UserFixtures extends Fixture
         $user->setPassword($this->passwordHasher->hashPassword($user, 'user'));
 
         $userSub1 = new Subuser();
-        $userSub1->setName('Default');
+        $userSub1->setName('Domyślny');
         $userSub1->setSubaccountOf($user);
         $userSub1->setAvatar('https://i.imgur.com/9nWtdiZ.png');
 

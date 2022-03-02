@@ -97,12 +97,15 @@ class __TwigTemplate_a3c5c4ab9aa16b633be382cb914ea885a312f8840e58b5e7f471e87b7c0
         $this->displayParentBlock("stylesheets", $context, $blocks);
         echo "
     <style>
+        body{
+            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
+        }
         .error_wrapper{
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100%;
+            height: 92%;
         }
         .error_image{
             width: 400px;
@@ -117,7 +120,7 @@ class __TwigTemplate_a3c5c4ab9aa16b633be382cb914ea885a312f8840e58b5e7f471e87b7c0
 
     }
 
-    // line 26
+    // line 29
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -127,20 +130,40 @@ class __TwigTemplate_a3c5c4ab9aa16b633be382cb914ea885a312f8840e58b5e7f471e87b7c0
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 27
+        // line 30
         echo "<body>
 <div class=\"error_wrapper\">
-    <h1>";
-        // line 29
-        echo twig_escape_filter($this->env, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 29, $this->source); })()), "html", null, true);
-        echo "</h1>
-        <img class=\"error_image\" src=\"";
-        // line 30
+    ";
+        // line 32
+        if (array_key_exists("error", $context)) {
+            // line 33
+            echo "        <h1>";
+            echo twig_escape_filter($this->env, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 33, $this->source); })()), "html", null, true);
+            echo "</h1>
+        ";
+        } else {
+            // line 35
+            echo "        <h1> 520: Nieznany błąd.</h1>
+    ";
+        }
+        // line 37
+        echo "        <img class=\"error_image\" src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/error.png"), "html", null, true);
         echo "\" alt=\"404\"/>
-        <div id=\"buttonDiv\">
+
+    ";
+        // line 39
+        $context["referer"] = ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["app"] ?? null), "request", [], "any", false, true, false, 39), "server", [], "any", false, true, false, 39), "get", [0 => "http-referer"], "method", true, true, false, 39)) ? (_twig_default_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["app"] ?? null), "request", [], "any", false, true, false, 39), "server", [], "any", false, true, false, 39), "get", [0 => "http-referer"], "method", false, false, false, 39), "/")) : ("/"));
+        // line 40
+        echo "    <input type=\"hidden\" name=\"_target_path\" value=\"";
+        echo twig_escape_filter($this->env, (isset($context["referer"]) || array_key_exists("referer", $context) ? $context["referer"] : (function () { throw new RuntimeError('Variable "referer" does not exist.', 40, $this->source); })()), "html", null, true);
+        echo "\" />
+    <div id=\"buttonDiv\">
             <a>
-                <a class=\"profileButton\" href=\"/chooseUser\">Spróbuj ponownie</a>
+                <a class=\"profileButton\" href=\"";
+        // line 43
+        echo twig_escape_filter($this->env, (isset($context["referer"]) || array_key_exists("referer", $context) ? $context["referer"] : (function () { throw new RuntimeError('Variable "referer" does not exist.', 43, $this->source); })()), "html", null, true);
+        echo "\">Spróbuj ponownie</a>
             </a>
         </div>
     </div>
@@ -167,7 +190,7 @@ class __TwigTemplate_a3c5c4ab9aa16b633be382cb914ea885a312f8840e58b5e7f471e87b7c0
 
     public function getDebugInfo()
     {
-        return array (  139 => 30,  135 => 29,  131 => 27,  121 => 26,  96 => 11,  86 => 10,  70 => 3,  60 => 2,  37 => 1,);
+        return array (  165 => 43,  158 => 40,  156 => 39,  150 => 37,  146 => 35,  140 => 33,  138 => 32,  134 => 30,  124 => 29,  96 => 11,  86 => 10,  70 => 3,  60 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -184,12 +207,15 @@ class __TwigTemplate_a3c5c4ab9aa16b633be382cb914ea885a312f8840e58b5e7f471e87b7c0
 {% block stylesheets %}
     {{ parent() }}
     <style>
+        body{
+            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
+        }
         .error_wrapper{
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100%;
+            height: 92%;
         }
         .error_image{
             width: 400px;
@@ -200,11 +226,18 @@ class __TwigTemplate_a3c5c4ab9aa16b633be382cb914ea885a312f8840e58b5e7f471e87b7c0
 {% block body %}
 <body>
 <div class=\"error_wrapper\">
-    <h1>{{ error }}</h1>
+    {% if error is defined %}
+        <h1>{{ error }}</h1>
+        {% else %}
+        <h1> 520: Nieznany błąd.</h1>
+    {% endif %}
         <img class=\"error_image\" src=\"{{ asset('images/error.png') }}\" alt=\"404\"/>
-        <div id=\"buttonDiv\">
+
+    {% set referer = app.request.server.get('http-referer')|default('/') %}
+    <input type=\"hidden\" name=\"_target_path\" value=\"{{ referer }}\" />
+    <div id=\"buttonDiv\">
             <a>
-                <a class=\"profileButton\" href=\"/chooseUser\">Spróbuj ponownie</a>
+                <a class=\"profileButton\" href=\"{{ referer }}\">Spróbuj ponownie</a>
             </a>
         </div>
     </div>

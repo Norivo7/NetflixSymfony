@@ -25,10 +25,7 @@ class __TwigTemplate_9cc2d5a590c8b274972519d457ccf470b5ac39b9796f2cedc12473ea442
         $this->source = $this->getSourceContext();
 
         $this->blocks = [
-            'stylesheets' => [$this, 'block_stylesheets'],
             'body' => [$this, 'block_body'],
-            'logo' => [$this, 'block_logo'],
-            'navigation' => [$this, 'block_navigation'],
         ];
     }
 
@@ -57,30 +54,7 @@ class __TwigTemplate_9cc2d5a590c8b274972519d457ccf470b5ac39b9796f2cedc12473ea442
 
     }
 
-    // line 3
-    public function block_stylesheets($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
-
-        // line 4
-        echo "        ";
-        $this->displayParentBlock("stylesheets", $context, $blocks);
-        echo "
-    ";
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-    }
-
-    // line 7
+    // line 5
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -90,93 +64,60 @@ class __TwigTemplate_9cc2d5a590c8b274972519d457ccf470b5ac39b9796f2cedc12473ea442
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 8
+        // line 6
         echo "
-    ";
-        // line 9
-        $this->displayBlock('logo', $context, $blocks);
-        // line 12
-        echo "
-    ";
-        // line 13
-        $this->displayBlock('navigation', $context, $blocks);
-        // line 16
-        echo "
-        <section class=\"main-container\">
+<body>
+    <section class=\"main-container\">
         <div class=\"location\" id=\"home\">
-            <h1 id=\"home\" class=\"title-home\"></h1>
             <div class=\"box\">
                 ";
-        // line 21
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["movies"]) || array_key_exists("movies", $context) ? $context["movies"] : (function () { throw new RuntimeError('Variable "movies" does not exist.', 21, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["movie"]) {
+        // line 11
+        if (array_key_exists("movies", $context)) {
+            // line 12
+            echo "
+                    ";
+            // line 13
+            if (twig_test_empty((isset($context["movies"]) || array_key_exists("movies", $context) ? $context["movies"] : (function () { throw new RuntimeError('Variable "movies" does not exist.', 13, $this->source); })()))) {
+                // line 14
+                echo "                        Nie znaleziono wyniku wyszukiwania.
+                    ";
+            }
+            // line 16
+            echo "
+                    ";
+            // line 17
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["movies"]) || array_key_exists("movies", $context) ? $context["movies"] : (function () { throw new RuntimeError('Variable "movies" does not exist.', 17, $this->source); })()));
+            foreach ($context['_seq'] as $context["_key"] => $context["movie"]) {
+                // line 18
+                echo "                        <a href=\"/show/";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 18), "html", null, true);
+                echo "\"><img src=\"";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 18), "html", null, true);
+                echo "\" alt=\"";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 18), "html", null, true);
+                echo " jacket\"></a>
+                    ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movie'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 20
+            echo "
+                ";
+        } else {
             // line 22
-            echo "                    <a href=\"/show/";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 22), "html", null, true);
-            echo "\"><img src=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 22), "html", null, true);
-            echo "\" alt=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 22), "html", null, true);
-            echo " jacket\"></a>
+            echo "
+                    Nie znaleziono filmów dla tej kategorii.
                 ";
         }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movie'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 24
+        // line 25
         echo "            </div>
         </div>
     </section>
-     <body></body>
+</body>
 
 ";
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-    }
-
-    // line 9
-    public function block_logo($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "logo"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "logo"));
-
-        // line 10
-        echo "        ";
-        $this->displayParentBlock("logo", $context, $blocks);
-        echo "
-    ";
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-    }
-
-    // line 13
-    public function block_navigation($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navigation"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navigation"));
-
-        // line 14
-        echo "        ";
-        $this->displayParentBlock("navigation", $context, $blocks);
-        echo "
-    ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -197,38 +138,39 @@ class __TwigTemplate_9cc2d5a590c8b274972519d457ccf470b5ac39b9796f2cedc12473ea442
 
     public function getDebugInfo()
     {
-        return array (  176 => 14,  166 => 13,  153 => 10,  143 => 9,  128 => 24,  115 => 22,  111 => 21,  104 => 16,  102 => 13,  99 => 12,  97 => 9,  94 => 8,  84 => 7,  71 => 4,  61 => 3,  38 => 1,);
+        return array (  115 => 25,  110 => 22,  106 => 20,  93 => 18,  89 => 17,  86 => 16,  82 => 14,  80 => 13,  77 => 12,  75 => 11,  68 => 6,  58 => 5,  35 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'movies/index.html.twig' %}
 
-    {% block stylesheets %}
-        {{ parent() }}
-    {% endblock %}
+
 
  {% block body %}
 
-    {% block logo %}
-        {{ parent() }}
-    {% endblock %}
-
-    {% block navigation %}
-        {{ parent() }}
-    {% endblock %}
-
-        <section class=\"main-container\">
+<body>
+    <section class=\"main-container\">
         <div class=\"location\" id=\"home\">
-            <h1 id=\"home\" class=\"title-home\"></h1>
             <div class=\"box\">
-                {% for movie in movies %}
-                    <a href=\"/show/{{movie.id}}\"><img src=\"{{movie.img}}\" alt=\"{{movie.title}} jacket\"></a>
-                {% endfor %}
+                {% if movies is defined %}
+
+                    {% if movies is empty %}
+                        Nie znaleziono wyniku wyszukiwania.
+                    {% endif %}
+
+                    {% for movie in movies %}
+                        <a href=\"/show/{{movie.id}}\"><img src=\"{{movie.img}}\" alt=\"{{movie.title}} jacket\"></a>
+                    {% endfor %}
+
+                {% else %}
+
+                    Nie znaleziono filmów dla tej kategorii.
+                {% endif %}
             </div>
         </div>
     </section>
-     <body></body>
+</body>
 
 {% endblock %}", "movies/list.html.twig", "/var/www/symfony_docker/templates/movies/list.html.twig");
     }

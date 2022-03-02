@@ -1,0 +1,3 @@
+<?php //App%255CController%255CExceptionController
+
+return [PHP_INT_MAX, []];

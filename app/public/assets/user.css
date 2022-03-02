@@ -1,8 +1,12 @@
+@font-face {
+    font-family: 'Netflix Sans Regular';
+}
 html {
     margin-left: -8px;
+    font-family: 'Netflix Sans Regular', "Helvetica Neue", "Helvetica", Arial, sans-serif;
 }
 body{
-
+    font-family: 'Netflix Sans Regular', "Helvetica Neue", "Helvetica", Arial, sans-serif;
     background-color: #141414;
 }
 .main {
@@ -15,6 +19,7 @@ body{
     /*width: 100%;*/
 }
 h1 {
+    font-family: 'Netflix Sans Regular', "Helvetica Neue", "Helvetica", Arial, sans-serif;
     color: white;
     text-align: center;
 }

@@ -46,6 +46,7 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
 
         // line 1
         echo "<head>
+    <script src=\"https://unpkg.com/@popperjs/core@2/dist/umd/popper.js\"></script>
     <link rel=\"stylesheet\"
           href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css\">
     <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\"
@@ -53,14 +54,14 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
           integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
           crossorigin=\"anonymous\">
     <title>";
-        // line 8
+        // line 9
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
 </head>
 ";
-        // line 10
+        // line 11
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 134
+        // line 160
         $this->displayBlock('body', $context, $blocks);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -70,7 +71,7 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
 
     }
 
-    // line 8
+    // line 9
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -89,7 +90,7 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
 
     }
 
-    // line 10
+    // line 11
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -99,7 +100,7 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 11
+        // line 12
         echo "    <style>
         body{
             color: white;
@@ -200,10 +201,35 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
             padding: 5em 1.5em;
             letter-spacing: 2px;
             cursor: pointer;
-            background-color: transparent;
+            /*background-color: transparent;*/
             border-radius: 20px;
             border: 1px solid grey;
             text-decoration: none;
+            position: relative;
+            /*box-shadow: 5px 2px 2px gray;*/
+            background-color: #7f5a83;
+            background-image: linear-gradient(315deg, black 0%, #141414 74%);
+
+        }
+        .adminOption:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: rgba(255,255,255,0.4);
+            -webkit-transition: none;
+            -moz-transition: none;
+            transition: none;
+            border-radius: 19px;
+        }
+        .adminOption:hover:after {
+            width: 100%;
+            background-color: rgba(255,255,255,0);
+            -webkit-transition: all 0.4s ease-in-out;
+            -moz-transition: all 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out;
         }
         a {
             text-decoration: none;
@@ -231,7 +257,7 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
 
     }
 
-    // line 134
+    // line 160
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -241,13 +267,13 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 135
+        // line 161
         echo "    <body>
         <div id=\"headerContainer\">
             <div class=\"brandLogoWrapper\">
                 <a class=\"logo\" href=\"/\" target=\"_parent\">
                     <img class=\"logo\" src=\"";
-        // line 139
+        // line 165
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/netflixLogo.svg.png"), "html", null, true);
         echo "\" alt=\"av1\"/>
                 </a>
@@ -255,14 +281,14 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
             <h1>Panel Administratora</h1>
         </div>
        ";
-        // line 144
+        // line 170
         $this->displayBlock('navigation', $context, $blocks);
-        // line 166
+        // line 192
         echo "            <div class=\"main\">
                 ";
-        // line 167
+        // line 193
         $this->displayBlock('content', $context, $blocks);
-        // line 170
+        // line 196
         echo "            </div>
 
     </body>
@@ -276,7 +302,7 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
 
     }
 
-    // line 144
+    // line 170
     public function block_navigation($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -286,7 +312,7 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navigation"));
 
-        // line 145
+        // line 171
         echo "
            <div class=\"wrapper\">
                <a href=\"admin/subuser\">
@@ -316,7 +342,7 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
 
     }
 
-    // line 167
+    // line 193
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -326,9 +352,9 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
 
-        // line 168
+        // line 194
         echo "                    ";
-        // line 169
+        // line 195
         echo "                ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -345,12 +371,13 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
 
     public function getDebugInfo()
     {
-        return array (  332 => 169,  330 => 168,  320 => 167,  290 => 145,  280 => 144,  266 => 170,  264 => 167,  261 => 166,  259 => 144,  251 => 139,  245 => 135,  235 => 134,  103 => 11,  93 => 10,  74 => 8,  64 => 134,  62 => 10,  57 => 8,  48 => 1,);
+        return array (  358 => 195,  356 => 194,  346 => 193,  316 => 171,  306 => 170,  292 => 196,  290 => 193,  287 => 192,  285 => 170,  277 => 165,  271 => 161,  261 => 160,  104 => 12,  94 => 11,  75 => 9,  65 => 160,  63 => 11,  58 => 9,  48 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("<head>
+    <script src=\"https://unpkg.com/@popperjs/core@2/dist/umd/popper.js\"></script>
     <link rel=\"stylesheet\"
           href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css\">
     <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\"
@@ -460,10 +487,35 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
             padding: 5em 1.5em;
             letter-spacing: 2px;
             cursor: pointer;
-            background-color: transparent;
+            /*background-color: transparent;*/
             border-radius: 20px;
             border: 1px solid grey;
             text-decoration: none;
+            position: relative;
+            /*box-shadow: 5px 2px 2px gray;*/
+            background-color: #7f5a83;
+            background-image: linear-gradient(315deg, black 0%, #141414 74%);
+
+        }
+        .adminOption:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: rgba(255,255,255,0.4);
+            -webkit-transition: none;
+            -moz-transition: none;
+            transition: none;
+            border-radius: 19px;
+        }
+        .adminOption:hover:after {
+            width: 100%;
+            background-color: rgba(255,255,255,0);
+            -webkit-transition: all 0.4s ease-in-out;
+            -moz-transition: all 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out;
         }
         a {
             text-decoration: none;

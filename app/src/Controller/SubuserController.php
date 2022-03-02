@@ -11,6 +11,7 @@ use App\Repository\SubuserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 
 class SubuserController extends AbstractController
@@ -29,30 +30,13 @@ class SubuserController extends AbstractController
      */
     public function chooseUser(Request $request): Response
     {
-//        $session = $this->get('session');
-//        $session->set('subuser_name', 'Default');
-//        dump($session);
-//        $currentUser = $this->getUser();
-//        dump($currentUser);
-//        $currentUser->getUserIdentifier();
-//        dump($currentUser);
-//
-//        $subuser = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
-//        dump($subuser);
-//        $request->get('subuser_name');
         $currentUser = $this->getUser();
         if($request->getMethod() == 'POST') {
-//            $subuser_name = $request->request->get('subuser_name');
-//            $avatar = $request->request->get('avatar');
             $id = $request->request->get('id');
-            return $this->redirectToRoute('browse', [
-//                    'subuser_name' => $subuser_name,
-//                    'avatar' => $avatar,
+            return $this->redirectToRoute('success', [
                     'id' => $id,
                 ]
             );
-//            dump($subuser_name);
-//            dump($avatar);
         }
 
         return $this->render(
@@ -60,6 +44,29 @@ class SubuserController extends AbstractController
                 'subUsers' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
             ]
         );
+    }
+
+    /**
+     * @Route("/success", name="success")
+     * @param Request $request
+     * @return Response
+     */
+    public function success(Request $request): Response
+    {
+
+        $currentUserId = $this->getUser()->getId();
+        $subuserId = $request->get('id');
+        $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUserId));
+        $subuserCount = count($allSubusers);
+
+        $currentSubuserId = $allSubusers[$subuserId]->getId();
+        dump($currentSubuserId);
+        $session = $this->get('session');
+        $session->set('filter', array(
+            'subuserId' => $currentSubuserId
+        ));
+
+        return $this->redirectToRoute('browse');
     }
 
 

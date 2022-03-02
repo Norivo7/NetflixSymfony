@@ -17,8 +17,14 @@ class AdminController extends AbstractController
     public function index(): Response
     {
 
+        $user = $this->getUser()->getRoles();
+            if (in_array("ROLE_ADMIN", $user)) {
         return $this->render('admin/base.html.twig');
-
+        } else {
+            return $this->render('error/error.html.twig',[
+                'error' => "403: Brak dostępu."
+            ]);
+        }
     }
 
 

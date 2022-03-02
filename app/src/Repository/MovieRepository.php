@@ -35,13 +35,13 @@ class MovieRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-        public function getLikedMoviesByCurrentUser()
-    {
-        return $this->createQueryBuilder('movie')
-            ->andWhere('movie.likes like 1')
-            ->getQuery()
-            ->getResult();
-    }
+//        public function getLikedMoviesByCurrentUser()
+//    {
+//        return $this->createQueryBuilder('movie')
+//            ->andWhere('movie.likes like 1')
+//            ->getQuery()
+//            ->getResult();
+//    }
 
 
     public function recentlyAdd()
