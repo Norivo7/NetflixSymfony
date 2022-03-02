@@ -48,83 +48,38 @@ class MoviesController extends AbstractController
     public function index(Request $request): Response
     {
 
-//        session_start();
-//    $_SESSION['subuser_name'] =$_GET['subuser_name'];
-//
-//        dump($this->$request->getSession()->set('subuser_name', '$value'));
-//        $session = $this->get('session');
-//        $session->set('filter', array(
-//            'subuser_name' => sub
-////        ))
-//        $subusername = $request->get('subuser_name');
-//        dump($subusername);
-
-
-
-
-//        dump($currentUserId);
-
-
-//        dump($allSubusers);
-
-
-
-
-//        $currentSubuser= $this->subuserRepository->findSubuserById($subuserId, $currentUserId);
-//        dump($currentSubuser);
-
-
-//
-//        $session = new Session();
-//        dump($session);
-//        $subuser = $session->get('filter');
-//        $subuserSessionId = reset($subuser);
-//        dump($subuserSessionId);
-
         $currentUserId = $this->getUser()->getId();
-        $subuserId = $request->get('id');
+        $subuserFrontId = $request->get('id');
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUserId));
         $subuserCount = count($allSubusers);
 
         // TODO: TESTOWAŃSKO
-//        dump('ID subusera z frontu: '.$subuserId);
-//        dump('Ilość subuserów: '.$subuserCount);
-//        $secondElement = $allSubusers[$subuserId][0];
+//        dump('ID subusera z frontu: '.$subuserFrontId);//  $subuserId to wiadomość z fronta od użytkownika (od 0 do 4)
+//        dump('Ilość subuserów: '.$subuserCount); // $subuserCount to liczba subuserów w systemie ( max 5 )
 
-
-        //  $subuserId to wiadomość z fronta od użytkownika (od 0 do 4)
-        //  $subuserCount to liczba subuserów w systemie ( max 5 )
-
-        // TODO: Strona z redirectem zapisująca dane o aktualnym subaccouncie np ./success (persist) => /browse
-
-
-
-
-
-//                // jeżeli dane z frontu zgadzają się, zapisz do sesji
-//        if ($subuserId < $subuserCount && isset($subuserId)){
-//                //render
-            $session = new Session();
-////            $session->start();
-//            dump($session);
-            $subuser = $session->get('filter');
+        $session = new Session();
+        $subuser = $session->get('filter');
+        if ($subuser != null){
             $subuserId = reset($subuser);
+        }
+
+        if ($subuserId != null && $subuserFrontId < $subuserCount) {
+//            dump("ID subusera: ".$subuserId);
+            return $this->render('movies/index.html.twig', [
+                'controller_name' => 'MovieController',
+                'popular' => $this->repo->popularFilter(),
+                'movies' => $this->repo->getMoviesByCategory('Filmy'),
+                'originals' => $this->repo->getMoviesByCategory('Eksluzywne'),
+                'shows' => $this->repo->getMoviesByCategory('Seriale')
+            ]);
+        } else{
 //            dump($subuserId);
-//
-//        } else {
-//            $errorMessage= "404: Nie znaleziono użytkownika.";
-////            dump($errorMessage);
-//            return $this->render('/error/error.html.twig', [
-//                'error' => $errorMessage,
-//            ]);
-//        }
-        return $this->render('movies/index.html.twig', [
-            'controller_name' => 'MovieController',
-            'popular' => $this->repo->popularFilter(),
-            'movies' => $this->repo->getMoviesByCategory('Filmy'),
-            'originals' => $this->repo->getMoviesByCategory('Eksluzywne'),
-            'shows' => $this->repo->getMoviesByCategory('Seriale')
-        ]);
+//            dump($subuserFrontId);
+            $errorMessage= "404: Nie znaleziono użytkownika.";
+            return $this->render('/error/error.html.twig', [
+                'error' => $errorMessage,
+            ]);
+        }
     }
 
 
@@ -146,26 +101,6 @@ class MoviesController extends AbstractController
             ['movies' => $this->repo->getMoviesByCategory('Seriale'),]
         );
     }
-
-
-
-    /**
-     * @Route("/manageUser", name="manageUser")
-     * @return Response
-     */
-    public function manageUser(): Response
-    {
-        $currentUser = $this->getUser();
-
-        return $this->render(
-            'user/manage.html.twig', [
-                'subUsers' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
-            ]
-        );
-    }
-
-
-
 
     /**
      * @Route("/profile", name="profile")

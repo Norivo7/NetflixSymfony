@@ -8,6 +8,7 @@ use App\Form\SubuserType;
 use App\Repository\CategoryRepository;
 use App\Repository\MovieRepository;
 use App\Repository\SubuserRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,6 +24,55 @@ class SubuserController extends AbstractController
         $this->subuserRepository = $subuserRepository;
     }
 
+
+    /**
+     * @Route ("/manageUser/edit/{id}")
+     * @param ManagerRegistry $doctrine
+     * @param int $id
+     * @return Response
+     */
+    public function update(ManagerRegistry $doctrine, int $id): Response
+    {
+        $currentUser = $this->getUser();
+        $entityManager= $this->getDoctrine()->getManager();
+        $subusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser, 'id' => $id));
+        $subusers = reset($subusers);
+        if(!$subusers){
+            return $this->redirectToRoute('error', [
+                'error' => '404: Nie znaleziono profilu.'
+            ]);
+//            throw $this->createNotFoundException(
+//                'No subuser found for id '.$id
+//            );
+        } else{
+        $subusers->setName('sdssa');
+        $entityManager->persist($subusers);
+
+
+        $entityManager->flush();
+        return $this->redirectToRoute('manageUser', [
+            'id' => $subusers->getId(),
+            'subUsers' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
+        ]);
+    }}
+
+    /**
+     * @Route("/manageUser", name="manageUser")
+     * @return Response
+     */
+    public function manageUser(): Response
+    {
+        $currentUser = $this->getUser();
+        $subusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
+        dump($subusers);
+        $currentUser = $this->getUser();
+
+        return $this->render(
+            'user/manage.html.twig', [
+                'subUsers' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
+            ]
+        );
+    }
     /**
      * @Route("/chooseUser", name="chooseUser")
      * @param Request $request
@@ -57,16 +107,15 @@ class SubuserController extends AbstractController
         $currentUserId = $this->getUser()->getId();
         $subuserId = $request->get('id');
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUserId));
-        $subuserCount = count($allSubusers);
-
         $currentSubuserId = $allSubusers[$subuserId]->getId();
-        dump($currentSubuserId);
         $session = $this->get('session');
         $session->set('filter', array(
             'subuserId' => $currentSubuserId
         ));
 
-        return $this->redirectToRoute('browse');
+        return $this->redirectToRoute('browse', [
+            'id'=>$subuserId
+        ]);
     }
 
 

@@ -5033,6 +5033,12 @@
         <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
       </argument>
     </service>
+    <service id=".service_locator.T7xmfzk" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="doctrine" type="service_closure" id="doctrine"/>
+      </argument>
+    </service>
     <service id=".service_locator.pPsXs3m" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5058,13 +5064,14 @@
         <argument key="subuser" type="service_closure" id=".errored..service_locator.EVwVc65.App\Entity\Subuser"/>
       </argument>
     </service>
-    <service id=".service_locator.I9oAbIx" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.xks48hn" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\MoviesController::search" type="service_closure" id=".service_locator.eWsEuD9"/>
         <argument key="App\Controller\MoviesController::show" type="service_closure" id=".service_locator.V5oNiHc"/>
         <argument key="App\Controller\RegistrationController::register" type="service_closure" id=".service_locator.pwZ6MTM"/>
         <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.UDgw6Ol"/>
+        <argument key="App\Controller\SubuserController::update" type="service_closure" id=".service_locator.T7xmfzk"/>
         <argument key="App\Controller\SubuserCrudController::delete" type="service_closure" id=".service_locator.EVwVc65"/>
         <argument key="App\Controller\SubuserCrudController::edit" type="service_closure" id=".service_locator.EVwVc65"/>
         <argument key="App\Controller\SubuserCrudController::index" type="service_closure" id=".service_locator.pPsXs3m"/>
@@ -5080,6 +5087,7 @@
         <argument key="App\Controller\MoviesController:show" type="service_closure" id=".service_locator.V5oNiHc"/>
         <argument key="App\Controller\RegistrationController:register" type="service_closure" id=".service_locator.pwZ6MTM"/>
         <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.UDgw6Ol"/>
+        <argument key="App\Controller\SubuserController:update" type="service_closure" id=".service_locator.T7xmfzk"/>
         <argument key="App\Controller\SubuserCrudController:delete" type="service_closure" id=".service_locator.EVwVc65"/>
         <argument key="App\Controller\SubuserCrudController:edit" type="service_closure" id=".service_locator.EVwVc65"/>
         <argument key="App\Controller\SubuserCrudController:index" type="service_closure" id=".service_locator.pPsXs3m"/>
@@ -5411,12 +5419,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.I9oAbIx"/>
+      <argument type="service" id=".service_locator.xks48hn"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.I9oAbIx"/>
+      <argument type="service" id=".service_locator.xks48hn"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -6182,7 +6190,7 @@
     <service id="SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface" alias="symfonycasts.verify_email.helper"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.0GV1BZZ" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.I9oAbIx"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.xks48hn"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -6213,6 +6221,7 @@
     <service id=".service_locator.LSFio2W" alias=".service_locator.eWsEuD9"/>
     <service id=".service_locator.F2VpVm6" alias=".service_locator.pwZ6MTM"/>
     <service id=".service_locator.kXCVHeG" alias=".service_locator.UDgw6Ol"/>
+    <service id=".service_locator.T8.TLJR" alias=".service_locator.T7xmfzk"/>
     <service id=".service_locator.yhNPxgy" alias=".service_locator.pPsXs3m"/>
     <service id=".service_locator.Er0_7SX" alias=".service_locator.l2QwsaZ"/>
     <service id=".service_locator.Uelc4UP" alias=".service_locator.SWF0qEr"/>
