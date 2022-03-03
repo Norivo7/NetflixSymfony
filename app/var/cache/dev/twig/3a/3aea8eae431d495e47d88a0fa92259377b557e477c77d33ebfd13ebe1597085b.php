@@ -55,10 +55,10 @@ class __TwigTemplate_f4a2ab3fa7e7006af5eba86775638d484c6232a07b04995821f51e1ccbc
 ";
         // line 25
         $this->displayBlock('body', $context, $blocks);
-        // line 102
+        // line 97
         echo "
 ";
-        // line 103
+        // line 98
         $this->displayBlock('stylesheets', $context, $blocks);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -145,30 +145,94 @@ class __TwigTemplate_f4a2ab3fa7e7006af5eba86775638d484c6232a07b04995821f51e1ccbc
         echo "
     <div class=\"mainWrapper\">
 
-
-
-
-    <section class=\"layout1\">
-        <div>1</div>
-        <div>2</div>
-    </section>
-        <section class=\"layout2\">
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
-            <div>5</div>
-            <div>6</div>
-        </section>
-
-";
-        // line 92
-        echo "
-";
-        // line 98
-        echo "
-";
-        // line 100
+        <div class=\"parent\">
+            <div class=\"div1\"><p style=\"font-size: 26px\">Konto</p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style=\"font-size: 20px;color:red\" class=\"bi bi-person-video3\">&nbsp;&nbsp;</i>użytkownik od:
+            </div>
+            <div class=\"div2\"><hr><br>
+                <p class=\"gray\">Członkostwo i rozliczenia</p>
+                <button class=\"btnAccount\">Anuluj członkostwo</button>
+            </div>
+            <div class=\"div3\"><hr>
+                ";
+        // line 38
+        echo twig_escape_filter($this->env, (isset($context["email"]) || array_key_exists("email", $context) ? $context["email"] : (function () { throw new RuntimeError('Variable "email" does not exist.', 38, $this->source); })()), "html", null, true);
+        echo "<br>
+                hasło:<br>
+                telefon:s
+            </div>
+            <div class=\"div4\"><hr>
+                <a href=\"#\">Zmień adres e-mail</a><br>
+                <a href=\"#\">Zmień hasło</a><br>
+                <a href=\"#\">Zweryfikuj numer telefon</a><br>
+                <a href=\"#\">Zmień numer telefon</a>
+            </div>
+            <div class=\"div5\"><hr>
+                4124 1242 1242 12414<br>
+                Twoja kolejna data rozliczenia to:
+            </div>
+            <div class=\"div6\"><hr>
+                <a href=\"#\">Zarządzaj metodami płatności</a><br>
+                <a href=\"#\">Dodaj zapasową metodę płatności</a><br>
+                <a href=\"#\">Szczegóły rozliczenia</a><br>
+                <a href=\"#\">Zmień dzień rozliczenia</a>
+            </div>
+            <div class=\"div7\"><hr>
+                <a href=\"#\">Zrealizuj kartę podarunkową lub kod promocyjny</a><br>
+                <a href=\"#\">Gdzie kupić karty podarunkowe</a>
+            </div>
+            <div class=\"div8\"><hr>
+                <p class=\"gray\">Szczegóły</p>
+            </div>
+            <div class=\"div9\"><hr>
+                <p class=\"gray\">Standard</p>
+            </div>
+            <div class=\"div10\"><hr>
+                <a href=\"#\">Zmień plan</a>
+            </div>
+            <div class=\"div11\"><hr>
+                <p class=\"gray\">Profile i kontrola rodzicielska</p>
+            </div>
+            <div class=\"div12\"><hr>
+                ";
+        // line 75
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["profiles"]) || array_key_exists("profiles", $context) ? $context["profiles"] : (function () { throw new RuntimeError('Variable "profiles" does not exist.', 75, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["profile"]) {
+            // line 76
+            echo "                    <div class=\"row\">
+                      <img class=\"profile\" src=\"";
+            // line 77
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["profile"], "avatar", [], "any", false, false, false, 77), "html", null, true);
+            echo "\" alt=\"profile avatar\">
+                        ";
+            // line 78
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["profile"], "name", [], "any", false, false, false, 78), "html", null, true);
+            echo "
+                    </div>
+                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['profile'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 81
+        echo "            </div>
+            <div class=\"div13\"><hr>
+                <p class=\"gray\">Ustawienia</p>
+            </div>
+            <div class=\"div14\"><hr>
+                <a href=\"#\"> Udział w testach</a><br>
+                <a href=\"#\">Zarządzaj urządzeniami do pobierania</a><br>
+                <a href=\"#\">Aktywuj urządzenie</a><br>
+                <a href=\"#\">Urządzenia: ostatnia aktywność na koncie</a><br>
+                <a href=\"#\">Wyloguj się na wszystkich urządzeniach</a><br>
+                <a href=\"#\">Pobierz swoje dane osobowe</a>
+            </div>
+        </div>
+        ";
+        // line 94
+        $this->loadTemplate("user/profile.html.twig", "user/profile.html.twig", 94, "1266342504")->display($context);
+        // line 95
         echo "    </div>
 ";
         
@@ -179,7 +243,7 @@ class __TwigTemplate_f4a2ab3fa7e7006af5eba86775638d484c6232a07b04995821f51e1ccbc
 
     }
 
-    // line 103
+    // line 98
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -189,35 +253,113 @@ class __TwigTemplate_f4a2ab3fa7e7006af5eba86775638d484c6232a07b04995821f51e1ccbc
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 104
-        echo "    ";
-        // line 105
-        echo "    ";
-        // line 106
-        echo "
-    <style>
-        .layout1 {
-            width: 1920px;
-            height: 100px;
-            display: grid;
-            grid-template-rows: repeat(auto-fit, 1fr);
-            grid-template-columns: 25% 30% 25%;
-            gap: 8px;
-            justify-content: center;
-            justify-items: start;
+        // line 99
+        echo "    <style>
+        .gray {
+            color: #757575;
         }
-        .layout2 {
-            width: 1920px;
-            height: 6 80px;
+        .btnAccount{
+            font-size: 14px;
+            background-color: #e6e6e6;
+            border: none;
+            border-radius: 2px;
+            padding: 13px;
+            box-shadow: 0 1px 0 rgb(0 0 0 / 20%);
+            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
+        }
+        .parent {
+            margin: auto;
+            width: 70%;
+            height: 100%;
+            /*border: 4px solid red;*/
             display: grid;
-            grid-template-rows: repeat(auto-fit, 1fr);
-            grid-template-columns: 25% 30% 25%;
-            gap: 8px;
-            justify-content: center;
-            justify-items: start;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(11, 1fr);
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;
+        }
+        .div1 {
+           margin-top: 130px;
+            display: flex;
+            flex-direction: row;
+            height: 20%;
+            width: 100%;
+            /*border: 4px solid green;*/
+            grid-area: 1 / 1 / 2 / 9;
+        }
+        .div2 {
+
+            text-align: center;
+            grid-area: 2 / 1 / 5 / 3;
+        }
+        .div3 {
+            line-height: 2.2;
+            text-align: left;
+            grid-area: 2 / 3 / 3 / 6;
+        }
+        .div4 {
+            line-height: 2.2;
+            text-align: right;
+            grid-area: 2 / 6 / 3 / 9;
+        }
+        .div5 {
+            line-height: 2.2;
+            grid-area: 3 / 3 / 4 / 6;
+        }
+        .div6 {
+            line-height: 1.8;
+            text-align: right;
+            grid-area: 3 / 6 / 4 / 9;
+        }
+        .div7 {
+            line-height: 2.5;
+            text-align: right;
+            grid-area: 4 / 3 / 5 / 9;
+        }
+        .div8 {
+            grid-area: 5 / 1 / 6 / 3;
+        }
+        .div9 {
+            grid-area: 5 / 3 / 6 / 7;
+        }
+        .div10 {
+            text-align: right;
+            grid-area: 5 / 7 / 6 / 9;
+        }
+        .div11 {
+            grid-area: 6 / 1 / 9 / 3;
+        }
+        .div12 {
+
+            display: flex;
+            flex-direction: column;
+            grid-area: 6 / 3 / 9 / 9;
+            padding-bottom: 150px;
+        }
+        .profile {
+            width: 100px;
+            padding: 10px ;
+        }
+        .div13 {
+            margin-top: 250px;
+            text-align: left;
+            grid-area: 9 / 1 / 12 / 3;
+        }
+        .div14 {
+            margin-top: 250px;
+            line-height: 2.5;
+            text-align: left;
+            grid-area: 9 / 3 / 12 / 9;
+        }
+        .row{
+            flex-direction: row;
         }
         li{
+            list-style-type: none;
             color: black;
+        }
+        a {
+            color: #0a53be;
         }
         #headerContainer{
             display: flex;
@@ -234,17 +376,40 @@ class __TwigTemplate_f4a2ab3fa7e7006af5eba86775638d484c6232a07b04995821f51e1ccbc
         .logo {
             height: 100%;
         }
+        .userAvatar{
+            width:35px;
+            border-radius: 4px;
+        }
         .avatar{
             height: 20px;
-            padding: 17px;
+            margin-top: 15px;
+            margin-right: 20px;
             color: white;
             align-items: center;
             justify-content: center;
         }
+        /*a:link {*/
+        /*    color: #0a53be;*/
+        /*}*/
         a:hover {
             opacity: 0.8;
         }
+        a {
+            text-decoration: none;
+            color: #0a53be;
+        }
 
+        /*a:hover {*/
+        /*    color: red;*/
+        /*}*/
+
+        /*a:active {*/
+        /*    color: red;*/
+        /*}*/
+
+        /*a:visited {*/
+        /*    color: red;*/
+        /*}*/
         body {
             background-color: black;
             color: black;
@@ -253,98 +418,20 @@ class __TwigTemplate_f4a2ab3fa7e7006af5eba86775638d484c6232a07b04995821f51e1ccbc
             width: 100%;
             height: 2000px;
             background-color: #f3f3f3;
-        /*    text-align: center;*/
-        /*    justify-content: center;*/
-        /*    align-items: center;*/
         }
-
         hr {
-            border-bottom: 8px solid rgb(118, 118, 118);
-        }
-
-        h1 {
-
+            border-bottom: 2px solid rgb(118, 118, 118);
         }
         h2 {
             font-weight: 400;
             color: black;
             width: 10px;
         }
-        hr {
-            border-bottom: 8px solid rgb(118, 118, 118);
-        }
         h3 {
             padding-bottom: 20px;
             font-size: 1.2rem;
             color: #FFFFFF;
         }
-        .userAvatar{
-            width:35px;
-            border-radius: 4px;
-        }
-
-        /*.third {*/
-        /*    width: 33%;*/
-        /*}*/
-        /*.full-width{*/
-        /*    width: 80%;*/
-        /*}*/
-        /*.full-height{*/
-        /*    height: 100%;*/
-        /*}*/
-        /*.left {*/
-        /*    text-align: left;*/
-        /*    float: left;*/
-        /*}*/
-        /*.right{*/
-        /*    color: black;*/
-        /*    float: right;*/
-        /*    text-align: right;*/
-        /*}*/
-
-        /*.half{*/
-        /*    width: 50%;*/
-        /*}*/
-        /*.fill {*/
-        /*    height: 350px;*/
-        /*    margin: auto 0;*/
-        /*}*/
-        /*.credentials{*/
-        /*    width: 750px;*/
-        /*    height: 350px;*/
-        /*}*/
-        /*.deny {*/
-        /*    height: 350px;*/
-        /*    width: 250px;*/
-        /*}*/
-        /*.first {*/
-        /*    display: inline-block;*/
-        /*    text-align: center;*/
-        /*    font-size: 2rem;*/
-        /*    color: black;*/
-        /*    !*line-height: 1.1;*!*/
-        /*    !*font-weight: bold;*!*/
-        /*}*/
-        /*.accountContainer{*/
-        /*    !*flex-direction: column;*!border: 2px solid green;*/
-        /*    width:100%;*/
-        /*    display: flex;*/
-        /*    align-content: center;*/
-        /*    justify-content: center;*/
-        /*}*/
-        /*.row {*/
-        /*    flex-direction: row;*/
-        /*    border: 2px solid black;*/
-        /*}*/
-        /*.inlineblock{*/
-        /*    display: inline-block;*/
-        /*}*/
-
-        /*.column {*/
-        /*    flex-direction: column;*/
-        /*    border: 2px solid red;*/
-        /*}*/
-
 
     </style>
 ";
@@ -363,7 +450,7 @@ class __TwigTemplate_f4a2ab3fa7e7006af5eba86775638d484c6232a07b04995821f51e1ccbc
 
     public function getDebugInfo()
     {
-        return array (  197 => 106,  195 => 105,  193 => 104,  183 => 103,  172 => 100,  169 => 98,  166 => 92,  145 => 26,  135 => 25,  122 => 21,  115 => 17,  110 => 14,  100 => 13,  82 => 3,  72 => 2,  62 => 103,  59 => 102,  57 => 25,  54 => 24,  52 => 13,  49 => 12,  47 => 2,);
+        return array (  257 => 99,  247 => 98,  236 => 95,  234 => 94,  219 => 81,  210 => 78,  206 => 77,  203 => 76,  199 => 75,  159 => 38,  145 => 26,  135 => 25,  122 => 21,  115 => 17,  110 => 14,  100 => 13,  82 => 3,  72 => 2,  62 => 98,  59 => 97,  57 => 25,  54 => 24,  52 => 13,  49 => 12,  47 => 2,);
     }
 
     public function getSourceContext()
@@ -396,107 +483,182 @@ class __TwigTemplate_f4a2ab3fa7e7006af5eba86775638d484c6232a07b04995821f51e1ccbc
 
     <div class=\"mainWrapper\">
 
-
-
-
-    <section class=\"layout1\">
-        <div>1</div>
-        <div>2</div>
-    </section>
-        <section class=\"layout2\">
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
-            <div>5</div>
-            <div>6</div>
-        </section>
-
-{#        <div>#}
-{#            <div class=\"row inlineblock left\">#}
-{#                <h1>Konto</h1>#}
-{#            </div>#}
-{#            <div class=\"row inlineblock left full-width\">#}
-{#                <p>Użytkownik od</p>#}
-{#            </div>#}
-{#        </div>#}
-{#        <div class=\"accountContainer\">#}
-{#            <hr>#}
-{#            <div class=\"row fill\">#}
-{#                <div class=\"column left deny\">#}
-{#                    Członkostwo i rozliczenia#}
-{#                    <button>Anuluj członkostwo</button>#}
-{#                </div>#}
-{#                <div class=\"column credentials\">#}
-{#                    <div class=\"row fill\">#}
-{#                        <div class=\"left half\">#}
-{#                            <li>email</li>#}
-{#                            <li>hasło:</li>#}
-{#                            <li>telefon:</li>#}
-{#                        </div>#}
-{#                         <div class=\"right half\">#}
-{#                             <li><a>Zmień adres e-mail</a></li>#}
-{#                             <li><a>Zmień hasło</a></li>#}
-{#                             <li><a>Zweryfikuj numer telefon</a></li>#}
-{#                             <li> <a>Zmień numer telefon</a></li>#}
-{#                         </div>#}
-{#                        <hr>#}
-{#                        <div class=\"left half\">#}
-{#                            <li>4124 1242 1242 12414</li>#}
-{#                            <li>Twoja kolejna data rozliczenia to: </li>#}
-{#                        </div>#}
-{#                        <div class=\"right half\">#}
-{#                            <li><a>Zarządzaj metodami płatności</a></li>#}
-{#                            <li><a>Dodaj zapasową metodę płatności</a></li>#}
-{#                            <li><a>Szczegóły rozliczenia</a></li>#}
-{#                            <li><a>Zmień dzień rozliczenia</a></li>#}
-{#                        </div>#}
-{#                        <hr>#}
-{#                        <div class=\"right full-width\">#}
-{#                            <li><a>Zrealizuj kartę podarunkową lub kod promocyjny</a></li>#}
-{#                            <li><a>Gdzie kupić karty podarunkowe</a></li>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class=\"accountContainer row credentials\" style=\"margin:0 auto;height: 70px;width: 750px;\">#}
-
-{#                        <div class=\"left third\">Szczegóły planu</div>#}
-{#                        <div class=\"third\"> Standard </div>#}
-{#                        <div class=\"right third\"><a>Zmień plan</a></div>#}
-{#                </div>#}
-{#            </div>#}
-
-{#        </div>#}
+        <div class=\"parent\">
+            <div class=\"div1\"><p style=\"font-size: 26px\">Konto</p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style=\"font-size: 20px;color:red\" class=\"bi bi-person-video3\">&nbsp;&nbsp;</i>użytkownik od:
+            </div>
+            <div class=\"div2\"><hr><br>
+                <p class=\"gray\">Członkostwo i rozliczenia</p>
+                <button class=\"btnAccount\">Anuluj członkostwo</button>
+            </div>
+            <div class=\"div3\"><hr>
+                {{ email }}<br>
+                hasło:<br>
+                telefon:s
+            </div>
+            <div class=\"div4\"><hr>
+                <a href=\"#\">Zmień adres e-mail</a><br>
+                <a href=\"#\">Zmień hasło</a><br>
+                <a href=\"#\">Zweryfikuj numer telefon</a><br>
+                <a href=\"#\">Zmień numer telefon</a>
+            </div>
+            <div class=\"div5\"><hr>
+                4124 1242 1242 12414<br>
+                Twoja kolejna data rozliczenia to:
+            </div>
+            <div class=\"div6\"><hr>
+                <a href=\"#\">Zarządzaj metodami płatności</a><br>
+                <a href=\"#\">Dodaj zapasową metodę płatności</a><br>
+                <a href=\"#\">Szczegóły rozliczenia</a><br>
+                <a href=\"#\">Zmień dzień rozliczenia</a>
+            </div>
+            <div class=\"div7\"><hr>
+                <a href=\"#\">Zrealizuj kartę podarunkową lub kod promocyjny</a><br>
+                <a href=\"#\">Gdzie kupić karty podarunkowe</a>
+            </div>
+            <div class=\"div8\"><hr>
+                <p class=\"gray\">Szczegóły</p>
+            </div>
+            <div class=\"div9\"><hr>
+                <p class=\"gray\">Standard</p>
+            </div>
+            <div class=\"div10\"><hr>
+                <a href=\"#\">Zmień plan</a>
+            </div>
+            <div class=\"div11\"><hr>
+                <p class=\"gray\">Profile i kontrola rodzicielska</p>
+            </div>
+            <div class=\"div12\"><hr>
+                {% for profile in profiles %}
+                    <div class=\"row\">
+                      <img class=\"profile\" src=\"{{ profile.avatar }}\" alt=\"profile avatar\">
+                        {{ profile.name }}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class=\"div13\"><hr>
+                <p class=\"gray\">Ustawienia</p>
+            </div>
+            <div class=\"div14\"><hr>
+                <a href=\"#\"> Udział w testach</a><br>
+                <a href=\"#\">Zarządzaj urządzeniami do pobierania</a><br>
+                <a href=\"#\">Aktywuj urządzenie</a><br>
+                <a href=\"#\">Urządzenia: ostatnia aktywność na koncie</a><br>
+                <a href=\"#\">Wyloguj się na wszystkich urządzeniach</a><br>
+                <a href=\"#\">Pobierz swoje dane osobowe</a>
+            </div>
+        </div>
+        {% embed 'reusable/footer.html.twig' %} {% endembed %}
     </div>
 {% endblock %}
 
 {% block stylesheets %}
-    {#    {{ parent() }}#}
-    {#    <link rel=\"stylesheet\" href=\"assets/user.css\">#}
-
     <style>
-        .layout1 {
-            width: 1920px;
-            height: 100px;
-            display: grid;
-            grid-template-rows: repeat(auto-fit, 1fr);
-            grid-template-columns: 25% 30% 25%;
-            gap: 8px;
-            justify-content: center;
-            justify-items: start;
+        .gray {
+            color: #757575;
         }
-        .layout2 {
-            width: 1920px;
-            height: 6 80px;
+        .btnAccount{
+            font-size: 14px;
+            background-color: #e6e6e6;
+            border: none;
+            border-radius: 2px;
+            padding: 13px;
+            box-shadow: 0 1px 0 rgb(0 0 0 / 20%);
+            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
+        }
+        .parent {
+            margin: auto;
+            width: 70%;
+            height: 100%;
+            /*border: 4px solid red;*/
             display: grid;
-            grid-template-rows: repeat(auto-fit, 1fr);
-            grid-template-columns: 25% 30% 25%;
-            gap: 8px;
-            justify-content: center;
-            justify-items: start;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(11, 1fr);
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;
+        }
+        .div1 {
+           margin-top: 130px;
+            display: flex;
+            flex-direction: row;
+            height: 20%;
+            width: 100%;
+            /*border: 4px solid green;*/
+            grid-area: 1 / 1 / 2 / 9;
+        }
+        .div2 {
+
+            text-align: center;
+            grid-area: 2 / 1 / 5 / 3;
+        }
+        .div3 {
+            line-height: 2.2;
+            text-align: left;
+            grid-area: 2 / 3 / 3 / 6;
+        }
+        .div4 {
+            line-height: 2.2;
+            text-align: right;
+            grid-area: 2 / 6 / 3 / 9;
+        }
+        .div5 {
+            line-height: 2.2;
+            grid-area: 3 / 3 / 4 / 6;
+        }
+        .div6 {
+            line-height: 1.8;
+            text-align: right;
+            grid-area: 3 / 6 / 4 / 9;
+        }
+        .div7 {
+            line-height: 2.5;
+            text-align: right;
+            grid-area: 4 / 3 / 5 / 9;
+        }
+        .div8 {
+            grid-area: 5 / 1 / 6 / 3;
+        }
+        .div9 {
+            grid-area: 5 / 3 / 6 / 7;
+        }
+        .div10 {
+            text-align: right;
+            grid-area: 5 / 7 / 6 / 9;
+        }
+        .div11 {
+            grid-area: 6 / 1 / 9 / 3;
+        }
+        .div12 {
+
+            display: flex;
+            flex-direction: column;
+            grid-area: 6 / 3 / 9 / 9;
+            padding-bottom: 150px;
+        }
+        .profile {
+            width: 100px;
+            padding: 10px ;
+        }
+        .div13 {
+            margin-top: 250px;
+            text-align: left;
+            grid-area: 9 / 1 / 12 / 3;
+        }
+        .div14 {
+            margin-top: 250px;
+            line-height: 2.5;
+            text-align: left;
+            grid-area: 9 / 3 / 12 / 9;
+        }
+        .row{
+            flex-direction: row;
         }
         li{
+            list-style-type: none;
             color: black;
+        }
+        a {
+            color: #0a53be;
         }
         #headerContainer{
             display: flex;
@@ -513,17 +675,40 @@ class __TwigTemplate_f4a2ab3fa7e7006af5eba86775638d484c6232a07b04995821f51e1ccbc
         .logo {
             height: 100%;
         }
+        .userAvatar{
+            width:35px;
+            border-radius: 4px;
+        }
         .avatar{
             height: 20px;
-            padding: 17px;
+            margin-top: 15px;
+            margin-right: 20px;
             color: white;
             align-items: center;
             justify-content: center;
         }
+        /*a:link {*/
+        /*    color: #0a53be;*/
+        /*}*/
         a:hover {
             opacity: 0.8;
         }
+        a {
+            text-decoration: none;
+            color: #0a53be;
+        }
 
+        /*a:hover {*/
+        /*    color: red;*/
+        /*}*/
+
+        /*a:active {*/
+        /*    color: red;*/
+        /*}*/
+
+        /*a:visited {*/
+        /*    color: red;*/
+        /*}*/
         body {
             background-color: black;
             color: black;
@@ -532,98 +717,361 @@ class __TwigTemplate_f4a2ab3fa7e7006af5eba86775638d484c6232a07b04995821f51e1ccbc
             width: 100%;
             height: 2000px;
             background-color: #f3f3f3;
-        /*    text-align: center;*/
-        /*    justify-content: center;*/
-        /*    align-items: center;*/
         }
-
         hr {
-            border-bottom: 8px solid rgb(118, 118, 118);
-        }
-
-        h1 {
-
+            border-bottom: 2px solid rgb(118, 118, 118);
         }
         h2 {
             font-weight: 400;
             color: black;
             width: 10px;
         }
+        h3 {
+            padding-bottom: 20px;
+            font-size: 1.2rem;
+            color: #FFFFFF;
+        }
+
+    </style>
+{% endblock %}", "user/profile.html.twig", "/var/www/symfony_docker/templates/user/profile.html.twig");
+    }
+}
+
+
+/* user/profile.html.twig */
+class __TwigTemplate_f4a2ab3fa7e7006af5eba86775638d484c6232a07b04995821f51e1ccbcc4ba9___1266342504 extends Template
+{
+    private $source;
+    private $macros = [];
+
+    public function __construct(Environment $env)
+    {
+        parent::__construct($env);
+
+        $this->source = $this->getSourceContext();
+
+        $this->blocks = [
+        ];
+    }
+
+    protected function doGetParent(array $context)
+    {
+        // line 94
+        return "reusable/footer.html.twig";
+    }
+
+    protected function doDisplay(array $context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "user/profile.html.twig"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "user/profile.html.twig"));
+
+        $this->parent = $this->loadTemplate("reusable/footer.html.twig", "user/profile.html.twig", 94);
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+    }
+
+    public function getTemplateName()
+    {
+        return "user/profile.html.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  760 => 94,  257 => 99,  247 => 98,  236 => 95,  234 => 94,  219 => 81,  210 => 78,  206 => 77,  203 => 76,  199 => 75,  159 => 38,  145 => 26,  135 => 25,  122 => 21,  115 => 17,  110 => 14,  100 => 13,  82 => 3,  72 => 2,  62 => 98,  59 => 97,  57 => 25,  54 => 24,  52 => 13,  49 => 12,  47 => 2,);
+    }
+
+    public function getSourceContext()
+    {
+        return new Source("{#{% extends 'user/user.html.twig' %}#}
+{% block head %}
+    <head>
+        <link rel=\"stylesheet\"
+              href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css\">
+        <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\"
+              rel=\"stylesheet\"
+              integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
+              crossorigin=\"anonymous\">
+    </head>
+{% endblock %}
+
+{% block header %}
+    <div id=\"headerContainer\">
+        <div class=\"brandLogoWrapper\">
+            <a class=\"logo\" href=\"/\" target=\"_parent\">
+                <img class=\"logo\" src=\"{{ asset('images/netflixLogo.svg.png') }}\" alt=\"av1\"/>
+            </a>
+        </div>
+            <a class=\"avatar\" href=\"/browse\">
+                <img class=\"userAvatar\" src=\"{{ userAvatar }}\" alt=\"avatar\"></a>
+    </div>
+{% endblock %}
+
+{% block body %}
+
+    <div class=\"mainWrapper\">
+
+        <div class=\"parent\">
+            <div class=\"div1\"><p style=\"font-size: 26px\">Konto</p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style=\"font-size: 20px;color:red\" class=\"bi bi-person-video3\">&nbsp;&nbsp;</i>użytkownik od:
+            </div>
+            <div class=\"div2\"><hr><br>
+                <p class=\"gray\">Członkostwo i rozliczenia</p>
+                <button class=\"btnAccount\">Anuluj członkostwo</button>
+            </div>
+            <div class=\"div3\"><hr>
+                {{ email }}<br>
+                hasło:<br>
+                telefon:s
+            </div>
+            <div class=\"div4\"><hr>
+                <a href=\"#\">Zmień adres e-mail</a><br>
+                <a href=\"#\">Zmień hasło</a><br>
+                <a href=\"#\">Zweryfikuj numer telefon</a><br>
+                <a href=\"#\">Zmień numer telefon</a>
+            </div>
+            <div class=\"div5\"><hr>
+                4124 1242 1242 12414<br>
+                Twoja kolejna data rozliczenia to:
+            </div>
+            <div class=\"div6\"><hr>
+                <a href=\"#\">Zarządzaj metodami płatności</a><br>
+                <a href=\"#\">Dodaj zapasową metodę płatności</a><br>
+                <a href=\"#\">Szczegóły rozliczenia</a><br>
+                <a href=\"#\">Zmień dzień rozliczenia</a>
+            </div>
+            <div class=\"div7\"><hr>
+                <a href=\"#\">Zrealizuj kartę podarunkową lub kod promocyjny</a><br>
+                <a href=\"#\">Gdzie kupić karty podarunkowe</a>
+            </div>
+            <div class=\"div8\"><hr>
+                <p class=\"gray\">Szczegóły</p>
+            </div>
+            <div class=\"div9\"><hr>
+                <p class=\"gray\">Standard</p>
+            </div>
+            <div class=\"div10\"><hr>
+                <a href=\"#\">Zmień plan</a>
+            </div>
+            <div class=\"div11\"><hr>
+                <p class=\"gray\">Profile i kontrola rodzicielska</p>
+            </div>
+            <div class=\"div12\"><hr>
+                {% for profile in profiles %}
+                    <div class=\"row\">
+                      <img class=\"profile\" src=\"{{ profile.avatar }}\" alt=\"profile avatar\">
+                        {{ profile.name }}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class=\"div13\"><hr>
+                <p class=\"gray\">Ustawienia</p>
+            </div>
+            <div class=\"div14\"><hr>
+                <a href=\"#\"> Udział w testach</a><br>
+                <a href=\"#\">Zarządzaj urządzeniami do pobierania</a><br>
+                <a href=\"#\">Aktywuj urządzenie</a><br>
+                <a href=\"#\">Urządzenia: ostatnia aktywność na koncie</a><br>
+                <a href=\"#\">Wyloguj się na wszystkich urządzeniach</a><br>
+                <a href=\"#\">Pobierz swoje dane osobowe</a>
+            </div>
+        </div>
+        {% embed 'reusable/footer.html.twig' %} {% endembed %}
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .gray {
+            color: #757575;
+        }
+        .btnAccount{
+            font-size: 14px;
+            background-color: #e6e6e6;
+            border: none;
+            border-radius: 2px;
+            padding: 13px;
+            box-shadow: 0 1px 0 rgb(0 0 0 / 20%);
+            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
+        }
+        .parent {
+            margin: auto;
+            width: 70%;
+            height: 100%;
+            /*border: 4px solid red;*/
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(11, 1fr);
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;
+        }
+        .div1 {
+           margin-top: 130px;
+            display: flex;
+            flex-direction: row;
+            height: 20%;
+            width: 100%;
+            /*border: 4px solid green;*/
+            grid-area: 1 / 1 / 2 / 9;
+        }
+        .div2 {
+
+            text-align: center;
+            grid-area: 2 / 1 / 5 / 3;
+        }
+        .div3 {
+            line-height: 2.2;
+            text-align: left;
+            grid-area: 2 / 3 / 3 / 6;
+        }
+        .div4 {
+            line-height: 2.2;
+            text-align: right;
+            grid-area: 2 / 6 / 3 / 9;
+        }
+        .div5 {
+            line-height: 2.2;
+            grid-area: 3 / 3 / 4 / 6;
+        }
+        .div6 {
+            line-height: 1.8;
+            text-align: right;
+            grid-area: 3 / 6 / 4 / 9;
+        }
+        .div7 {
+            line-height: 2.5;
+            text-align: right;
+            grid-area: 4 / 3 / 5 / 9;
+        }
+        .div8 {
+            grid-area: 5 / 1 / 6 / 3;
+        }
+        .div9 {
+            grid-area: 5 / 3 / 6 / 7;
+        }
+        .div10 {
+            text-align: right;
+            grid-area: 5 / 7 / 6 / 9;
+        }
+        .div11 {
+            grid-area: 6 / 1 / 9 / 3;
+        }
+        .div12 {
+
+            display: flex;
+            flex-direction: column;
+            grid-area: 6 / 3 / 9 / 9;
+            padding-bottom: 150px;
+        }
+        .profile {
+            width: 100px;
+            padding: 10px ;
+        }
+        .div13 {
+            margin-top: 250px;
+            text-align: left;
+            grid-area: 9 / 1 / 12 / 3;
+        }
+        .div14 {
+            margin-top: 250px;
+            line-height: 2.5;
+            text-align: left;
+            grid-area: 9 / 3 / 12 / 9;
+        }
+        .row{
+            flex-direction: row;
+        }
+        li{
+            list-style-type: none;
+            color: black;
+        }
+        a {
+            color: #0a53be;
+        }
+        #headerContainer{
+            display: flex;
+            flex-direction: row;
+            height: 70px;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+        }
+        .brandLogoWrapper{
+            height: 100%;
+            justify-content: center;
+            padding: 17px 30px;
+        }
+        .logo {
+            height: 100%;
+        }
+        .userAvatar{
+            width:35px;
+            border-radius: 4px;
+        }
+        .avatar{
+            height: 20px;
+            margin-top: 15px;
+            margin-right: 20px;
+            color: white;
+            align-items: center;
+            justify-content: center;
+        }
+        /*a:link {*/
+        /*    color: #0a53be;*/
+        /*}*/
+        a:hover {
+            opacity: 0.8;
+        }
+        a {
+            text-decoration: none;
+            color: #0a53be;
+        }
+
+        /*a:hover {*/
+        /*    color: red;*/
+        /*}*/
+
+        /*a:active {*/
+        /*    color: red;*/
+        /*}*/
+
+        /*a:visited {*/
+        /*    color: red;*/
+        /*}*/
+        body {
+            background-color: black;
+            color: black;
+        }
+        .mainWrapper{
+            width: 100%;
+            height: 2000px;
+            background-color: #f3f3f3;
+        }
         hr {
-            border-bottom: 8px solid rgb(118, 118, 118);
+            border-bottom: 2px solid rgb(118, 118, 118);
+        }
+        h2 {
+            font-weight: 400;
+            color: black;
+            width: 10px;
         }
         h3 {
             padding-bottom: 20px;
             font-size: 1.2rem;
             color: #FFFFFF;
         }
-        .userAvatar{
-            width:35px;
-            border-radius: 4px;
-        }
-
-        /*.third {*/
-        /*    width: 33%;*/
-        /*}*/
-        /*.full-width{*/
-        /*    width: 80%;*/
-        /*}*/
-        /*.full-height{*/
-        /*    height: 100%;*/
-        /*}*/
-        /*.left {*/
-        /*    text-align: left;*/
-        /*    float: left;*/
-        /*}*/
-        /*.right{*/
-        /*    color: black;*/
-        /*    float: right;*/
-        /*    text-align: right;*/
-        /*}*/
-
-        /*.half{*/
-        /*    width: 50%;*/
-        /*}*/
-        /*.fill {*/
-        /*    height: 350px;*/
-        /*    margin: auto 0;*/
-        /*}*/
-        /*.credentials{*/
-        /*    width: 750px;*/
-        /*    height: 350px;*/
-        /*}*/
-        /*.deny {*/
-        /*    height: 350px;*/
-        /*    width: 250px;*/
-        /*}*/
-        /*.first {*/
-        /*    display: inline-block;*/
-        /*    text-align: center;*/
-        /*    font-size: 2rem;*/
-        /*    color: black;*/
-        /*    !*line-height: 1.1;*!*/
-        /*    !*font-weight: bold;*!*/
-        /*}*/
-        /*.accountContainer{*/
-        /*    !*flex-direction: column;*!border: 2px solid green;*/
-        /*    width:100%;*/
-        /*    display: flex;*/
-        /*    align-content: center;*/
-        /*    justify-content: center;*/
-        /*}*/
-        /*.row {*/
-        /*    flex-direction: row;*/
-        /*    border: 2px solid black;*/
-        /*}*/
-        /*.inlineblock{*/
-        /*    display: inline-block;*/
-        /*}*/
-
-        /*.column {*/
-        /*    flex-direction: column;*/
-        /*    border: 2px solid red;*/
-        /*}*/
-
 
     </style>
 {% endblock %}", "user/profile.html.twig", "/var/www/symfony_docker/templates/user/profile.html.twig");

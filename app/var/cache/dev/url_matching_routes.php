@@ -80,7 +80,7 @@ return [
         159 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
         182 => [[['_route' => 'show-one', '_controller' => 'App\\Controller\\MoviesController::show'], ['id'], null, null, false, true, null]],
         220 => [[['_route' => 'deleteSubuser', '_controller' => 'App\\Controller\\SubuserController::delete'], ['id'], null, null, false, true, null]],
-        243 => [[['_route' => 'app_subuser_update', '_controller' => 'App\\Controller\\SubuserController::update'], ['id'], null, null, false, true, null]],
+        243 => [[['_route' => 'update', '_controller' => 'App\\Controller\\SubuserController::update'], ['id'], null, null, false, true, null]],
         278 => [[['_route' => 'subuser_crud_show', '_controller' => 'App\\Controller\\SubuserCrudController::show'], ['id'], ['GET' => 0], null, false, true, null]],
         291 => [[['_route' => 'subuser_crud_edit', '_controller' => 'App\\Controller\\SubuserCrudController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         299 => [

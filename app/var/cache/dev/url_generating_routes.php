@@ -36,7 +36,7 @@ return [
     'app_subuser_addsubuser' => [[], ['_controller' => 'App\\Controller\\SubuserController::addSubuser'], [], [['text', '/manageUser/add']], [], []],
     'edit' => [[], ['_controller' => 'App\\Controller\\SubuserController::edit'], [], [['text', '/manageUser/edit']], [], []],
     'deleteSubuser' => [['id'], ['_controller' => 'App\\Controller\\SubuserController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/manageUser/delete']], [], []],
-    'app_subuser_update' => [['id'], ['_controller' => 'App\\Controller\\SubuserController::update'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/manageUser/update']], [], []],
+    'update' => [['id'], ['_controller' => 'App\\Controller\\SubuserController::update'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/manageUser/update']], [], []],
     'manageUser' => [[], ['_controller' => 'App\\Controller\\SubuserController::manageUser'], [], [['text', '/manageUser']], [], []],
     'chooseUser' => [[], ['_controller' => 'App\\Controller\\SubuserController::chooseUser'], [], [['text', '/chooseUser']], [], []],
     'success' => [[], ['_controller' => 'App\\Controller\\SubuserController::success'], [], [['text', '/success']], [], []],

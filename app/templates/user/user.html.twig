@@ -38,6 +38,21 @@
     #buttonDiv{
         margin-top: 20px;
     }
+    /*.overlay {*/
+    /*    position: absolute;*/
+    /*    top: 0;*/
+    /*    bottom: 0;*/
+    /*    left: 0;*/
+    /*    right: 0;*/
+    /*    height: 100%;*/
+    /*    width: 100%;*/
+    /*    opacity: 0;*/
+    /*    transition: .5s ease;*/
+    /*    background-color: #008CBA;*/
+    /*}*/
+    /*.subuser:hover {*/
+    /*    opacity: 0.8;*/
+    /*}*/
     </style>
 {% endblock %}
 
@@ -102,7 +117,9 @@
                                 </div>
                             </form>
                         </li>
-
+{#                        <div class="overlay">#}
+{#                            <div class="text">Hello World</div>#}
+{#                        </div>#}
                         {% set subuser_id = subuser_id + 1 %}
                     {% endfor %}
 {#                    {% for subuser in subUsers %}#}

@@ -119,9 +119,14 @@ class MoviesController extends AbstractController
 //        dump($session);
         $subuser = $session->get('filter');
         $subuserId = reset($subuser);
-
+        $currentUser = $this->getUser();
         return $this->render('user/profile.html.twig', [
-            'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()
+            'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar(),
+            'email' => $currentUser->getUserIdentifier(),
+            'profiles' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
+//            'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar(),
+//            'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar(),
+//            'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()
 //            'liked' =>$this->repo->getLikedMoviesByUser()
             ]);
     }

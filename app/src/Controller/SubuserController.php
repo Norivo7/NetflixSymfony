@@ -62,11 +62,22 @@ class SubuserController extends AbstractController
     {
         $user = $this->getUser();
         $subuserFrontId = $request->get('id');
+        if($request->getMethod() == 'POST') {
+            $name = $request->request->get('name');
+            return $this->redirectToRoute('update', [
+                'id' => $subuserFrontId,
+                'name' => $name,
+                ]
+            );
+        }
+        $subuserName = $request->get('name');
+//        dump($subuserName);
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $user));
         if (isset($subuserFrontId) && $allSubusers[$subuserFrontId] != null){
         $currentSubuser = $allSubusers[$subuserFrontId];
             return $this->render('user/edit.html.twig', [
-                'subuser' => $currentSubuser
+                'subuser' => $currentSubuser,
+                'id' => $subuserFrontId
             ]);
         } else {
 
@@ -88,17 +99,16 @@ class SubuserController extends AbstractController
         $subuserFrontId = $request->get('id');
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $user));
         $currentSubuser = $allSubusers[$subuserFrontId];
-
         $entityManager->remove($currentSubuser);
         $entityManager->flush();
 
         return $this->redirectToRoute('manageUser', [
-            'subUsers' => $allSubusers
+            'subUsers' => $allSubusers,
         ]);
     }
 
     /**
-     * @Route ("/manageUser/update/{id}")
+     * @Route ("/manageUser/update/{id}", name="update")
      * @param Request $request
      * @param EntityManagerInterface $entityManager
      * @return Response
@@ -107,6 +117,8 @@ class SubuserController extends AbstractController
     {
         $currentUser = $this->getUser();
         $subuserFrontId = $request->get('id');
+        $subuserName = $request->get('name');
+//        dump($subuserFrontId);
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
         $currentSubuser = $allSubusers[$subuserFrontId];
 //        $subusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser, 'id' => $id));
@@ -119,7 +131,8 @@ class SubuserController extends AbstractController
 //            );
             ]);
         } else {
-            $currentSubuser->setName('Zmieniono');
+//            dump($subuserName);
+            $currentSubuser->setName($subuserName);
             $entityManager->persist($currentSubuser);
             $entityManager->flush();
         return $this->redirectToRoute('manageUser', [

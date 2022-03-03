@@ -10,6 +10,9 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             'path' => [
                 '/manageUser/update/{id}',
             ],
+            'name' => [
+                'update',
+            ],
         ],
     ],
     [

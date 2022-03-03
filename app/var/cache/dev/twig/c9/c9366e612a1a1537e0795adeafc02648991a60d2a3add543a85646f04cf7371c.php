@@ -96,68 +96,109 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
 
         // line 13
         echo "<body>
+<form id=\"myForm\" method=\"post\">
 ";
-        // line 15
+        // line 16
         echo "        ";
         if (array_key_exists("subuser", $context)) {
-            // line 16
+            // line 17
             echo "            <div class=\"parent\">
-                <div class=\"div1\"><p class=\"heading\">Edytuj profil</p>
-                    <hr>
+                    <div class=\"div1\"><p class=\"heading\">Edytuj profil</p>
+                        <hr>
+                        </div>
+                    <div class=\"div2\">
+                        <input id=\"text\"
+                               type=\"hidden\"
+                               name=\"avatar\"
+                               value=\"";
+            // line 25
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 25, $this->source); })()), "avatar", [], "any", false, false, false, 25), "html", null, true);
+            echo "\"/>
+                        <img class=\"avatar\"
+                             src=\"";
+            // line 27
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 27, $this->source); })()), "avatar", [], "any", false, false, false, 27), "html", null, true);
+            echo "\"
+                             alt=\"avatar\">
+                    </div>
+                    <div class=\"div3\">
+                        <input class=\"name\"
+                               type=\"text\"
+                               name=\"name\"
+                               value=\"";
+            // line 34
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 34, $this->source); })()), "name", [], "any", false, false, false, 34), "html", null, true);
+            echo "\"
+                               placeholder=\"";
+            // line 35
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 35, $this->source); })()), "name", [], "any", false, false, false, 35), "html", null, true);
+            echo "\"/>
+                        <div class=\"selectMedium\">
+                            <select>
+                                <option value=\"0\">Polski</option>
+                                <option value=\"1\">English</option>
+                            </select>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class=\"div4\">
+                        Ustawienia grup wiekowych:<br>
+                        <ul>
+                            <li>
+                                Wszystkie grupy wiekowe<br>
+                            </li>
+                        </ul>
+                            Wyświetlaj w tym profilu tytuły z wszystkich kategorii wiekowych.<br><br>
+                        <a class=\"profileButton\"> Edytuj </a>
+                        <hr>
+                    </div>
+                    <div class=\"div5\">
+                        Ustawienia automatycznego odtwarzania <br>
+                        <input type=\"checkbox\">Automatycznie odtwarzaj kolejny odcinek na wszystkich urządzeniach.<br>
+                        <input type=\"checkbox\">Automatycznie odtwarzaj podglądy podczas przeglądania na wszystkich urządzeniach.
+                    </div>
+                    <div class=\"div6\">
+                        <hr>
+                        <div class=\"div7\">
+                            <div>
+                                <a class=\"profileButton\" href=\"#\" onclick=\"document.getElementById('myForm').submit()\">Zapisz</a>
+";
+            // line 68
+            echo "                            </div>
+                            <div>
+
+                                    <a href=\"/manageUser\" class=\"profileButton\">
+                                        Anuluj
+                                    </a>
+
+                            </div>
+                            <form method=\"post\">
+                                <div class=\"deleteBtnContainer\">
+                                    <a class=\"deleteButton\" href=\"/manageUser/delete/";
+            // line 78
+            echo twig_escape_filter($this->env, (isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 78, $this->source); })()), "html", null, true);
+            echo "\">
+                                        Usuń
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
                     </div>
 
-                <div class=\"div2\">
-                    <img class=\"avatar\" src=\"";
-            // line 22
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 22, $this->source); })()), "avatar", [], "any", false, false, false, 22), "html", null, true);
-            echo "\" alt=\"avatar\">
-                </div>
-                <div class=\"div3\">
-                    <input class=\"name\" type=\"name\" placeholder=\"";
-            // line 25
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 25, $this->source); })()), "name", [], "any", false, false, false, 25), "html", null, true);
-            echo "\"/>
-                    <div class=\"selectMedium\">
-                        <select>
-                            <option value=\"0\">Polski</option>
-                            <option value=\"1\">English</option>
-                        </select>
-                    </div>
-                    <hr>
-                </div>
-                <div class=\"div4\">
-                    Ustawienia grup wiekowych:<br>
-                    <ul>
-                        <li>
-                            Wszystkie grupy wiekowe<br>
-                        </li>
-                    </ul>
-                        Wyświetlaj w tym profilu tytuły z wszystkich kategorii wiekowych.<br><br>
-                    <a class=\"profileButton\"> Edytuj </a>
-                    <hr>
-                </div>
-                <div class=\"div5\">
-                    Ustawienia automatycznego odtwarzania <br>
-                    <input type=\"checkbox\">Automatycznie odtwarzaj kolejny odcinek na wszystkich urządzeniach.<br>
-                    <input type=\"checkbox\">Automatycznie odtwarzaj podglądy podczas przeglądania na wszystkich urządzeniach.
-                </div>
-                <div class=\"div6\">
-                    <hr>
-                    <a class=\"profileButton\">Zapisz</a>
-                    <a href=\"/manageUser\" class=\"profileButton\">Anuluj</a>
-                </div>
+
             </div>
 
         ";
         } else {
-            // line 58
+            // line 90
             echo "        <p> ";
-            echo twig_escape_filter($this->env, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 58, $this->source); })()), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 90, $this->source); })()), "html", null, true);
             echo "</p>
         ";
         }
-        // line 61
-        echo "</body>
+        // line 93
+        echo "</form>
+</body>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -167,7 +208,7 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
 
     }
 
-    // line 64
+    // line 97
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -177,8 +218,12 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 65
+        // line 98
         echo "    <style>
+        .deleteBtnContainer{
+            text-align: center;
+            padding-bottom: 10px;
+        }
         .selectMedium{
             margin-right: 0;
         }
@@ -193,7 +238,6 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
             color: #FFF;
         }
         hr {
-
             border-bottom: 4px solid rgb(118, 118, 118);
         }
         @font-face {
@@ -236,6 +280,20 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
             border: 1px solid grey;
             text-decoration: none;
 
+        }
+
+        .deleteButton
+        {
+            color: red;
+            padding: .5em 1.5em;
+            letter-spacing: 2px;
+            cursor: pointer;
+            background-color: transparent;
+            border: 1px solid red;
+            text-decoration: none;
+        }
+        .deleteButton:hover{
+            color: red;
         }
         ul{
             list-style-type: none;
@@ -344,10 +402,19 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
             grid-area: 4 / 2 / 5 / 6;
         }
         .div6 {
-            width: 100%;
-            /*padding: 30px;*/
-            text-align: left;
+            display: flex;
+            flex-direction: column;
+            height: 100px;
+            width:100%;
+            /*width: 1000px;*/
+            flex-shrink: 1;
             grid-area: 5 / 1 / 6 / 6;
+        }
+        .div7 {
+            display: flex;
+            gap: 20px;
+            /*height: 100%;*/
+            /*margin-bottom: 100px;*/
         }
         .heading{
             font-size: 50px;
@@ -359,6 +426,7 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
         }
         .name::placeholder {
             color: white;
+            opacity: 0.5;
         }
         .avatar{
             border-radius: 10px;
@@ -387,7 +455,7 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
 
     public function getDebugInfo()
     {
-        return array (  181 => 65,  171 => 64,  160 => 61,  154 => 58,  118 => 25,  112 => 22,  104 => 16,  101 => 15,  98 => 13,  88 => 12,  70 => 3,  60 => 2,  37 => 1,);
+        return array (  222 => 98,  212 => 97,  200 => 93,  194 => 90,  179 => 78,  167 => 68,  134 => 35,  130 => 34,  120 => 27,  115 => 25,  105 => 17,  102 => 16,  98 => 13,  88 => 12,  70 => 3,  60 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -405,58 +473,95 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
 {% endblock %}
 {% block body %}
 <body>
+<form id=\"myForm\" method=\"post\">
 {#    <div class=\"main\">#}
         {% if subuser is defined %}
             <div class=\"parent\">
-                <div class=\"div1\"><p class=\"heading\">Edytuj profil</p>
-                    <hr>
+                    <div class=\"div1\"><p class=\"heading\">Edytuj profil</p>
+                        <hr>
+                        </div>
+                    <div class=\"div2\">
+                        <input id=\"text\"
+                               type=\"hidden\"
+                               name=\"avatar\"
+                               value=\"{{ subuser.avatar }}\"/>
+                        <img class=\"avatar\"
+                             src=\"{{ subuser.avatar }}\"
+                             alt=\"avatar\">
+                    </div>
+                    <div class=\"div3\">
+                        <input class=\"name\"
+                               type=\"text\"
+                               name=\"name\"
+                               value=\"{{ subuser.name }}\"
+                               placeholder=\"{{ subuser.name }}\"/>
+                        <div class=\"selectMedium\">
+                            <select>
+                                <option value=\"0\">Polski</option>
+                                <option value=\"1\">English</option>
+                            </select>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class=\"div4\">
+                        Ustawienia grup wiekowych:<br>
+                        <ul>
+                            <li>
+                                Wszystkie grupy wiekowe<br>
+                            </li>
+                        </ul>
+                            Wyświetlaj w tym profilu tytuły z wszystkich kategorii wiekowych.<br><br>
+                        <a class=\"profileButton\"> Edytuj </a>
+                        <hr>
+                    </div>
+                    <div class=\"div5\">
+                        Ustawienia automatycznego odtwarzania <br>
+                        <input type=\"checkbox\">Automatycznie odtwarzaj kolejny odcinek na wszystkich urządzeniach.<br>
+                        <input type=\"checkbox\">Automatycznie odtwarzaj podglądy podczas przeglądania na wszystkich urządzeniach.
+                    </div>
+                    <div class=\"div6\">
+                        <hr>
+                        <div class=\"div7\">
+                            <div>
+                                <a class=\"profileButton\" href=\"#\" onclick=\"document.getElementById('myForm').submit()\">Zapisz</a>
+{#                                <button type=\"submit\">Zapisz#}
+{#                                    <a href=\"/manageUser/update/{{ id }}\" class=\"profileButton\">Zapisz</a>#}
+{#                                </button>#}
+                            </div>
+                            <div>
+
+                                    <a href=\"/manageUser\" class=\"profileButton\">
+                                        Anuluj
+                                    </a>
+
+                            </div>
+                            <form method=\"post\">
+                                <div class=\"deleteBtnContainer\">
+                                    <a class=\"deleteButton\" href=\"/manageUser/delete/{{ id }}\">
+                                        Usuń
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
                     </div>
 
-                <div class=\"div2\">
-                    <img class=\"avatar\" src=\"{{ subuser.avatar }}\" alt=\"avatar\">
-                </div>
-                <div class=\"div3\">
-                    <input class=\"name\" type=\"name\" placeholder=\"{{ subuser.name }}\"/>
-                    <div class=\"selectMedium\">
-                        <select>
-                            <option value=\"0\">Polski</option>
-                            <option value=\"1\">English</option>
-                        </select>
-                    </div>
-                    <hr>
-                </div>
-                <div class=\"div4\">
-                    Ustawienia grup wiekowych:<br>
-                    <ul>
-                        <li>
-                            Wszystkie grupy wiekowe<br>
-                        </li>
-                    </ul>
-                        Wyświetlaj w tym profilu tytuły z wszystkich kategorii wiekowych.<br><br>
-                    <a class=\"profileButton\"> Edytuj </a>
-                    <hr>
-                </div>
-                <div class=\"div5\">
-                    Ustawienia automatycznego odtwarzania <br>
-                    <input type=\"checkbox\">Automatycznie odtwarzaj kolejny odcinek na wszystkich urządzeniach.<br>
-                    <input type=\"checkbox\">Automatycznie odtwarzaj podglądy podczas przeglądania na wszystkich urządzeniach.
-                </div>
-                <div class=\"div6\">
-                    <hr>
-                    <a class=\"profileButton\">Zapisz</a>
-                    <a href=\"/manageUser\" class=\"profileButton\">Anuluj</a>
-                </div>
+
             </div>
 
         {% else %}
         <p> {{ error }}</p>
         {% endif %}
 {#    </div>#}
+</form>
 </body>
 {% endblock %}
 
 {% block stylesheets %}
     <style>
+        .deleteBtnContainer{
+            text-align: center;
+            padding-bottom: 10px;
+        }
         .selectMedium{
             margin-right: 0;
         }
@@ -471,7 +576,6 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
             color: #FFF;
         }
         hr {
-
             border-bottom: 4px solid rgb(118, 118, 118);
         }
         @font-face {
@@ -514,6 +618,20 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
             border: 1px solid grey;
             text-decoration: none;
 
+        }
+
+        .deleteButton
+        {
+            color: red;
+            padding: .5em 1.5em;
+            letter-spacing: 2px;
+            cursor: pointer;
+            background-color: transparent;
+            border: 1px solid red;
+            text-decoration: none;
+        }
+        .deleteButton:hover{
+            color: red;
         }
         ul{
             list-style-type: none;
@@ -622,10 +740,19 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
             grid-area: 4 / 2 / 5 / 6;
         }
         .div6 {
-            width: 100%;
-            /*padding: 30px;*/
-            text-align: left;
+            display: flex;
+            flex-direction: column;
+            height: 100px;
+            width:100%;
+            /*width: 1000px;*/
+            flex-shrink: 1;
             grid-area: 5 / 1 / 6 / 6;
+        }
+        .div7 {
+            display: flex;
+            gap: 20px;
+            /*height: 100%;*/
+            /*margin-bottom: 100px;*/
         }
         .heading{
             font-size: 50px;
@@ -637,6 +764,7 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
         }
         .name::placeholder {
             color: white;
+            opacity: 0.5;
         }
         .avatar{
             border-radius: 10px;
