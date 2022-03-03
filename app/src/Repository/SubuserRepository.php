@@ -19,25 +19,34 @@ class SubuserRepository extends ServiceEntityRepository
         parent::__construct($registry, Subuser::class);
     }
 
-    /**
-     * @param $subaccountId
-     * @param $userId
-     * @return Subuser[] Returns an array of Subuser objects
-     */
-    public function findSubuserById($subaccountId, $userId)
-    {
+
+
+    public function findSubuserById($id){
         return $this->createQueryBuilder('subuser')
-            ->select('subuser', 'user')
-            ->leftJoin('subuser.subaccountOf', 'user')
             ->andWhere('subuser.id LIKE :val')
-            ->andWhere('user.id LIKE :val2')
-            ->setParameter('val', $subaccountId)
-            ->setParameter('val2', $userId)
-            ->orderBy('subuser.id', 'ASC')
-            ->setMaxResults(5)
+            ->setParameter('val', $id)
             ->getQuery()
             ->getResult();
     }
+//    /**
+//     * @param $subaccountId
+//     * @param $userId
+//     * @return Subuser[] Returns an array of Subuser objects
+//     */
+//    public function findSubuserById($subaccountId, $userId)
+//    {
+//        return $this->createQueryBuilder('subuser')
+//            ->select('subuser', 'user')
+//            ->leftJoin('subuser.subaccountOf', 'user')
+//            ->andWhere('subuser.id LIKE :val')
+//            ->andWhere('user.id LIKE :val2')
+//            ->setParameter('val', $subaccountId)
+//            ->setParameter('val2', $userId)
+//            ->orderBy('subuser.id', 'ASC')
+//            ->setMaxResults(5)
+//            ->getQuery()
+//            ->getResult();
+//    }
 
 
 

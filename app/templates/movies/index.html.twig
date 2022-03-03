@@ -116,9 +116,11 @@
     }
     .brandLogoWrapper{
         width: 113px;
-
         justify-content: center;
-
+    }
+    .userAvatar {
+        width:30px;
+        border-radius: 4px;
     }
 
 </style>
@@ -164,7 +166,8 @@
                 <i style="padding: 1px;margin-left: 10px" class="bi bi-bell-fill"></i>
             </a>
             <a class="right" href="/profile">
-                <i style="padding: 1px" class="bi bi-person-circle"></i>
+                <img class="userAvatar" src="{{ userAvatar }}" alt="avatar">
+{#                <i style="padding: 1px" class="bi bi-person-circle"></i>#}
             </a>
         </div>
     </div>

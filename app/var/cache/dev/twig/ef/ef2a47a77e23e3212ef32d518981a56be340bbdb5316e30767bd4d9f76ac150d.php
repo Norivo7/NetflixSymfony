@@ -70,6 +70,7 @@ class __TwigTemplate_bb604402bda6d5029ed8fce4fefbc5ac57058c831e0381c00262c5f2c09
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'root.html.twig' %}", "base.html.twig", "/var/www/symfony_docker/templates/base.html.twig");
+        return new Source("{% extends 'root.html.twig' %}
+", "base.html.twig", "/var/www/symfony_docker/templates/base.html.twig");
     }
 }

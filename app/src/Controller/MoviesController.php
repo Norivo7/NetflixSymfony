@@ -62,7 +62,10 @@ class MoviesController extends AbstractController
         if ($subuser != null){
             $subuserId = reset($subuser);
         }
-
+//        $userAvatar = $this->subuserRepository->find($subuserId)->getAvatar();
+//        dump($userAvatar);
+//        $currentSubuser = $this->subuserRepository->findSubuserById($subuserId);
+//        dump($currentSubuser);
         if ($subuserId != null && $subuserFrontId < $subuserCount) {
 //            dump("ID subusera: ".$subuserId);
             return $this->render('movies/index.html.twig', [
@@ -70,7 +73,8 @@ class MoviesController extends AbstractController
                 'popular' => $this->repo->popularFilter(),
                 'movies' => $this->repo->getMoviesByCategory('Filmy'),
                 'originals' => $this->repo->getMoviesByCategory('Eksluzywne'),
-                'shows' => $this->repo->getMoviesByCategory('Seriale')
+                'shows' => $this->repo->getMoviesByCategory('Seriale'),
+                'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()
             ]);
         } else{
 //            dump($subuserId);
@@ -98,7 +102,9 @@ class MoviesController extends AbstractController
 //        dump($subuserId);
         return $this->render(
             'movies/list.html.twig',
-            ['movies' => $this->repo->getMoviesByCategory('Seriale'),]
+            ['movies' => $this->repo->getMoviesByCategory('Seriale'),
+                'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()
+            ]
         );
     }
 
@@ -108,7 +114,14 @@ class MoviesController extends AbstractController
      */
     public function profile(): Response
     {
+        $session = new Session();
+        $session->start();
+//        dump($session);
+        $subuser = $session->get('filter');
+        $subuserId = reset($subuser);
+
         return $this->render('user/profile.html.twig', [
+            'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()
 //            'liked' =>$this->repo->getLikedMoviesByUser()
             ]);
     }
@@ -139,8 +152,15 @@ class MoviesController extends AbstractController
      */
     public function myList(): Response
     {
+        $session = new Session();
+        $session->start();
+//        dump($session);
+        $subuser = $session->get('filter');
+        $subuserId = reset($subuser);
         return $this->render(
-            'movies/list.html.twig',
+            'movies/list.html.twig', [
+                 'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()
+            ]
 //            ['movies' => $this->repo->getLikedMoviesByCurrentUser(),]
         );
     }
@@ -150,9 +170,16 @@ class MoviesController extends AbstractController
      */
     public function movies(): Response
     {
+        $session = new Session();
+        $session->start();
+//        dump($session);
+        $subuser = $session->get('filter');
+        $subuserId = reset($subuser);
+
         return $this->render(
-            'movies/list.html.twig',
-            ['movies' => $this->repo->getMoviesByCategory('Filmy')]
+            'movies/list.html.twig', [
+                'movies' => $this->repo->getMoviesByCategory('Filmy'),
+                'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()]
         );
     }
     /**
@@ -161,9 +188,16 @@ class MoviesController extends AbstractController
      */
     public function new(): Response
     {
+        $session = new Session();
+        $session->start();
+//        dump($session);
+        $subuser = $session->get('filter');
+        $subuserId = reset($subuser);
+
         return $this->render(
-            'movies/list.html.twig',
-            ['movies' => $this->repo->recentlyAdd()]
+            'movies/list.html.twig', [
+                'movies' => $this->repo->recentlyAdd(),
+                'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()]
         );
     }
 
@@ -250,12 +284,18 @@ class MoviesController extends AbstractController
      */
     public function search(MovieRepository $movieRepository, Request $request): Response
     {
+        $session = new Session();
+        $session->start();
+//        dump($session);
+        $subuser = $session->get('filter');
+        $subuserId = reset($subuser);
       $movies = $movieRepository->search(
           $request->query->get('v')
       );
 
       return $this->render('movies/list.html.twig', [
-          'movies' => $movies
+          'movies' => $movies,
+          'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()
       ]);
     }
 }

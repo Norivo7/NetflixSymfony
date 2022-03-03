@@ -62,12 +62,12 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
 ";
         // line 208
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 254
+        // line 255
         echo "
 ";
-        // line 255
-        $this->loadTemplate("root.html.twig", "root.html.twig", 255, "216652656")->display($context);
         // line 256
+        $this->loadTemplate("root.html.twig", "root.html.twig", 256, "2111902812")->display($context);
+        // line 257
         echo "</html>
 ";
         
@@ -435,6 +435,7 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
         select{
             font-family: \"Netflix Sans Black\", bootstrap-icons, serif;
             padding: 10px 10px 10px;
+
         }
         i{
             vertical-align: -1px;
@@ -465,7 +466,7 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
 
     public function getDebugInfo()
     {
-        return array (  403 => 209,  393 => 208,  272 => 95,  270 => 94,  268 => 93,  266 => 92,  264 => 91,  262 => 90,  260 => 89,  258 => 88,  256 => 87,  254 => 86,  252 => 85,  250 => 84,  234 => 69,  230 => 67,  224 => 65,  222 => 64,  214 => 58,  208 => 54,  202 => 50,  200 => 49,  196 => 47,  187 => 40,  185 => 39,  166 => 22,  156 => 21,  138 => 19,  119 => 7,  101 => 8,  99 => 7,  92 => 2,  82 => 1,  71 => 256,  69 => 255,  66 => 254,  64 => 208,  61 => 207,  59 => 21,  56 => 20,  54 => 19,  50 => 17,  48 => 1,);
+        return array (  403 => 209,  393 => 208,  272 => 95,  270 => 94,  268 => 93,  266 => 92,  264 => 91,  262 => 90,  260 => 89,  258 => 88,  256 => 87,  254 => 86,  252 => 85,  250 => 84,  234 => 69,  230 => 67,  224 => 65,  222 => 64,  214 => 58,  208 => 54,  202 => 50,  200 => 49,  196 => 47,  187 => 40,  185 => 39,  166 => 22,  156 => 21,  138 => 19,  119 => 7,  101 => 8,  99 => 7,  92 => 2,  82 => 1,  71 => 257,  69 => 256,  66 => 255,  64 => 208,  61 => 207,  59 => 21,  56 => 20,  54 => 19,  50 => 17,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -713,6 +714,7 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
         select{
             font-family: \"Netflix Sans Black\", bootstrap-icons, serif;
             padding: 10px 10px 10px;
+
         }
         i{
             vertical-align: -1px;
@@ -732,7 +734,7 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
 
 
 /* root.html.twig */
-class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489f8f52___216652656 extends Template
+class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489f8f52___2111902812 extends Template
 {
     private $source;
     private $macros = [];
@@ -749,7 +751,7 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
 
     protected function doGetParent(array $context)
     {
-        // line 255
+        // line 256
         return "reusable/footer.html.twig";
     }
 
@@ -762,7 +764,7 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "root.html.twig"));
 
-        $this->parent = $this->loadTemplate("reusable/footer.html.twig", "root.html.twig", 255);
+        $this->parent = $this->loadTemplate("reusable/footer.html.twig", "root.html.twig", 256);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -784,7 +786,7 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
 
     public function getDebugInfo()
     {
-        return array (  753 => 255,  403 => 209,  393 => 208,  272 => 95,  270 => 94,  268 => 93,  266 => 92,  264 => 91,  262 => 90,  260 => 89,  258 => 88,  256 => 87,  254 => 86,  252 => 85,  250 => 84,  234 => 69,  230 => 67,  224 => 65,  222 => 64,  214 => 58,  208 => 54,  202 => 50,  200 => 49,  196 => 47,  187 => 40,  185 => 39,  166 => 22,  156 => 21,  138 => 19,  119 => 7,  101 => 8,  99 => 7,  92 => 2,  82 => 1,  71 => 256,  69 => 255,  66 => 254,  64 => 208,  61 => 207,  59 => 21,  56 => 20,  54 => 19,  50 => 17,  48 => 1,);
+        return array (  755 => 256,  403 => 209,  393 => 208,  272 => 95,  270 => 94,  268 => 93,  266 => 92,  264 => 91,  262 => 90,  260 => 89,  258 => 88,  256 => 87,  254 => 86,  252 => 85,  250 => 84,  234 => 69,  230 => 67,  224 => 65,  222 => 64,  214 => 58,  208 => 54,  202 => 50,  200 => 49,  196 => 47,  187 => 40,  185 => 39,  166 => 22,  156 => 21,  138 => 19,  119 => 7,  101 => 8,  99 => 7,  92 => 2,  82 => 1,  71 => 257,  69 => 256,  66 => 255,  64 => 208,  61 => 207,  59 => 21,  56 => 20,  54 => 19,  50 => 17,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -1032,6 +1034,7 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
         select{
             font-family: \"Netflix Sans Black\", bootstrap-icons, serif;
             padding: 10px 10px 10px;
+
         }
         i{
             vertical-align: -1px;

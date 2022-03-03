@@ -8,6 +8,8 @@ use App\Form\SubuserType;
 use App\Repository\CategoryRepository;
 use App\Repository\MovieRepository;
 use App\Repository\SubuserRepository;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,7 +31,8 @@ class SubuserController extends AbstractController
      * @Route ("manageUser/add")
      * @return Response
      */
-    public function addSubuser(): Response{
+    public function addSubuser(): Response
+    {
         $currentUser = $this->getUser();
         $entityManager = $this->getDoctrine()->getManager();
         $subusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
@@ -50,42 +53,65 @@ class SubuserController extends AbstractController
     }
 
     /**
-     * @Route ("/manageUser/delete/{id}")
-     * @param int $id
+     * @Route ("manageUser/edit", name="edit")
+     * @param Request $request
+     * @param EntityManagerInterface $entityManager
      * @return Response
      */
-    public function delete(int $id): Response {
-         $currentUser = $this->getUser();
-         $entityManger = $this->getDoctrine()->getManager();
-         $subusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser, 'id' => $id));
-         $subuser = reset($subusers);
-         dump($subuser);
-        if ($subuser != false) {
-         $entityManger->remove($subuser);
-         $entityManger->flush();
-         return $this->redirectToRoute('manageUser', [
-             'id' => $subuser->getId(),
-             'subUsers' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
-         ]);
+    public function edit(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $user = $this->getUser();
+        $subuserFrontId = $request->get('id');
+        $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $user));
+        if (isset($subuserFrontId) && $allSubusers[$subuserFrontId] != null){
+        $currentSubuser = $allSubusers[$subuserFrontId];
+            return $this->render('user/edit.html.twig', [
+                'subuser' => $currentSubuser
+            ]);
         } else {
-            return $this->redirectToRoute('manageUser', [
-                'subUsers' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
-            ])
+
+            return $this->render('user/edit.html.twig', [
+                'error' => "nie znaleziono"
+            ]);
         }
+
     }
 
     /**
-     * @Route ("/manageUser/edit/{id}")
-     * @param int $id
+     * @Route ("/manageUser/delete/{id}", name="deleteSubuser")
+     * @param Request $request
+     * @param EntityManagerInterface $entityManager
      * @return Response
      */
-    public function update(int $id): Response
+    public function delete(Request $request, EntityManagerInterface $entityManager): Response {
+        $user = $this->getUser();
+        $subuserFrontId = $request->get('id');
+        $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $user));
+        $currentSubuser = $allSubusers[$subuserFrontId];
+
+        $entityManager->remove($currentSubuser);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('manageUser', [
+            'subUsers' => $allSubusers
+        ]);
+    }
+
+    /**
+     * @Route ("/manageUser/update/{id}")
+     * @param Request $request
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     */
+    public function update(Request $request, EntityManagerInterface $entityManager): Response
     {
         $currentUser = $this->getUser();
-        $entityManager= $this->getDoctrine()->getManager();
-        $subusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser, 'id' => $id));
-        $subusers = reset($subusers);
-        if(!$subusers){
+        $subuserFrontId = $request->get('id');
+        $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
+        $currentSubuser = $allSubusers[$subuserFrontId];
+//        $subusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser, 'id' => $id));
+//        $subusers = reset($subusers);
+        if(!$currentSubuser){
             return $this->redirectToRoute('error', [
                 'error' => '404: Nie znaleziono profilu.'
                 //            throw $this->createNotFoundException(
@@ -93,21 +119,29 @@ class SubuserController extends AbstractController
 //            );
             ]);
         } else {
-            $subusers->setName('Zmieniono');
-            $entityManager->persist($subusers);
+            $currentSubuser->setName('Zmieniono');
+            $entityManager->persist($currentSubuser);
             $entityManager->flush();
         return $this->redirectToRoute('manageUser', [
-            'id' => $subusers->getId(),
-            'subUsers' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
+            'id' => $subuserFrontId,
+            'subUsers' => $allSubusers
         ]);
     }}
 
     /**
      * @Route("/manageUser", name="manageUser")
+     * @param Request $request
      * @return Response
      */
-    public function manageUser(): Response
+    public function manageUser(Request $request): Response
     {
+        if($request->getMethod() == 'POST') {
+            $id = $request->request->get('id');
+            return $this->redirectToRoute('edit', [
+                    'id' => $id,
+                ]
+            );
+        }
         $currentUser = $this->getUser();
         $subusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
 //        dump($subusers);
@@ -160,7 +194,6 @@ class SubuserController extends AbstractController
         ));
 
         return $this->redirectToRoute('browse', [
-            'id'=>$subuserId
         ]);
     }
 

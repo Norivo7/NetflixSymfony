@@ -47,9 +47,12 @@
         }
         .add {
             text-decoration: none;
-            margin-bottom: 40px;
+            margin-bottom: 13px;
             padding: 10px;
             font-size: 200px;
+        }
+        a.plus{
+            opacity:60%;
         }
     </style>
 {% endblock %}
@@ -77,12 +80,24 @@
 
                         <li class="profile">
                             {#                            <form action="{{ path('switchSubuser')}}" method="POST">#}
+{#                            <form method="POST">#}
+{#                                <input class="form-control"#}
+{#                                       id="text"#}
+{#                                       type="hidden"#}
+{#                                       name="id"#}
+{#                                       value="{{ subuser_id }}"#}
+{#                                >#}
+{#                                <a href="/manageUser/edit">edytuj 2</a>#}
+{#                            </form>#}
                             <form method="POST">
-                                {#                                    <img src="{{ subuser.avatar }}" class="round">#}
                                 <div class="subuser">
-                                    <a class="profileLink" href="/browse">
-                                        {#                                        <img src="{{subuser.avatar}}" class="round" alt="av1"/>#}
+                                    <a class="profileLink" href="/manageUser/delete/{{ subuser_id }}">
+                                    Usuń
                                     </a>
+                                    <a class="profileLink" href="/manageUser/update/{{ subuser_id }}">
+                                        edytuj
+                                    </a>
+
                                     <span class="profileName">
                                     </span>
                                     <input
@@ -120,8 +135,8 @@
                         {% set subuser_id = subuser_id + 1 %}
                     {% endfor %}
                     {% if subuser_id < 5 %}
-                    <div class="add"><a href="manageUser/add">
-                        <i class="addUser bi bi-plus-square"></i></a>
+                    <div class="add"><a href="manageUser/add" class="plus">
+                        <i class="bi bi-plus-square"></i></a>
                     </div>
                     {% endif %}
                 </ul>

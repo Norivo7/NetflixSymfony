@@ -17,17 +17,86 @@
                 <img class="logo" src="{{ asset('images/netflixLogo.svg.png') }}" alt="av1"/>
             </a>
         </div>
-            <a class="right"><i class="bi bi-person-circle"></i></a>
+            <a class="avatar" href="/browse">
+                <img class="userAvatar" src="{{ userAvatar }}" alt="avatar"></a>
     </div>
 {% endblock %}
 
 {% block body %}
+
     <div class="mainWrapper">
-        <div class="accountContainer">
-            <div class="row">
-                <h2>Konto</h2> Użytkownik od
-            </div>
-        </div>
+
+
+
+
+    <section class="layout1">
+        <div>1</div>
+        <div>2</div>
+    </section>
+        <section class="layout2">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </section>
+
+{#        <div>#}
+{#            <div class="row inlineblock left">#}
+{#                <h1>Konto</h1>#}
+{#            </div>#}
+{#            <div class="row inlineblock left full-width">#}
+{#                <p>Użytkownik od</p>#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="accountContainer">#}
+{#            <hr>#}
+{#            <div class="row fill">#}
+{#                <div class="column left deny">#}
+{#                    Członkostwo i rozliczenia#}
+{#                    <button>Anuluj członkostwo</button>#}
+{#                </div>#}
+{#                <div class="column credentials">#}
+{#                    <div class="row fill">#}
+{#                        <div class="left half">#}
+{#                            <li>email</li>#}
+{#                            <li>hasło:</li>#}
+{#                            <li>telefon:</li>#}
+{#                        </div>#}
+{#                         <div class="right half">#}
+{#                             <li><a>Zmień adres e-mail</a></li>#}
+{#                             <li><a>Zmień hasło</a></li>#}
+{#                             <li><a>Zweryfikuj numer telefon</a></li>#}
+{#                             <li> <a>Zmień numer telefon</a></li>#}
+{#                         </div>#}
+{#                        <hr>#}
+{#                        <div class="left half">#}
+{#                            <li>4124 1242 1242 12414</li>#}
+{#                            <li>Twoja kolejna data rozliczenia to: </li>#}
+{#                        </div>#}
+{#                        <div class="right half">#}
+{#                            <li><a>Zarządzaj metodami płatności</a></li>#}
+{#                            <li><a>Dodaj zapasową metodę płatności</a></li>#}
+{#                            <li><a>Szczegóły rozliczenia</a></li>#}
+{#                            <li><a>Zmień dzień rozliczenia</a></li>#}
+{#                        </div>#}
+{#                        <hr>#}
+{#                        <div class="right full-width">#}
+{#                            <li><a>Zrealizuj kartę podarunkową lub kod promocyjny</a></li>#}
+{#                            <li><a>Gdzie kupić karty podarunkowe</a></li>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="accountContainer row credentials" style="margin:0 auto;height: 70px;width: 750px;">#}
+
+{#                        <div class="left third">Szczegóły planu</div>#}
+{#                        <div class="third"> Standard </div>#}
+{#                        <div class="right third"><a>Zmień plan</a></div>#}
+{#                </div>#}
+{#            </div>#}
+
+{#        </div>#}
     </div>
 {% endblock %}
 
@@ -36,7 +105,29 @@
     {#    <link rel="stylesheet" href="assets/user.css">#}
 
     <style>
-
+        .layout1 {
+            width: 1920px;
+            height: 100px;
+            display: grid;
+            grid-template-rows: repeat(auto-fit, 1fr);
+            grid-template-columns: 25% 30% 25%;
+            gap: 8px;
+            justify-content: center;
+            justify-items: start;
+        }
+        .layout2 {
+            width: 1920px;
+            height: 6 80px;
+            display: grid;
+            grid-template-rows: repeat(auto-fit, 1fr);
+            grid-template-columns: 25% 30% 25%;
+            gap: 8px;
+            justify-content: center;
+            justify-items: start;
+        }
+        li{
+            color: black;
+        }
         #headerContainer{
             display: flex;
             flex-direction: row;
@@ -49,20 +140,19 @@
             justify-content: center;
             padding: 17px 30px;
         }
-        i{
-            font-size: 30px;
-        }
         .logo {
             height: 100%;
         }
-        .right{
+        .avatar{
             height: 20px;
             padding: 17px;
             color: white;
             align-items: center;
             justify-content: center;
         }
-
+        a:hover {
+            opacity: 0.8;
+        }
 
         body {
             background-color: black;
@@ -70,8 +160,11 @@
         }
         .mainWrapper{
             width: 100%;
-            height: 1000px;
+            height: 2000px;
             background-color: #f3f3f3;
+        /*    text-align: center;*/
+        /*    justify-content: center;*/
+        /*    align-items: center;*/
         }
 
         hr {
@@ -79,22 +172,87 @@
         }
 
         h1 {
-            font-size: 3.125rem;
-            color: #FFFFFF;
-            line-height: 1.1;
-            font-weight: bold;
+
         }
         h2 {
             font-weight: 400;
             color: black;
             width: 10px;
         }
-
+        hr {
+            border-bottom: 8px solid rgb(118, 118, 118);
+        }
         h3 {
             padding-bottom: 20px;
             font-size: 1.2rem;
             color: #FFFFFF;
         }
+        .userAvatar{
+            width:35px;
+            border-radius: 4px;
+        }
+
+        /*.third {*/
+        /*    width: 33%;*/
+        /*}*/
+        /*.full-width{*/
+        /*    width: 80%;*/
+        /*}*/
+        /*.full-height{*/
+        /*    height: 100%;*/
+        /*}*/
+        /*.left {*/
+        /*    text-align: left;*/
+        /*    float: left;*/
+        /*}*/
+        /*.right{*/
+        /*    color: black;*/
+        /*    float: right;*/
+        /*    text-align: right;*/
+        /*}*/
+
+        /*.half{*/
+        /*    width: 50%;*/
+        /*}*/
+        /*.fill {*/
+        /*    height: 350px;*/
+        /*    margin: auto 0;*/
+        /*}*/
+        /*.credentials{*/
+        /*    width: 750px;*/
+        /*    height: 350px;*/
+        /*}*/
+        /*.deny {*/
+        /*    height: 350px;*/
+        /*    width: 250px;*/
+        /*}*/
+        /*.first {*/
+        /*    display: inline-block;*/
+        /*    text-align: center;*/
+        /*    font-size: 2rem;*/
+        /*    color: black;*/
+        /*    !*line-height: 1.1;*!*/
+        /*    !*font-weight: bold;*!*/
+        /*}*/
+        /*.accountContainer{*/
+        /*    !*flex-direction: column;*!border: 2px solid green;*/
+        /*    width:100%;*/
+        /*    display: flex;*/
+        /*    align-content: center;*/
+        /*    justify-content: center;*/
+        /*}*/
+        /*.row {*/
+        /*    flex-direction: row;*/
+        /*    border: 2px solid black;*/
+        /*}*/
+        /*.inlineblock{*/
+        /*    display: inline-block;*/
+        /*}*/
+
+        /*.column {*/
+        /*    flex-direction: column;*/
+        /*    border: 2px solid red;*/
+        /*}*/
 
 
     </style>

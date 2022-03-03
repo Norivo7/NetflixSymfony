@@ -85,7 +85,6 @@ class __TwigTemplate_bf30a4ba41f93082ee0c5940a7b0790f7d3f5d9a18591df5f750aea456a
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navigation"));
 
-        echo " ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -106,7 +105,7 @@ class __TwigTemplate_bf30a4ba41f93082ee0c5940a7b0790f7d3f5d9a18591df5f750aea456a
 
         // line 8
         echo "        <h2>Create new Subuser</h2>
-        
+
         ";
         // line 10
         echo twig_include($this->env, $context, "admin/subuser_crud/_form.html.twig");
@@ -137,7 +136,7 @@ class __TwigTemplate_bf30a4ba41f93082ee0c5940a7b0790f7d3f5d9a18591df5f750aea456a
 
     public function getDebugInfo()
     {
-        return array (  117 => 12,  112 => 10,  108 => 8,  98 => 7,  79 => 4,  60 => 3,  37 => 1,);
+        return array (  116 => 12,  111 => 10,  107 => 8,  97 => 7,  79 => 4,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -145,12 +144,12 @@ class __TwigTemplate_bf30a4ba41f93082ee0c5940a7b0790f7d3f5d9a18591df5f750aea456a
         return new Source("{% extends 'admin/base.html.twig' %}
 
 {% block title %}New Subuser{% endblock %}
-{% block navigation %} {% endblock %}
+{% block navigation %}{% endblock %}
 
 {#{% block body%}#}
     {% block content %}
         <h2>Create new Subuser</h2>
-        
+
         {{ include('admin/subuser_crud/_form.html.twig') }}
 
         <a class=\"profileButton\" href=\"{{ path('subuser_crud_index') }}\">wróć</a>
