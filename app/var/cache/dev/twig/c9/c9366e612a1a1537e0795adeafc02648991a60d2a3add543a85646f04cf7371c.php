@@ -72,10 +72,10 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
           rel=\"stylesheet\"
           integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
           crossorigin=\"anonymous\">
-<link rel=\"stylesheet\"
-      href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css\">
+    <link rel=\"stylesheet\"
+          href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css\">
 
-";
+    ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -95,107 +95,130 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 13
-        echo "<body>
-<form id=\"myForm\" method=\"post\">
-";
+        echo "    <body>
+    <form id=\"myForm\" method=\"post\">
+        ";
         // line 16
-        echo "        ";
+        echo "
+        ";
+        // line 17
         if (array_key_exists("subuser", $context)) {
-            // line 17
+            // line 18
             echo "            <div class=\"parent\">
-                    <div class=\"div1\"><p class=\"heading\">Edytuj profil</p>
-                        <hr>
-                        </div>
-                    <div class=\"div2\">
-                        <input id=\"text\"
-                               type=\"hidden\"
-                               name=\"avatar\"
-                               value=\"";
-            // line 25
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 25, $this->source); })()), "avatar", [], "any", false, false, false, 25), "html", null, true);
+                <div class=\"div1\"><p class=\"heading\">Edytuj profil</p>
+                    <hr>
+                </div>
+                <div class=\"div2\">
+                    <input id=\"text\"
+                           type=\"hidden\"
+                           name=\"avatar\"
+                           value=\"";
+            // line 26
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 26, $this->source); })()), "avatar", [], "any", false, false, false, 26), "html", null, true);
             echo "\"/>
-                        <img class=\"avatar\"
-                             src=\"";
-            // line 27
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 27, $this->source); })()), "avatar", [], "any", false, false, false, 27), "html", null, true);
+
+                    <img class=\"avatar\"
+                         src=\"";
+            // line 29
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 29, $this->source); })()), "avatar", [], "any", false, false, false, 29), "html", null, true);
             echo "\"
-                             alt=\"avatar\">
-                    </div>
-                    <div class=\"div3\">
-                        <input class=\"name\"
-                               type=\"text\"
-                               name=\"name\"
-";
-            // line 35
-            echo "                               placeholder=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 35, $this->source); })()), "name", [], "any", false, false, false, 35), "html", null, true);
+                         alt=\"avatar\">
+                </div>
+                <div class=\"div3\">
+                    <input class=\"name\"
+                           type=\"text\"
+                           name=\"name\"
+                           placeholder=\"";
+            // line 36
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 36, $this->source); })()), "name", [], "any", false, false, false, 36), "html", null, true);
             echo "\"/>
-                        <div class=\"selectMedium\">
-                            <select>
-                                <option value=\"0\">Polski</option>
-                                <option value=\"1\">English</option>
-                            </select>
+                    ";
+            // line 37
+            if (array_key_exists("errorRegex", $context)) {
+                // line 38
+                echo "                        ";
+                echo twig_escape_filter($this->env, (isset($context["errorRegex"]) || array_key_exists("errorRegex", $context) ? $context["errorRegex"] : (function () { throw new RuntimeError('Variable "errorRegex" does not exist.', 38, $this->source); })()), "html", null, true);
+                echo "
+                    ";
+            }
+            // line 40
+            echo "                    <div class=\"selectMedium\">
+                        <select>
+                            <option value=\"0\">Polski</option>
+                            <option value=\"1\">English</option>
+                        </select>
+                    </div>
+
+                    <hr>
+                </div>
+                <div class=\"div4\">
+                    Ustawienia grup wiekowych:<br>
+                    <ul>
+                        <li>
+                            Wszystkie grupy wiekowe<br>
+                        </li>
+                    </ul>
+                    Wyświetlaj w tym profilu tytuły z wszystkich kategorii wiekowych.<br><br>
+                    <a class=\"profileButton\"> Edytuj </a>
+                    <hr>
+                </div>
+                <div class=\"div5\">
+                    Ustawienia automatycznego odtwarzania <br>
+                    <input type=\"checkbox\">Automatycznie odtwarzaj kolejny odcinek na wszystkich urządzeniach.<br>
+                    <input type=\"checkbox\">Automatycznie odtwarzaj podglądy podczas przeglądania na wszystkich
+                    urządzeniach.
+                </div>
+                <div class=\"div6\">
+                    <hr>
+                    <div class=\"div7\">
+                        <div>
+                            <a class=\"profileButton\" href=\"#\" onclick=\"document.getElementById('myForm').submit()\">Zapisz</a>
+                            ";
+            // line 72
+            echo "                            ";
+            // line 73
+            echo "                            ";
+            // line 74
+            echo "                        </div>
+                        <div>
+
+                            <a href=\"/manageUser\" class=\"profileButton\">
+                                Anuluj
+                            </a>
+
                         </div>
-                        <hr>
-                    </div>
-                    <div class=\"div4\">
-                        Ustawienia grup wiekowych:<br>
-                        <ul>
-                            <li>
-                                Wszystkie grupy wiekowe<br>
-                            </li>
-                        </ul>
-                            Wyświetlaj w tym profilu tytuły z wszystkich kategorii wiekowych.<br><br>
-                        <a class=\"profileButton\"> Edytuj </a>
-                        <hr>
-                    </div>
-                    <div class=\"div5\">
-                        Ustawienia automatycznego odtwarzania <br>
-                        <input type=\"checkbox\">Automatycznie odtwarzaj kolejny odcinek na wszystkich urządzeniach.<br>
-                        <input type=\"checkbox\">Automatycznie odtwarzaj podglądy podczas przeglądania na wszystkich urządzeniach.
-                    </div>
-                    <div class=\"div6\">
-                        <hr>
-                        <div class=\"div7\">
-                            <div>
-                                <a class=\"profileButton\" href=\"#\" onclick=\"document.getElementById('myForm').submit()\">Zapisz</a>
-";
-            // line 68
-            echo "                            </div>
-                            <div>
-
-                                    <a href=\"/manageUser\" class=\"profileButton\">
-                                        Anuluj
-                                    </a>
-
-                            </div>
-                            <form method=\"post\">
-                                <div class=\"deleteBtnContainer\">
-                                    <a class=\"deleteButton\" href=\"/manageUser/delete/";
-            // line 78
-            echo twig_escape_filter($this->env, (isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 78, $this->source); })()), "html", null, true);
+                        <form method=\"post\">
+                            <div class=\"deleteBtnContainer\">
+                                <a class=\"deleteButton\" href=\"/manageUser/delete/";
+            // line 84
+            echo twig_escape_filter($this->env, (isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 84, $this->source); })()), "html", null, true);
             echo "\">
-                                        Usuń
-                                    </a>
-                                </div>
-                            </form>
-                        </div>
+                                    Usuń
+                                </a>
+                            </div>
+                        </form>
                     </div>
+                </div>
 
 
             </div>
 
-        ";
-        } else {
-            // line 90
-            echo "        <p> ";
-            echo twig_escape_filter($this->env, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 90, $this->source); })()), "html", null, true);
-            echo "</p>
-        ";
+            ";
+            // line 96
+            echo "            ";
+            // line 97
+            echo "            ";
+            // line 98
+            echo "            ";
+            // line 99
+            echo "        ";
         }
-        // line 93
-        echo "</form>
-</body>
+        // line 100
+        echo "        ";
+        // line 101
+        echo "    </form>
+
+    </body>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -205,7 +228,7 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
 
     }
 
-    // line 97
+    // line 106
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -215,39 +238,46 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 98
+        // line 107
         echo "    <style>
-        .deleteBtnContainer{
+        .deleteBtnContainer {
             text-align: center;
             padding-bottom: 10px;
         }
-        .selectMedium{
+
+        .selectMedium {
             margin-right: 0;
         }
+
         select {
             font-family: \"Netflix Sans Black\", serif;
-            text-align-last:left;
+            text-align-last: left;
             align-content: center;
             margin-top: 15px;
-            padding: 5px 30px 5px ;
+            padding: 5px 30px 5px;
             border-radius: 4px;
             background-color: #222222;
             color: #FFF;
         }
+
         hr {
             border-bottom: 4px solid rgb(118, 118, 118);
         }
+
         @font-face {
             font-family: 'Netflix Sans Regular';
         }
+
         html {
             margin-left: -8px;
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
         }
-        body{
+
+        body {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
             background-color: #141414;
         }
+
         .main {
             margin: 0 auto;
             display: flex;
@@ -257,11 +287,13 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
             justify-content: space-evenly;
             /*width: 100%;*/
         }
+
         h1 {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
             color: white;
             text-align: center;
         }
+
         /*.profile:hover {*/
         /*    color:#000;*/
         /*    background-color:#FFF;*/
@@ -279,8 +311,7 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
 
         }
 
-        .deleteButton
-        {
+        .deleteButton {
             color: red;
             padding: .5em 1.5em;
             letter-spacing: 2px;
@@ -289,12 +320,15 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
             border: 1px solid red;
             text-decoration: none;
         }
-        .deleteButton:hover{
+
+        .deleteButton:hover {
             color: red;
         }
-        ul{
+
+        ul {
             list-style-type: none;
         }
+
         li {
 
             background-color: #333;
@@ -308,20 +342,24 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
             /*padding: 20px;*/
 
         }
+
         img.round {
             outline-offset: -4px;
             border: 0px solid;
             border-radius: 10px;
         }
+
         img.round:hover {
-            color:#000;
+            color: #000;
             box-shadow: 0px 0px 0px 4px white;
-            background-color:#FFF;
-            background-image:none;
+            background-color: #FFF;
+            background-image: none;
         }
+
         .brandLogoWrapper {
 
         }
+
         .logo {
             margin-left: 25px;
             margin-top: 10px;
@@ -332,28 +370,32 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
             justify-content: center;
 
         }
+
         #buttonDiv {
             align-items: center;
             text-align: center;
             width: 100%;
 
         }
+
         .brandLogoWrapper {
             height: 68px;
-            background-image: linear-gradient(to bottom,rgba(0,0,0,.7) 10%,rgba(0,0,0,0));
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, .7) 10%, rgba(0, 0, 0, 0));
         }
+
         #headerContainer {
             vertical-align: top;
             margin: -0.4em auto 2em auto;
             width: 100vw;
             height: 5vh;
         }
+
         .parent {
             margin: auto;
             align-content: center;
             color: white;
             /*border: 2px solid red;*/
-            width:  60%;
+            width: 60%;
             justify-items: center;
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -370,12 +412,14 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
             width: 100%;
             grid-area: 1 / 1 / 2 / 6;
         }
+
         .div2 {
             display: flex;
             justify-content: center;
             /*border: 2px solid green;*/
             grid-area: 2 / 1 / 5 / 2;
         }
+
         .div3 {
             height: 100px;
             width: 100%;
@@ -387,45 +431,53 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
             align-content: flex-start;
             grid-area: 2 / 2 / 3 / 6;
         }
+
         .div4 {
             height: 140px;
             width: 100%;
             grid-area: 3 / 2 / 4 / 6;
         }
+
         .div5 {
             margin-top: 55px;
             text-align: left;
             width: 100%;
             grid-area: 4 / 2 / 5 / 6;
         }
+
         .div6 {
             display: flex;
             flex-direction: column;
             height: 100px;
-            width:100%;
+            width: 100%;
             /*width: 1000px;*/
             flex-shrink: 1;
             grid-area: 5 / 1 / 6 / 6;
         }
+
         .div7 {
             display: flex;
             gap: 20px;
             /*height: 100%;*/
             /*margin-bottom: 100px;*/
         }
-        .heading{
+
+        .heading {
             font-size: 50px;
         }
+
         .name {
             color: white;
             background-color: #666;
             width: 40%;
         }
+
         .name::placeholder {
             color: white;
             opacity: 0.5;
         }
-        .avatar{
+
+        .avatar {
             border-radius: 10px;
             height: 100px;
             width: 100px;
@@ -452,7 +504,7 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
 
     public function getDebugInfo()
     {
-        return array (  219 => 98,  209 => 97,  197 => 93,  191 => 90,  176 => 78,  164 => 68,  130 => 35,  120 => 27,  115 => 25,  105 => 17,  102 => 16,  98 => 13,  88 => 12,  70 => 3,  60 => 2,  37 => 1,);
+        return array (  242 => 107,  232 => 106,  219 => 101,  217 => 100,  214 => 99,  212 => 98,  210 => 97,  208 => 96,  194 => 84,  182 => 74,  180 => 73,  178 => 72,  145 => 40,  139 => 38,  137 => 37,  133 => 36,  123 => 29,  117 => 26,  107 => 18,  105 => 17,  102 => 16,  98 => 13,  88 => 12,  70 => 3,  60 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -464,128 +516,144 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
           rel=\"stylesheet\"
           integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
           crossorigin=\"anonymous\">
-<link rel=\"stylesheet\"
-      href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css\">
+    <link rel=\"stylesheet\"
+          href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css\">
 
-{% endblock %}
-{% block body %}
-<body>
-<form id=\"myForm\" method=\"post\">
-{#    <div class=\"main\">#}
+    {% endblock %}
+    {% block body %}
+    <body>
+    <form id=\"myForm\" method=\"post\">
+        {#    <div class=\"main\"> #}
+
         {% if subuser is defined %}
             <div class=\"parent\">
-                    <div class=\"div1\"><p class=\"heading\">Edytuj profil</p>
-                        <hr>
-                        </div>
-                    <div class=\"div2\">
-                        <input id=\"text\"
-                               type=\"hidden\"
-                               name=\"avatar\"
-                               value=\"{{ subuser.avatar }}\"/>
-                        <img class=\"avatar\"
-                             src=\"{{ subuser.avatar }}\"
-                             alt=\"avatar\">
-                    </div>
-                    <div class=\"div3\">
-                        <input class=\"name\"
-                               type=\"text\"
-                               name=\"name\"
-{#                               value=\"{{ subuser.name }}\"#}
-                               placeholder=\"{{ subuser.name }}\"/>
-                        <div class=\"selectMedium\">
-                            <select>
-                                <option value=\"0\">Polski</option>
-                                <option value=\"1\">English</option>
-                            </select>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class=\"div4\">
-                        Ustawienia grup wiekowych:<br>
-                        <ul>
-                            <li>
-                                Wszystkie grupy wiekowe<br>
-                            </li>
-                        </ul>
-                            Wyświetlaj w tym profilu tytuły z wszystkich kategorii wiekowych.<br><br>
-                        <a class=\"profileButton\"> Edytuj </a>
-                        <hr>
-                    </div>
-                    <div class=\"div5\">
-                        Ustawienia automatycznego odtwarzania <br>
-                        <input type=\"checkbox\">Automatycznie odtwarzaj kolejny odcinek na wszystkich urządzeniach.<br>
-                        <input type=\"checkbox\">Automatycznie odtwarzaj podglądy podczas przeglądania na wszystkich urządzeniach.
-                    </div>
-                    <div class=\"div6\">
-                        <hr>
-                        <div class=\"div7\">
-                            <div>
-                                <a class=\"profileButton\" href=\"#\" onclick=\"document.getElementById('myForm').submit()\">Zapisz</a>
-{#                                <button type=\"submit\">Zapisz#}
-{#                                    <a href=\"/manageUser/update/{{ id }}\" class=\"profileButton\">Zapisz</a>#}
-{#                                </button>#}
-                            </div>
-                            <div>
+                <div class=\"div1\"><p class=\"heading\">Edytuj profil</p>
+                    <hr>
+                </div>
+                <div class=\"div2\">
+                    <input id=\"text\"
+                           type=\"hidden\"
+                           name=\"avatar\"
+                           value=\"{{ subuser.avatar }}\"/>
 
-                                    <a href=\"/manageUser\" class=\"profileButton\">
-                                        Anuluj
-                                    </a>
-
-                            </div>
-                            <form method=\"post\">
-                                <div class=\"deleteBtnContainer\">
-                                    <a class=\"deleteButton\" href=\"/manageUser/delete/{{ id }}\">
-                                        Usuń
-                                    </a>
-                                </div>
-                            </form>
-                        </div>
+                    <img class=\"avatar\"
+                         src=\"{{ subuser.avatar }}\"
+                         alt=\"avatar\">
+                </div>
+                <div class=\"div3\">
+                    <input class=\"name\"
+                           type=\"text\"
+                           name=\"name\"
+                           placeholder=\"{{ subuser.name }}\"/>
+                    {% if errorRegex is defined %}
+                        {{ errorRegex }}
+                    {% endif %}
+                    <div class=\"selectMedium\">
+                        <select>
+                            <option value=\"0\">Polski</option>
+                            <option value=\"1\">English</option>
+                        </select>
                     </div>
+
+                    <hr>
+                </div>
+                <div class=\"div4\">
+                    Ustawienia grup wiekowych:<br>
+                    <ul>
+                        <li>
+                            Wszystkie grupy wiekowe<br>
+                        </li>
+                    </ul>
+                    Wyświetlaj w tym profilu tytuły z wszystkich kategorii wiekowych.<br><br>
+                    <a class=\"profileButton\"> Edytuj </a>
+                    <hr>
+                </div>
+                <div class=\"div5\">
+                    Ustawienia automatycznego odtwarzania <br>
+                    <input type=\"checkbox\">Automatycznie odtwarzaj kolejny odcinek na wszystkich urządzeniach.<br>
+                    <input type=\"checkbox\">Automatycznie odtwarzaj podglądy podczas przeglądania na wszystkich
+                    urządzeniach.
+                </div>
+                <div class=\"div6\">
+                    <hr>
+                    <div class=\"div7\">
+                        <div>
+                            <a class=\"profileButton\" href=\"#\" onclick=\"document.getElementById('myForm').submit()\">Zapisz</a>
+                            {#                                <button type=\"submit\">Zapisz #}
+                            {#                                    <a href=\"/manageUser/update/{{ id }}\" class=\"profileButton\">Zapisz</a> #}
+                            {#                                </button> #}
+                        </div>
+                        <div>
+
+                            <a href=\"/manageUser\" class=\"profileButton\">
+                                Anuluj
+                            </a>
+
+                        </div>
+                        <form method=\"post\">
+                            <div class=\"deleteBtnContainer\">
+                                <a class=\"deleteButton\" href=\"/manageUser/delete/{{ id }}\">
+                                    Usuń
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
 
 
             </div>
 
-        {% else %}
-        <p> {{ error }}</p>
+            {#        {% else %} #}
+            {#            <p> #}
+            {#                     {{ error }} #}
+            {#            </p> #}
         {% endif %}
-{#    </div>#}
-</form>
-</body>
+        {#    </div> #}
+    </form>
+
+    </body>
 {% endblock %}
 
 {% block stylesheets %}
     <style>
-        .deleteBtnContainer{
+        .deleteBtnContainer {
             text-align: center;
             padding-bottom: 10px;
         }
-        .selectMedium{
+
+        .selectMedium {
             margin-right: 0;
         }
+
         select {
             font-family: \"Netflix Sans Black\", serif;
-            text-align-last:left;
+            text-align-last: left;
             align-content: center;
             margin-top: 15px;
-            padding: 5px 30px 5px ;
+            padding: 5px 30px 5px;
             border-radius: 4px;
             background-color: #222222;
             color: #FFF;
         }
+
         hr {
             border-bottom: 4px solid rgb(118, 118, 118);
         }
+
         @font-face {
             font-family: 'Netflix Sans Regular';
         }
+
         html {
             margin-left: -8px;
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
         }
-        body{
+
+        body {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
             background-color: #141414;
         }
+
         .main {
             margin: 0 auto;
             display: flex;
@@ -595,11 +663,13 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
             justify-content: space-evenly;
             /*width: 100%;*/
         }
+
         h1 {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
             color: white;
             text-align: center;
         }
+
         /*.profile:hover {*/
         /*    color:#000;*/
         /*    background-color:#FFF;*/
@@ -617,8 +687,7 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
 
         }
 
-        .deleteButton
-        {
+        .deleteButton {
             color: red;
             padding: .5em 1.5em;
             letter-spacing: 2px;
@@ -627,12 +696,15 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
             border: 1px solid red;
             text-decoration: none;
         }
-        .deleteButton:hover{
+
+        .deleteButton:hover {
             color: red;
         }
-        ul{
+
+        ul {
             list-style-type: none;
         }
+
         li {
 
             background-color: #333;
@@ -646,20 +718,24 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
             /*padding: 20px;*/
 
         }
+
         img.round {
             outline-offset: -4px;
             border: 0px solid;
             border-radius: 10px;
         }
+
         img.round:hover {
-            color:#000;
+            color: #000;
             box-shadow: 0px 0px 0px 4px white;
-            background-color:#FFF;
-            background-image:none;
+            background-color: #FFF;
+            background-image: none;
         }
+
         .brandLogoWrapper {
 
         }
+
         .logo {
             margin-left: 25px;
             margin-top: 10px;
@@ -670,28 +746,32 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
             justify-content: center;
 
         }
+
         #buttonDiv {
             align-items: center;
             text-align: center;
             width: 100%;
 
         }
+
         .brandLogoWrapper {
             height: 68px;
-            background-image: linear-gradient(to bottom,rgba(0,0,0,.7) 10%,rgba(0,0,0,0));
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, .7) 10%, rgba(0, 0, 0, 0));
         }
+
         #headerContainer {
             vertical-align: top;
             margin: -0.4em auto 2em auto;
             width: 100vw;
             height: 5vh;
         }
+
         .parent {
             margin: auto;
             align-content: center;
             color: white;
             /*border: 2px solid red;*/
-            width:  60%;
+            width: 60%;
             justify-items: center;
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -708,12 +788,14 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
             width: 100%;
             grid-area: 1 / 1 / 2 / 6;
         }
+
         .div2 {
             display: flex;
             justify-content: center;
             /*border: 2px solid green;*/
             grid-area: 2 / 1 / 5 / 2;
         }
+
         .div3 {
             height: 100px;
             width: 100%;
@@ -725,45 +807,53 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
             align-content: flex-start;
             grid-area: 2 / 2 / 3 / 6;
         }
+
         .div4 {
             height: 140px;
             width: 100%;
             grid-area: 3 / 2 / 4 / 6;
         }
+
         .div5 {
             margin-top: 55px;
             text-align: left;
             width: 100%;
             grid-area: 4 / 2 / 5 / 6;
         }
+
         .div6 {
             display: flex;
             flex-direction: column;
             height: 100px;
-            width:100%;
+            width: 100%;
             /*width: 1000px;*/
             flex-shrink: 1;
             grid-area: 5 / 1 / 6 / 6;
         }
+
         .div7 {
             display: flex;
             gap: 20px;
             /*height: 100%;*/
             /*margin-bottom: 100px;*/
         }
-        .heading{
+
+        .heading {
             font-size: 50px;
         }
+
         .name {
             color: white;
             background-color: #666;
             width: 40%;
         }
+
         .name::placeholder {
             color: white;
             opacity: 0.5;
         }
-        .avatar{
+
+        .avatar {
             border-radius: 10px;
             height: 100px;
             width: 100px;

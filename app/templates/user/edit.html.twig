@@ -13,6 +13,7 @@
     <body>
     <form id="myForm" method="post">
         {#    <div class="main"> #}
+
         {% if subuser is defined %}
             <div class="parent">
                 <div class="div1"><p class="heading">Edytuj profil</p>
@@ -23,6 +24,7 @@
                            type="hidden"
                            name="avatar"
                            value="{{ subuser.avatar }}"/>
+
                     <img class="avatar"
                          src="{{ subuser.avatar }}"
                          alt="avatar">
@@ -32,12 +34,16 @@
                            type="text"
                            name="name"
                            placeholder="{{ subuser.name }}"/>
+                    {% if errorRegex is defined %}
+                        {{ errorRegex }}
+                    {% endif %}
                     <div class="selectMedium">
                         <select>
                             <option value="0">Polski</option>
                             <option value="1">English</option>
                         </select>
                     </div>
+
                     <hr>
                 </div>
                 <div class="div4">
@@ -86,11 +92,14 @@
 
             </div>
 
-        {% else %}
-            <p> {{ error }}</p>
+            {#        {% else %} #}
+            {#            <p> #}
+            {#                     {{ error }} #}
+            {#            </p> #}
         {% endif %}
         {#    </div> #}
     </form>
+
     </body>
 {% endblock %}
 

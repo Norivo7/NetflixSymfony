@@ -61,7 +61,7 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
 ";
         // line 11
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 160
+        // line 181
         $this->displayBlock('body', $context, $blocks);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -102,10 +102,11 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
 
         // line 12
         echo "    <style>
-        body{
+        body {
             color: white;
             background-color: #141414;
         }
+
         .main {
             margin-top: 150px;
             display: flex;
@@ -115,6 +116,7 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
             justify-content: center;
             gap: 30px;
         }
+
         .profileButton {
             color: gray;
             padding: .5em 1.5em;
@@ -125,25 +127,31 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
             text-decoration: none;
 
         }
-        .table{
+
+        .table {
             /*margin-top: 100px;*/
             width: 1000px;
             color: white;
             flex-direction: column;
         }
-        .tbody{
+
+        .tbody {
             /*display: flex;*/
         }
+
         h1 {
             color: white;
             text-align: center;
         }
-        ul{
+
+        ul {
             list-style-type: none;
         }
+
         li {
             padding: 20px;
         }
+
         .logo {
             margin-left: 25px;
             margin-top: 10px;
@@ -154,23 +162,27 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
             justify-content: center;
 
         }
+
         #buttonDiv {
             align-items: center;
             text-align: center;
             width: 100%;
             margin-top: 20px;
         }
+
         .brandLogoWrapper {
             height: 68px;
-            background-image: linear-gradient(to bottom,rgba(0,0,0,.7) 10%,rgba(0,0,0,0));
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, .7) 10%, rgba(0, 0, 0, 0));
         }
+
         #headerContainer {
             vertical-align: top;
             margin: -0.4em auto 2em auto;
             width: 100vw;
             height: 5vh;
         }
-        h1{
+
+        h1 {
             font-weight: 10;
             width: 100%;
             justify-content: center;
@@ -179,12 +191,15 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
             top: 0;
             /*left:50%;*/
         }
-        h2{
+
+        h2 {
             color: white;
         }
-        ul{
+
+        ul {
             padding: 0;
         }
+
         .wrapper {
             display: flex;
             flex-direction: row;
@@ -193,6 +208,7 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
             margin-top: 130px;
             gap: 70px;
         }
+
         .adminOption {
             display: flex;
             flex-direction: column;
@@ -211,6 +227,7 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
             background-image: linear-gradient(315deg, black 0%, #141414 74%);
 
         }
+
         .adminOption:after {
             content: '';
             position: absolute;
@@ -218,27 +235,31 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
             left: 0;
             width: 0;
             height: 100%;
-            background-color: rgba(255,255,255,0.4);
+            background-color: rgba(255, 255, 255, 0.4);
             -webkit-transition: none;
             -moz-transition: none;
             transition: none;
             border-radius: 19px;
         }
+
         .adminOption:hover:after {
             width: 100%;
-            background-color: rgba(255,255,255,0);
+            background-color: rgba(255, 255, 255, 0);
             -webkit-transition: all 0.4s ease-in-out;
             -moz-transition: all 0.4s ease-in-out;
             transition: all 0.4s ease-in-out;
         }
+
         a {
             text-decoration: none;
             text-align: center;
         }
+
         .optionImage {
             font-size: 42px;
         }
-        .deleteButton{
+
+        .deleteButton {
             color: red;
             padding: .5em 1.5em;
             letter-spacing: 2px;
@@ -257,7 +278,7 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
 
     }
 
-    // line 160
+    // line 181
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -267,29 +288,29 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 161
+        // line 182
         echo "    <body>
-        <div id=\"headerContainer\">
-            <div class=\"brandLogoWrapper\">
-                <a class=\"logo\" href=\"/\" target=\"_parent\">
-                    <img class=\"logo\" src=\"";
-        // line 165
+    <div id=\"headerContainer\">
+        <div class=\"brandLogoWrapper\">
+            <a class=\"logo\" href=\"/\" target=\"_parent\">
+                <img class=\"logo\" src=\"";
+        // line 186
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/netflixLogo.svg.png"), "html", null, true);
         echo "\" alt=\"av1\"/>
-                </a>
-            </div>
-            <h1>Panel Administratora</h1>
+            </a>
         </div>
-       ";
-        // line 170
+        <h1>Panel Administratora</h1>
+    </div>
+    ";
+        // line 191
         $this->displayBlock('navigation', $context, $blocks);
-        // line 192
-        echo "            <div class=\"main\">
-                ";
-        // line 193
+        // line 213
+        echo "    <div class=\"main\">
+        ";
+        // line 214
         $this->displayBlock('content', $context, $blocks);
-        // line 196
-        echo "            </div>
+        // line 217
+        echo "    </div>
 
     </body>
 
@@ -302,7 +323,7 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
 
     }
 
-    // line 170
+    // line 191
     public function block_navigation($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -312,28 +333,28 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navigation"));
 
-        // line 171
+        // line 192
         echo "
-           <div class=\"wrapper\">
-               <a href=\"admin/subuser\">
-                   <div class=\"adminOption\"><i class=\"optionImage bi bi-person-lines-fill\"></i>Profile Użytkowników</div>
-               </a>
-               <a href=\"admin/subuser\">
-                   <div class=\"adminOption\"><i class=\"optionImage bi bi-film\"></i>Filmy</div>
-               </a>
-               <a href=\"admin/subuser\">
-                   <div class=\"adminOption\"><i class=\"optionImage bi bi-people-fill\"></i>Użytkownicy</div>
-               </a>
-               <a href=\"admin/subuser\">
-                   <div class=\"adminOption\"><i class=\"optionImage bi bi-gear-fill\"></i>Ustawienia</div>
-               </a>
+        <div class=\"wrapper\">
+            <a href=\"admin/subuser\">
+                <div class=\"adminOption\"><i class=\"optionImage bi bi-person-lines-fill\"></i>Profile Użytkowników</div>
+            </a>
+            <a href=\"admin/subuser\">
+                <div class=\"adminOption\"><i class=\"optionImage bi bi-film\"></i>Filmy</div>
+            </a>
+            <a href=\"admin/subuser\">
+                <div class=\"adminOption\"><i class=\"optionImage bi bi-people-fill\"></i>Użytkownicy</div>
+            </a>
+            <a href=\"admin/subuser\">
+                <div class=\"adminOption\"><i class=\"optionImage bi bi-gear-fill\"></i>Ustawienia</div>
+            </a>
 
-               <a href=\"/\">
-                   <div class=\"adminOption\"><i class=\"optionImage bi bi-x-lg\"></i>Wróć</div>
-               </a>
-           </div>
+            <a href=\"/\">
+                <div class=\"adminOption\"><i class=\"optionImage bi bi-x-lg\"></i>Wróć</div>
+            </a>
+        </div>
 
-       ";
+    ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -342,7 +363,7 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
 
     }
 
-    // line 193
+    // line 214
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -352,10 +373,10 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
 
-        // line 194
-        echo "                    ";
-        // line 195
-        echo "                ";
+        // line 215
+        echo "            ";
+        // line 216
+        echo "        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -371,7 +392,7 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
 
     public function getDebugInfo()
     {
-        return array (  358 => 195,  356 => 194,  346 => 193,  316 => 171,  306 => 170,  292 => 196,  290 => 193,  287 => 192,  285 => 170,  277 => 165,  271 => 161,  261 => 160,  104 => 12,  94 => 11,  75 => 9,  65 => 160,  63 => 11,  58 => 9,  48 => 1,);
+        return array (  379 => 216,  377 => 215,  367 => 214,  337 => 192,  327 => 191,  313 => 217,  311 => 214,  308 => 213,  306 => 191,  298 => 186,  292 => 182,  282 => 181,  104 => 12,  94 => 11,  75 => 9,  65 => 181,  63 => 11,  58 => 9,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -388,10 +409,11 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
 </head>
 {% block stylesheets %}
     <style>
-        body{
+        body {
             color: white;
             background-color: #141414;
         }
+
         .main {
             margin-top: 150px;
             display: flex;
@@ -401,6 +423,7 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
             justify-content: center;
             gap: 30px;
         }
+
         .profileButton {
             color: gray;
             padding: .5em 1.5em;
@@ -411,25 +434,31 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
             text-decoration: none;
 
         }
-        .table{
+
+        .table {
             /*margin-top: 100px;*/
             width: 1000px;
             color: white;
             flex-direction: column;
         }
-        .tbody{
+
+        .tbody {
             /*display: flex;*/
         }
+
         h1 {
             color: white;
             text-align: center;
         }
-        ul{
+
+        ul {
             list-style-type: none;
         }
+
         li {
             padding: 20px;
         }
+
         .logo {
             margin-left: 25px;
             margin-top: 10px;
@@ -440,23 +469,27 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
             justify-content: center;
 
         }
+
         #buttonDiv {
             align-items: center;
             text-align: center;
             width: 100%;
             margin-top: 20px;
         }
+
         .brandLogoWrapper {
             height: 68px;
-            background-image: linear-gradient(to bottom,rgba(0,0,0,.7) 10%,rgba(0,0,0,0));
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, .7) 10%, rgba(0, 0, 0, 0));
         }
+
         #headerContainer {
             vertical-align: top;
             margin: -0.4em auto 2em auto;
             width: 100vw;
             height: 5vh;
         }
-        h1{
+
+        h1 {
             font-weight: 10;
             width: 100%;
             justify-content: center;
@@ -465,12 +498,15 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
             top: 0;
             /*left:50%;*/
         }
-        h2{
+
+        h2 {
             color: white;
         }
-        ul{
+
+        ul {
             padding: 0;
         }
+
         .wrapper {
             display: flex;
             flex-direction: row;
@@ -479,6 +515,7 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
             margin-top: 130px;
             gap: 70px;
         }
+
         .adminOption {
             display: flex;
             flex-direction: column;
@@ -497,6 +534,7 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
             background-image: linear-gradient(315deg, black 0%, #141414 74%);
 
         }
+
         .adminOption:after {
             content: '';
             position: absolute;
@@ -504,27 +542,31 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
             left: 0;
             width: 0;
             height: 100%;
-            background-color: rgba(255,255,255,0.4);
+            background-color: rgba(255, 255, 255, 0.4);
             -webkit-transition: none;
             -moz-transition: none;
             transition: none;
             border-radius: 19px;
         }
+
         .adminOption:hover:after {
             width: 100%;
-            background-color: rgba(255,255,255,0);
+            background-color: rgba(255, 255, 255, 0);
             -webkit-transition: all 0.4s ease-in-out;
             -moz-transition: all 0.4s ease-in-out;
             transition: all 0.4s ease-in-out;
         }
+
         a {
             text-decoration: none;
             text-align: center;
         }
+
         .optionImage {
             font-size: 42px;
         }
-        .deleteButton{
+
+        .deleteButton {
             color: red;
             padding: .5em 1.5em;
             letter-spacing: 2px;
@@ -537,41 +579,41 @@ class __TwigTemplate_f657db6e792ceb00f6f35e67c601ae8221a6d1b027c3612c6aa063b8978
 {% endblock %}
 {% block body %}
     <body>
-        <div id=\"headerContainer\">
-            <div class=\"brandLogoWrapper\">
-                <a class=\"logo\" href=\"/\" target=\"_parent\">
-                    <img class=\"logo\" src=\"{{ asset('images/netflixLogo.svg.png') }}\" alt=\"av1\"/>
-                </a>
-            </div>
-            <h1>Panel Administratora</h1>
+    <div id=\"headerContainer\">
+        <div class=\"brandLogoWrapper\">
+            <a class=\"logo\" href=\"/\" target=\"_parent\">
+                <img class=\"logo\" src=\"{{ asset('images/netflixLogo.svg.png') }}\" alt=\"av1\"/>
+            </a>
         </div>
-       {% block navigation %}
+        <h1>Panel Administratora</h1>
+    </div>
+    {% block navigation %}
 
-           <div class=\"wrapper\">
-               <a href=\"admin/subuser\">
-                   <div class=\"adminOption\"><i class=\"optionImage bi bi-person-lines-fill\"></i>Profile Użytkowników</div>
-               </a>
-               <a href=\"admin/subuser\">
-                   <div class=\"adminOption\"><i class=\"optionImage bi bi-film\"></i>Filmy</div>
-               </a>
-               <a href=\"admin/subuser\">
-                   <div class=\"adminOption\"><i class=\"optionImage bi bi-people-fill\"></i>Użytkownicy</div>
-               </a>
-               <a href=\"admin/subuser\">
-                   <div class=\"adminOption\"><i class=\"optionImage bi bi-gear-fill\"></i>Ustawienia</div>
-               </a>
+        <div class=\"wrapper\">
+            <a href=\"admin/subuser\">
+                <div class=\"adminOption\"><i class=\"optionImage bi bi-person-lines-fill\"></i>Profile Użytkowników</div>
+            </a>
+            <a href=\"admin/subuser\">
+                <div class=\"adminOption\"><i class=\"optionImage bi bi-film\"></i>Filmy</div>
+            </a>
+            <a href=\"admin/subuser\">
+                <div class=\"adminOption\"><i class=\"optionImage bi bi-people-fill\"></i>Użytkownicy</div>
+            </a>
+            <a href=\"admin/subuser\">
+                <div class=\"adminOption\"><i class=\"optionImage bi bi-gear-fill\"></i>Ustawienia</div>
+            </a>
 
-               <a href=\"/\">
-                   <div class=\"adminOption\"><i class=\"optionImage bi bi-x-lg\"></i>Wróć</div>
-               </a>
-           </div>
+            <a href=\"/\">
+                <div class=\"adminOption\"><i class=\"optionImage bi bi-x-lg\"></i>Wróć</div>
+            </a>
+        </div>
 
-       {% endblock %}
-            <div class=\"main\">
-                {% block content %}
-                    {#  render innych templatek #}
-                {% endblock %}
-            </div>
+    {% endblock %}
+    <div class=\"main\">
+        {% block content %}
+            {#  render innych templatek #}
+        {% endblock %}
+    </div>
 
     </body>
 

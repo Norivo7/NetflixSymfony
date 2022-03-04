@@ -61,7 +61,9 @@ class SubuserController extends AbstractController
     public function edit(Request $request, EntityManagerInterface $entityManager): Response
     {
         $user = $this->getUser();
+        $errorRegex = $request->get('errorRegex');
         $subuserFrontId = $request->get('id');
+
         if ($request->getMethod() == 'POST') {
             $name = $request->request->get('name');
             return $this->redirectToRoute('update', [
@@ -75,7 +77,8 @@ class SubuserController extends AbstractController
             $currentSubuser = $allSubusers[$subuserFrontId];
             return $this->render('user/edit.html.twig', [
                 'subuser' => $currentSubuser,
-                'id' => $subuserFrontId
+                'id' => $subuserFrontId,
+                'errorRegex' => $errorRegex
             ]);
         } else {
 
@@ -117,20 +120,31 @@ class SubuserController extends AbstractController
         $currentUser = $this->getUser();
         $subuserFrontId = $request->get('id');
         $subuserName = $request->get('name');
+
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
+
         $currentSubuser = $allSubusers[$subuserFrontId];
         if (!$currentSubuser) {
             return $this->redirectToRoute('error', [
                 'error' => '404: Nie znaleziono profilu.'
             ]);
         } else {
-            $currentSubuser->setName($subuserName);
-            $entityManager->persist($currentSubuser);
-            $entityManager->flush();
-            return $this->redirectToRoute('manageUser', [
-                'id' => $subuserFrontId,
-                'subUsers' => $allSubusers
-            ]);
+            $regex = "([a-zA-Z]{3,15}\s*)";
+            if (preg_match($regex, $subuserName)) {
+                $currentSubuser->setName($subuserName);
+                $entityManager->persist($currentSubuser);
+                $entityManager->flush();
+                return $this->redirectToRoute('manageUser', [
+                    'id' => $subuserFrontId,
+                    'subuser' => $currentSubuser
+                ]);
+            }
+            $errorRegex = "Profil musi mieć od 3 do 15 liter, żadnych znaków specjalnych i cyfr.";
+            return $this->redirectToRoute('edit', [
+                    'subuser' => $currentSubuser,
+                    'id' => $subuserFrontId,
+                    'errorRegex' => $errorRegex
+                ]);
         }
     }
 

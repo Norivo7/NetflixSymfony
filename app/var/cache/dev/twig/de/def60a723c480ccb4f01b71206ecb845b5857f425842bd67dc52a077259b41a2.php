@@ -66,58 +66,58 @@ class __TwigTemplate_9cc2d5a590c8b274972519d457ccf470b5ac39b9796f2cedc12473ea442
 
         // line 6
         echo "
-<body>
-    <section class=\"main-container\">
-        <div class=\"location\" id=\"home\">
-            <div class=\"box\">
-                ";
+     <body>
+     <section class=\"main-container\">
+         <div class=\"location\" id=\"home\">
+             <div class=\"box\">
+                 ";
         // line 11
         if (array_key_exists("movies", $context)) {
             // line 12
             echo "
-                    ";
+                     ";
             // line 13
             if (twig_test_empty((isset($context["movies"]) || array_key_exists("movies", $context) ? $context["movies"] : (function () { throw new RuntimeError('Variable "movies" does not exist.', 13, $this->source); })()))) {
                 // line 14
-                echo "                        Nie znaleziono wyniku wyszukiwania.
-                    ";
+                echo "                         Nie znaleziono wyniku wyszukiwania.
+                     ";
             }
             // line 16
             echo "
-                    ";
+                     ";
             // line 17
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["movies"]) || array_key_exists("movies", $context) ? $context["movies"] : (function () { throw new RuntimeError('Variable "movies" does not exist.', 17, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["movie"]) {
                 // line 18
-                echo "                        <a href=\"/show/";
+                echo "                         <a href=\"/show/";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 18), "html", null, true);
                 echo "\"><img src=\"";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 18), "html", null, true);
                 echo "\" alt=\"";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 18), "html", null, true);
                 echo " jacket\"></a>
-                    ";
+                     ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movie'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
             // line 20
             echo "
-                ";
+                 ";
         } else {
             // line 22
             echo "
-                    Nie znaleziono filmów dla tej kategorii.
-                ";
+                     Nie znaleziono filmów dla tej kategorii.
+                 ";
         }
         // line 25
-        echo "            </div>
-        </div>
-    </section>
-</body>
+        echo "             </div>
+         </div>
+     </section>
+     </body>
 
-";
+ ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -149,29 +149,29 @@ class __TwigTemplate_9cc2d5a590c8b274972519d457ccf470b5ac39b9796f2cedc12473ea442
 
  {% block body %}
 
-<body>
-    <section class=\"main-container\">
-        <div class=\"location\" id=\"home\">
-            <div class=\"box\">
-                {% if movies is defined %}
+     <body>
+     <section class=\"main-container\">
+         <div class=\"location\" id=\"home\">
+             <div class=\"box\">
+                 {% if movies is defined %}
 
-                    {% if movies is empty %}
-                        Nie znaleziono wyniku wyszukiwania.
-                    {% endif %}
+                     {% if movies is empty %}
+                         Nie znaleziono wyniku wyszukiwania.
+                     {% endif %}
 
-                    {% for movie in movies %}
-                        <a href=\"/show/{{movie.id}}\"><img src=\"{{movie.img}}\" alt=\"{{movie.title}} jacket\"></a>
-                    {% endfor %}
+                     {% for movie in movies %}
+                         <a href=\"/show/{{ movie.id }}\"><img src=\"{{ movie.img }}\" alt=\"{{ movie.title }} jacket\"></a>
+                     {% endfor %}
 
-                {% else %}
+                 {% else %}
 
-                    Nie znaleziono filmów dla tej kategorii.
-                {% endif %}
-            </div>
-        </div>
-    </section>
-</body>
+                     Nie znaleziono filmów dla tej kategorii.
+                 {% endif %}
+             </div>
+         </div>
+     </section>
+     </body>
 
-{% endblock %}", "movies/list.html.twig", "/var/www/symfony_docker/templates/movies/list.html.twig");
+ {% endblock %}", "movies/list.html.twig", "/var/www/symfony_docker/templates/movies/list.html.twig");
     }
 }

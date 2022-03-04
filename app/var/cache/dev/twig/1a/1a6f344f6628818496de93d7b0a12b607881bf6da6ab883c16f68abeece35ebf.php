@@ -68,12 +68,12 @@ class __TwigTemplate_a3c5c4ab9aa16b633be382cb914ea885a312f8840e58b5e7f471e87b7c0
 
         // line 3
         echo "    <head>
-<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\"
-      rel=\"stylesheet\"
-      integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
-      crossorigin=\"anonymous\">
+        <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\"
+              rel=\"stylesheet\"
+              integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
+              crossorigin=\"anonymous\">
     </head>
-        ";
+";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -97,17 +97,19 @@ class __TwigTemplate_a3c5c4ab9aa16b633be382cb914ea885a312f8840e58b5e7f471e87b7c0
         $this->displayParentBlock("stylesheets", $context, $blocks);
         echo "
     <style>
-        body{
+        body {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
         }
-        .error_wrapper{
+
+        .error_wrapper {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 92%;
         }
-        .error_image{
+
+        .error_image {
             width: 400px;
         }
     </style>
@@ -120,7 +122,7 @@ class __TwigTemplate_a3c5c4ab9aa16b633be382cb914ea885a312f8840e58b5e7f471e87b7c0
 
     }
 
-    // line 29
+    // line 31
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -130,45 +132,45 @@ class __TwigTemplate_a3c5c4ab9aa16b633be382cb914ea885a312f8840e58b5e7f471e87b7c0
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 30
-        echo "<body>
-<div class=\"error_wrapper\">
-    ";
         // line 32
+        echo "    <body>
+    <div class=\"error_wrapper\">
+        ";
+        // line 34
         if (array_key_exists("error", $context)) {
-            // line 33
-            echo "        <h1>";
-            echo twig_escape_filter($this->env, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 33, $this->source); })()), "html", null, true);
+            // line 35
+            echo "            <h1>";
+            echo twig_escape_filter($this->env, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 35, $this->source); })()), "html", null, true);
             echo "</h1>
         ";
         } else {
-            // line 35
-            echo "        <h1> 520: Nieznany błąd.</h1>
-    ";
+            // line 37
+            echo "            <h1> 520: Nieznany błąd.</h1>
+        ";
         }
-        // line 37
+        // line 39
         echo "        <img class=\"error_image\" src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/error.png"), "html", null, true);
         echo "\" alt=\"404\"/>
 
-    ";
-        // line 39
-        $context["referer"] = ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["app"] ?? null), "request", [], "any", false, true, false, 39), "server", [], "any", false, true, false, 39), "get", [0 => "http-referer"], "method", true, true, false, 39)) ? (_twig_default_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["app"] ?? null), "request", [], "any", false, true, false, 39), "server", [], "any", false, true, false, 39), "get", [0 => "http-referer"], "method", false, false, false, 39), "/")) : ("/"));
-        // line 40
-        echo "    <input type=\"hidden\" name=\"_target_path\" value=\"";
-        echo twig_escape_filter($this->env, (isset($context["referer"]) || array_key_exists("referer", $context) ? $context["referer"] : (function () { throw new RuntimeError('Variable "referer" does not exist.', 40, $this->source); })()), "html", null, true);
-        echo "\" />
-    <div id=\"buttonDiv\">
+        ";
+        // line 41
+        $context["referer"] = ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["app"] ?? null), "request", [], "any", false, true, false, 41), "server", [], "any", false, true, false, 41), "get", [0 => "http-referer"], "method", true, true, false, 41)) ? (_twig_default_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["app"] ?? null), "request", [], "any", false, true, false, 41), "server", [], "any", false, true, false, 41), "get", [0 => "http-referer"], "method", false, false, false, 41), "/")) : ("/"));
+        // line 42
+        echo "        <input type=\"hidden\" name=\"_target_path\" value=\"";
+        echo twig_escape_filter($this->env, (isset($context["referer"]) || array_key_exists("referer", $context) ? $context["referer"] : (function () { throw new RuntimeError('Variable "referer" does not exist.', 42, $this->source); })()), "html", null, true);
+        echo "\"/>
+        <div id=\"buttonDiv\">
             <a>
                 <a class=\"profileButton\" href=\"";
-        // line 43
-        echo twig_escape_filter($this->env, (isset($context["referer"]) || array_key_exists("referer", $context) ? $context["referer"] : (function () { throw new RuntimeError('Variable "referer" does not exist.', 43, $this->source); })()), "html", null, true);
+        // line 45
+        echo twig_escape_filter($this->env, (isset($context["referer"]) || array_key_exists("referer", $context) ? $context["referer"] : (function () { throw new RuntimeError('Variable "referer" does not exist.', 45, $this->source); })()), "html", null, true);
         echo "\">Spróbuj ponownie</a>
             </a>
         </div>
     </div>
 
-</body>
+    </body>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -190,7 +192,7 @@ class __TwigTemplate_a3c5c4ab9aa16b633be382cb914ea885a312f8840e58b5e7f471e87b7c0
 
     public function getDebugInfo()
     {
-        return array (  165 => 43,  158 => 40,  156 => 39,  150 => 37,  146 => 35,  140 => 33,  138 => 32,  134 => 30,  124 => 29,  96 => 11,  86 => 10,  70 => 3,  60 => 2,  37 => 1,);
+        return array (  167 => 45,  160 => 42,  158 => 41,  152 => 39,  148 => 37,  142 => 35,  140 => 34,  136 => 32,  126 => 31,  96 => 11,  86 => 10,  70 => 3,  60 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -198,51 +200,53 @@ class __TwigTemplate_a3c5c4ab9aa16b633be382cb914ea885a312f8840e58b5e7f471e87b7c0
         return new Source("{% extends '/user/user.html.twig' %}
 {% block head %}
     <head>
-<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\"
-      rel=\"stylesheet\"
-      integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
-      crossorigin=\"anonymous\">
+        <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\"
+              rel=\"stylesheet\"
+              integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
+              crossorigin=\"anonymous\">
     </head>
-        {% endblock %}
+{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     <style>
-        body{
+        body {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
         }
-        .error_wrapper{
+
+        .error_wrapper {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 92%;
         }
-        .error_image{
+
+        .error_image {
             width: 400px;
         }
     </style>
 {% endblock %}
 
 {% block body %}
-<body>
-<div class=\"error_wrapper\">
-    {% if error is defined %}
-        <h1>{{ error }}</h1>
+    <body>
+    <div class=\"error_wrapper\">
+        {% if error is defined %}
+            <h1>{{ error }}</h1>
         {% else %}
-        <h1> 520: Nieznany błąd.</h1>
-    {% endif %}
+            <h1> 520: Nieznany błąd.</h1>
+        {% endif %}
         <img class=\"error_image\" src=\"{{ asset('images/error.png') }}\" alt=\"404\"/>
 
-    {% set referer = app.request.server.get('http-referer')|default('/') %}
-    <input type=\"hidden\" name=\"_target_path\" value=\"{{ referer }}\" />
-    <div id=\"buttonDiv\">
+        {% set referer = app.request.server.get('http-referer')|default('/') %}
+        <input type=\"hidden\" name=\"_target_path\" value=\"{{ referer }}\"/>
+        <div id=\"buttonDiv\">
             <a>
                 <a class=\"profileButton\" href=\"{{ referer }}\">Spróbuj ponownie</a>
             </a>
         </div>
     </div>
 
-</body>
+    </body>
 {% endblock %}", "error/error.html.twig", "/var/www/symfony_docker/templates/error/error.html.twig");
     }
 }
