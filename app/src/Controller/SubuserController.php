@@ -37,17 +37,17 @@ class SubuserController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $subusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
         $subuserCount = count($subusers);
-        if($subuserCount < 5) {
+        if ($subuserCount < 5) {
             $subuser = new Subuser();
             $subuser->setName('Nowy');
             $subuser->setAvatar('https://i.imgur.com/9nWtdiZ.png');
             $subuser->setSubaccountOf($currentUser);
             $entityManager->persist($subuser);
             $entityManager->flush();
-        return $this->redirectToRoute('manageUser');
+            return $this->redirectToRoute('manageUser');
         } else {
             return $this->redirectToRoute('error', [
-               'error' => "Nie można dodać użytkownika"
+                'error' => "Nie można dodać użytkownika"
             ]);
         }
     }
@@ -62,19 +62,17 @@ class SubuserController extends AbstractController
     {
         $user = $this->getUser();
         $subuserFrontId = $request->get('id');
-        if($request->getMethod() == 'POST') {
+        if ($request->getMethod() == 'POST') {
             $name = $request->request->get('name');
             return $this->redirectToRoute('update', [
-                'id' => $subuserFrontId,
-                'name' => $name,
+                    'id' => $subuserFrontId,
+                    'name' => $name,
                 ]
             );
         }
-        $subuserName = $request->get('name');
-//        dump($subuserName);
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $user));
-        if (isset($subuserFrontId) && $allSubusers[$subuserFrontId] != null){
-        $currentSubuser = $allSubusers[$subuserFrontId];
+        if (isset($subuserFrontId) && $allSubusers[$subuserFrontId] != null) {
+            $currentSubuser = $allSubusers[$subuserFrontId];
             return $this->render('user/edit.html.twig', [
                 'subuser' => $currentSubuser,
                 'id' => $subuserFrontId
@@ -94,7 +92,8 @@ class SubuserController extends AbstractController
      * @param EntityManagerInterface $entityManager
      * @return Response
      */
-    public function delete(Request $request, EntityManagerInterface $entityManager): Response {
+    public function delete(Request $request, EntityManagerInterface $entityManager): Response
+    {
         $user = $this->getUser();
         $subuserFrontId = $request->get('id');
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $user));
@@ -118,28 +117,22 @@ class SubuserController extends AbstractController
         $currentUser = $this->getUser();
         $subuserFrontId = $request->get('id');
         $subuserName = $request->get('name');
-//        dump($subuserFrontId);
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
         $currentSubuser = $allSubusers[$subuserFrontId];
-//        $subusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser, 'id' => $id));
-//        $subusers = reset($subusers);
-        if(!$currentSubuser){
+        if (!$currentSubuser) {
             return $this->redirectToRoute('error', [
                 'error' => '404: Nie znaleziono profilu.'
-                //            throw $this->createNotFoundException(
-//                'No subuser found for id '.$id
-//            );
             ]);
         } else {
-//            dump($subuserName);
             $currentSubuser->setName($subuserName);
             $entityManager->persist($currentSubuser);
             $entityManager->flush();
-        return $this->redirectToRoute('manageUser', [
-            'id' => $subuserFrontId,
-            'subUsers' => $allSubusers
-        ]);
-    }}
+            return $this->redirectToRoute('manageUser', [
+                'id' => $subuserFrontId,
+                'subUsers' => $allSubusers
+            ]);
+        }
+    }
 
     /**
      * @Route("/manageUser", name="manageUser")
@@ -148,7 +141,7 @@ class SubuserController extends AbstractController
      */
     public function manageUser(Request $request): Response
     {
-        if($request->getMethod() == 'POST') {
+        if ($request->getMethod() == 'POST') {
             $id = $request->request->get('id');
             return $this->redirectToRoute('edit', [
                     'id' => $id,
@@ -157,15 +150,13 @@ class SubuserController extends AbstractController
         }
         $currentUser = $this->getUser();
         $subusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
-//        dump($subusers);
-        $currentUser = $this->getUser();
-
         return $this->render(
             'user/manage.html.twig', [
-                'subUsers' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
+                'subUsers' => $subusers
             ]
         );
     }
+
     /**
      * @Route("/chooseUser", name="chooseUser")
      * @param Request $request
@@ -174,7 +165,7 @@ class SubuserController extends AbstractController
     public function chooseUser(Request $request): Response
     {
         $currentUser = $this->getUser();
-        if($request->getMethod() == 'POST') {
+        if ($request->getMethod() == 'POST') {
             $id = $request->request->get('id');
             return $this->redirectToRoute('success', [
                     'id' => $id,
@@ -241,7 +232,7 @@ class SubuserController extends AbstractController
     {
         $newSubuser = new Subuser();
 
-        $value ="wojtek";
+        $value = "wojtek";
         $newSubuser->setName($value);
 
         $currentUser = $this->getUser();

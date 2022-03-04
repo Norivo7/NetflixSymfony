@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Movie;
-use App\Entity\Subuser;
 use App\Repository\CategoryRepository;
 use App\Repository\MovieRepository;
 use App\Repository\SubuserRepository;
@@ -15,14 +14,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MoviesController extends AbstractController
 {
-//test
     private MovieRepository $repo;
     private CategoryRepository $categoryRepo;
     private SubuserRepository $subuserRepository;
 
-    public function __construct(MovieRepository $repo,
+    public function __construct(MovieRepository    $repo,
                                 CategoryRepository $categoryRepo,
-                                SubuserRepository $subuserRepository)
+                                SubuserRepository  $subuserRepository)
     {
         $this->subuserRepository = $subuserRepository;
         $this->repo = $repo;
@@ -59,15 +57,11 @@ class MoviesController extends AbstractController
 
         $session = new Session();
         $subuser = $session->get('filter');
-        if ($subuser != null){
+        if ($subuser != null) {
             $subuserId = reset($subuser);
         }
-//        $userAvatar = $this->subuserRepository->find($subuserId)->getAvatar();
-//        dump($userAvatar);
-//        $currentSubuser = $this->subuserRepository->findSubuserById($subuserId);
-//        dump($currentSubuser);
         if ($subuserId != null && $subuserFrontId < $subuserCount) {
-//            dump("ID subusera: ".$subuserId);
+
             return $this->render('movies/index.html.twig', [
                 'controller_name' => 'MovieController',
                 'popular' => $this->repo->popularFilter(),
@@ -76,10 +70,8 @@ class MoviesController extends AbstractController
                 'shows' => $this->repo->getMoviesByCategory('Seriale'),
                 'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()
             ]);
-        } else{
-//            dump($subuserId);
-//            dump($subuserFrontId);
-            $errorMessage= "404: Nie znaleziono użytkownika.";
+        } else {
+            $errorMessage = "404: Nie znaleziono użytkownika.";
             return $this->render('/error/error.html.twig', [
                 'error' => $errorMessage,
             ]);
@@ -96,10 +88,9 @@ class MoviesController extends AbstractController
     {
         $session = new Session();
         $session->start();
-//        dump($session);
+
         $subuser = $session->get('filter');
         $subuserId = reset($subuser);
-//        dump($subuserId);
         return $this->render(
             'movies/list.html.twig',
             ['movies' => $this->repo->getMoviesByCategory('Seriale'),
@@ -116,7 +107,6 @@ class MoviesController extends AbstractController
     {
         $session = new Session();
         $session->start();
-//        dump($session);
         $subuser = $session->get('filter');
         $subuserId = reset($subuser);
         $currentUser = $this->getUser();
@@ -124,11 +114,8 @@ class MoviesController extends AbstractController
             'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar(),
             'email' => $currentUser->getUserIdentifier(),
             'profiles' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
-//            'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar(),
-//            'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar(),
-//            'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()
 //            'liked' =>$this->repo->getLikedMoviesByUser()
-            ]);
+        ]);
     }
 
 
@@ -159,16 +146,15 @@ class MoviesController extends AbstractController
     {
         $session = new Session();
         $session->start();
-//        dump($session);
         $subuser = $session->get('filter');
         $subuserId = reset($subuser);
         return $this->render(
             'movies/list.html.twig', [
-                 'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()
+                'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()
             ]
-//            ['movies' => $this->repo->getLikedMoviesByCurrentUser(),]
         );
     }
+
     /**
      * @Route("/movies", name="movies")
      * @return Response
@@ -177,7 +163,6 @@ class MoviesController extends AbstractController
     {
         $session = new Session();
         $session->start();
-//        dump($session);
         $subuser = $session->get('filter');
         $subuserId = reset($subuser);
 
@@ -187,6 +172,7 @@ class MoviesController extends AbstractController
                 'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()]
         );
     }
+
     /**
      * @Route("/new", name="new")
      * @return Response
@@ -195,7 +181,6 @@ class MoviesController extends AbstractController
     {
         $session = new Session();
         $session->start();
-//        dump($session);
         $subuser = $session->get('filter');
         $subuserId = reset($subuser);
 
@@ -247,39 +232,19 @@ class MoviesController extends AbstractController
         $entityManager->flush();
         return $this->redirectToRoute('profile');
     }
-//    /**
-//     * @Route("/notif", name="notif", methods={"POST"})
-//     * @param Request $request
-//     * @return Response
-//     */
-//    public function notif(Request $request): Response
-//    {
-//        $id = $request->request->all();
-//        $notif = $this->repo->find($id['id']);
-//        $notif->setShown(1);
-//
-//        $user = $this->getUser();
-//        $user-> isShown($notif);
-//
-//        $entityManager = $this->getDoctrine()->getManager();
-//        $entityManager->persist($notif);
-//        $entityManager->persist($user);
-//        $entityManager->flush();
-//
-//        return $this->render('movies/notif.html.twig', ['notifications' => $this->repo->isShown($notif)]);
-//    }
     /**
      * @Route("/notif", name="notif")
      * @param Request $request
      * @return Response
      */
-    public function notif(Request $request): Response {
+    public function notif(Request $request): Response
+    {
 
         $errorMsg = "501: Nie zaimplementowano.";
         return $this->render('error/error.html.twig', [
             'error' => $errorMsg
-            ]);
-        }
+        ]);
+    }
 
     /**
      * @Route("/search", name="search", methods={"GET"})
@@ -291,16 +256,15 @@ class MoviesController extends AbstractController
     {
         $session = new Session();
         $session->start();
-//        dump($session);
         $subuser = $session->get('filter');
         $subuserId = reset($subuser);
-      $movies = $movieRepository->search(
-          $request->query->get('v')
-      );
+        $movies = $movieRepository->search(
+            $request->query->get('v')
+        );
 
-      return $this->render('movies/list.html.twig', [
-          'movies' => $movies,
-          'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()
-      ]);
+        return $this->render('movies/list.html.twig', [
+            'movies' => $movies,
+            'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()
+        ]);
     }
 }

@@ -132,10 +132,6 @@ class AppFixtures extends Fixture
         $movie12->setLink("https://www.youtube.com/embed/watch?v=a_eM_80RveI");
 
 
-
-
-
-
         $manager->persist($catExclusive);
         $manager->persist($catSerials);
         $manager->persist($catMovies);

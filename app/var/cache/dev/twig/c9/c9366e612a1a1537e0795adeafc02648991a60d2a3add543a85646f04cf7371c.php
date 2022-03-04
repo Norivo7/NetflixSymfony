@@ -125,12 +125,9 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
                         <input class=\"name\"
                                type=\"text\"
                                name=\"name\"
-                               value=\"";
-            // line 34
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 34, $this->source); })()), "name", [], "any", false, false, false, 34), "html", null, true);
-            echo "\"
-                               placeholder=\"";
+";
             // line 35
+            echo "                               placeholder=\"";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 35, $this->source); })()), "name", [], "any", false, false, false, 35), "html", null, true);
             echo "\"/>
                         <div class=\"selectMedium\">
@@ -455,7 +452,7 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
 
     public function getDebugInfo()
     {
-        return array (  222 => 98,  212 => 97,  200 => 93,  194 => 90,  179 => 78,  167 => 68,  134 => 35,  130 => 34,  120 => 27,  115 => 25,  105 => 17,  102 => 16,  98 => 13,  88 => 12,  70 => 3,  60 => 2,  37 => 1,);
+        return array (  219 => 98,  209 => 97,  197 => 93,  191 => 90,  176 => 78,  164 => 68,  130 => 35,  120 => 27,  115 => 25,  105 => 17,  102 => 16,  98 => 13,  88 => 12,  70 => 3,  60 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -493,7 +490,7 @@ class __TwigTemplate_e2741a875b9d916aaa66e9b2c14d0f6b9f8baa3b4da9bfb7e5a4ed8bf0e
                         <input class=\"name\"
                                type=\"text\"
                                name=\"name\"
-                               value=\"{{ subuser.name }}\"
+{#                               value=\"{{ subuser.name }}\"#}
                                placeholder=\"{{ subuser.name }}\"/>
                         <div class=\"selectMedium\">
                             <select>

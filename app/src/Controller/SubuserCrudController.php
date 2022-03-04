@@ -71,7 +71,7 @@ class SubuserCrudController extends AbstractController
     #[Route('/{id}', name: 'subuser_crud_delete', methods: ['POST'])]
     public function delete(Request $request, Subuser $subuser, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$subuser->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $subuser->getId(), $request->request->get('_token'))) {
             $entityManager->remove($subuser);
             $entityManager->flush();
         }

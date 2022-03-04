@@ -16,6 +16,7 @@ class Category
     {
         return $this->name;
     }
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue

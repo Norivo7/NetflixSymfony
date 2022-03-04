@@ -1,20 +1,22 @@
 {% extends 'movies/index.html.twig' %}
 {% block stylesheets %}
-   {{ parent() }}
-<style>
-    .btn {
-        width: 3.3%;
-    }
-    i{
-    align-items: center;
-    }
-</style>
+    {{ parent() }}
+    <style>
+        .btn {
+            width: 3.3%;
+        }
+
+        i {
+            align-items: center;
+        }
+    </style>
 {% endblock %}
+
  {% block navigation %}
-      {% endblock %}
+ {% endblock %}
 
 {% block body %}
-<body>
+    <body>
     <div class="container my-5">
         <div class="row">
             <div class="col-2 col-sm-12"></div>
@@ -29,12 +31,12 @@
                             <h3 class="title my-3" href='#'>{{ movie.title }}</h3>
                             <p>Opis : <br>{{ movie.description }}</p>
                             <p>Rok : {{ movie.year }} <br>
-                               Polubienia : {{ movie.likes }}<br>
-                               Kategorie :
+                                Polubienia : {{ movie.likes }}<br>
+                                Kategorie :
 
-                               {% for category in categories %}
+                                {% for category in categories %}
                             <li> {{ category.name }}</li>
-                               {% endfor %}
+                            {% endfor %}
                             </p>
                         </small>
                         <form method="POST" action="{{ path('like') }}">
@@ -49,5 +51,5 @@
             <div class="col-2 col-sm-12"></div>
         </div>
     </div>
-</body>
+    </body>
 {% endblock %}

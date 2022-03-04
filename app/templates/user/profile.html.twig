@@ -1,4 +1,4 @@
-{#{% extends 'user/user.html.twig' %}#}
+{# {% extends 'user/user.html.twig' %} #}
 {% block head %}
     <head>
         <link rel="stylesheet"
@@ -17,8 +17,8 @@
                 <img class="logo" src="{{ asset('images/netflixLogo.svg.png') }}" alt="av1"/>
             </a>
         </div>
-            <a class="avatar" href="/browse">
-                <img class="userAvatar" src="{{ userAvatar }}" alt="avatar"></a>
+        <a class="avatar" href="/browse">
+            <img class="userAvatar" src="{{ userAvatar }}" alt="avatar"></a>
     </div>
 {% endblock %}
 
@@ -28,61 +28,76 @@
 
         <div class="parent">
             <div class="div1"><p style="font-size: 26px">Konto</p>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 20px;color:red" class="bi bi-person-video3">&nbsp;&nbsp;</i>użytkownik od:
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 20px;color:red" class="bi bi-person-video3">&nbsp;&nbsp;</i>użytkownik
+                od:
             </div>
-            <div class="div2"><hr><br>
+            <div class="div2">
+                <hr>
+                <br>
                 <p class="gray">Członkostwo i rozliczenia</p>
                 <button class="btnAccount">Anuluj członkostwo</button>
             </div>
-            <div class="div3"><hr>
+            <div class="div3">
+                <hr>
                 {{ email }}<br>
                 hasło:<br>
                 telefon:s
             </div>
-            <div class="div4"><hr>
+            <div class="div4">
+                <hr>
                 <a href="#">Zmień adres e-mail</a><br>
                 <a href="#">Zmień hasło</a><br>
                 <a href="#">Zweryfikuj numer telefon</a><br>
                 <a href="#">Zmień numer telefon</a>
             </div>
-            <div class="div5"><hr>
+            <div class="div5">
+                <hr>
                 4124 1242 1242 12414<br>
                 Twoja kolejna data rozliczenia to:
             </div>
-            <div class="div6"><hr>
+            <div class="div6">
+                <hr>
                 <a href="#">Zarządzaj metodami płatności</a><br>
                 <a href="#">Dodaj zapasową metodę płatności</a><br>
                 <a href="#">Szczegóły rozliczenia</a><br>
                 <a href="#">Zmień dzień rozliczenia</a>
             </div>
-            <div class="div7"><hr>
+            <div class="div7">
+                <hr>
                 <a href="#">Zrealizuj kartę podarunkową lub kod promocyjny</a><br>
                 <a href="#">Gdzie kupić karty podarunkowe</a>
             </div>
-            <div class="div8"><hr>
+            <div class="div8">
+                <hr>
                 <p class="gray">Szczegóły</p>
             </div>
-            <div class="div9"><hr>
+            <div class="div9">
+                <hr>
                 <p class="gray">Standard</p>
             </div>
-            <div class="div10"><hr>
+            <div class="div10">
+                <hr>
                 <a href="#">Zmień plan</a>
             </div>
-            <div class="div11"><hr>
+            <div class="div11">
+                <hr>
                 <p class="gray">Profile i kontrola rodzicielska</p>
             </div>
-            <div class="div12"><hr>
+            <div class="div12">
+                <hr>
                 {% for profile in profiles %}
                     <div class="row">
-                      <img class="profile" src="{{ profile.avatar }}" alt="profile avatar">
+                        <img class="profile" src="{{ profile.avatar }}" alt="profile avatar">
                         {{ profile.name }}
                     </div>
                 {% endfor %}
             </div>
-            <div class="div13"><hr>
+            <div class="div13">
+                <hr>
                 <p class="gray">Ustawienia</p>
             </div>
-            <div class="div14"><hr>
+            <div class="div14">
+                <hr>
                 <a href="#"> Udział w testach</a><br>
                 <a href="#">Zarządzaj urządzeniami do pobierania</a><br>
                 <a href="#">Aktywuj urządzenie</a><br>
@@ -100,7 +115,8 @@
         .gray {
             color: #757575;
         }
-        .btnAccount{
+
+        .btnAccount {
             font-size: 14px;
             background-color: #e6e6e6;
             border: none;
@@ -109,6 +125,7 @@
             box-shadow: 0 1px 0 rgb(0 0 0 / 20%);
             font-family: 'Netflix Sans Regular', "Helvetica Neue", "Helvetica", Arial, sans-serif;
         }
+
         .parent {
             margin: auto;
             width: 70%;
@@ -120,8 +137,9 @@
             grid-column-gap: 0px;
             grid-row-gap: 0px;
         }
+
         .div1 {
-           margin-top: 130px;
+            margin-top: 130px;
             display: flex;
             flex-direction: row;
             height: 20%;
@@ -129,48 +147,59 @@
             /*border: 4px solid green;*/
             grid-area: 1 / 1 / 2 / 9;
         }
+
         .div2 {
 
             text-align: center;
             grid-area: 2 / 1 / 5 / 3;
         }
+
         .div3 {
             line-height: 2.2;
             text-align: left;
             grid-area: 2 / 3 / 3 / 6;
         }
+
         .div4 {
             line-height: 2.2;
             text-align: right;
             grid-area: 2 / 6 / 3 / 9;
         }
+
         .div5 {
             line-height: 2.2;
             grid-area: 3 / 3 / 4 / 6;
         }
+
         .div6 {
             line-height: 1.8;
             text-align: right;
             grid-area: 3 / 6 / 4 / 9;
         }
+
         .div7 {
             line-height: 2.5;
             text-align: right;
             grid-area: 4 / 3 / 5 / 9;
         }
+
         .div8 {
             grid-area: 5 / 1 / 6 / 3;
         }
+
         .div9 {
             grid-area: 5 / 3 / 6 / 7;
         }
+
         .div10 {
             text-align: right;
             grid-area: 5 / 7 / 6 / 9;
         }
+
         .div11 {
             grid-area: 6 / 1 / 9 / 3;
         }
+
         .div12 {
 
             display: flex;
@@ -178,51 +207,62 @@
             grid-area: 6 / 3 / 9 / 9;
             padding-bottom: 150px;
         }
+
         .profile {
             width: 100px;
-            padding: 10px ;
+            padding: 10px;
         }
+
         .div13 {
             margin-top: 250px;
             text-align: left;
             grid-area: 9 / 1 / 12 / 3;
         }
+
         .div14 {
             margin-top: 250px;
             line-height: 2.5;
             text-align: left;
             grid-area: 9 / 3 / 12 / 9;
         }
-        .row{
+
+        .row {
             flex-direction: row;
         }
-        li{
+
+        li {
             list-style-type: none;
             color: black;
         }
+
         a {
             color: #0a53be;
         }
-        #headerContainer{
+
+        #headerContainer {
             display: flex;
             flex-direction: row;
             height: 70px;
             justify-content: space-between;
             flex-wrap: nowrap;
         }
-        .brandLogoWrapper{
+
+        .brandLogoWrapper {
             height: 100%;
             justify-content: center;
             padding: 17px 30px;
         }
+
         .logo {
             height: 100%;
         }
-        .userAvatar{
-            width:35px;
+
+        .userAvatar {
+            width: 35px;
             border-radius: 4px;
         }
-        .avatar{
+
+        .avatar {
             height: 20px;
             margin-top: 15px;
             margin-right: 20px;
@@ -230,12 +270,14 @@
             align-items: center;
             justify-content: center;
         }
+
         /*a:link {*/
         /*    color: #0a53be;*/
         /*}*/
         a:hover {
             opacity: 0.8;
         }
+
         a {
             text-decoration: none;
             color: #0a53be;
@@ -256,19 +298,23 @@
             background-color: black;
             color: black;
         }
-        .mainWrapper{
+
+        .mainWrapper {
             width: 100%;
             height: 2000px;
             background-color: #f3f3f3;
         }
+
         hr {
             border-bottom: 2px solid rgb(118, 118, 118);
         }
+
         h2 {
             font-weight: 400;
             color: black;
             width: 10px;
         }
+
         h3 {
             padding-bottom: 20px;
             font-size: 1.2rem;

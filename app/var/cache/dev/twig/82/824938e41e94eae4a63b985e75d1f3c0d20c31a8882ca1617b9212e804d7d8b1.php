@@ -57,17 +57,17 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
 ";
         // line 21
         $this->displayBlock('body', $context, $blocks);
-        // line 207
-        echo "
-";
         // line 208
-        $this->displayBlock('stylesheets', $context, $blocks);
-        // line 255
         echo "
 ";
-        // line 256
-        $this->loadTemplate("root.html.twig", "root.html.twig", 256, "2111902812")->display($context);
-        // line 257
+        // line 209
+        $this->displayBlock('stylesheets', $context, $blocks);
+        // line 266
+        echo "
+";
+        // line 267
+        $this->loadTemplate("root.html.twig", "root.html.twig", 267, "605821039")->display($context);
+        // line 268
         echo "</html>
 ";
         
@@ -175,8 +175,8 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
             <div class=\"buttonsWrapper\">
                 <div class=\"selectMedium\">
                     <select>
-                        <option value=\"0\">&#xF3EE;  Polski</option>
-                        <option value=\"1\">&#xF3EE;  English</option>
+                        <option value=\"0\">&#xF3EE; Polski</option>
+                        <option value=\"1\">&#xF3EE; English</option>
                     </select>
                 </div>
 
@@ -233,58 +233,40 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
         // line 69
         echo "                <h1> Nieograniczona oferta filmów, seriali, programów <br> i nie tylko. </h1>
                 <h2> Oglądaj wszędzie. Anuluj w każdej chwili. </h2>
-                <h3> </h3>
+                <h3></h3>
 
                 <form action=\"/register.php\">
-                    <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić konto. </label>
+                    <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
+                        konto. </label>
                     <input class=\"emailInput\" type=\"text\" id=\"email\" name=\"email\">
-                    <button type=\"button\" class=\"buttonSubmit\"> <a class=\"button\" href=\"/register\">Rozpocznij</a></button>
+                    <button type=\"button\" class=\"buttonSubmit\"><a class=\"button\" href=\"/register\">Rozpocznij</a>
+                    </button>
                 </form>
             </div>
         </div>
     </div>
 
     <div class=\"blockWrapper\">
-        ";
-        // line 84
-        echo "        ";
-        // line 85
-        echo "        ";
-        // line 86
-        echo "        ";
-        // line 87
-        echo "        ";
-        // line 88
-        echo "        ";
-        // line 89
-        echo "        ";
-        // line 90
-        echo "        ";
-        // line 91
-        echo "        ";
-        // line 92
-        echo "        ";
-        // line 93
-        echo "        ";
-        // line 94
-        echo "        ";
-        // line 95
-        echo "        <hr>
+        <hr>
         <div class=\"block\">
             <div class=\"blockRow\">
                 <div class=\"blockColumn\">
                     <h1> Oglądaj na telewizorze. </h1>
-                    <h2> Oglądaj na telewizorach Smart TV, konsolach PlayStation i Xbox, odtwarzaczach Chromecast, Apple TV oraz Blu-ray
+                    <h2> Oglądaj na telewizorach Smart TV, konsolach PlayStation i Xbox, odtwarzaczach Chromecast, Apple
+                        TV oraz Blu-ray
                         i nie tylko. </h2>
                 </div>
-                <img style=\"float:right\" src=\"https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png\" alt=\"none\">
+                <img style=\"float:right\"
+                     src=\"https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png\" alt=\"none\">
             </div>
 
         </div>
         <hr>
         <div class=\"block\">
             <div class=\"blockRow\">
-                <img style=\"float:left\" src=\"https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg\" alt=\"none\">
+                <img style=\"float:left\"
+                     src=\"https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg\"
+                     alt=\"none\">
                 <div class=\"blockColumn\">
                     <h1> Pobierz ulubione tytuły i oglądaj offline. </h1>
                     <h2> Zapisz ulubione tytuły, aby zawsze mieć coś do obejrzenia. </h2>
@@ -296,19 +278,25 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
             <div class=\"blockRow\">
                 <div class=\"blockColumn\">
                     <h1> Oglądaj wszędzie. </h1>
-                    <h2> Oglądaj filmy, seriale i programy bez ograniczeń na telefonie, tablecie, laptopie, telewizorze... Bez
+                    <h2> Oglądaj filmy, seriale i programy bez ograniczeń na telefonie, tablecie, laptopie,
+                        telewizorze... Bez
                         dodatkowych opłat. </h2>
                 </div>
-                <img style=\"float:right\" src=\"https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile.png\" alt=\"none\">
+                <img style=\"float:right\"
+                     src=\"https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile.png\"
+                     alt=\"none\">
             </div>
         </div>
         <hr>
         <div class=\"block\">
             <div class=\"blockRow\">
-                <img style=\"float:left\" src=\"https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/19OhWN2dO19C9txTON9tvTFtefw/AAAABV0jxy5YQLZOJQiLeketUA72UonCi7ikrao3PtSMF_M2mYyBUp8FK--aHN-cL3iuXP5MqpYBcJZP4dNkLrHxa0oAY5uD.png?r=107\" alt=\"none\">
+                <img style=\"float:left\"
+                     src=\"https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/19OhWN2dO19C9txTON9tvTFtefw/AAAABV0jxy5YQLZOJQiLeketUA72UonCi7ikrao3PtSMF_M2mYyBUp8FK--aHN-cL3iuXP5MqpYBcJZP4dNkLrHxa0oAY5uD.png?r=107\"
+                     alt=\"none\">
                 <div class=\"blockColumn\">
                     <h1> Utwórz profile dla dzieci. </h1>
-                    <h2> Pozwól dzieciom przeżywać przygody w towarzystwie uwielbianych bohaterów — w specjalnej sekcji serwisu
+                    <h2> Pozwól dzieciom przeżywać przygody w towarzystwie uwielbianych bohaterów — w specjalnej sekcji
+                        serwisu
                         oferowanej bezpłatnie w ramach członkostwa. </h2>
                 </div>
             </div>
@@ -371,7 +359,8 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
             </div>
             <div class=\"block\">
                 <form action=\"/action_page.php\">
-                    <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić konto. </label>
+                    <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
+                        konto. </label>
                     <input class=\"emailInput\" type=\"text\" id=\"fname\" name=\"fname\">
                     <button type=\"button\" class=\"buttonSubmit\">Rozpocznij</button>
                 </form>
@@ -389,7 +378,7 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
 
     }
 
-    // line 208
+    // line 209
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -399,49 +388,59 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 209
+        // line 210
         echo "    <style>
-        body{
+        body {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
         }
-        html{
+
+        html {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-            font-weight:normal;
+            font-weight: normal;
         }
-        h1{
+
+        h1 {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
         }
-        h2{
+
+        h2 {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
         }
-        a.button, a.button:hover,a.button:visited, a.button:active {
+
+        a.button, a.button:hover, a.button:visited, a.button:active {
             color: inherit;
             text-decoration: none;
         }
+
         a, a:visited, a:active {
             color: #757575;
             text-decoration: none;
         }
+
         a:hover {
             color: #757575;
             text-decoration: underline;
         }
-        .buttonsWrapper{
-            gap:20px;
+
+        .buttonsWrapper {
+            gap: 20px;
         }
-        .selectMedium{
+
+        .selectMedium {
             margin-right: 0;
         }
-        select{
+
+        select {
             font-family: \"Netflix Sans Black\", bootstrap-icons, serif;
             padding: 10px 10px 10px;
 
         }
-        i{
+
+        i {
             vertical-align: -1px;
         }
-        .concord-img-wrapper
-        {
+
+        .concord-img-wrapper {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
         }
     </style>
@@ -466,7 +465,7 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
 
     public function getDebugInfo()
     {
-        return array (  403 => 209,  393 => 208,  272 => 95,  270 => 94,  268 => 93,  266 => 92,  264 => 91,  262 => 90,  260 => 89,  258 => 88,  256 => 87,  254 => 86,  252 => 85,  250 => 84,  234 => 69,  230 => 67,  224 => 65,  222 => 64,  214 => 58,  208 => 54,  202 => 50,  200 => 49,  196 => 47,  187 => 40,  185 => 39,  166 => 22,  156 => 21,  138 => 19,  119 => 7,  101 => 8,  99 => 7,  92 => 2,  82 => 1,  71 => 257,  69 => 256,  66 => 255,  64 => 208,  61 => 207,  59 => 21,  56 => 20,  54 => 19,  50 => 17,  48 => 1,);
+        return array (  392 => 210,  382 => 209,  234 => 69,  230 => 67,  224 => 65,  222 => 64,  214 => 58,  208 => 54,  202 => 50,  200 => 49,  196 => 47,  187 => 40,  185 => 39,  166 => 22,  156 => 21,  138 => 19,  119 => 7,  101 => 8,  99 => 7,  92 => 2,  82 => 1,  71 => 268,  69 => 267,  66 => 266,  64 => 209,  61 => 208,  59 => 21,  56 => 20,  54 => 19,  50 => 17,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -504,8 +503,8 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
             <div class=\"buttonsWrapper\">
                 <div class=\"selectMedium\">
                     <select>
-                        <option value=\"0\">&#xF3EE;  Polski</option>
-                        <option value=\"1\">&#xF3EE;  English</option>
+                        <option value=\"0\">&#xF3EE; Polski</option>
+                        <option value=\"1\">&#xF3EE; English</option>
                     </select>
                 </div>
 
@@ -541,46 +540,40 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
                 {% endif %}
                 <h1> Nieograniczona oferta filmów, seriali, programów <br> i nie tylko. </h1>
                 <h2> Oglądaj wszędzie. Anuluj w każdej chwili. </h2>
-                <h3> </h3>
+                <h3></h3>
 
                 <form action=\"/register.php\">
-                    <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić konto. </label>
+                    <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
+                        konto. </label>
                     <input class=\"emailInput\" type=\"text\" id=\"email\" name=\"email\">
-                    <button type=\"button\" class=\"buttonSubmit\"> <a class=\"button\" href=\"/register\">Rozpocznij</a></button>
+                    <button type=\"button\" class=\"buttonSubmit\"><a class=\"button\" href=\"/register\">Rozpocznij</a>
+                    </button>
                 </form>
             </div>
         </div>
     </div>
 
     <div class=\"blockWrapper\">
-        {#    <div class=\"blockColumn\">#}
-        {#        <div class=\"blockIntro\">#}
-        {#            <h1> Nieograniczona oferta filmów, seriali, programów i nie tylko. </h1>#}
-        {#            <h2> Oglądaj wszędzie. Anuluj w każdej chwili. </h2>#}
-        {#            <h3> </h3>#}
-        {#            <form action=\"/action_page.php\">#}
-        {#                <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić konto. </label>#}
-        {#                <input type=\"text\" id=\"fname\" name=\"fname\">#}
-        {#                <button type=\"button\" class=\"buttonLanguage\">Rozpocznij</button>#}
-        {#            </form>#}
-        {#        </div>#}
-        {#    </div>#}
         <hr>
         <div class=\"block\">
             <div class=\"blockRow\">
                 <div class=\"blockColumn\">
                     <h1> Oglądaj na telewizorze. </h1>
-                    <h2> Oglądaj na telewizorach Smart TV, konsolach PlayStation i Xbox, odtwarzaczach Chromecast, Apple TV oraz Blu-ray
+                    <h2> Oglądaj na telewizorach Smart TV, konsolach PlayStation i Xbox, odtwarzaczach Chromecast, Apple
+                        TV oraz Blu-ray
                         i nie tylko. </h2>
                 </div>
-                <img style=\"float:right\" src=\"https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png\" alt=\"none\">
+                <img style=\"float:right\"
+                     src=\"https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png\" alt=\"none\">
             </div>
 
         </div>
         <hr>
         <div class=\"block\">
             <div class=\"blockRow\">
-                <img style=\"float:left\" src=\"https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg\" alt=\"none\">
+                <img style=\"float:left\"
+                     src=\"https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg\"
+                     alt=\"none\">
                 <div class=\"blockColumn\">
                     <h1> Pobierz ulubione tytuły i oglądaj offline. </h1>
                     <h2> Zapisz ulubione tytuły, aby zawsze mieć coś do obejrzenia. </h2>
@@ -592,19 +585,25 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
             <div class=\"blockRow\">
                 <div class=\"blockColumn\">
                     <h1> Oglądaj wszędzie. </h1>
-                    <h2> Oglądaj filmy, seriale i programy bez ograniczeń na telefonie, tablecie, laptopie, telewizorze... Bez
+                    <h2> Oglądaj filmy, seriale i programy bez ograniczeń na telefonie, tablecie, laptopie,
+                        telewizorze... Bez
                         dodatkowych opłat. </h2>
                 </div>
-                <img style=\"float:right\" src=\"https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile.png\" alt=\"none\">
+                <img style=\"float:right\"
+                     src=\"https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile.png\"
+                     alt=\"none\">
             </div>
         </div>
         <hr>
         <div class=\"block\">
             <div class=\"blockRow\">
-                <img style=\"float:left\" src=\"https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/19OhWN2dO19C9txTON9tvTFtefw/AAAABV0jxy5YQLZOJQiLeketUA72UonCi7ikrao3PtSMF_M2mYyBUp8FK--aHN-cL3iuXP5MqpYBcJZP4dNkLrHxa0oAY5uD.png?r=107\" alt=\"none\">
+                <img style=\"float:left\"
+                     src=\"https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/19OhWN2dO19C9txTON9tvTFtefw/AAAABV0jxy5YQLZOJQiLeketUA72UonCi7ikrao3PtSMF_M2mYyBUp8FK--aHN-cL3iuXP5MqpYBcJZP4dNkLrHxa0oAY5uD.png?r=107\"
+                     alt=\"none\">
                 <div class=\"blockColumn\">
                     <h1> Utwórz profile dla dzieci. </h1>
-                    <h2> Pozwól dzieciom przeżywać przygody w towarzystwie uwielbianych bohaterów — w specjalnej sekcji serwisu
+                    <h2> Pozwól dzieciom przeżywać przygody w towarzystwie uwielbianych bohaterów — w specjalnej sekcji
+                        serwisu
                         oferowanej bezpłatnie w ramach członkostwa. </h2>
                 </div>
             </div>
@@ -667,7 +666,8 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
             </div>
             <div class=\"block\">
                 <form action=\"/action_page.php\">
-                    <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić konto. </label>
+                    <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
+                        konto. </label>
                     <input class=\"emailInput\" type=\"text\" id=\"fname\" name=\"fname\">
                     <button type=\"button\" class=\"buttonSubmit\">Rozpocznij</button>
                 </form>
@@ -680,47 +680,57 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
 
 {% block stylesheets %}
     <style>
-        body{
+        body {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
         }
-        html{
+
+        html {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-            font-weight:normal;
+            font-weight: normal;
         }
-        h1{
+
+        h1 {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
         }
-        h2{
+
+        h2 {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
         }
-        a.button, a.button:hover,a.button:visited, a.button:active {
+
+        a.button, a.button:hover, a.button:visited, a.button:active {
             color: inherit;
             text-decoration: none;
         }
+
         a, a:visited, a:active {
             color: #757575;
             text-decoration: none;
         }
+
         a:hover {
             color: #757575;
             text-decoration: underline;
         }
-        .buttonsWrapper{
-            gap:20px;
+
+        .buttonsWrapper {
+            gap: 20px;
         }
-        .selectMedium{
+
+        .selectMedium {
             margin-right: 0;
         }
-        select{
+
+        select {
             font-family: \"Netflix Sans Black\", bootstrap-icons, serif;
             padding: 10px 10px 10px;
 
         }
-        i{
+
+        i {
             vertical-align: -1px;
         }
-        .concord-img-wrapper
-        {
+
+        .concord-img-wrapper {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
         }
     </style>
@@ -734,7 +744,7 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
 
 
 /* root.html.twig */
-class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489f8f52___2111902812 extends Template
+class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489f8f52___605821039 extends Template
 {
     private $source;
     private $macros = [];
@@ -751,7 +761,7 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
 
     protected function doGetParent(array $context)
     {
-        // line 256
+        // line 267
         return "reusable/footer.html.twig";
     }
 
@@ -764,7 +774,7 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "root.html.twig"));
 
-        $this->parent = $this->loadTemplate("reusable/footer.html.twig", "root.html.twig", 256);
+        $this->parent = $this->loadTemplate("reusable/footer.html.twig", "root.html.twig", 267);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -786,7 +796,7 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
 
     public function getDebugInfo()
     {
-        return array (  755 => 256,  403 => 209,  393 => 208,  272 => 95,  270 => 94,  268 => 93,  266 => 92,  264 => 91,  262 => 90,  260 => 89,  258 => 88,  256 => 87,  254 => 86,  252 => 85,  250 => 84,  234 => 69,  230 => 67,  224 => 65,  222 => 64,  214 => 58,  208 => 54,  202 => 50,  200 => 49,  196 => 47,  187 => 40,  185 => 39,  166 => 22,  156 => 21,  138 => 19,  119 => 7,  101 => 8,  99 => 7,  92 => 2,  82 => 1,  71 => 257,  69 => 256,  66 => 255,  64 => 208,  61 => 207,  59 => 21,  56 => 20,  54 => 19,  50 => 17,  48 => 1,);
+        return array (  765 => 267,  392 => 210,  382 => 209,  234 => 69,  230 => 67,  224 => 65,  222 => 64,  214 => 58,  208 => 54,  202 => 50,  200 => 49,  196 => 47,  187 => 40,  185 => 39,  166 => 22,  156 => 21,  138 => 19,  119 => 7,  101 => 8,  99 => 7,  92 => 2,  82 => 1,  71 => 268,  69 => 267,  66 => 266,  64 => 209,  61 => 208,  59 => 21,  56 => 20,  54 => 19,  50 => 17,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -824,8 +834,8 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
             <div class=\"buttonsWrapper\">
                 <div class=\"selectMedium\">
                     <select>
-                        <option value=\"0\">&#xF3EE;  Polski</option>
-                        <option value=\"1\">&#xF3EE;  English</option>
+                        <option value=\"0\">&#xF3EE; Polski</option>
+                        <option value=\"1\">&#xF3EE; English</option>
                     </select>
                 </div>
 
@@ -861,46 +871,40 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
                 {% endif %}
                 <h1> Nieograniczona oferta filmów, seriali, programów <br> i nie tylko. </h1>
                 <h2> Oglądaj wszędzie. Anuluj w każdej chwili. </h2>
-                <h3> </h3>
+                <h3></h3>
 
                 <form action=\"/register.php\">
-                    <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić konto. </label>
+                    <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
+                        konto. </label>
                     <input class=\"emailInput\" type=\"text\" id=\"email\" name=\"email\">
-                    <button type=\"button\" class=\"buttonSubmit\"> <a class=\"button\" href=\"/register\">Rozpocznij</a></button>
+                    <button type=\"button\" class=\"buttonSubmit\"><a class=\"button\" href=\"/register\">Rozpocznij</a>
+                    </button>
                 </form>
             </div>
         </div>
     </div>
 
     <div class=\"blockWrapper\">
-        {#    <div class=\"blockColumn\">#}
-        {#        <div class=\"blockIntro\">#}
-        {#            <h1> Nieograniczona oferta filmów, seriali, programów i nie tylko. </h1>#}
-        {#            <h2> Oglądaj wszędzie. Anuluj w każdej chwili. </h2>#}
-        {#            <h3> </h3>#}
-        {#            <form action=\"/action_page.php\">#}
-        {#                <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić konto. </label>#}
-        {#                <input type=\"text\" id=\"fname\" name=\"fname\">#}
-        {#                <button type=\"button\" class=\"buttonLanguage\">Rozpocznij</button>#}
-        {#            </form>#}
-        {#        </div>#}
-        {#    </div>#}
         <hr>
         <div class=\"block\">
             <div class=\"blockRow\">
                 <div class=\"blockColumn\">
                     <h1> Oglądaj na telewizorze. </h1>
-                    <h2> Oglądaj na telewizorach Smart TV, konsolach PlayStation i Xbox, odtwarzaczach Chromecast, Apple TV oraz Blu-ray
+                    <h2> Oglądaj na telewizorach Smart TV, konsolach PlayStation i Xbox, odtwarzaczach Chromecast, Apple
+                        TV oraz Blu-ray
                         i nie tylko. </h2>
                 </div>
-                <img style=\"float:right\" src=\"https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png\" alt=\"none\">
+                <img style=\"float:right\"
+                     src=\"https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png\" alt=\"none\">
             </div>
 
         </div>
         <hr>
         <div class=\"block\">
             <div class=\"blockRow\">
-                <img style=\"float:left\" src=\"https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg\" alt=\"none\">
+                <img style=\"float:left\"
+                     src=\"https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg\"
+                     alt=\"none\">
                 <div class=\"blockColumn\">
                     <h1> Pobierz ulubione tytuły i oglądaj offline. </h1>
                     <h2> Zapisz ulubione tytuły, aby zawsze mieć coś do obejrzenia. </h2>
@@ -912,19 +916,25 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
             <div class=\"blockRow\">
                 <div class=\"blockColumn\">
                     <h1> Oglądaj wszędzie. </h1>
-                    <h2> Oglądaj filmy, seriale i programy bez ograniczeń na telefonie, tablecie, laptopie, telewizorze... Bez
+                    <h2> Oglądaj filmy, seriale i programy bez ograniczeń na telefonie, tablecie, laptopie,
+                        telewizorze... Bez
                         dodatkowych opłat. </h2>
                 </div>
-                <img style=\"float:right\" src=\"https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile.png\" alt=\"none\">
+                <img style=\"float:right\"
+                     src=\"https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile.png\"
+                     alt=\"none\">
             </div>
         </div>
         <hr>
         <div class=\"block\">
             <div class=\"blockRow\">
-                <img style=\"float:left\" src=\"https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/19OhWN2dO19C9txTON9tvTFtefw/AAAABV0jxy5YQLZOJQiLeketUA72UonCi7ikrao3PtSMF_M2mYyBUp8FK--aHN-cL3iuXP5MqpYBcJZP4dNkLrHxa0oAY5uD.png?r=107\" alt=\"none\">
+                <img style=\"float:left\"
+                     src=\"https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/19OhWN2dO19C9txTON9tvTFtefw/AAAABV0jxy5YQLZOJQiLeketUA72UonCi7ikrao3PtSMF_M2mYyBUp8FK--aHN-cL3iuXP5MqpYBcJZP4dNkLrHxa0oAY5uD.png?r=107\"
+                     alt=\"none\">
                 <div class=\"blockColumn\">
                     <h1> Utwórz profile dla dzieci. </h1>
-                    <h2> Pozwól dzieciom przeżywać przygody w towarzystwie uwielbianych bohaterów — w specjalnej sekcji serwisu
+                    <h2> Pozwól dzieciom przeżywać przygody w towarzystwie uwielbianych bohaterów — w specjalnej sekcji
+                        serwisu
                         oferowanej bezpłatnie w ramach członkostwa. </h2>
                 </div>
             </div>
@@ -987,7 +997,8 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
             </div>
             <div class=\"block\">
                 <form action=\"/action_page.php\">
-                    <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić konto. </label>
+                    <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
+                        konto. </label>
                     <input class=\"emailInput\" type=\"text\" id=\"fname\" name=\"fname\">
                     <button type=\"button\" class=\"buttonSubmit\">Rozpocznij</button>
                 </form>
@@ -1000,47 +1011,57 @@ class __TwigTemplate_04943c77858a9f987b5e1da2f78eef024028137537d399cba5765b8d489
 
 {% block stylesheets %}
     <style>
-        body{
+        body {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
         }
-        html{
+
+        html {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-            font-weight:normal;
+            font-weight: normal;
         }
-        h1{
+
+        h1 {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
         }
-        h2{
+
+        h2 {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
         }
-        a.button, a.button:hover,a.button:visited, a.button:active {
+
+        a.button, a.button:hover, a.button:visited, a.button:active {
             color: inherit;
             text-decoration: none;
         }
+
         a, a:visited, a:active {
             color: #757575;
             text-decoration: none;
         }
+
         a:hover {
             color: #757575;
             text-decoration: underline;
         }
-        .buttonsWrapper{
-            gap:20px;
+
+        .buttonsWrapper {
+            gap: 20px;
         }
-        .selectMedium{
+
+        .selectMedium {
             margin-right: 0;
         }
-        select{
+
+        select {
             font-family: \"Netflix Sans Black\", bootstrap-icons, serif;
             padding: 10px 10px 10px;
 
         }
-        i{
+
+        i {
             vertical-align: -1px;
         }
-        .concord-img-wrapper
-        {
+
+        .concord-img-wrapper {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
         }
     </style>

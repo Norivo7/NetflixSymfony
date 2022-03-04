@@ -11,61 +11,50 @@
 {% block stylesheets %}
     <link rel="stylesheet" href="assets/user.css">
     <style>
-    body {
-        font-family: 'Netflix Sans Regular', "Helvetica Neue", "Helvetica", Arial, sans-serif;
-    }
+        body {
+            font-family: 'Netflix Sans Regular', "Helvetica Neue", "Helvetica", Arial, sans-serif;
+        }
 
-    .main {
-        height: 90%;
-    }
-    ul{
-        padding: 0;
-    }
-    .form-control {
-        padding: 0;
-    }
-    input#round {
-        outline-offset: -4px;
-        border: 0px solid;
-        border-radius: 10px;
-    }
-    input#round:hover {
-        color:#000;
-        box-shadow: 0px 0px 0px 4px white;
-        background-color:#FFF;
-        background-image:none;
-    }
-    #buttonDiv{
-        margin-top: 20px;
-    }
-    /*.overlay {*/
-    /*    position: absolute;*/
-    /*    top: 0;*/
-    /*    bottom: 0;*/
-    /*    left: 0;*/
-    /*    right: 0;*/
-    /*    height: 100%;*/
-    /*    width: 100%;*/
-    /*    opacity: 0;*/
-    /*    transition: .5s ease;*/
-    /*    background-color: #008CBA;*/
-    /*}*/
-    /*.subuser:hover {*/
-    /*    opacity: 0.8;*/
-    /*}*/
+        .main {
+            height: 90%;
+        }
+
+        ul {
+            padding: 0;
+        }
+
+        .form-control {
+            padding: 0;
+        }
+
+        input#round {
+            outline-offset: -4px;
+            border: 0px solid;
+            border-radius: 10px;
+        }
+
+        input#round:hover {
+            color: #000;
+            box-shadow: 0px 0px 0px 4px white;
+            background-color: #FFF;
+            background-image: none;
+        }
+
+        #buttonDiv {
+            margin-top: 20px;
+        }
     </style>
 {% endblock %}
 
-
     {% block header %}
-    <div id="headerContainer">
-        <div class="brandLogoWrapper">
-            <a class="logo" href="/" target="_parent">
-                <img class="logo" src="{{ asset('images/netflixLogo.svg.png') }}" alt="av1"/>
-            </a>
+        <div id="headerContainer">
+            <div class="brandLogoWrapper">
+                <a class="logo" href="/" target="_parent">
+                    <img class="logo" src="{{ asset('images/netflixLogo.svg.png') }}" alt="av1"/>
+                </a>
 
+            </div>
         </div>
-    </div>
     {% endblock %}
 
 {% block body %}
@@ -77,73 +66,41 @@
                 <ul class="chooseProfile">
                     {% set subuser_id = 0 %}
                     {% for subuser in subUsers %}
-{#                        {{ app.session.set('subuser_name', subuser.name ) }}#}
-{#                        {{ dump(app.session.get('subuser_name')) }}#}
-
                         <li class="profile">
-{#                            <form action="{{ path('switchSubuser')}}" method="POST">#}
                             <form method="POST">
-{#                                    <img src="{{ subuser.avatar }}" class="round">#}
                                 <div class="subuser">
-
                                     <input
                                             class="form-control"
                                             id="text"
                                             type="hidden"
                                             name="id"
-                                            value="{{subuser_id}}"
+                                            value="{{ subuser_id }}"
                                     >
                                     <input
-                                        class="form-control"
-                                        class="subuser__input"
-                                        id="round"
-                                        type="image"
-                                        name="avatar"
-                                        value="{{ subuser.avatar }} "
-                                        src="{{ subuser.avatar }}"
+                                            class="form-control"
+                                            class="subuser__input"
+                                            id="round"
+                                            type="image"
+                                            name="avatar"
+                                            value="{{ subuser.avatar }} "
+                                            src="{{ subuser.avatar }}"
                                     >
                                     <span class="profileName">
                                         <input
-                                            class="form-control"
-                                            class="subuser__input"
-                                            type="hidden"
-                                            name="subuser_name"
-                                            value="{{ subuser.name }}">
+                                                class="form-control"
+                                                class="subuser__input"
+                                                type="hidden"
+                                                name="subuser_name"
+                                                value="{{ subuser.name }}">
 
                                     </span>
                                     <span class="profileName">{{ subuser.name }}</span>
-{#                                <input type="hidden" name="submit" value="Submit">#}
-{#                                <button class="subuser__sign-in" type="submit">Zaloguj się</button>#}
                                 </div>
                             </form>
                         </li>
-{#                        <div class="overlay">#}
-{#                            <div class="text">Hello World</div>#}
-{#                        </div>#}
                         {% set subuser_id = subuser_id + 1 %}
                     {% endfor %}
-{#                    {% for subuser in subUsers %}#}
-{#                        <li class="profile">#}
-{#                            <div>#}
-{#                                <a class="profileLink" href="/browse">#}
-{#                                    <img src="{{subuser.avatar}}" class="round" alt="av1"/>#}
-{#                                </a>#}
-{#                            </div>#}
-{#                            <span class="profileName">{{ subuser.name }}</span>#}
-{#                        </li>#}
-{#                    {% endfor %}#}
-
-
-
                 </ul>
-{#            <a class="navbar-brand" href="/">#}
-{#                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png"
-{#                     width="167" height="45" style="vertical-align:middle;margin:20px 50px" alt="netflixLogo"/>#}
-{#            </a>#}
-{#            <a class="navbar-brand" href="/">#}
-{#                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png"#}
-{#                     width="167" height="45" style="vertical-align:middle;margin:20px 50px" alt="netflixLogo"/>#}
-{#            </a>#}
             </div>
             <div id="buttonDiv">
                 <a>
@@ -156,12 +113,7 @@
                 </a>
             </div>
         </div>
-
-
     </div>
     </body>
 
-{#    <a href="/browse">#}
-{#        <button type="button" class="buttonNext">Dalej</button>#}
-{#    </a>#}
 {% endblock %}

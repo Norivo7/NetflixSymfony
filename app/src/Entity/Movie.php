@@ -13,10 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Movie
 {
-//    public function __toString()
-//    {
-//        return $this->title;
-//    }
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -59,19 +55,11 @@ class Movie
      */
     private $categories;
 
-//    /**
-//     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="likes")
-//     */
-//    private $users;
-
     public function __construct()
     {
-//        $this->category = new ArrayCollection(); // many2many
         $this->likes = new ArrayCollection();
-//        $this->users = new ArrayCollection();
         $this->categories = new ArrayCollection();
     }
-
 
 
     public function getId(): ?int
@@ -144,22 +132,6 @@ class Movie
         return $this->category;
     }
 
-
-//    public function addCategory(Category $category): self       // many to many, nie trybi, kiedy indziej ogarne
-//    {
-//        if (!$this->category->contains($category)) {
-//            $this->category[] = $category; // jezeli movie nie ma tej kategorii, dodaj obecną kategorie
-//        }
-//        return $this;
-//    }
-
-//    public function removeCategory(Category $category): self
-//    {
-//        $this->category->removeElement($category);
-//
-//        return $this;
-//    }
-                    // ManyToOne pozostalosci
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
@@ -181,7 +153,7 @@ class Movie
 
     public function setIsSerial(bool $true)
     {
-        
+
     }
 
     /**

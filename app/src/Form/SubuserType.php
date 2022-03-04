@@ -33,8 +33,7 @@ class SubuserType extends AbstractType
             ->add('avatar', TextType::class)
             ->add('subaccountOf', EntityType::class, [
                 'class' => User::class
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

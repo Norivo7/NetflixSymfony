@@ -10,10 +10,11 @@
 </head>
 {% block stylesheets %}
     <style>
-        body{
+        body {
             color: white;
             background-color: #141414;
         }
+
         .main {
             margin-top: 150px;
             display: flex;
@@ -23,6 +24,7 @@
             justify-content: center;
             gap: 30px;
         }
+
         .profileButton {
             color: gray;
             padding: .5em 1.5em;
@@ -33,25 +35,31 @@
             text-decoration: none;
 
         }
-        .table{
+
+        .table {
             /*margin-top: 100px;*/
             width: 1000px;
             color: white;
             flex-direction: column;
         }
-        .tbody{
+
+        .tbody {
             /*display: flex;*/
         }
+
         h1 {
             color: white;
             text-align: center;
         }
-        ul{
+
+        ul {
             list-style-type: none;
         }
+
         li {
             padding: 20px;
         }
+
         .logo {
             margin-left: 25px;
             margin-top: 10px;
@@ -62,23 +70,27 @@
             justify-content: center;
 
         }
+
         #buttonDiv {
             align-items: center;
             text-align: center;
             width: 100%;
             margin-top: 20px;
         }
+
         .brandLogoWrapper {
             height: 68px;
-            background-image: linear-gradient(to bottom,rgba(0,0,0,.7) 10%,rgba(0,0,0,0));
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, .7) 10%, rgba(0, 0, 0, 0));
         }
+
         #headerContainer {
             vertical-align: top;
             margin: -0.4em auto 2em auto;
             width: 100vw;
             height: 5vh;
         }
-        h1{
+
+        h1 {
             font-weight: 10;
             width: 100%;
             justify-content: center;
@@ -87,12 +99,15 @@
             top: 0;
             /*left:50%;*/
         }
-        h2{
+
+        h2 {
             color: white;
         }
-        ul{
+
+        ul {
             padding: 0;
         }
+
         .wrapper {
             display: flex;
             flex-direction: row;
@@ -101,6 +116,7 @@
             margin-top: 130px;
             gap: 70px;
         }
+
         .adminOption {
             display: flex;
             flex-direction: column;
@@ -119,6 +135,7 @@
             background-image: linear-gradient(315deg, black 0%, #141414 74%);
 
         }
+
         .adminOption:after {
             content: '';
             position: absolute;
@@ -126,27 +143,31 @@
             left: 0;
             width: 0;
             height: 100%;
-            background-color: rgba(255,255,255,0.4);
+            background-color: rgba(255, 255, 255, 0.4);
             -webkit-transition: none;
             -moz-transition: none;
             transition: none;
             border-radius: 19px;
         }
+
         .adminOption:hover:after {
             width: 100%;
-            background-color: rgba(255,255,255,0);
+            background-color: rgba(255, 255, 255, 0);
             -webkit-transition: all 0.4s ease-in-out;
             -moz-transition: all 0.4s ease-in-out;
             transition: all 0.4s ease-in-out;
         }
+
         a {
             text-decoration: none;
             text-align: center;
         }
+
         .optionImage {
             font-size: 42px;
         }
-        .deleteButton{
+
+        .deleteButton {
             color: red;
             padding: .5em 1.5em;
             letter-spacing: 2px;
@@ -159,41 +180,41 @@
 {% endblock %}
 {% block body %}
     <body>
-        <div id="headerContainer">
-            <div class="brandLogoWrapper">
-                <a class="logo" href="/" target="_parent">
-                    <img class="logo" src="{{ asset('images/netflixLogo.svg.png') }}" alt="av1"/>
-                </a>
-            </div>
-            <h1>Panel Administratora</h1>
+    <div id="headerContainer">
+        <div class="brandLogoWrapper">
+            <a class="logo" href="/" target="_parent">
+                <img class="logo" src="{{ asset('images/netflixLogo.svg.png') }}" alt="av1"/>
+            </a>
         </div>
-       {% block navigation %}
+        <h1>Panel Administratora</h1>
+    </div>
+    {% block navigation %}
 
-           <div class="wrapper">
-               <a href="admin/subuser">
-                   <div class="adminOption"><i class="optionImage bi bi-person-lines-fill"></i>Profile Użytkowników</div>
-               </a>
-               <a href="admin/subuser">
-                   <div class="adminOption"><i class="optionImage bi bi-film"></i>Filmy</div>
-               </a>
-               <a href="admin/subuser">
-                   <div class="adminOption"><i class="optionImage bi bi-people-fill"></i>Użytkownicy</div>
-               </a>
-               <a href="admin/subuser">
-                   <div class="adminOption"><i class="optionImage bi bi-gear-fill"></i>Ustawienia</div>
-               </a>
+        <div class="wrapper">
+            <a href="admin/subuser">
+                <div class="adminOption"><i class="optionImage bi bi-person-lines-fill"></i>Profile Użytkowników</div>
+            </a>
+            <a href="admin/subuser">
+                <div class="adminOption"><i class="optionImage bi bi-film"></i>Filmy</div>
+            </a>
+            <a href="admin/subuser">
+                <div class="adminOption"><i class="optionImage bi bi-people-fill"></i>Użytkownicy</div>
+            </a>
+            <a href="admin/subuser">
+                <div class="adminOption"><i class="optionImage bi bi-gear-fill"></i>Ustawienia</div>
+            </a>
 
-               <a href="/">
-                   <div class="adminOption"><i class="optionImage bi bi-x-lg"></i>Wróć</div>
-               </a>
-           </div>
+            <a href="/">
+                <div class="adminOption"><i class="optionImage bi bi-x-lg"></i>Wróć</div>
+            </a>
+        </div>
 
-       {% endblock %}
-            <div class="main">
-                {% block content %}
-                    {#  render innych templatek #}
-                {% endblock %}
-            </div>
+    {% endblock %}
+    <div class="main">
+        {% block content %}
+            {#  render innych templatek #}
+        {% endblock %}
+    </div>
 
     </body>
 

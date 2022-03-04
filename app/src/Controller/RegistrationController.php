@@ -40,9 +40,9 @@ class RegistrationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setRoles(['ROLE_USER']);
             // add default subuser
-           $subUser->setName("Domyślny");
-           $subUser->setSubaccountOf($user);
-           $subUser->setAvatar('https://i.imgur.com/9nWtdiZ.png');
+            $subUser->setName("Domyślny");
+            $subUser->setSubaccountOf($user);
+            $subUser->setAvatar('https://i.imgur.com/9nWtdiZ.png');
             // encode the plain password
             $user->setPassword(
                 $passwordEncoder->encodePassword(

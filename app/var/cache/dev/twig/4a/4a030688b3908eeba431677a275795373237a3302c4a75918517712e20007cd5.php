@@ -51,19 +51,18 @@ class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f441
 ";
         // line 8
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 54
+        // line 62
         $this->displayBlock('body', $context, $blocks);
-        // line 85
+        // line 93
         echo "
 
 <div class=\"footerWrap\">
     <hr>
- ";
-        // line 89
-        $this->loadTemplate("registration/register.html.twig", "registration/register.html.twig", 89, "1565650425")->display($context);
-        // line 90
-        echo "</div>
-";
+    ";
+        // line 97
+        $this->loadTemplate("registration/register.html.twig", "registration/register.html.twig", 97, "642630574")->display($context);
+        // line 98
+        echo "</div>";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -84,29 +83,34 @@ class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f441
 
         // line 9
         echo "    <style>
-        .brandLogoWrapper{
+        .brandLogoWrapper {
             margin: 30px;
             align-items: center;
             justify-content: center;
             vertical-align: middle;
         }
+
         .login {
             float: right;
             margin-right: 10px;
 
         }
+
         a, a:visited, a:active {
             color: #757575;
             text-decoration: none;
         }
+
         a:hover {
             color: #757575;
             text-decoration: underline;
         }
+
         .footerWrap {
             background-color: #f3f3f3;
             height: 400px;
         }
+
         .main {
             display: flex;
             justify-content: center;
@@ -115,12 +119,15 @@ class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f441
             margin: auto;
             height: 600px;
         }
+
         .input {
             /*margin: 30px;*/
         }
+
         .btn {
-            color:red;
+            color: red;
         }
+
         .error {
             display: flex;
             justify-content: center;
@@ -136,7 +143,7 @@ class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f441
 
     }
 
-    // line 54
+    // line 62
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -146,28 +153,28 @@ class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f441
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 55
-        echo "<nav>
-    <div class=\"brandLogoWrapper\">
-        <a class=\"logo\" href=\"/\" target=\"_parent\">
-            <img class=\"logo\" src=\"";
-        // line 58
+        // line 63
+        echo "    <nav>
+        <div class=\"brandLogoWrapper\">
+            <a class=\"logo\" href=\"/\" target=\"_parent\">
+                <img class=\"logo\" src=\"";
+        // line 66
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/netflixLogoSmall.svg.png"), "html", null, true);
         echo "\" alt=\"av1\"/>
-        </a>
-        <a class=\"login\" href=\"/login\">Zaloguj się</a>
-    </div>
-</nav>
-<hr>
+            </a>
+            <a class=\"login\" href=\"/login\">Zaloguj się</a>
+        </div>
+    </nav>
+    <hr>
 
     <div class=\"main\">
 
         ";
-        // line 67
+        // line 75
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 67, $this->source); })()), "flashes", [0 => "verify_email_error"], "method", false, false, false, 67));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 75, $this->source); })()), "flashes", [0 => "verify_email_error"], "method", false, false, false, 75));
         foreach ($context['_seq'] as $context["_key"] => $context["flashError"]) {
-            // line 68
+            // line 76
             echo "            <div class=\"alert alert-danger\" role=\"alert\">";
             echo twig_escape_filter($this->env, $context["flashError"], "html", null, true);
             echo "</div>
@@ -176,42 +183,42 @@ class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f441
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashError'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 70
+        // line 78
         echo "
         <h1>Rejestracja</h1>
         ";
-        // line 72
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 72, $this->source); })()), 'form_start');
+        // line 80
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 80, $this->source); })()), 'form_start');
         echo "
 
         <div class=\"input\">Email: ";
-        // line 74
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 74, $this->source); })()), "email", [], "any", false, false, false, 74), 'widget');
+        // line 82
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 82, $this->source); })()), "email", [], "any", false, false, false, 82), 'widget');
         echo "</div>
         <div class=\"error\">";
-        // line 75
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 75, $this->source); })()), "email", [], "any", false, false, false, 75), 'errors');
+        // line 83
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 83, $this->source); })()), "email", [], "any", false, false, false, 83), 'errors');
         echo "</div>
         <div class=\"input\">Hasło: ";
-        // line 76
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 76, $this->source); })()), "plainPassword", [], "any", false, false, false, 76), 'widget');
+        // line 84
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 84, $this->source); })()), "plainPassword", [], "any", false, false, false, 84), 'widget');
         echo "</div>
         <div class=\"error\">";
-        // line 77
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 77, $this->source); })()), "plainPassword", [], "any", false, false, false, 77), 'errors');
+        // line 85
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 85, $this->source); })()), "plainPassword", [], "any", false, false, false, 85), 'errors');
         echo "</div>
         <div class=\"input\">Akceptuje warunki: ";
-        // line 78
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 78, $this->source); })()), "agreeTerms", [], "any", false, false, false, 78), 'widget');
+        // line 86
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 86, $this->source); })()), "agreeTerms", [], "any", false, false, false, 86), 'widget');
         echo "</div>
         <div class=\"error\">";
-        // line 79
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 79, $this->source); })()), "agreeTerms", [], "any", false, false, false, 79), 'errors');
+        // line 87
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 87, $this->source); })()), "agreeTerms", [], "any", false, false, false, 87), 'errors');
         echo "</div>
         <button type=\"submit\" class=\"btn\">Zarejestruj</button>
         ";
-        // line 81
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 81, $this->source); })()), 'form_end');
+        // line 89
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 89, $this->source); })()), 'form_end');
         echo "
 
     </div>
@@ -236,12 +243,12 @@ class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f441
 
     public function getDebugInfo()
     {
-        return array (  214 => 81,  209 => 79,  205 => 78,  201 => 77,  197 => 76,  193 => 75,  189 => 74,  184 => 72,  180 => 70,  171 => 68,  167 => 67,  155 => 58,  150 => 55,  140 => 54,  86 => 9,  76 => 8,  65 => 90,  63 => 89,  57 => 85,  55 => 54,  53 => 8,  45 => 2,);
+        return array (  221 => 89,  216 => 87,  212 => 86,  208 => 85,  204 => 84,  200 => 83,  196 => 82,  191 => 80,  187 => 78,  178 => 76,  174 => 75,  162 => 66,  157 => 63,  147 => 62,  85 => 9,  75 => 8,  65 => 98,  63 => 97,  57 => 93,  55 => 62,  53 => 8,  45 => 2,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{#{% extends 'base.html.twig' %}#}
+        return new Source("{# {% extends 'base.html.twig' %} #}
 
 <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css\"
       rel=\"stylesheet\"
@@ -250,29 +257,34 @@ class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f441
 <link rel=\"stylesheet\" href=\"assets/footer.css\">
 {% block stylesheets %}
     <style>
-        .brandLogoWrapper{
+        .brandLogoWrapper {
             margin: 30px;
             align-items: center;
             justify-content: center;
             vertical-align: middle;
         }
+
         .login {
             float: right;
             margin-right: 10px;
 
         }
+
         a, a:visited, a:active {
             color: #757575;
             text-decoration: none;
         }
+
         a:hover {
             color: #757575;
             text-decoration: underline;
         }
+
         .footerWrap {
             background-color: #f3f3f3;
             height: 400px;
         }
+
         .main {
             display: flex;
             justify-content: center;
@@ -281,12 +293,15 @@ class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f441
             margin: auto;
             height: 600px;
         }
+
         .input {
             /*margin: 30px;*/
         }
+
         .btn {
-            color:red;
+            color: red;
         }
+
         .error {
             display: flex;
             justify-content: center;
@@ -295,15 +310,15 @@ class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f441
     </style>
 {% endblock %}
 {% block body %}
-<nav>
-    <div class=\"brandLogoWrapper\">
-        <a class=\"logo\" href=\"/\" target=\"_parent\">
-            <img class=\"logo\" src=\"{{ asset('images/netflixLogoSmall.svg.png') }}\" alt=\"av1\"/>
-        </a>
-        <a class=\"login\" href=\"/login\">Zaloguj się</a>
-    </div>
-</nav>
-<hr>
+    <nav>
+        <div class=\"brandLogoWrapper\">
+            <a class=\"logo\" href=\"/\" target=\"_parent\">
+                <img class=\"logo\" src=\"{{ asset('images/netflixLogoSmall.svg.png') }}\" alt=\"av1\"/>
+            </a>
+            <a class=\"login\" href=\"/login\">Zaloguj się</a>
+        </div>
+    </nav>
+    <hr>
 
     <div class=\"main\">
 
@@ -329,19 +344,14 @@ class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f441
 
 <div class=\"footerWrap\">
     <hr>
- {% embed 'reusable/footer.html.twig' %} {% endembed %}
-</div>
-{#{% embed \"base.html.twig\" %}#}
-{#    {% block footer %}#}
-{#     {{ parent() }}#}
-{#    {% endblock %}#}
-{#{% endembed %}#}", "registration/register.html.twig", "/var/www/symfony_docker/templates/registration/register.html.twig");
+    {% embed 'reusable/footer.html.twig' %} {% endembed %}
+</div>", "registration/register.html.twig", "/var/www/symfony_docker/templates/registration/register.html.twig");
     }
 }
 
 
 /* registration/register.html.twig */
-class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f4419b74c___1565650425 extends Template
+class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f4419b74c___642630574 extends Template
 {
     private $source;
     private $macros = [];
@@ -358,7 +368,7 @@ class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f441
 
     protected function doGetParent(array $context)
     {
-        // line 89
+        // line 97
         return "reusable/footer.html.twig";
     }
 
@@ -371,7 +381,7 @@ class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f441
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "registration/register.html.twig"));
 
-        $this->parent = $this->loadTemplate("reusable/footer.html.twig", "registration/register.html.twig", 89);
+        $this->parent = $this->loadTemplate("reusable/footer.html.twig", "registration/register.html.twig", 97);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -393,12 +403,12 @@ class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f441
 
     public function getDebugInfo()
     {
-        return array (  362 => 89,  214 => 81,  209 => 79,  205 => 78,  201 => 77,  197 => 76,  193 => 75,  189 => 74,  184 => 72,  180 => 70,  171 => 68,  167 => 67,  155 => 58,  150 => 55,  140 => 54,  86 => 9,  76 => 8,  65 => 90,  63 => 89,  57 => 85,  55 => 54,  53 => 8,  45 => 2,);
+        return array (  372 => 97,  221 => 89,  216 => 87,  212 => 86,  208 => 85,  204 => 84,  200 => 83,  196 => 82,  191 => 80,  187 => 78,  178 => 76,  174 => 75,  162 => 66,  157 => 63,  147 => 62,  85 => 9,  75 => 8,  65 => 98,  63 => 97,  57 => 93,  55 => 62,  53 => 8,  45 => 2,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{#{% extends 'base.html.twig' %}#}
+        return new Source("{# {% extends 'base.html.twig' %} #}
 
 <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css\"
       rel=\"stylesheet\"
@@ -407,29 +417,34 @@ class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f441
 <link rel=\"stylesheet\" href=\"assets/footer.css\">
 {% block stylesheets %}
     <style>
-        .brandLogoWrapper{
+        .brandLogoWrapper {
             margin: 30px;
             align-items: center;
             justify-content: center;
             vertical-align: middle;
         }
+
         .login {
             float: right;
             margin-right: 10px;
 
         }
+
         a, a:visited, a:active {
             color: #757575;
             text-decoration: none;
         }
+
         a:hover {
             color: #757575;
             text-decoration: underline;
         }
+
         .footerWrap {
             background-color: #f3f3f3;
             height: 400px;
         }
+
         .main {
             display: flex;
             justify-content: center;
@@ -438,12 +453,15 @@ class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f441
             margin: auto;
             height: 600px;
         }
+
         .input {
             /*margin: 30px;*/
         }
+
         .btn {
-            color:red;
+            color: red;
         }
+
         .error {
             display: flex;
             justify-content: center;
@@ -452,15 +470,15 @@ class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f441
     </style>
 {% endblock %}
 {% block body %}
-<nav>
-    <div class=\"brandLogoWrapper\">
-        <a class=\"logo\" href=\"/\" target=\"_parent\">
-            <img class=\"logo\" src=\"{{ asset('images/netflixLogoSmall.svg.png') }}\" alt=\"av1\"/>
-        </a>
-        <a class=\"login\" href=\"/login\">Zaloguj się</a>
-    </div>
-</nav>
-<hr>
+    <nav>
+        <div class=\"brandLogoWrapper\">
+            <a class=\"logo\" href=\"/\" target=\"_parent\">
+                <img class=\"logo\" src=\"{{ asset('images/netflixLogoSmall.svg.png') }}\" alt=\"av1\"/>
+            </a>
+            <a class=\"login\" href=\"/login\">Zaloguj się</a>
+        </div>
+    </nav>
+    <hr>
 
     <div class=\"main\">
 
@@ -486,12 +504,7 @@ class __TwigTemplate_d62dc07ea5a33bc45351a94434900923b17add41b13be0a7d753697f441
 
 <div class=\"footerWrap\">
     <hr>
- {% embed 'reusable/footer.html.twig' %} {% endembed %}
-</div>
-{#{% embed \"base.html.twig\" %}#}
-{#    {% block footer %}#}
-{#     {{ parent() }}#}
-{#    {% endblock %}#}
-{#{% endembed %}#}", "registration/register.html.twig", "/var/www/symfony_docker/templates/registration/register.html.twig");
+    {% embed 'reusable/footer.html.twig' %} {% endembed %}
+</div>", "registration/register.html.twig", "/var/www/symfony_docker/templates/registration/register.html.twig");
     }
 }

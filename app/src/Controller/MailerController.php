@@ -22,8 +22,8 @@ class MailerController
             ->text('Sending emails is fun again!')
             ->html('<p>See Twig integration for better HTML integration!</p>');
 
-        /** @var Symfony\Component\Mailer\SentMessage $sentEmail */
-        $sentEmail = $mailer->send($email);
+//        /** @var Symfony\Component\Mailer\SentMessage $sentEmail */
+//        $sentEmail = $mailer->send($email);
         // $messageId = $sentEmail->getMessageId();
 
         // ...

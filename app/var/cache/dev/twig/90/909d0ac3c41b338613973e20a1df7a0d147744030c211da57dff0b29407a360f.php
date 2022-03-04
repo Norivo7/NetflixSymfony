@@ -41,14 +41,17 @@ class __TwigTemplate_e649a0fb96b87f9b6f70d46341486fee309ba06b8acc51879b2ae9dfeaf
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "security/login.html.twig"));
 
-        // line 3
-        $this->displayBlock('stylesheet', $context, $blocks);
-        // line 138
+        // line 1
         echo "
 ";
+        // line 2
+        $this->displayBlock('stylesheet', $context, $blocks);
         // line 139
+        echo "
+";
+        // line 140
         $this->displayBlock('body', $context, $blocks);
-        // line 189
+        // line 192
         echo "
 ";
         
@@ -59,7 +62,7 @@ class __TwigTemplate_e649a0fb96b87f9b6f70d46341486fee309ba06b8acc51879b2ae9dfeaf
 
     }
 
-    // line 3
+    // line 2
     public function block_stylesheet($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -69,7 +72,7 @@ class __TwigTemplate_e649a0fb96b87f9b6f70d46341486fee309ba06b8acc51879b2ae9dfeaf
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheet"));
 
-        // line 4
+        // line 3
         echo "
     <style>
         body {
@@ -188,6 +191,7 @@ class __TwigTemplate_e649a0fb96b87f9b6f70d46341486fee309ba06b8acc51879b2ae9dfeaf
         ::placeholder {
             font-size: 0.7rem;
         }
+
         .misc {
             color: #b3b3b3;
             margin-top: 11px;
@@ -195,7 +199,8 @@ class __TwigTemplate_e649a0fb96b87f9b6f70d46341486fee309ba06b8acc51879b2ae9dfeaf
             flex-direction: column;
             font-size: 13px;
         }
-        .footer{
+
+        .footer {
             width: 1000px;
             padding-top: 175px;
             margin: auto;
@@ -212,7 +217,7 @@ class __TwigTemplate_e649a0fb96b87f9b6f70d46341486fee309ba06b8acc51879b2ae9dfeaf
 
     }
 
-    // line 139
+    // line 140
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -222,7 +227,7 @@ class __TwigTemplate_e649a0fb96b87f9b6f70d46341486fee309ba06b8acc51879b2ae9dfeaf
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 140
+        // line 141
         echo "    <a class=\"logo\" href=\"/\" target=\"_parent\">
         <img
                 src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png\"
@@ -233,38 +238,38 @@ class __TwigTemplate_e649a0fb96b87f9b6f70d46341486fee309ba06b8acc51879b2ae9dfeaf
 
     <form method=\"post\">
         ";
-        // line 149
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 149, $this->source); })()), "user", [], "any", false, false, false, 149)) {
-            // line 150
+        // line 150
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 150, $this->source); })()), "user", [], "any", false, false, false, 150)) {
+            // line 151
             echo "            <div class=\"mb-3\">
                 You are logged in as ";
-            // line 151
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 151, $this->source); })()), "user", [], "any", false, false, false, 151), "username", [], "any", false, false, false, 151), "html", null, true);
+            // line 152
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 152, $this->source); })()), "user", [], "any", false, false, false, 152), "username", [], "any", false, false, false, 152), "html", null, true);
             echo ", <a href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
             echo "\">Logout</a>
             </div>
         ";
         }
-        // line 154
+        // line 155
         echo "        <div class=\"login\">
             <h1 class=\"login__title\">Zaloguj się</h1>
             ";
-        // line 156
+        // line 157
         if (array_key_exists("error", $context)) {
-            // line 157
+            // line 158
             echo "                ";
-            if ((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 157, $this->source); })())) {
-                // line 158
+            if ((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 158, $this->source); })())) {
+                // line 159
                 echo "                    <div class=\"login__group\">";
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 158, $this->source); })()), "messageKey", [], "any", false, false, false, 158), twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 158, $this->source); })()), "messageData", [], "any", false, false, false, 158), "security"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 159, $this->source); })()), "messageKey", [], "any", false, false, false, 159), twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 159, $this->source); })()), "messageData", [], "any", false, false, false, 159), "security"), "html", null, true);
                 echo "</div>
                 ";
             }
-            // line 160
+            // line 161
             echo "            ";
         }
-        // line 161
+        // line 162
         echo "            <div class=\"login__group\">
                 <input class=\"login__group__input\" type=\"email\" class=\"form-control\" id=\"inputEmail\"
                        name=\"email\" required>
@@ -276,16 +281,18 @@ class __TwigTemplate_e649a0fb96b87f9b6f70d46341486fee309ba06b8acc51879b2ae9dfeaf
                 <label class=\"login__group__label\" for=\"inputPassword\"></label>
             </div>
             <input type=\"hidden\" name=\"_csrf_token\" value=\"";
-        // line 171
+        // line 172
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("authenticate"), "html", null, true);
         echo "\">
             <button class=\"login__sign-in\" type=\"submit\">Zaloguj się</button>
             <div class=\"login__secondary-cta\">
                 <a class=\"login__secondary-cta__text\" href=\"/register\">Zarejestruj się</a>
-                <a class=\"login__secondary-cta__text login__secondary-cta__text--need-help\" href=\"#\">Potrzebujesz pomocy?</a>
+                <a class=\"login__secondary-cta__text login__secondary-cta__text--need-help\" href=\"#\">Potrzebujesz
+                    pomocy?</a>
             </div>
             <div class=\"misc\">
-                Ta strona korzysta z zabezpieczenia Google reCAPTCHA, by upewnić się, że nie jesteś botem. Dowiedz się więcej.
+                Ta strona korzysta z zabezpieczenia Google reCAPTCHA, by upewnić się, że nie jesteś botem. Dowiedz się
+                więcej.
             </div>
 
         </div>
@@ -294,7 +301,7 @@ class __TwigTemplate_e649a0fb96b87f9b6f70d46341486fee309ba06b8acc51879b2ae9dfeaf
 
     </form>
 
-<body></body>
+    <body></body>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -311,13 +318,12 @@ class __TwigTemplate_e649a0fb96b87f9b6f70d46341486fee309ba06b8acc51879b2ae9dfeaf
 
     public function getDebugInfo()
     {
-        return array (  280 => 171,  268 => 161,  265 => 160,  259 => 158,  256 => 157,  254 => 156,  250 => 154,  242 => 151,  239 => 150,  237 => 149,  226 => 140,  216 => 139,  73 => 4,  63 => 3,  52 => 189,  50 => 139,  47 => 138,  45 => 3,);
+        return array (  285 => 172,  273 => 162,  270 => 161,  264 => 159,  261 => 158,  259 => 157,  255 => 155,  247 => 152,  244 => 151,  242 => 150,  231 => 141,  221 => 140,  76 => 3,  66 => 2,  55 => 192,  53 => 140,  50 => 139,  48 => 2,  45 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{# {% extends 'base.html.twig' %} #}
-{#<link rel=\"stylesheet\" href=\"assets/style.css\">#}
+        return new Source("
 {% block stylesheet %}
 
     <style>
@@ -437,6 +443,7 @@ class __TwigTemplate_e649a0fb96b87f9b6f70d46341486fee309ba06b8acc51879b2ae9dfeaf
         ::placeholder {
             font-size: 0.7rem;
         }
+
         .misc {
             color: #b3b3b3;
             margin-top: 11px;
@@ -444,7 +451,8 @@ class __TwigTemplate_e649a0fb96b87f9b6f70d46341486fee309ba06b8acc51879b2ae9dfeaf
             flex-direction: column;
             font-size: 13px;
         }
-        .footer{
+
+        .footer {
             width: 1000px;
             padding-top: 175px;
             margin: auto;
@@ -490,10 +498,12 @@ class __TwigTemplate_e649a0fb96b87f9b6f70d46341486fee309ba06b8acc51879b2ae9dfeaf
             <button class=\"login__sign-in\" type=\"submit\">Zaloguj się</button>
             <div class=\"login__secondary-cta\">
                 <a class=\"login__secondary-cta__text\" href=\"/register\">Zarejestruj się</a>
-                <a class=\"login__secondary-cta__text login__secondary-cta__text--need-help\" href=\"#\">Potrzebujesz pomocy?</a>
+                <a class=\"login__secondary-cta__text login__secondary-cta__text--need-help\" href=\"#\">Potrzebujesz
+                    pomocy?</a>
             </div>
             <div class=\"misc\">
-                Ta strona korzysta z zabezpieczenia Google reCAPTCHA, by upewnić się, że nie jesteś botem. Dowiedz się więcej.
+                Ta strona korzysta z zabezpieczenia Google reCAPTCHA, by upewnić się, że nie jesteś botem. Dowiedz się
+                więcej.
             </div>
 
         </div>
@@ -502,7 +512,7 @@ class __TwigTemplate_e649a0fb96b87f9b6f70d46341486fee309ba06b8acc51879b2ae9dfeaf
 
     </form>
 
-<body></body>
+    <body></body>
 {% endblock %}
 
 ", "security/login.html.twig", "/var/www/symfony_docker/templates/security/login.html.twig");

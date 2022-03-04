@@ -64,9 +64,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->subusers = new ArrayCollection();
     }
 
-//    public function __construct(){
-//        $this->likes = new ArrayCollection();
-//    }
 
     public function getId(): ?int
     {
