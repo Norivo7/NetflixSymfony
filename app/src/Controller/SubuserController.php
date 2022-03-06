@@ -186,7 +186,6 @@ class SubuserController extends AbstractController
                 ]
             );
         }
-
         return $this->render(
             'user/user.html.twig', [
                 'subUsers' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
@@ -201,7 +200,6 @@ class SubuserController extends AbstractController
      */
     public function success(Request $request): Response
     {
-
         $currentUserId = $this->getUser()->getId();
         $subuserId = $request->get('id');
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUserId));

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SubuserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -32,6 +34,17 @@ class Subuser
      * @ORM\Column(type="string", length=255)
      */
     private $avatar;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Movie::class, mappedBy="likedBy")
+     */
+    private $likedMovies;
+
+    public function __construct()
+    {
+        $this->likes = new ArrayCollection();
+        $this->likedMovies = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -70,6 +83,32 @@ class Subuser
     public function setAvatar(string $avatar): self
     {
         $this->avatar = $avatar;
+
+        return $this;
+    }
+    /**
+     * @return Collection<int, Movie>
+     */
+    public function getLikedMovies(): Collection
+    {
+        return $this->likedMovies;
+    }
+
+    public function addLikedMovie(Movie $likedMovie): self
+    {
+        if (!$this->likedMovies->contains($likedMovie)) {
+            $this->likedMovies[] = $likedMovie;
+            $likedMovie->addLikedBy($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLikedMovie(Movie $likedMovie): self
+    {
+        if ($this->likedMovies->removeElement($likedMovie)) {
+            $likedMovie->removeLikedBy($this);
+        }
 
         return $this;
     }

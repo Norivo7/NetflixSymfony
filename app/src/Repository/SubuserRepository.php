@@ -19,6 +19,11 @@ class SubuserRepository extends ServiceEntityRepository
         parent::__construct($registry, Subuser::class);
     }
 
+
+
+
+
+
     public function findSubuserById($id)
     {
         return $this->createQueryBuilder('subuser')

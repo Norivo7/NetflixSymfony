@@ -45,11 +45,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Movie")
-     */
-    private $likes;
-
-    /**
      * @ORM\Column(type="boolean")
      */
     private $isVerified = false;
@@ -157,30 +152,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    /**
-     * @return Collection|Movie[]
-     */
-    public function getLikes(): Collection
-    {
-        return $this->likes;
-    }
+//    /**
+//     * @return Collection|Movie[]
+//     */
+//    public function getLikes(): Collection
+//    {
+//        return $this->likes;
+//    }
+//
+//    public function addLike(Movie $like): self
+//    {
+//        if (!$this->likes->contains($like)) {
+//            $this->likes[] = $like;
+//        }
+//        return $this;
+//    }
 
-    public function addLike(Movie $like): self
-    {
-        if (!$this->likes->contains($like)) {
-            $this->likes[] = $like;
-        }
-        return $this;
-    }
-
-    public function removeLike(Movie $like): self
-    {
-        if ($this->likes->contains($like)) {
-            $this->likes->removeElement($like);
-        }
-
-        return $this;
-    }
+//    public function removeLike(Movie $like): self
+//    {
+//        if ($this->likes->contains($like)) {
+//            $this->likes->removeElement($like);
+//        }
+//
+//        return $this;
+//    }
 
     public function isVerified(): bool
     {

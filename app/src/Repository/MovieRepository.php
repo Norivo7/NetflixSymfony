@@ -21,6 +21,21 @@ class MovieRepository extends ServiceEntityRepository
     }
 
     /**
+     * @param $subuser
+     * @return Movie[]
+     */
+    public function getLikedMoviesBySubuser($subuser): array
+    {
+        return $this->createQueryBuilder('movies')
+            ->select('movies', 'subuser')
+            ->leftJoin('movies.likedBy', 'subuser')
+            ->where('subuser.id = :subuserId')
+            ->setParameter('subuserId', $subuser)
+            ->getQuery()
+            ->getArrayResult();
+    }
+
+    /**
      * @param $category
      * @return Movie[] Returns an array of Movie objects
      */
@@ -75,6 +90,16 @@ class MovieRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
-
+    public function findMovieById($id)
+    {
+        return $this->createQueryBuilder('movie')
+            ->andWhere('movie.id = :val')
+            ->setParameter('val', $id)
+            ->orderBy('movie.id', 'ASC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 
 }

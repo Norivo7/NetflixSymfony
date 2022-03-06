@@ -67,10 +67,10 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'likes', '' . "\0" . 'App\\Entity\\User' . "\0" . 'isVerified', '' . "\0" . 'App\\Entity\\User' . "\0" . 'subusers'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'isVerified', '' . "\0" . 'App\\Entity\\User' . "\0" . 'subusers'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'likes', '' . "\0" . 'App\\Entity\\User' . "\0" . 'isVerified', '' . "\0" . 'App\\Entity\\User' . "\0" . 'subusers'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'isVerified', '' . "\0" . 'App\\Entity\\User' . "\0" . 'subusers'];
     }
 
     /**
@@ -311,39 +311,6 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'eraseCredentials', []);
 
         return parent::eraseCredentials();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getLikes(): \Doctrine\Common\Collections\Collection
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLikes', []);
-
-        return parent::getLikes();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function addLike(\App\Entity\Movie $like): \App\Entity\User
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addLike', [$like]);
-
-        return parent::addLike($like);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function removeLike(\App\Entity\Movie $like): \App\Entity\User
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeLike', [$like]);
-
-        return parent::removeLike($like);
     }
 
     /**

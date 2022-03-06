@@ -18,9 +18,9 @@
       <parameter key="TwigExtraBundle">Twig\Extra\TwigExtraBundle\TwigExtraBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
-      <parameter key="KnpMenuBundle">Knp\Bundle\MenuBundle\KnpMenuBundle</parameter>
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
       <parameter key="SymfonyCastsVerifyEmailBundle">SymfonyCasts\Bundle\VerifyEmail\SymfonyCastsVerifyEmailBundle</parameter>
+      <parameter key="WebpackEncoreBundle">Symfony\WebpackEncoreBundle\WebpackEncoreBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -59,10 +59,6 @@
         <parameter key="path">/var/www/symfony_docker/vendor/symfony/web-profiler-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\WebProfilerBundle</parameter>
       </parameter>
-      <parameter key="KnpMenuBundle" type="collection">
-        <parameter key="path">/var/www/symfony_docker/vendor/knplabs/knp-menu-bundle/src</parameter>
-        <parameter key="namespace">Knp\Bundle\MenuBundle</parameter>
-      </parameter>
       <parameter key="SecurityBundle" type="collection">
         <parameter key="path">/var/www/symfony_docker/vendor/symfony/security-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\SecurityBundle</parameter>
@@ -70,6 +66,10 @@
       <parameter key="SymfonyCastsVerifyEmailBundle" type="collection">
         <parameter key="path">/var/www/symfony_docker/vendor/symfonycasts/verify-email-bundle/src</parameter>
         <parameter key="namespace">SymfonyCasts\Bundle\VerifyEmail</parameter>
+      </parameter>
+      <parameter key="WebpackEncoreBundle" type="collection">
+        <parameter key="path">/var/www/symfony_docker/vendor/symfony/webpack-encore-bundle/src</parameter>
+        <parameter key="namespace">Symfony\WebpackEncoreBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -209,13 +209,6 @@
     <parameter key="twig.default_path">/var/www/symfony_docker/templates</parameter>
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
     <parameter key="web_profiler.debug_toolbar.mode">2</parameter>
-    <parameter key="knp_menu.renderer.list.options" type="collection"/>
-    <parameter key="knp_menu.twig.extension.class">Knp\Menu\Twig\MenuExtension</parameter>
-    <parameter key="knp_menu.renderer.twig.class">Knp\Menu\Renderer\TwigRenderer</parameter>
-    <parameter key="knp_menu.renderer.twig.options" type="collection"/>
-    <parameter key="knp_menu.renderer.twig.template">KnpMenuBundle::menu.html.twig</parameter>
-    <parameter key="knp_menu.templating.helper.class">Knp\Bundle\MenuBundle\Templating\Helper\MenuHelper</parameter>
-    <parameter key="knp_menu.default_renderer">twig</parameter>
     <parameter key="security.role_hierarchy.roles" type="collection"/>
     <parameter key="security.access.denied_url">null</parameter>
     <parameter key="security.authentication.manager.erase_credentials">true</parameter>
@@ -521,6 +514,9 @@
         <argument key="form.type.entity" type="service" id="form.type.entity" on-invalid="ignore_uninitialized"/>
         <argument key="security.token_storage" type="service" id="security.token_storage" on-invalid="ignore_uninitialized"/>
         <argument key="cache.security_expression_language" type="service" id="cache.security_expression_language" on-invalid="ignore_uninitialized"/>
+        <argument key="webpack_encore.tag_renderer" type="service" id="webpack_encore.tag_renderer" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.webpack_encore" type="service" id="cache.webpack_encore" on-invalid="ignore_uninitialized"/>
+        <argument key="webpack_encore.entrypoint_lookup[_default]" type="service" id="webpack_encore.entrypoint_lookup[_default]" on-invalid="ignore_uninitialized"/>
       </argument>
       <argument type="collection">
         <argument key="cache.app" type="collection">
@@ -573,6 +569,15 @@
           <argument>setToken</argument>
         </argument>
         <argument key="cache.security_expression_language" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="webpack_encore.tag_renderer" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="cache.webpack_encore" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="webpack_encore.entrypoint_lookup[_default]" type="collection">
           <argument>reset</argument>
         </argument>
       </argument>
@@ -744,6 +749,7 @@
         <argument>cache.doctrine.orm.default.result</argument>
         <argument>cache.doctrine.orm.default.query</argument>
         <argument>cache.security_expression_language</argument>
+        <argument>cache.webpack_encore</argument>
       </argument>
       <call method="setName">
         <argument>cache:pool:list</argument>
@@ -1135,6 +1141,7 @@
         <argument key="cache.property_info" type="service" id="cache.property_info" on-invalid="ignore_uninitialized"/>
         <argument key="cache.validator_expression_language" type="service" id="cache.validator_expression_language" on-invalid="ignore_uninitialized"/>
         <argument key="cache.security_expression_language" type="service" id="cache.security_expression_language" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.webpack_encore" type="service" id="cache.webpack_encore" on-invalid="ignore_uninitialized"/>
       </argument>
     </service>
     <service id="cache.global_clearer" class="Symfony\Component\HttpKernel\CacheClearer\Psr6CacheClearer" public="true">
@@ -1150,6 +1157,7 @@
         <argument key="cache.doctrine.orm.default.result" type="service" id="cache.doctrine.orm.default.result" on-invalid="ignore_uninitialized"/>
         <argument key="cache.doctrine.orm.default.query" type="service" id="cache.doctrine.orm.default.query" on-invalid="ignore_uninitialized"/>
         <argument key="cache.security_expression_language" type="service" id="cache.security_expression_language" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.webpack_encore" type="service" id="cache.webpack_encore" on-invalid="ignore_uninitialized"/>
       </argument>
     </service>
     <service id="assets.packages" class="Symfony\Component\Asset\Packages">
@@ -1321,6 +1329,14 @@
         <argument type="collection">
           <argument type="service_closure" id="security.context_listener.0"/>
           <argument>onKernelResponse</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.exception</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="webpack_encore.exception_listener"/>
+          <argument>onKernelException</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -1721,6 +1737,14 @@
         <argument type="collection">
           <argument type="service_closure" id="debug.security.firewall"/>
           <argument>onKernelFinishRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.finish_request</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="Symfony\WebpackEncoreBundle\EventListener\ResetAssetsEventListener"/>
+          <argument>resetAssets</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -2443,6 +2467,10 @@
         <argument>cache.security_expression_language</argument>
         <argument type="service" id="cache.security_expression_language"/>
       </call>
+      <call method="addInstance">
+        <argument>cache.webpack_encore</argument>
+        <argument type="service" id="cache.webpack_encore"/>
+      </call>
     </service>
     <service id="cache_pool_clearer.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\CachePoolClearerCacheWarmer">
       <tag name="kernel.cache_warmer" priority="64"/>
@@ -2967,6 +2995,9 @@
     <service id="maker.renderer.form_type_renderer" class="Symfony\Bundle\MakerBundle\Renderer\FormTypeRenderer">
       <argument type="service" id="maker.generator"/>
     </service>
+    <service id="maker.security_controller_builder" class="Symfony\Bundle\MakerBundle\Security\SecurityControllerBuilder">
+      <argument type="service" id="maker.php_compat_util"/>
+    </service>
     <service id="maker.php_compat_util" class="Symfony\Bundle\MakerBundle\Util\PhpCompatUtil">
       <argument type="service" id="maker.file_manager"/>
     </service>
@@ -2979,6 +3010,7 @@
       <argument type="service" id="maker.security_config_updater"/>
       <argument type="service" id="maker.generator"/>
       <argument type="service" id="maker.doctrine_helper"/>
+      <argument type="service" id="maker.security_controller_builder"/>
     </service>
     <service id="maker.maker.make_command" class="Symfony\Bundle\MakerBundle\Maker\MakeCommand">
       <tag name="maker.command"/>
@@ -3310,7 +3342,10 @@
         <argument type="service" id="twig.extension.webprofiler"/>
       </call>
       <call method="addExtension">
-        <argument type="service" id="knp_menu.twig.extension"/>
+        <argument type="service" id="webpack_encore.twig_entry_files_extension"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="webpack_encore.twig_stimulus_extension"/>
       </call>
       <call method="addGlobal">
         <argument>app</argument>
@@ -3356,7 +3391,6 @@
     <service id="twig.template_iterator" class="Symfony\Bundle\TwigBundle\TemplateIterator">
       <argument type="service" id="kernel"/>
       <argument type="collection">
-        <argument key="/var/www/symfony_docker/vendor/knplabs/knp-menu/src/Knp/Menu/Resources/views">null</argument>
         <argument key="/var/www/symfony_docker/vendor/symfony/twig-bridge/Resources/views/Email">email</argument>
         <argument key="/var/www/symfony_docker/vendor/symfony/twig-bridge/Resources/views/Form">null</argument>
       </argument>
@@ -3372,9 +3406,6 @@
       <tag name="twig.loader"/>
       <argument type="collection"/>
       <argument>/var/www/symfony_docker</argument>
-      <call method="addPath">
-        <argument>/var/www/symfony_docker/vendor/knplabs/knp-menu/src/Knp/Menu/Resources/views</argument>
-      </call>
       <call method="addPath">
         <argument>/var/www/symfony_docker/vendor/doctrine/doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
@@ -3398,14 +3429,6 @@
       <call method="addPath">
         <argument>/var/www/symfony_docker/vendor/symfony/web-profiler-bundle/Resources/views</argument>
         <argument>!WebProfiler</argument>
-      </call>
-      <call method="addPath">
-        <argument>/var/www/symfony_docker/vendor/knplabs/knp-menu-bundle/src/Resources/views</argument>
-        <argument>KnpMenu</argument>
-      </call>
-      <call method="addPath">
-        <argument>/var/www/symfony_docker/vendor/knplabs/knp-menu-bundle/src/Resources/views</argument>
-        <argument>!KnpMenu</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/symfony_docker/vendor/symfony/security-bundle/Resources/views</argument>
@@ -3684,84 +3707,6 @@
       <argument>^/((index|app(_[\w]+)?)\.php/)?_wdt</argument>
       <argument type="service" id="web_profiler.csp.handler"/>
       <argument>null</argument>
-    </service>
-    <service id="knp_menu.factory" class="Knp\Menu\MenuFactory" public="true">
-      <call method="addExtension">
-        <argument type="service" id="knp_menu.factory_extension.routing"/>
-        <argument>0</argument>
-      </call>
-    </service>
-    <service id="knp_menu.factory_extension.routing" class="Knp\Menu\Integration\Symfony\RoutingExtension">
-      <tag name="knp_menu.factory_extension"/>
-      <argument type="service" id="router.default"/>
-    </service>
-    <service id="knp_menu.helper" class="Knp\Menu\Twig\Helper">
-      <argument type="service" id="knp_menu.renderer_provider"/>
-      <argument type="service" id="knp_menu.menu_provider.chain"/>
-      <argument type="service" id="knp_menu.manipulator"/>
-      <argument type="service" id="knp_menu.matcher"/>
-    </service>
-    <service id="knp_menu.matcher" class="Knp\Menu\Matcher\Matcher" public="true">
-      <argument type="iterator">
-        <argument type="service" id="knp_menu.voter.router"/>
-      </argument>
-    </service>
-    <service id="knp_menu.menu_provider.chain" class="Knp\Menu\Provider\ChainProvider">
-      <argument type="iterator">
-        <argument type="service" id="knp_menu.menu_provider.lazy"/>
-        <argument type="service" id="knp_menu.menu_provider.builder_alias"/>
-      </argument>
-    </service>
-    <service id="knp_menu.menu_provider.lazy" class="Knp\Menu\Provider\LazyProvider">
-      <tag name="knp_menu.provider"/>
-      <argument type="collection">
-        <argument key="main" type="collection">
-          <argument type="service_closure" id="app.menu_builder"/>
-          <argument>createMainMenu</argument>
-        </argument>
-      </argument>
-    </service>
-    <service id="knp_menu.menu_provider.builder_alias" class="Knp\Bundle\MenuBundle\Provider\BuilderAliasProvider">
-      <tag name="knp_menu.provider"/>
-      <argument type="service" id="kernel"/>
-      <argument type="service" id="service_container"/>
-      <argument type="service" id="knp_menu.factory"/>
-    </service>
-    <service id="knp_menu.renderer_provider" class="Knp\Menu\Renderer\PsrProvider">
-      <argument type="service" id=".service_locator.TWz9UQt"/>
-      <argument>twig</argument>
-      <argument type="collection"/>
-      <argument>false</argument>
-    </service>
-    <service id="knp_menu.renderer.list" class="Knp\Menu\Renderer\ListRenderer">
-      <tag name="knp_menu.renderer" alias="list"/>
-      <argument type="service" id="knp_menu.matcher"/>
-      <argument type="collection"/>
-      <argument>UTF-8</argument>
-    </service>
-    <service id="knp_menu.voter.router" class="Knp\Menu\Matcher\Voter\RouteVoter">
-      <tag name="knp_menu.voter"/>
-      <argument type="service" id="request_stack"/>
-    </service>
-    <service id="knp_menu.manipulator" class="Knp\Menu\Util\MenuManipulator"/>
-    <service id="knp_menu.twig.extension" class="Knp\Menu\Twig\MenuExtension">
-      <tag name="twig.extension"/>
-      <argument type="service" id="knp_menu.helper"/>
-      <argument type="service" id="knp_menu.matcher"/>
-      <argument type="service" id="knp_menu.manipulator"/>
-    </service>
-    <service id="knp_menu.renderer.twig" class="Knp\Menu\Renderer\TwigRenderer">
-      <tag name="knp_menu.renderer" alias="twig"/>
-      <argument type="service" id="twig"/>
-      <argument>KnpMenuBundle::menu.html.twig</argument>
-      <argument type="service" id="knp_menu.matcher"/>
-      <argument type="collection"/>
-    </service>
-    <service id="knp_menu.templating.helper" class="Knp\Bundle\MenuBundle\Templating\Helper\MenuHelper">
-      <tag name="templating.helper" alias="knp_menu"/>
-      <argument type="service" id="knp_menu.helper"/>
-      <argument type="service" id="knp_menu.matcher"/>
-      <argument type="service" id="knp_menu.manipulator"/>
     </service>
     <service id="security.authorization_checker" class="Symfony\Component\Security\Core\Authorization\AuthorizationChecker" public="true">
       <tag name="container.private" package="symfony/security-bundle" version="5.3"/>
@@ -4657,6 +4602,80 @@
       <argument type="service" id="symfonycasts.verify_email.token_generator"/>
       <argument>3600</argument>
     </service>
+    <service id=".1_ServiceLocator~t3avIo8" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="webpack_encore.entrypoint_lookup_collection" type="service_closure" id="webpack_encore.entrypoint_lookup_collection"/>
+        <argument key="webpack_encore.tag_renderer" type="service_closure" id="webpack_encore.tag_renderer"/>
+      </argument>
+    </service>
+    <service id="webpack_encore.entrypoint_lookup_collection" class="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollection">
+      <argument type="service" id=".service_locator.Yi4Ff.p"/>
+      <argument>_default</argument>
+    </service>
+    <service id="webpack_encore.tag_renderer" class="Symfony\WebpackEncoreBundle\Asset\TagRenderer">
+      <tag name="kernel.reset" method="reset"/>
+      <argument type="service" id="webpack_encore.entrypoint_lookup_collection"/>
+      <argument type="service" id="assets.packages"/>
+      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="defer">true</argument>
+      </argument>
+      <argument type="collection"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+    </service>
+    <service id="webpack_encore.twig_entry_files_extension" class="Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id=".1_ServiceLocator~t3avIo8"/>
+    </service>
+    <service id="webpack_encore.twig_stimulus_extension" class="Symfony\WebpackEncoreBundle\Twig\StimulusTwigExtension">
+      <tag name="twig.extension"/>
+    </service>
+    <service id="webpack_encore.entrypoint_lookup.cache_warmer" class="Symfony\WebpackEncoreBundle\CacheWarmer\EntrypointCacheWarmer">
+      <tag name="kernel.cache_warmer"/>
+      <argument type="collection">
+        <argument key="_default">/var/www/symfony_docker/public/build/entrypoints.json</argument>
+      </argument>
+      <argument>/var/www/symfony_docker/var/cache/dev/webpack_encore.cache.php</argument>
+    </service>
+    <service id="webpack_encore.cache" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter">
+      <argument>/var/www/symfony_docker/var/cache/dev/webpack_encore.cache.php</argument>
+      <argument type="service" id="cache.webpack_encore"/>
+      <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
+    </service>
+    <service id="cache.webpack_encore" class="Symfony\Component\Cache\Adapter\TraceableAdapter">
+      <tag name="cache.pool"/>
+      <tag name="kernel.reset" method="reset"/>
+      <argument type="service" id="cache.webpack_encore.recorder_inner"/>
+    </service>
+    <service id="webpack_encore.exception_listener" class="Symfony\WebpackEncoreBundle\EventListener\ExceptionListener">
+      <tag name="kernel.event_listener" event="kernel.exception"/>
+      <argument type="service" id="webpack_encore.entrypoint_lookup_collection"/>
+      <argument type="collection">
+        <argument>_default</argument>
+      </argument>
+    </service>
+    <service id="Symfony\WebpackEncoreBundle\EventListener\ResetAssetsEventListener" class="Symfony\WebpackEncoreBundle\EventListener\ResetAssetsEventListener">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="container.hot_path"/>
+      <argument type="service" id="webpack_encore.entrypoint_lookup_collection"/>
+      <argument type="collection">
+        <argument>_default</argument>
+      </argument>
+    </service>
+    <service id="webpack_encore.entrypoint_lookup[_default]" class="Symfony\WebpackEncoreBundle\Asset\EntrypointLookup">
+      <tag name="kernel.reset" method="reset"/>
+      <argument>/var/www/symfony_docker/public/build/entrypoints.json</argument>
+      <argument>null</argument>
+      <argument>_default</argument>
+      <argument>true</argument>
+    </service>
+    <service id=".service_locator.Yi4Ff.p" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="_default" type="service_closure" id="webpack_encore.entrypoint_lookup[_default]"/>
+      </argument>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5202,13 +5221,6 @@
     <service id=".doctrine.orm.default_metadata_driver" class="Doctrine\Bundle\DoctrineBundle\Mapping\MappingDriver">
       <argument type="service" id=".doctrine.orm.default_metadata_driver.inner"/>
       <argument type="service" id=".service_locator.KLVvNIq"/>
-    </service>
-    <service id=".service_locator.TWz9UQt" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="list" type="service_closure" id="knp_menu.renderer.list"/>
-        <argument key="twig" type="service_closure" id="knp_menu.renderer.twig"/>
-      </argument>
     </service>
     <service id="debug.security.voter.security.access.authenticated_voter" class="Symfony\Component\Security\Core\Authorization\Voter\TraceableVoter">
       <argument type="service" id="security.access.authenticated_voter"/>
@@ -6043,6 +6055,14 @@
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
+    <service id="cache.webpack_encore.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
+      <argument>UK2IyViy5a</argument>
+      <argument>0</argument>
+      <argument>%container.build_id%</argument>
+      <argument>/var/www/symfony_docker/var/cache/dev/pools</argument>
+      <argument type="service" id="logger" on-invalid="ignore"/>
+      <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
+    </service>
     <service id=".service_locator.L1OAKmd" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6147,10 +6167,6 @@
     <service id="doctrine.migrations.metadata_storage" alias="doctrine.migrations.storage.table_storage"/>
     <service id="Twig_Environment" alias="twig"/>
     <service id="Twig\Environment" alias="twig"/>
-    <service id="Knp\Menu\Provider\MenuProviderInterface" alias="knp_menu.menu_provider.chain"/>
-    <service id="Knp\Menu\FactoryInterface" alias="knp_menu.factory"/>
-    <service id="Knp\Menu\Matcher\MatcherInterface" alias="knp_menu.matcher"/>
-    <service id="Knp\Menu\Util\MenuManipulator" alias="knp_menu.manipulator"/>
     <service id="Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface" alias="security.authorization_checker"/>
     <service id="Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface" alias="security.token_storage"/>
     <service id="Symfony\Component\Security\Core\Security" alias="security.helper"/>
@@ -6186,6 +6202,8 @@
     <service id="security.firewall.context_locator" alias=".service_locator.zJyh7qS"/>
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
     <service id="SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface" alias="symfonycasts.verify_email.helper"/>
+    <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollectionInterface" alias="webpack_encore.entrypoint_lookup_collection"/>
+    <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.0GV1BZZ" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
     <service id="argument_resolver.controller_locator" alias=".service_locator.lbzyTvo"/>
@@ -6194,8 +6212,8 @@
     </service>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
-    <service id="knp_menu.menu_provider" alias="knp_menu.menu_provider.chain"/>
     <service id="Psr\Log\LoggerInterface" alias="logger"/>
+    <service id=".service_locator.XDGmiR3" alias=".1_ServiceLocator~t3avIo8"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.anofQPJ"/>
     <service id="validator" alias="debug.validator" public="true"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>
