@@ -1,0 +1,46 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Filmy - Netflix{% endblock %}
+
+{% block navigation %}{% endblock %}
+
+{% block content %}
+    <h2>Filmy</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Year</th>
+                <th>Img</th>
+                <th>Link</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for movie in movies %}
+            <tr>
+                <td>{{ movie.id }}</td>
+                <td>{{ movie.title }}</td>
+                <td>{{ movie.description }}</td>
+                <td>{{ movie.year }}</td>
+                <td>{{ movie.img }}</td>
+                <td>{{ movie.link }}</td>
+                <td>
+                    <a href="{{ path('app_movie_crud_show', {'id': movie.id}) }}">wyświetl</a>
+                    <a href="{{ path('app_movie_crud_edit', {'id': movie.id}) }}">edytuj</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="profileButton" href="{{ path('app_movie_crud_new') }}">Dodaj</a>
+    <a class="profileButton" href="{{ path('admin_panel') }}">Wróć</a>
+{% endblock %}

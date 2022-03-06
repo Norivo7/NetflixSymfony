@@ -388,19 +388,9 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
         // line 201
         echo "<body>
-<div class=\"btn-group\">
-    <button type=\"button\" class=\"btn btn-danger dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
-        Action
-    </button>
-    <div class=\"dropdown-menu\">
-        <a class=\"dropdown-item\" href=\"#\">Action</a>
-        <a class=\"dropdown-item\" href=\"#\">Another action</a>
-        <a class=\"dropdown-item\" href=\"#\">Something else here</a>
-        <div class=\"dropdown-divider\"></div>
-        <a class=\"dropdown-item\" href=\"#\">Separated link</a>
-    </div>
-</div>
-
+";
+        // line 214
+        echo "
     <section id=\"main-container\">
         <h5 id=\"serials\" class=\"title-home\">Filmy</h5>
         <div class=\"box\">
@@ -497,7 +487,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
     public function getDebugInfo()
     {
-        return array (  478 => 242,  472 => 235,  459 => 233,  455 => 232,  449 => 228,  436 => 226,  432 => 225,  426 => 221,  413 => 219,  409 => 218,  390 => 201,  380 => 200,  367 => 195,  363 => 193,  344 => 178,  339 => 174,  336 => 173,  334 => 172,  331 => 171,  328 => 170,  326 => 169,  323 => 168,  320 => 167,  318 => 166,  315 => 165,  312 => 164,  310 => 163,  307 => 162,  304 => 161,  302 => 160,  296 => 157,  291 => 154,  281 => 153,  140 => 20,  130 => 19,  111 => 3,  88 => 4,  86 => 3,  83 => 2,  73 => 1,  63 => 200,  60 => 199,  58 => 153,  55 => 152,  53 => 19,  50 => 18,  48 => 1,);
+        return array (  468 => 242,  462 => 235,  449 => 233,  445 => 232,  439 => 228,  426 => 226,  422 => 225,  416 => 221,  403 => 219,  399 => 218,  393 => 214,  390 => 201,  380 => 200,  367 => 195,  363 => 193,  344 => 178,  339 => 174,  336 => 173,  334 => 172,  331 => 171,  328 => 170,  326 => 169,  323 => 168,  320 => 167,  318 => 166,  315 => 165,  312 => 164,  310 => 163,  307 => 162,  304 => 161,  302 => 160,  296 => 157,  291 => 154,  281 => 153,  140 => 20,  130 => 19,  111 => 3,  88 => 4,  86 => 3,  83 => 2,  73 => 1,  63 => 200,  60 => 199,  58 => 153,  55 => 152,  53 => 19,  50 => 18,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -703,18 +693,18 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
 {% block body %}
 <body>
-<div class=\"btn-group\">
-    <button type=\"button\" class=\"btn btn-danger dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
-        Action
-    </button>
-    <div class=\"dropdown-menu\">
-        <a class=\"dropdown-item\" href=\"#\">Action</a>
-        <a class=\"dropdown-item\" href=\"#\">Another action</a>
-        <a class=\"dropdown-item\" href=\"#\">Something else here</a>
-        <div class=\"dropdown-divider\"></div>
-        <a class=\"dropdown-item\" href=\"#\">Separated link</a>
-    </div>
-</div>
+{#<div class=\"btn-group\">#}
+{#    <button type=\"button\" class=\"btn btn-danger dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">#}
+{#        Action#}
+{#    </button>#}
+{#    <div class=\"dropdown-menu\">#}
+{#        <a class=\"dropdown-item\" href=\"#\">Action</a>#}
+{#        <a class=\"dropdown-item\" href=\"#\">Another action</a>#}
+{#        <a class=\"dropdown-item\" href=\"#\">Something else here</a>#}
+{#        <div class=\"dropdown-divider\"></div>#}
+{#        <a class=\"dropdown-item\" href=\"#\">Separated link</a>#}
+{#    </div>#}
+{#</div>#}
 
     <section id=\"main-container\">
         <h5 id=\"serials\" class=\"title-home\">Filmy</h5>

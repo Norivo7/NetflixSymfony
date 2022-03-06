@@ -336,16 +336,16 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
         // line 192
         echo "
         <div class=\"wrapper\">
-            <a href=\"admin/subuser\">
+            <a href=\"admin/subusers\">
                 <div class=\"adminOption\"><i class=\"optionImage bi bi-person-lines-fill\"></i>Profile Użytkowników</div>
             </a>
-            <a href=\"admin/subuser\">
+            <a href=\"admin/movies\">
                 <div class=\"adminOption\"><i class=\"optionImage bi bi-film\"></i>Filmy</div>
             </a>
-            <a href=\"admin/subuser\">
+            <a href=\"admin/subusers\">
                 <div class=\"adminOption\"><i class=\"optionImage bi bi-people-fill\"></i>Użytkownicy</div>
             </a>
-            <a href=\"admin/subuser\">
+            <a href=\"admin/subusers\">
                 <div class=\"adminOption\"><i class=\"optionImage bi bi-gear-fill\"></i>Ustawienia</div>
             </a>
 
@@ -590,16 +590,16 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
     {% block navigation %}
 
         <div class=\"wrapper\">
-            <a href=\"admin/subuser\">
+            <a href=\"admin/subusers\">
                 <div class=\"adminOption\"><i class=\"optionImage bi bi-person-lines-fill\"></i>Profile Użytkowników</div>
             </a>
-            <a href=\"admin/subuser\">
+            <a href=\"admin/movies\">
                 <div class=\"adminOption\"><i class=\"optionImage bi bi-film\"></i>Filmy</div>
             </a>
-            <a href=\"admin/subuser\">
+            <a href=\"admin/subusers\">
                 <div class=\"adminOption\"><i class=\"optionImage bi bi-people-fill\"></i>Użytkownicy</div>
             </a>
-            <a href=\"admin/subuser\">
+            <a href=\"admin/subusers\">
                 <div class=\"adminOption\"><i class=\"optionImage bi bi-gear-fill\"></i>Ustawienia</div>
             </a>
 

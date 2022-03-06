@@ -1,0 +1,44 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Movie{% endblock %}
+
+{% block navigation %}{% endblock %}
+
+{% block content %}
+    <h2>Movie</h2>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ movie.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ movie.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ movie.description }}</td>
+            </tr>
+            <tr>
+                <th>Year</th>
+                <td>{{ movie.year }}</td>
+            </tr>
+            <tr>
+                <th>Img</th>
+                <td>{{ movie.img }}</td>
+            </tr>
+            <tr>
+                <th>Link</th>
+                <td>{{ movie.link }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="profileButton" href="{{ path('app_movie_crud_index') }}">Wróć</a>
+
+    <a class="profileButton" href="{{ path('app_movie_crud_edit', {'id': movie.id}) }}">Edytuj</a>
+
+    {{ include('admin/movie_crud/_delete_form.html.twig') }}
+{% endblock %}

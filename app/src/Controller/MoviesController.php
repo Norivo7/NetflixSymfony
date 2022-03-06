@@ -50,8 +50,7 @@ class MoviesController extends AbstractController
         $subuserFrontId = $request->get('id');
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUserId));
         $subuserCount = count($allSubusers);
-
-        // TODO: TESTOWAŃSKO
+        // TODO: TESTOWANKO
 //        dump('ID subusera z frontu: '.$subuserFrontId);//  $subuserId to wiadomość z fronta od użytkownika (od 0 do 4)
 //        dump('Ilość subuserów: '.$subuserCount); // $subuserCount to liczba subuserów w systemie ( max 5 )
 

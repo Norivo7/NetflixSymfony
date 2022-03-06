@@ -1,0 +1,13 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}New Movie{% endblock %}
+
+{% block navigation %}{% endblock %}
+
+{% block content %}
+    <h2>Create new Movie</h2>
+
+    {{ include('admin/movie_crud/_form.html.twig') }}
+
+    <a class="profileButton" href="{{ path('app_movie_crud_index') }}">wróć</a>
+{% endblock %}

@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/admin/subuser')]
+#[Route('/admin/subusers')]
 class SubuserCrudController extends AbstractController
 {
     #[Route('/', name: 'subuser_crud_index', methods: ['GET'])]

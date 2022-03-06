@@ -1,0 +1,16 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Edytuj Film{% endblock %}
+
+{% block navigation %}{% endblock %}
+
+{% block content %}
+
+    <h2>Edytuj Film</h2>
+    {{ include('admin/movie_crud/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="profileButton" href="{{ path('app_movie_crud_index') }}">Wróć</a>
+
+    {{ include('admin/movie_crud/_delete_form.html.twig') }}
+
+{% endblock %}

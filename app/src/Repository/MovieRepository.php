@@ -21,16 +21,16 @@ class MovieRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param $subuser
+     * @param $subuserId
      * @return Movie[]
      */
-    public function getLikedMoviesBySubuser($subuser): array
+    public function getLikedMoviesBySubuser($subuserId): array
     {
         return $this->createQueryBuilder('movies')
             ->select('movies', 'subuser')
             ->leftJoin('movies.likedBy', 'subuser')
             ->where('subuser.id = :subuserId')
-            ->setParameter('subuserId', $subuser)
+            ->setParameter('subuserId', $subuserId)
             ->getQuery()
             ->getArrayResult();
     }

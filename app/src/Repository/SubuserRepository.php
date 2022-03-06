@@ -19,7 +19,20 @@ class SubuserRepository extends ServiceEntityRepository
         parent::__construct($registry, Subuser::class);
     }
 
-
+    /**
+     * @param $movieId
+     * @return Subuser[]
+     */
+    public function getSubusersByLikedMovie($movieId): array
+    {
+        return $this->createQueryBuilder('subusers')
+            ->select('subusers', 'movie')
+            ->leftJoin('subusers.likedMovies', 'movie')
+            ->where('movie.id = :movieId')
+            ->setParameter('movieId', $movieId)
+            ->getQuery()
+            ->getArrayResult();
+    }
 
 
 

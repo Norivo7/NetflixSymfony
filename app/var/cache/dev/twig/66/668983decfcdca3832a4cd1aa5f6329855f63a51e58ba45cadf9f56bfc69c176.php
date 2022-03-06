@@ -105,6 +105,7 @@ class __TwigTemplate_54e468f3375413ecd2a6ed00dec82511670796dd8f126172cb2e32ebc5b
 
         // line 8
         echo "    <h2>Profile użytkowników</h2>
+
     <table class=\"table\">
         <thead>
         <tr>
@@ -117,37 +118,37 @@ class __TwigTemplate_54e468f3375413ecd2a6ed00dec82511670796dd8f126172cb2e32ebc5b
         </thead>
         <tbody class=\"tbody\">
         ";
-        // line 20
+        // line 21
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["subusers"]) || array_key_exists("subusers", $context) ? $context["subusers"] : (function () { throw new RuntimeError('Variable "subusers" does not exist.', 20, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["subusers"]) || array_key_exists("subusers", $context) ? $context["subusers"] : (function () { throw new RuntimeError('Variable "subusers" does not exist.', 21, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["subuser"]) {
-            // line 21
+            // line 22
             echo "            <tr>
                 <td>";
-            // line 22
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "id", [], "any", false, false, false, 22), "html", null, true);
-            echo "</td>
-                <td>";
             // line 23
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "name", [], "any", false, false, false, 23), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "id", [], "any", false, false, false, 23), "html", null, true);
             echo "</td>
                 <td>";
             // line 24
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "avatar", [], "any", false, false, false, 24), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "name", [], "any", false, false, false, 24), "html", null, true);
             echo "</td>
                 <td>";
             // line 25
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "subaccountOf", [], "any", false, false, false, 25), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "avatar", [], "any", false, false, false, 25), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 26
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "subaccountOf", [], "any", false, false, false, 26), "html", null, true);
             echo "</td>
                 <td>
                     <a href=\"";
-            // line 27
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("subuser_crud_show", ["id" => twig_get_attribute($this->env, $this->source, $context["subuser"], "id", [], "any", false, false, false, 27)]), "html", null, true);
+            // line 28
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("subuser_crud_show", ["id" => twig_get_attribute($this->env, $this->source, $context["subuser"], "id", [], "any", false, false, false, 28)]), "html", null, true);
             echo "\">wyświetl</a>
                     <a href=\"";
-            // line 28
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("subuser_crud_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["subuser"], "id", [], "any", false, false, false, 28)]), "html", null, true);
+            // line 29
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("subuser_crud_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["subuser"], "id", [], "any", false, false, false, 29)]), "html", null, true);
             echo "\">edytuj</a>
                 </td>
             </tr>
@@ -155,7 +156,7 @@ class __TwigTemplate_54e468f3375413ecd2a6ed00dec82511670796dd8f126172cb2e32ebc5b
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 32
+            // line 33
             echo "            <tr>
                 <td colspan=\"4\">no records found</td>
             </tr>
@@ -164,15 +165,15 @@ class __TwigTemplate_54e468f3375413ecd2a6ed00dec82511670796dd8f126172cb2e32ebc5b
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['subuser'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 36
+        // line 37
         echo "        </tbody>
     </table>
     <a class=\"profileButton\" href=\"";
-        // line 38
+        // line 39
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("subuser_crud_new");
         echo "\">Dodaj</a>
     <a class=\"profileButton\" href=\"";
-        // line 39
+        // line 40
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_panel");
         echo "\">Wróć</a>
 ";
@@ -196,7 +197,7 @@ class __TwigTemplate_54e468f3375413ecd2a6ed00dec82511670796dd8f126172cb2e32ebc5b
 
     public function getDebugInfo()
     {
-        return array (  176 => 39,  172 => 38,  168 => 36,  159 => 32,  150 => 28,  146 => 27,  141 => 25,  137 => 24,  133 => 23,  129 => 22,  126 => 21,  121 => 20,  107 => 8,  97 => 7,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  177 => 40,  173 => 39,  169 => 37,  160 => 33,  151 => 29,  147 => 28,  142 => 26,  138 => 25,  134 => 24,  130 => 23,  127 => 22,  122 => 21,  107 => 8,  97 => 7,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -205,10 +206,11 @@ class __TwigTemplate_54e468f3375413ecd2a6ed00dec82511670796dd8f126172cb2e32ebc5b
 
 {% block title %}Profile Użytkowników - Netflix{% endblock %}
 
-{% block navigation %}
-{% endblock %}
+{% block navigation %}{% endblock %}
+
 {% block content %}
     <h2>Profile użytkowników</h2>
+
     <table class=\"table\">
         <thead>
         <tr>
