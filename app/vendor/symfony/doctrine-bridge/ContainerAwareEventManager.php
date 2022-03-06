@@ -28,11 +28,11 @@ class ContainerAwareEventManager extends EventManager
      *
      * <event> => <listeners>
      */
-    private $listeners = [];
-    private $subscribers;
-    private $initialized = [];
-    private $initializedSubscribers = false;
-    private $methods = [];
+    private array $listeners = [];
+    private array $subscribers;
+    private array $initialized = [];
+    private bool $initializedSubscribers = false;
+    private array $methods = [];
     private $container;
 
     /**
@@ -46,10 +46,8 @@ class ContainerAwareEventManager extends EventManager
 
     /**
      * {@inheritdoc}
-     *
-     * @return void
      */
-    public function dispatchEvent($eventName, EventArgs $eventArgs = null)
+    public function dispatchEvent($eventName, EventArgs $eventArgs = null): void
     {
         if (!$this->initializedSubscribers) {
             $this->initializeSubscribers();
@@ -74,7 +72,7 @@ class ContainerAwareEventManager extends EventManager
      *
      * @return object[][]
      */
-    public function getListeners($event = null)
+    public function getListeners($event = null): array
     {
         if (!$this->initializedSubscribers) {
             $this->initializeSubscribers();
@@ -98,10 +96,8 @@ class ContainerAwareEventManager extends EventManager
 
     /**
      * {@inheritdoc}
-     *
-     * @return bool
      */
-    public function hasListeners($event)
+    public function hasListeners($event): bool
     {
         if (!$this->initializedSubscribers) {
             $this->initializeSubscribers();
@@ -112,10 +108,8 @@ class ContainerAwareEventManager extends EventManager
 
     /**
      * {@inheritdoc}
-     *
-     * @return void
      */
-    public function addEventListener($events, $listener)
+    public function addEventListener($events, $listener): void
     {
         if (!$this->initializedSubscribers) {
             $this->initializeSubscribers();
@@ -138,10 +132,8 @@ class ContainerAwareEventManager extends EventManager
 
     /**
      * {@inheritdoc}
-     *
-     * @return void
      */
-    public function removeEventListener($events, $listener)
+    public function removeEventListener($events, $listener): void
     {
         if (!$this->initializedSubscribers) {
             $this->initializeSubscribers();
@@ -207,10 +199,7 @@ class ContainerAwareEventManager extends EventManager
         $this->subscribers = [];
     }
 
-    /**
-     * @param string|object $listener
-     */
-    private function getHash($listener): string
+    private function getHash(string|object $listener): string
     {
         if (\is_string($listener)) {
             return '_service_'.$listener;

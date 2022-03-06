@@ -40,7 +40,7 @@ class MessageListener implements EventSubscriberInterface
     ];
 
     private $headers;
-    private $headerRules = [];
+    private array $headerRules = [];
     private $renderer;
 
     public function __construct(Headers $headers = null, BodyRendererInterface $renderer = null, array $headerRules = self::DEFAULT_RULES)
@@ -125,7 +125,7 @@ class MessageListener implements EventSubscriberInterface
         $this->renderer->render($message);
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             MessageEvent::class => 'onMessage',

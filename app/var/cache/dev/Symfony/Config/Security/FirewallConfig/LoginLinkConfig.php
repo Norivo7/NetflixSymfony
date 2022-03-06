@@ -36,7 +36,7 @@ class LoginLinkConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function checkRoute($value): self
+    public function checkRoute($value): static
     {
         $this->checkRoute = $value;
     
@@ -49,7 +49,7 @@ class LoginLinkConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function checkPostOnly($value): self
+    public function checkPostOnly($value): static
     {
         $this->checkPostOnly = $value;
     
@@ -57,10 +57,11 @@ class LoginLinkConfig
     }
     
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function signatureProperties($value): self
+    public function signatureProperties(ParamConfigurator|array $value): static
     {
         $this->signatureProperties = $value;
     
@@ -73,7 +74,7 @@ class LoginLinkConfig
      * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function lifetime($value): self
+    public function lifetime($value): static
     {
         $this->lifetime = $value;
     
@@ -86,7 +87,7 @@ class LoginLinkConfig
      * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function maxUses($value): self
+    public function maxUses($value): static
     {
         $this->maxUses = $value;
     
@@ -99,7 +100,7 @@ class LoginLinkConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function usedLinkCache($value): self
+    public function usedLinkCache($value): static
     {
         $this->usedLinkCache = $value;
     
@@ -112,7 +113,7 @@ class LoginLinkConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function successHandler($value): self
+    public function successHandler($value): static
     {
         $this->successHandler = $value;
     
@@ -125,7 +126,7 @@ class LoginLinkConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function failureHandler($value): self
+    public function failureHandler($value): static
     {
         $this->failureHandler = $value;
     
@@ -138,7 +139,7 @@ class LoginLinkConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function provider($value): self
+    public function provider($value): static
     {
         $this->provider = $value;
     
@@ -150,7 +151,7 @@ class LoginLinkConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function alwaysUseDefaultTargetPath($value): self
+    public function alwaysUseDefaultTargetPath($value): static
     {
         $this->alwaysUseDefaultTargetPath = $value;
     
@@ -162,7 +163,7 @@ class LoginLinkConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function defaultTargetPath($value): self
+    public function defaultTargetPath($value): static
     {
         $this->defaultTargetPath = $value;
     
@@ -174,7 +175,7 @@ class LoginLinkConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function loginPath($value): self
+    public function loginPath($value): static
     {
         $this->loginPath = $value;
     
@@ -186,7 +187,7 @@ class LoginLinkConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function targetPathParameter($value): self
+    public function targetPathParameter($value): static
     {
         $this->targetPathParameter = $value;
     
@@ -198,7 +199,7 @@ class LoginLinkConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function useReferer($value): self
+    public function useReferer($value): static
     {
         $this->useReferer = $value;
     
@@ -210,7 +211,7 @@ class LoginLinkConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function failurePath($value): self
+    public function failurePath($value): static
     {
         $this->failurePath = $value;
     
@@ -222,7 +223,7 @@ class LoginLinkConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function failureForward($value): self
+    public function failureForward($value): static
     {
         $this->failureForward = $value;
     
@@ -234,7 +235,7 @@ class LoginLinkConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function failurePathParameter($value): self
+    public function failurePathParameter($value): static
     {
         $this->failurePathParameter = $value;
     

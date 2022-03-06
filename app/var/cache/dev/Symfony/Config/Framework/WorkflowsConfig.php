@@ -21,7 +21,7 @@ class WorkflowsConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled($value): self
+    public function enabled($value): static
     {
         $this->enabled = $value;
     

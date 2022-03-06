@@ -17,7 +17,6 @@ class CacheConfig
     private $app;
     private $system;
     private $directory;
-    private $defaultDoctrineProvider;
     private $defaultPsr6Provider;
     private $defaultRedisProvider;
     private $defaultMemcachedProvider;
@@ -32,7 +31,7 @@ class CacheConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function prefixSeed($value): self
+    public function prefixSeed($value): static
     {
         $this->prefixSeed = $value;
     
@@ -45,7 +44,7 @@ class CacheConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function app($value): self
+    public function app($value): static
     {
         $this->app = $value;
     
@@ -58,7 +57,7 @@ class CacheConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function system($value): self
+    public function system($value): static
     {
         $this->system = $value;
     
@@ -70,7 +69,7 @@ class CacheConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function directory($value): self
+    public function directory($value): static
     {
         $this->directory = $value;
     
@@ -82,19 +81,7 @@ class CacheConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function defaultDoctrineProvider($value): self
-    {
-        $this->defaultDoctrineProvider = $value;
-    
-        return $this;
-    }
-    
-    /**
-     * @default null
-     * @param ParamConfigurator|mixed $value
-     * @return $this
-     */
-    public function defaultPsr6Provider($value): self
+    public function defaultPsr6Provider($value): static
     {
         $this->defaultPsr6Provider = $value;
     
@@ -106,7 +93,7 @@ class CacheConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function defaultRedisProvider($value): self
+    public function defaultRedisProvider($value): static
     {
         $this->defaultRedisProvider = $value;
     
@@ -118,7 +105,7 @@ class CacheConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function defaultMemcachedProvider($value): self
+    public function defaultMemcachedProvider($value): static
     {
         $this->defaultMemcachedProvider = $value;
     
@@ -130,7 +117,7 @@ class CacheConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function defaultDoctrineDbalProvider($value): self
+    public function defaultDoctrineDbalProvider($value): static
     {
         $this->defaultDoctrineDbalProvider = $value;
     
@@ -138,11 +125,11 @@ class CacheConfig
     }
     
     /**
-     * @default 'database_connection'
+     * @default null
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function defaultPdoProvider($value): self
+    public function defaultPdoProvider($value): static
     {
         $this->defaultPdoProvider = $value;
     
@@ -182,11 +169,6 @@ class CacheConfig
         if (isset($value['directory'])) {
             $this->directory = $value['directory'];
             unset($value['directory']);
-        }
-    
-        if (isset($value['default_doctrine_provider'])) {
-            $this->defaultDoctrineProvider = $value['default_doctrine_provider'];
-            unset($value['default_doctrine_provider']);
         }
     
         if (isset($value['default_psr6_provider'])) {
@@ -238,9 +220,6 @@ class CacheConfig
         }
         if (null !== $this->directory) {
             $output['directory'] = $this->directory;
-        }
-        if (null !== $this->defaultDoctrineProvider) {
-            $output['default_doctrine_provider'] = $this->defaultDoctrineProvider;
         }
         if (null !== $this->defaultPsr6Provider) {
             $output['default_psr6_provider'] = $this->defaultPsr6Provider;

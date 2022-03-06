@@ -27,7 +27,7 @@ class WebpackEncoreConfig implements \Symfony\Component\Config\Builder\ConfigBui
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function outputPath($value): self
+    public function outputPath($value): static
     {
         $this->outputPath = $value;
     
@@ -40,7 +40,7 @@ class WebpackEncoreConfig implements \Symfony\Component\Config\Builder\ConfigBui
      * @param ParamConfigurator|false|'anonymous'|'use-credentials' $value
      * @return $this
      */
-    public function crossorigin($value): self
+    public function crossorigin($value): static
     {
         $this->crossorigin = $value;
     
@@ -53,7 +53,7 @@ class WebpackEncoreConfig implements \Symfony\Component\Config\Builder\ConfigBui
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function preload($value): self
+    public function preload($value): static
     {
         $this->preload = $value;
     
@@ -66,7 +66,7 @@ class WebpackEncoreConfig implements \Symfony\Component\Config\Builder\ConfigBui
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function cache($value): self
+    public function cache($value): static
     {
         $this->cache = $value;
     
@@ -79,7 +79,7 @@ class WebpackEncoreConfig implements \Symfony\Component\Config\Builder\ConfigBui
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function strictMode($value): self
+    public function strictMode($value): static
     {
         $this->strictMode = $value;
     
@@ -87,10 +87,9 @@ class WebpackEncoreConfig implements \Symfony\Component\Config\Builder\ConfigBui
     }
     
     /**
-     * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function builds(string $name, $value): self
+    public function builds(string $name, mixed $value): static
     {
         $this->builds[$name] = $value;
     
@@ -98,10 +97,9 @@ class WebpackEncoreConfig implements \Symfony\Component\Config\Builder\ConfigBui
     }
     
     /**
-     * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function scriptAttributes(string $name, $value): self
+    public function scriptAttributes(string $name, mixed $value): static
     {
         $this->scriptAttributes[$name] = $value;
     
@@ -109,10 +107,9 @@ class WebpackEncoreConfig implements \Symfony\Component\Config\Builder\ConfigBui
     }
     
     /**
-     * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function linkAttributes(string $name, $value): self
+    public function linkAttributes(string $name, mixed $value): static
     {
         $this->linkAttributes[$name] = $value;
     

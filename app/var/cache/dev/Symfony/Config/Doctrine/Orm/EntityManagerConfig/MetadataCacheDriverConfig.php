@@ -21,7 +21,7 @@ class MetadataCacheDriverConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function type($value): self
+    public function type($value): static
     {
         $this->type = $value;
     
@@ -33,7 +33,7 @@ class MetadataCacheDriverConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function id($value): self
+    public function id($value): static
     {
         $this->id = $value;
     
@@ -45,7 +45,7 @@ class MetadataCacheDriverConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function pool($value): self
+    public function pool($value): static
     {
         $this->pool = $value;
     

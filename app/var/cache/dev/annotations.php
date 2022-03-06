@@ -12,10 +12,6 @@ return [[
 '[C]Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23getParameter' => 1,
 'Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23getSubscribedServices' => 0,
 '[C]Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23getSubscribedServices' => 1,
-'Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23has' => 0,
-'[C]Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23has' => 1,
-'Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23get' => 0,
-'[C]Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23get' => 1,
 'Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23generateUrl' => 0,
 '[C]Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23generateUrl' => 1,
 'Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23forward' => 0,
@@ -50,14 +46,10 @@ return [[
 '[C]Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23createForm' => 1,
 'Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23createFormBuilder' => 0,
 '[C]Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23createFormBuilder' => 1,
-'Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23getDoctrine' => 0,
-'[C]Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23getDoctrine' => 1,
 'Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23getUser' => 0,
 '[C]Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23getUser' => 1,
 'Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23isCsrfTokenValid' => 0,
 '[C]Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23isCsrfTokenValid' => 1,
-'Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23dispatchMessage' => 0,
-'[C]Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23dispatchMessage' => 1,
 'Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23addLink' => 0,
 '[C]Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23addLink' => 1,
 'Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%24container' => 0,
@@ -70,9 +62,15 @@ return [[
 '[C]App%5CController%5CExceptionController' => 1,
 'App%5CController%5CExceptionController%23handleError' => 3,
 '[C]App%5CController%5CExceptionController%23handleError' => 1,
+'App%5CController%5CLoginController' => 0,
+'[C]App%5CController%5CLoginController' => 1,
+'App%5CController%5CLoginController%23index' => 0,
+'[C]App%5CController%5CLoginController%23index' => 1,
+'App%5CController%5CLoginController%23logout' => 4,
+'[C]App%5CController%5CLoginController%23logout' => 1,
 'App%5CController%5CMailerController' => 0,
 '[C]App%5CController%5CMailerController' => 1,
-'App%5CController%5CMailerController%23sendEmail' => 4,
+'App%5CController%5CMailerController%23sendEmail' => 5,
 '[C]App%5CController%5CMailerController%23sendEmail' => 1,
 'App%5CController%5CMovieCrudController' => 0,
 '[C]App%5CController%5CMovieCrudController' => 1,
@@ -90,31 +88,31 @@ return [[
 '[C]App%5CController%5CMoviesController' => 1,
 'App%5CController%5CMoviesController%23__construct' => 0,
 '[C]App%5CController%5CMoviesController%23__construct' => 1,
-'App%5CController%5CMoviesController%23home' => 5,
+'App%5CController%5CMoviesController%23home' => 6,
 '[C]App%5CController%5CMoviesController%23home' => 1,
-'App%5CController%5CMoviesController%23index' => 6,
+'App%5CController%5CMoviesController%23index' => 7,
 '[C]App%5CController%5CMoviesController%23index' => 1,
-'App%5CController%5CMoviesController%23shows' => 7,
+'App%5CController%5CMoviesController%23shows' => 8,
 '[C]App%5CController%5CMoviesController%23shows' => 1,
-'App%5CController%5CMoviesController%23profile' => 8,
+'App%5CController%5CMoviesController%23profile' => 9,
 '[C]App%5CController%5CMoviesController%23profile' => 1,
-'App%5CController%5CMoviesController%23show' => 9,
+'App%5CController%5CMoviesController%23show' => 10,
 '[C]App%5CController%5CMoviesController%23show' => 1,
 'App%5CController%5CMoviesController%23exclusive' => 0,
 '[C]App%5CController%5CMoviesController%23exclusive' => 1,
-'App%5CController%5CMoviesController%23myList' => 10,
+'App%5CController%5CMoviesController%23myList' => 11,
 '[C]App%5CController%5CMoviesController%23myList' => 1,
-'App%5CController%5CMoviesController%23movies' => 11,
+'App%5CController%5CMoviesController%23movies' => 12,
 '[C]App%5CController%5CMoviesController%23movies' => 1,
-'App%5CController%5CMoviesController%23new' => 12,
+'App%5CController%5CMoviesController%23new' => 13,
 '[C]App%5CController%5CMoviesController%23new' => 1,
-'App%5CController%5CMoviesController%23like' => 13,
+'App%5CController%5CMoviesController%23like' => 14,
 '[C]App%5CController%5CMoviesController%23like' => 1,
-'App%5CController%5CMoviesController%23dislike' => 14,
+'App%5CController%5CMoviesController%23dislike' => 15,
 '[C]App%5CController%5CMoviesController%23dislike' => 1,
-'App%5CController%5CMoviesController%23notif' => 15,
+'App%5CController%5CMoviesController%23notif' => 16,
 '[C]App%5CController%5CMoviesController%23notif' => 1,
-'App%5CController%5CMoviesController%23search' => 16,
+'App%5CController%5CMoviesController%23search' => 17,
 '[C]App%5CController%5CMoviesController%23search' => 1,
 'App%5CController%5CMoviesController%24movieRepository' => 0,
 '[C]App%5CController%5CMoviesController%24movieRepository' => 1,
@@ -126,7 +124,7 @@ return [[
 '[C]App%5CController%5CRegistrationController' => 1,
 'App%5CController%5CRegistrationController%23__construct' => 0,
 '[C]App%5CController%5CRegistrationController%23__construct' => 1,
-'App%5CController%5CRegistrationController%23register' => 17,
+'App%5CController%5CRegistrationController%23register' => 0,
 '[C]App%5CController%5CRegistrationController%23register' => 1,
 'App%5CController%5CRegistrationController%23verifyUserEmail' => 0,
 '[C]App%5CController%5CRegistrationController%23verifyUserEmail' => 1,
@@ -134,32 +132,26 @@ return [[
 '[C]App%5CController%5CRegistrationController%24emailVerifier' => 1,
 'App%5CController%5CSecurityController' => 0,
 '[C]App%5CController%5CSecurityController' => 1,
-'App%5CController%5CSecurityController%23login' => 18,
-'[C]App%5CController%5CSecurityController%23login' => 1,
-'App%5CController%5CSecurityController%23logout' => 19,
-'[C]App%5CController%5CSecurityController%23logout' => 1,
 'App%5CController%5CSubuserController' => 0,
 '[C]App%5CController%5CSubuserController' => 1,
 'App%5CController%5CSubuserController%23__construct' => 0,
 '[C]App%5CController%5CSubuserController%23__construct' => 1,
-'App%5CController%5CSubuserController%23addSubuser' => 20,
+'App%5CController%5CSubuserController%23addSubuser' => 18,
 '[C]App%5CController%5CSubuserController%23addSubuser' => 1,
-'App%5CController%5CSubuserController%23edit' => 21,
+'App%5CController%5CSubuserController%23edit' => 19,
 '[C]App%5CController%5CSubuserController%23edit' => 1,
-'App%5CController%5CSubuserController%23delete' => 22,
+'App%5CController%5CSubuserController%23delete' => 20,
 '[C]App%5CController%5CSubuserController%23delete' => 1,
-'App%5CController%5CSubuserController%23update' => 23,
+'App%5CController%5CSubuserController%23update' => 21,
 '[C]App%5CController%5CSubuserController%23update' => 1,
-'App%5CController%5CSubuserController%23manageUser' => 24,
+'App%5CController%5CSubuserController%23manageUser' => 22,
 '[C]App%5CController%5CSubuserController%23manageUser' => 1,
-'App%5CController%5CSubuserController%23chooseUser' => 25,
+'App%5CController%5CSubuserController%23chooseUser' => 23,
 '[C]App%5CController%5CSubuserController%23chooseUser' => 1,
-'App%5CController%5CSubuserController%23success' => 26,
+'App%5CController%5CSubuserController%23success' => 24,
 '[C]App%5CController%5CSubuserController%23success' => 1,
-'App%5CController%5CSubuserController%23newSubuser' => 27,
+'App%5CController%5CSubuserController%23newSubuser' => 25,
 '[C]App%5CController%5CSubuserController%23newSubuser' => 1,
-'App%5CController%5CSubuserController%23createSubuser' => 28,
-'[C]App%5CController%5CSubuserController%23createSubuser' => 1,
 'App%5CController%5CSubuserController%24subuserRepository' => 0,
 '[C]App%5CController%5CSubuserController%24subuserRepository' => 1,
 'App%5CController%5CSubuserCrudController' => 0,
@@ -186,7 +178,7 @@ return [[
 '[C]App%5CController%5CUserCrudController%23edit' => 1,
 'App%5CController%5CUserCrudController%23delete' => 0,
 '[C]App%5CController%5CUserCrudController%23delete' => 1,
-'App%5CEntity%5CCategory' => 29,
+'App%5CEntity%5CCategory' => 26,
 '[C]App%5CEntity%5CCategory' => 1,
 'App%5CEntity%5CCategory%23__toString' => 0,
 '[C]App%5CEntity%5CCategory%23__toString' => 1,
@@ -204,13 +196,13 @@ return [[
 '[C]App%5CEntity%5CCategory%23addMovie' => 1,
 'App%5CEntity%5CCategory%23removeMovie' => 0,
 '[C]App%5CEntity%5CCategory%23removeMovie' => 1,
-'App%5CEntity%5CCategory%24id' => 30,
+'App%5CEntity%5CCategory%24id' => 27,
 '[C]App%5CEntity%5CCategory%24id' => 1,
-'App%5CEntity%5CCategory%24name' => 31,
+'App%5CEntity%5CCategory%24name' => 28,
 '[C]App%5CEntity%5CCategory%24name' => 1,
-'App%5CEntity%5CCategory%24movies' => 32,
+'App%5CEntity%5CCategory%24movies' => 29,
 '[C]App%5CEntity%5CCategory%24movies' => 1,
-'App%5CEntity%5CMovie' => 33,
+'App%5CEntity%5CMovie' => 30,
 '[C]App%5CEntity%5CMovie' => 1,
 'App%5CEntity%5CMovie%23__construct' => 0,
 '[C]App%5CEntity%5CMovie%23__construct' => 1,
@@ -252,23 +244,23 @@ return [[
 '[C]App%5CEntity%5CMovie%23addLikedBy' => 1,
 'App%5CEntity%5CMovie%23removeLikedBy' => 0,
 '[C]App%5CEntity%5CMovie%23removeLikedBy' => 1,
-'App%5CEntity%5CMovie%24id' => 30,
+'App%5CEntity%5CMovie%24id' => 27,
 '[C]App%5CEntity%5CMovie%24id' => 1,
-'App%5CEntity%5CMovie%24title' => 31,
+'App%5CEntity%5CMovie%24title' => 28,
 '[C]App%5CEntity%5CMovie%24title' => 1,
-'App%5CEntity%5CMovie%24description' => 34,
+'App%5CEntity%5CMovie%24description' => 31,
 '[C]App%5CEntity%5CMovie%24description' => 1,
-'App%5CEntity%5CMovie%24year' => 35,
+'App%5CEntity%5CMovie%24year' => 32,
 '[C]App%5CEntity%5CMovie%24year' => 1,
-'App%5CEntity%5CMovie%24img' => 31,
+'App%5CEntity%5CMovie%24img' => 28,
 '[C]App%5CEntity%5CMovie%24img' => 1,
-'App%5CEntity%5CMovie%24link' => 31,
+'App%5CEntity%5CMovie%24link' => 28,
 '[C]App%5CEntity%5CMovie%24link' => 1,
-'App%5CEntity%5CMovie%24categories' => 36,
+'App%5CEntity%5CMovie%24categories' => 33,
 '[C]App%5CEntity%5CMovie%24categories' => 1,
-'App%5CEntity%5CMovie%24likedBy' => 37,
+'App%5CEntity%5CMovie%24likedBy' => 34,
 '[C]App%5CEntity%5CMovie%24likedBy' => 1,
-'App%5CEntity%5CSubuser' => 38,
+'App%5CEntity%5CSubuser' => 35,
 '[C]App%5CEntity%5CSubuser' => 1,
 'App%5CEntity%5CSubuser%23__toString' => 0,
 '[C]App%5CEntity%5CSubuser%23__toString' => 1,
@@ -294,17 +286,17 @@ return [[
 '[C]App%5CEntity%5CSubuser%23addLikedMovie' => 1,
 'App%5CEntity%5CSubuser%23removeLikedMovie' => 0,
 '[C]App%5CEntity%5CSubuser%23removeLikedMovie' => 1,
-'App%5CEntity%5CSubuser%24id' => 30,
+'App%5CEntity%5CSubuser%24id' => 27,
 '[C]App%5CEntity%5CSubuser%24id' => 1,
-'App%5CEntity%5CSubuser%24name' => 34,
+'App%5CEntity%5CSubuser%24name' => 31,
 '[C]App%5CEntity%5CSubuser%24name' => 1,
-'App%5CEntity%5CSubuser%24subaccountOf' => 39,
+'App%5CEntity%5CSubuser%24subaccountOf' => 36,
 '[C]App%5CEntity%5CSubuser%24subaccountOf' => 1,
-'App%5CEntity%5CSubuser%24avatar' => 31,
+'App%5CEntity%5CSubuser%24avatar' => 28,
 '[C]App%5CEntity%5CSubuser%24avatar' => 1,
-'App%5CEntity%5CSubuser%24likedMovies' => 40,
+'App%5CEntity%5CSubuser%24likedMovies' => 37,
 '[C]App%5CEntity%5CSubuser%24likedMovies' => 1,
-'App%5CEntity%5CUser' => 41,
+'App%5CEntity%5CUser' => 38,
 '[C]App%5CEntity%5CUser' => 1,
 'App%5CEntity%5CUser%23__toString' => 0,
 '[C]App%5CEntity%5CUser%23__toString' => 1,
@@ -342,17 +334,17 @@ return [[
 '[C]App%5CEntity%5CUser%23addSubuser' => 1,
 'App%5CEntity%5CUser%23removeSubuser' => 0,
 '[C]App%5CEntity%5CUser%23removeSubuser' => 1,
-'App%5CEntity%5CUser%24id' => 30,
+'App%5CEntity%5CUser%24id' => 27,
 '[C]App%5CEntity%5CUser%24id' => 1,
-'App%5CEntity%5CUser%24email' => 42,
+'App%5CEntity%5CUser%24email' => 39,
 '[C]App%5CEntity%5CUser%24email' => 1,
-'App%5CEntity%5CUser%24roles' => 43,
+'App%5CEntity%5CUser%24roles' => 40,
 '[C]App%5CEntity%5CUser%24roles' => 1,
-'App%5CEntity%5CUser%24password' => 44,
+'App%5CEntity%5CUser%24password' => 41,
 '[C]App%5CEntity%5CUser%24password' => 1,
-'App%5CEntity%5CUser%24isVerified' => 45,
+'App%5CEntity%5CUser%24isVerified' => 42,
 '[C]App%5CEntity%5CUser%24isVerified' => 1,
-'App%5CEntity%5CUser%24subusers' => 46,
+'App%5CEntity%5CUser%24subusers' => 43,
 '[C]App%5CEntity%5CUser%24subusers' => 1,
 'Doctrine%5CBundle%5CDoctrineBundle%5CController%5CProfilerController' => 0,
 '[C]Doctrine%5CBundle%5CDoctrineBundle%5CController%5CProfilerController' => 1,
@@ -902,7 +894,7 @@ return [[
 ], [
 
 0 => [],
-1 => 1646598178,
+1 => 1646604473,
 2 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
@@ -914,8 +906,35 @@ return [[
                 'path' => [
                     '/admin',
                 ],
+                'methods' => [
+                    [],
+                ],
+                'schemes' => [
+                    [],
+                ],
                 'name' => [
                     'admin_panel',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -936,8 +955,35 @@ return [[
                 'path' => [
                     '/error',
                 ],
+                'methods' => [
+                    [],
+                ],
+                'schemes' => [
+                    [],
+                ],
                 'name' => [
                     'error',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -956,7 +1002,37 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/email',
+                    '/logout',
+                ],
+                'methods' => [
+                    [],
+                ],
+                'schemes' => [
+                    [],
+                ],
+                'name' => [
+                    'app_logout',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -975,10 +1051,37 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/',
+                    '/email',
+                ],
+                'methods' => [
+                    [],
+                ],
+                'schemes' => [
+                    [],
                 ],
                 'name' => [
-                    'home',
+                    null,
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -997,10 +1100,37 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/browse',
+                    '/',
+                ],
+                'methods' => [
+                    [],
+                ],
+                'schemes' => [
+                    [],
                 ],
                 'name' => [
-                    'browse',
+                    'home',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -1019,10 +1149,37 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/shows',
+                    '/browse',
+                ],
+                'methods' => [
+                    [],
+                ],
+                'schemes' => [
+                    [],
                 ],
                 'name' => [
-                    'shows',
+                    'browse',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -1041,10 +1198,37 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/profile',
+                    '/shows',
+                ],
+                'methods' => [
+                    [],
+                ],
+                'schemes' => [
+                    [],
                 ],
                 'name' => [
-                    'profile',
+                    'shows',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -1063,10 +1247,37 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/show/{id}',
+                    '/profile',
+                ],
+                'methods' => [
+                    [],
+                ],
+                'schemes' => [
+                    [],
                 ],
                 'name' => [
-                    'show-one',
+                    'profile',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -1085,10 +1296,37 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/myList',
+                    '/show/{id}',
+                ],
+                'methods' => [
+                    [],
+                ],
+                'schemes' => [
+                    [],
                 ],
                 'name' => [
-                    'myList',
+                    'show-one',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -1107,10 +1345,37 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/movies',
+                    '/myList',
+                ],
+                'methods' => [
+                    [],
+                ],
+                'schemes' => [
+                    [],
                 ],
                 'name' => [
-                    'movies',
+                    'myList',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -1129,10 +1394,37 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/new',
+                    '/movies',
+                ],
+                'methods' => [
+                    [],
+                ],
+                'schemes' => [
+                    [],
                 ],
                 'name' => [
-                    'new',
+                    'movies',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -1151,15 +1443,37 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/like',
-                ],
-                'name' => [
-                    'like',
+                    '/new',
                 ],
                 'methods' => [
-                    [
-                        'POST',
-                    ],
+                    [],
+                ],
+                'schemes' => [
+                    [],
+                ],
+                'name' => [
+                    'new',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -1178,15 +1492,39 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/dislike',
-                ],
-                'name' => [
-                    'dislike',
+                    '/like',
                 ],
                 'methods' => [
                     [
                         'POST',
                     ],
+                ],
+                'schemes' => [
+                    [],
+                ],
+                'name' => [
+                    'like',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -1205,10 +1543,39 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/notif',
+                    '/dislike',
+                ],
+                'methods' => [
+                    [
+                        'POST',
+                    ],
+                ],
+                'schemes' => [
+                    [],
                 ],
                 'name' => [
-                    'notif',
+                    'dislike',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -1227,15 +1594,37 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/search',
-                ],
-                'name' => [
-                    'search',
+                    '/notif',
                 ],
                 'methods' => [
-                    [
-                        'GET',
-                    ],
+                    [],
+                ],
+                'schemes' => [
+                    [],
+                ],
+                'name' => [
+                    'notif',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -1254,10 +1643,39 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/register',
+                    '/search',
+                ],
+                'methods' => [
+                    [
+                        'GET',
+                    ],
+                ],
+                'schemes' => [
+                    [],
                 ],
                 'name' => [
-                    'app_register',
+                    'search',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -1276,10 +1694,37 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/login',
+                    'manageUser/add',
+                ],
+                'methods' => [
+                    [],
+                ],
+                'schemes' => [
+                    [],
                 ],
                 'name' => [
-                    'app_login',
+                    null,
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -1298,10 +1743,37 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/logout',
+                    'manageUser/edit',
+                ],
+                'methods' => [
+                    [],
+                ],
+                'schemes' => [
+                    [],
                 ],
                 'name' => [
-                    'app_logout',
+                    'edit',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -1320,7 +1792,37 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    'manageUser/add',
+                    '/manageUser/delete/{id}',
+                ],
+                'methods' => [
+                    [],
+                ],
+                'schemes' => [
+                    [],
+                ],
+                'name' => [
+                    'deleteSubuser',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -1339,10 +1841,37 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    'manageUser/edit',
+                    '/manageUser/update/{id}',
+                ],
+                'methods' => [
+                    [],
+                ],
+                'schemes' => [
+                    [],
                 ],
                 'name' => [
-                    'edit',
+                    'update',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -1361,10 +1890,37 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/manageUser/delete/{id}',
+                    '/manageUser',
+                ],
+                'methods' => [
+                    [],
+                ],
+                'schemes' => [
+                    [],
                 ],
                 'name' => [
-                    'deleteSubuser',
+                    'manageUser',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -1383,10 +1939,37 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/manageUser/update/{id}',
+                    '/chooseUser',
+                ],
+                'methods' => [
+                    [],
+                ],
+                'schemes' => [
+                    [],
                 ],
                 'name' => [
-                    'update',
+                    'chooseUser',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -1405,10 +1988,37 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/manageUser',
+                    '/success',
+                ],
+                'methods' => [
+                    [],
+                ],
+                'schemes' => [
+                    [],
                 ],
                 'name' => [
-                    'manageUser',
+                    'success',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -1427,10 +2037,37 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/chooseUser',
+                    '/newSubuser',
+                ],
+                'methods' => [
+                    [],
+                ],
+                'schemes' => [
+                    [],
                 ],
                 'name' => [
-                    'chooseUser',
+                    'newSubuser',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
                 ],
             ],
         ],
@@ -1441,72 +2078,6 @@ return [[
     );
 },
 26 => static function () {
-    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
-        $o = [
-            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
-        ],
-        null,
-        [
-            'Symfony\\Component\\Routing\\Annotation\\Route' => [
-                'path' => [
-                    '/success',
-                ],
-                'name' => [
-                    'success',
-                ],
-            ],
-        ],
-        [
-            $o[0],
-        ],
-        []
-    );
-},
-27 => static function () {
-    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
-        $o = [
-            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
-        ],
-        null,
-        [
-            'Symfony\\Component\\Routing\\Annotation\\Route' => [
-                'path' => [
-                    '/newSubuser',
-                ],
-                'name' => [
-                    'newSubuser',
-                ],
-            ],
-        ],
-        [
-            $o[0],
-        ],
-        []
-    );
-},
-28 => static function () {
-    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
-        $o = [
-            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
-        ],
-        null,
-        [
-            'Symfony\\Component\\Routing\\Annotation\\Route' => [
-                'path' => [
-                    '/newuser',
-                ],
-                'name' => [
-                    'createSubuser',
-                ],
-            ],
-        ],
-        [
-            $o[0],
-        ],
-        []
-    );
-},
-29 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Entity'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Entity')),
@@ -1525,7 +2096,7 @@ return [[
         []
     );
 },
-30 => static function () {
+27 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\Id'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Id')),
@@ -1554,7 +2125,7 @@ return [[
         []
     );
 },
-31 => static function () {
+28 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
@@ -1582,7 +2153,7 @@ return [[
         []
     );
 },
-32 => static function () {
+29 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\ManyToMany'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ManyToMany')),
@@ -1604,7 +2175,7 @@ return [[
         []
     );
 },
-33 => static function () {
+30 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\Entity'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Entity')),
@@ -1628,7 +2199,7 @@ return [[
         []
     );
 },
-34 => static function () {
+31 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
@@ -1653,7 +2224,7 @@ return [[
         []
     );
 },
-35 => static function () {
+32 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
@@ -1678,7 +2249,7 @@ return [[
         []
     );
 },
-36 => static function () {
+33 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\ManyToMany'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ManyToMany')),
@@ -1700,7 +2271,7 @@ return [[
         []
     );
 },
-37 => static function () {
+34 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\ManyToMany'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ManyToMany')),
@@ -1722,7 +2293,7 @@ return [[
         []
     );
 },
-38 => static function () {
+35 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Entity'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Entity')),
@@ -1741,7 +2312,7 @@ return [[
         []
     );
 },
-39 => static function () {
+36 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ManyToOne'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ManyToOne')),
@@ -1768,7 +2339,7 @@ return [[
         []
     );
 },
-40 => static function () {
+37 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\ManyToMany'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ManyToMany')),
@@ -1790,7 +2361,7 @@ return [[
         []
     );
 },
-41 => static function () {
+38 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\Entity'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Entity')),
@@ -1824,7 +2395,7 @@ return [[
         []
     );
 },
-42 => static function () {
+39 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
@@ -1855,7 +2426,7 @@ return [[
         []
     );
 },
-43 => static function () {
+40 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
@@ -1880,7 +2451,7 @@ return [[
         []
     );
 },
-44 => static function () {
+41 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
@@ -1905,7 +2476,7 @@ return [[
         []
     );
 },
-45 => static function () {
+42 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
@@ -1930,7 +2501,7 @@ return [[
         []
     );
 },
-46 => static function () {
+43 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\OneToMany'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\OneToMany')),

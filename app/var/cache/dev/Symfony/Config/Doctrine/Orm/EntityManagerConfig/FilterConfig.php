@@ -21,7 +21,7 @@ class FilterConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function class($value): self
+    public function class($value): static
     {
         $this->class = $value;
     
@@ -33,7 +33,7 @@ class FilterConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled($value): self
+    public function enabled($value): static
     {
         $this->enabled = $value;
     
@@ -41,10 +41,9 @@ class FilterConfig
     }
     
     /**
-     * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function parameter(string $name, $value): self
+    public function parameter(string $name, mixed $value): static
     {
         $this->parameters[$name] = $value;
     

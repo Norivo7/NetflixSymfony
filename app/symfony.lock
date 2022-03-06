@@ -107,6 +107,9 @@
     "laminas/laminas-code": {
         "version": "4.4.2"
     },
+    "laminas/laminas-zendframework-bridge": {
+        "version": "1.5.0"
+    },
     "nikic/php-parser": {
         "version": "v4.11.0"
     },
@@ -294,9 +297,6 @@
     "symfony/polyfill-mbstring": {
         "version": "v1.23.0"
     },
-    "symfony/polyfill-php73": {
-        "version": "v1.24.0"
-    },
     "symfony/polyfill-php80": {
         "version": "v1.23.0"
     },
@@ -345,9 +345,6 @@
     },
     "symfony/security-csrf": {
         "version": "v5.3.4"
-    },
-    "symfony/security-guard": {
-        "version": "v5.3.14"
     },
     "symfony/security-http": {
         "version": "v5.3.6"

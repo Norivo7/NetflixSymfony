@@ -21,7 +21,7 @@ class ProviderConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function dsn($value): self
+    public function dsn($value): static
     {
         $this->dsn = $value;
     
@@ -29,10 +29,11 @@ class ProviderConfig
     }
     
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function domains($value): self
+    public function domains(ParamConfigurator|array $value): static
     {
         $this->domains = $value;
     
@@ -40,10 +41,11 @@ class ProviderConfig
     }
     
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function locales($value): self
+    public function locales(ParamConfigurator|array $value): static
     {
         $this->locales = $value;
     

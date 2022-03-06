@@ -6,6 +6,7 @@ use App\Entity\Movie;
 use App\Repository\CategoryRepository;
 use App\Repository\MovieRepository;
 use App\Repository\SubuserRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -218,7 +219,7 @@ class MoviesController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function like(Request $request): Response
+    public function like(Request $request, ManagerRegistry $doctrine): Response
     {
         $id = $request->request->all();
         $movie = $this->movieRepository->find($id['id']);
@@ -228,7 +229,8 @@ class MoviesController extends AbstractController
         $subuserId = reset($subuser);
         $currentSubuser = $this->subuserRepository->find($subuserId);
         $movie->addLikedBy($currentSubuser);
-        $entityManager = $this->getDoctrine()->getManager();
+
+        $entityManager = $doctrine->getManager();
         // make changes in database
         $entityManager->persist($movie);
         $entityManager->persist($currentSubuser);
@@ -242,7 +244,7 @@ class MoviesController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function dislike(Request $request): Response
+    public function dislike(Request $request, ManagerRegistry $doctrine): Response
     {
         $id = $request->request->all();
         $movie = $this->movieRepository->find($id['id']);
@@ -251,7 +253,7 @@ class MoviesController extends AbstractController
         $subuserId = reset($subuser);
         $currentSubuser = $this->subuserRepository->find($subuserId);
         $movie->removeLikedBy($currentSubuser);
-        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager = $doctrine->getManager();
 
         $entityManager->persist($movie);
         $entityManager->persist($currentSubuser);

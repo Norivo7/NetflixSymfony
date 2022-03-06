@@ -28,7 +28,7 @@ class HttpCacheConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled($value): self
+    public function enabled($value): static
     {
         $this->enabled = $value;
     
@@ -40,7 +40,7 @@ class HttpCacheConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function debug($value): self
+    public function debug($value): static
     {
         $this->debug = $value;
     
@@ -52,7 +52,7 @@ class HttpCacheConfig
      * @param ParamConfigurator|'none'|'short'|'full' $value
      * @return $this
      */
-    public function traceLevel($value): self
+    public function traceLevel($value): static
     {
         $this->traceLevel = $value;
     
@@ -64,7 +64,7 @@ class HttpCacheConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function traceHeader($value): self
+    public function traceHeader($value): static
     {
         $this->traceHeader = $value;
     
@@ -76,7 +76,7 @@ class HttpCacheConfig
      * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function defaultTtl($value): self
+    public function defaultTtl($value): static
     {
         $this->defaultTtl = $value;
     
@@ -84,10 +84,11 @@ class HttpCacheConfig
     }
     
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function privateHeaders($value): self
+    public function privateHeaders(ParamConfigurator|array $value): static
     {
         $this->privateHeaders = $value;
     
@@ -99,7 +100,7 @@ class HttpCacheConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function allowReload($value): self
+    public function allowReload($value): static
     {
         $this->allowReload = $value;
     
@@ -111,7 +112,7 @@ class HttpCacheConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function allowRevalidate($value): self
+    public function allowRevalidate($value): static
     {
         $this->allowRevalidate = $value;
     
@@ -123,7 +124,7 @@ class HttpCacheConfig
      * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function staleWhileRevalidate($value): self
+    public function staleWhileRevalidate($value): static
     {
         $this->staleWhileRevalidate = $value;
     
@@ -135,7 +136,7 @@ class HttpCacheConfig
      * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function staleIfError($value): self
+    public function staleIfError($value): static
     {
         $this->staleIfError = $value;
     

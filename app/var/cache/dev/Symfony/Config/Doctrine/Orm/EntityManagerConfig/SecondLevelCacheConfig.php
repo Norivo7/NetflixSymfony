@@ -40,7 +40,7 @@ class SecondLevelCacheConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function regionLockLifetime($value): self
+    public function regionLockLifetime($value): static
     {
         $this->regionLockLifetime = $value;
     
@@ -52,7 +52,7 @@ class SecondLevelCacheConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function logEnabled($value): self
+    public function logEnabled($value): static
     {
         $this->logEnabled = $value;
     
@@ -64,7 +64,7 @@ class SecondLevelCacheConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function regionLifetime($value): self
+    public function regionLifetime($value): static
     {
         $this->regionLifetime = $value;
     
@@ -76,7 +76,7 @@ class SecondLevelCacheConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled($value): self
+    public function enabled($value): static
     {
         $this->enabled = $value;
     
@@ -88,7 +88,7 @@ class SecondLevelCacheConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function factory($value): self
+    public function factory($value): static
     {
         $this->factory = $value;
     

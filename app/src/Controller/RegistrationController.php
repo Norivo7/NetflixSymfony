@@ -6,13 +6,16 @@ use App\Entity\Subuser;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Security\EmailVerifier;
+use App\Security\LoginFormAuthenticator;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mime\Address;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
 class RegistrationController extends AbstractController
@@ -24,49 +27,45 @@ class RegistrationController extends AbstractController
         $this->emailVerifier = $emailVerifier;
     }
 
-    /**
-     * @Route("/register", name="app_register")
-     * @param Request $request
-     * @param UserPasswordEncoderInterface $passwordEncoder
-     * @return Response
-     */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
+    #[Route('/register', name: 'app_register')]
+    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, LoginFormAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
     {
         $user = new User();
-        $subUser = new Subuser();
+        $subuser = new Subuser();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setRoles(['ROLE_USER']);
-            // add default subuser
-            $subUser->setName("Domyślny");
-            $subUser->setSubaccountOf($user);
-            $subUser->setAvatar('https://i.imgur.com/9nWtdiZ.png');
             // encode the plain password
             $user->setPassword(
-                $passwordEncoder->encodePassword(
+            $userPasswordHasher->hashPassword(
                     $user,
                     $form->get('plainPassword')->getData()
                 )
             );
-
-            $entityManager = $this->getDoctrine()->getManager();
+            $user->setRoles(["ROLE_USER"]);
+            $subuser->setSubaccountOf($user);
+            $subuser->setAvatar('https://i.imgur.com/WM6zTNc.png');
+            $subuser->setName("Domyślny");
+            $entityManager->persist($subuser);
             $entityManager->persist($user);
-            $entityManager->persist($subUser);
             $entityManager->flush();
 
             // generate a signed url and email it to the user
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
-                    ->from(new Address('admin@netflixclone.com', 'Netflix Clone Bot'))
+                    ->from(new Address('netflix@symfony.com', 'Netflix Symfony Bot'))
                     ->to($user->getEmail())
                     ->subject('Please Confirm your Email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('home');
+            return $userAuthenticator->authenticateUser(
+                $user,
+                $authenticator,
+                $request
+            );
         }
 
         return $this->render('registration/register.html.twig', [

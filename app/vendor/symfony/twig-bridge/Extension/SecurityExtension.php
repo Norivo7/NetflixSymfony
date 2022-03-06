@@ -26,7 +26,6 @@ use Twig\TwigFunction;
 final class SecurityExtension extends AbstractExtension
 {
     private $securityChecker;
-
     private $impersonateUrlGenerator;
 
     public function __construct(AuthorizationCheckerInterface $securityChecker = null, ImpersonateUrlGenerator $impersonateUrlGenerator = null)
@@ -35,10 +34,7 @@ final class SecurityExtension extends AbstractExtension
         $this->impersonateUrlGenerator = $impersonateUrlGenerator;
     }
 
-    /**
-     * @param mixed $object
-     */
-    public function isGranted($role, $object = null, string $field = null): bool
+    public function isGranted(mixed $role, mixed $object = null, string $field = null): bool
     {
         if (null === $this->securityChecker) {
             return false;

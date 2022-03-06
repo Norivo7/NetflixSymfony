@@ -46,7 +46,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function provider($value): self
+    public function provider($value): static
     {
         $this->provider = $value;
     
@@ -58,7 +58,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function rememberMe($value): self
+    public function rememberMe($value): static
     {
         $this->rememberMe = $value;
     
@@ -70,7 +70,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function successHandler($value): self
+    public function successHandler($value): static
     {
         $this->successHandler = $value;
     
@@ -82,7 +82,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function failureHandler($value): self
+    public function failureHandler($value): static
     {
         $this->failureHandler = $value;
     
@@ -94,7 +94,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function checkPath($value): self
+    public function checkPath($value): static
     {
         $this->checkPath = $value;
     
@@ -106,7 +106,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function useForward($value): self
+    public function useForward($value): static
     {
         $this->useForward = $value;
     
@@ -118,7 +118,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function requirePreviousSession($value): self
+    public function requirePreviousSession($value): static
     {
         $this->requirePreviousSession = $value;
     
@@ -130,7 +130,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function loginPath($value): self
+    public function loginPath($value): static
     {
         $this->loginPath = $value;
     
@@ -142,7 +142,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function usernameParameter($value): self
+    public function usernameParameter($value): static
     {
         $this->usernameParameter = $value;
     
@@ -154,7 +154,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function passwordParameter($value): self
+    public function passwordParameter($value): static
     {
         $this->passwordParameter = $value;
     
@@ -166,7 +166,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function csrfParameter($value): self
+    public function csrfParameter($value): static
     {
         $this->csrfParameter = $value;
     
@@ -178,7 +178,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function csrfTokenId($value): self
+    public function csrfTokenId($value): static
     {
         $this->csrfTokenId = $value;
     
@@ -190,7 +190,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enableCsrf($value): self
+    public function enableCsrf($value): static
     {
         $this->enableCsrf = $value;
     
@@ -202,7 +202,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function postOnly($value): self
+    public function postOnly($value): static
     {
         $this->postOnly = $value;
     
@@ -214,7 +214,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function formOnly($value): self
+    public function formOnly($value): static
     {
         $this->formOnly = $value;
     
@@ -226,7 +226,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function alwaysUseDefaultTargetPath($value): self
+    public function alwaysUseDefaultTargetPath($value): static
     {
         $this->alwaysUseDefaultTargetPath = $value;
     
@@ -238,7 +238,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function defaultTargetPath($value): self
+    public function defaultTargetPath($value): static
     {
         $this->defaultTargetPath = $value;
     
@@ -250,7 +250,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function targetPathParameter($value): self
+    public function targetPathParameter($value): static
     {
         $this->targetPathParameter = $value;
     
@@ -262,7 +262,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function useReferer($value): self
+    public function useReferer($value): static
     {
         $this->useReferer = $value;
     
@@ -274,7 +274,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function failurePath($value): self
+    public function failurePath($value): static
     {
         $this->failurePath = $value;
     
@@ -286,7 +286,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function failureForward($value): self
+    public function failureForward($value): static
     {
         $this->failureForward = $value;
     
@@ -298,7 +298,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function failurePathParameter($value): self
+    public function failurePathParameter($value): static
     {
         $this->failurePathParameter = $value;
     
@@ -310,7 +310,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function csrfTokenGenerator($value): self
+    public function csrfTokenGenerator($value): static
     {
         $this->csrfTokenGenerator = $value;
     
@@ -322,7 +322,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function service($value): self
+    public function service($value): static
     {
         $this->service = $value;
     
@@ -334,7 +334,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function dnString($value): self
+    public function dnString($value): static
     {
         $this->dnString = $value;
     
@@ -346,7 +346,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function queryString($value): self
+    public function queryString($value): static
     {
         $this->queryString = $value;
     
@@ -357,7 +357,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function searchDn($value): self
+    public function searchDn($value): static
     {
         $this->searchDn = $value;
     
@@ -368,7 +368,7 @@ class FormLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function searchPassword($value): self
+    public function searchPassword($value): static
     {
         $this->searchPassword = $value;
     

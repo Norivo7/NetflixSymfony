@@ -15,10 +15,11 @@ class TemplatingConfig
     private $controllerPatterns;
     
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function controllerPatterns($value): self
+    public function controllerPatterns(ParamConfigurator|array $value): static
     {
         $this->controllerPatterns = $value;
     

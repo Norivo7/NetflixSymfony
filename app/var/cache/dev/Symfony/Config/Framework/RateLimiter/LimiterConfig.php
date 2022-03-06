@@ -27,7 +27,7 @@ class LimiterConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function lockFactory($value): self
+    public function lockFactory($value): static
     {
         $this->lockFactory = $value;
     
@@ -40,7 +40,7 @@ class LimiterConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function cachePool($value): self
+    public function cachePool($value): static
     {
         $this->cachePool = $value;
     
@@ -53,7 +53,7 @@ class LimiterConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function storageService($value): self
+    public function storageService($value): static
     {
         $this->storageService = $value;
     
@@ -66,7 +66,7 @@ class LimiterConfig
      * @param ParamConfigurator|'fixed_window'|'token_bucket'|'sliding_window'|'no_limit' $value
      * @return $this
      */
-    public function policy($value): self
+    public function policy($value): static
     {
         $this->policy = $value;
     
@@ -79,7 +79,7 @@ class LimiterConfig
      * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function limit($value): self
+    public function limit($value): static
     {
         $this->limit = $value;
     
@@ -92,7 +92,7 @@ class LimiterConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function interval($value): self
+    public function interval($value): static
     {
         $this->interval = $value;
     

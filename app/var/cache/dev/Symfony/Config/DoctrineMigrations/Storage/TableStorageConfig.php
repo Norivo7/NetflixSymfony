@@ -23,7 +23,7 @@ class TableStorageConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function tableName($value): self
+    public function tableName($value): static
     {
         $this->tableName = $value;
     
@@ -35,7 +35,7 @@ class TableStorageConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function versionColumnName($value): self
+    public function versionColumnName($value): static
     {
         $this->versionColumnName = $value;
     
@@ -47,7 +47,7 @@ class TableStorageConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function versionColumnLength($value): self
+    public function versionColumnLength($value): static
     {
         $this->versionColumnLength = $value;
     
@@ -59,7 +59,7 @@ class TableStorageConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function executedAtColumnName($value): self
+    public function executedAtColumnName($value): static
     {
         $this->executedAtColumnName = $value;
     
@@ -71,7 +71,7 @@ class TableStorageConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function executionTimeColumnName($value): self
+    public function executionTimeColumnName($value): static
     {
         $this->executionTimeColumnName = $value;
     

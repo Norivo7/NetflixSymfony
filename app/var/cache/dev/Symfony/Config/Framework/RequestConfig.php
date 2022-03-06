@@ -20,7 +20,7 @@ class RequestConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled($value): self
+    public function enabled($value): static
     {
         $this->enabled = $value;
     
@@ -28,10 +28,9 @@ class RequestConfig
     }
     
     /**
-     * @param ParamConfigurator|array $value
      * @return $this
      */
-    public function format(string $name, $value): self
+    public function format(string $name, ParamConfigurator|array $value): static
     {
         $this->formats[$name] = $value;
     

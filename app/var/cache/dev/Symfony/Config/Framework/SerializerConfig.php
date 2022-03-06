@@ -26,7 +26,7 @@ class SerializerConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled($value): self
+    public function enabled($value): static
     {
         $this->enabled = $value;
     
@@ -38,7 +38,7 @@ class SerializerConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enableAnnotations($value): self
+    public function enableAnnotations($value): static
     {
         $this->enableAnnotations = $value;
     
@@ -50,7 +50,7 @@ class SerializerConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function nameConverter($value): self
+    public function nameConverter($value): static
     {
         $this->nameConverter = $value;
     
@@ -62,7 +62,7 @@ class SerializerConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function circularReferenceHandler($value): self
+    public function circularReferenceHandler($value): static
     {
         $this->circularReferenceHandler = $value;
     
@@ -74,7 +74,7 @@ class SerializerConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function maxDepthHandler($value): self
+    public function maxDepthHandler($value): static
     {
         $this->maxDepthHandler = $value;
     
@@ -93,10 +93,9 @@ class SerializerConfig
     }
     
     /**
-     * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function defaultContext(string $name, $value): self
+    public function defaultContext(string $name, mixed $value): static
     {
         $this->defaultContext[$name] = $value;
     

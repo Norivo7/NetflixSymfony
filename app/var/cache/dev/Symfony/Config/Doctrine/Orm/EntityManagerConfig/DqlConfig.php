@@ -17,10 +17,9 @@ class DqlConfig
     private $datetimeFunctions;
     
     /**
-     * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function stringFunction(string $name, $value): self
+    public function stringFunction(string $name, mixed $value): static
     {
         $this->stringFunctions[$name] = $value;
     
@@ -28,10 +27,9 @@ class DqlConfig
     }
     
     /**
-     * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function numericFunction(string $name, $value): self
+    public function numericFunction(string $name, mixed $value): static
     {
         $this->numericFunctions[$name] = $value;
     
@@ -39,10 +37,9 @@ class DqlConfig
     }
     
     /**
-     * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function datetimeFunction(string $name, $value): self
+    public function datetimeFunction(string $name, mixed $value): static
     {
         $this->datetimeFunctions[$name] = $value;
     

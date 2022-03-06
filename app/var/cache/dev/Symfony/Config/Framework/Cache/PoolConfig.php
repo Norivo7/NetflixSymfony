@@ -21,10 +21,11 @@ class PoolConfig
     private $clearer;
     
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function adapters($value): self
+    public function adapters(ParamConfigurator|array $value): static
     {
         $this->adapters = $value;
     
@@ -36,7 +37,7 @@ class PoolConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function tags($value): self
+    public function tags($value): static
     {
         $this->tags = $value;
     
@@ -48,7 +49,7 @@ class PoolConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function public($value): self
+    public function public($value): static
     {
         $this->public = $value;
     
@@ -62,7 +63,7 @@ class PoolConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function defaultLifetime($value): self
+    public function defaultLifetime($value): static
     {
         $this->defaultLifetime = $value;
     
@@ -75,7 +76,7 @@ class PoolConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function provider($value): self
+    public function provider($value): static
     {
         $this->provider = $value;
     
@@ -88,7 +89,7 @@ class PoolConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function earlyExpirationMessageBus($value): self
+    public function earlyExpirationMessageBus($value): static
     {
         $this->earlyExpirationMessageBus = $value;
     
@@ -100,7 +101,7 @@ class PoolConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function clearer($value): self
+    public function clearer($value): static
     {
         $this->clearer = $value;
     

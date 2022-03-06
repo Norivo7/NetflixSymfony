@@ -26,7 +26,7 @@ use Symfony\Component\Security\Http\HttpUtils;
 class DefaultLogoutListener implements EventSubscriberInterface
 {
     private $httpUtils;
-    private $targetUrl;
+    private string $targetUrl;
 
     public function __construct(HttpUtils $httpUtils, string $targetUrl = '/')
     {

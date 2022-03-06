@@ -15,10 +15,11 @@ class MappingConfig
     private $paths;
     
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function paths($value): self
+    public function paths(ParamConfigurator|array $value): static
     {
         $this->paths = $value;
     

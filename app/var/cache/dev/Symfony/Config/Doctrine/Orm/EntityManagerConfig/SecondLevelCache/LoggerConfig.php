@@ -20,7 +20,7 @@ class LoggerConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function name($value): self
+    public function name($value): static
     {
         $this->name = $value;
     
@@ -32,7 +32,7 @@ class LoggerConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function service($value): self
+    public function service($value): static
     {
         $this->service = $value;
     

@@ -30,7 +30,7 @@ class ValidationConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled($value): self
+    public function enabled($value): static
     {
         $this->enabled = $value;
     
@@ -42,7 +42,7 @@ class ValidationConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function cache($value): self
+    public function cache($value): static
     {
         $this->cache = $value;
     
@@ -54,7 +54,7 @@ class ValidationConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enableAnnotations($value): self
+    public function enableAnnotations($value): static
     {
         $this->enableAnnotations = $value;
     
@@ -62,10 +62,11 @@ class ValidationConfig
     }
     
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function staticMethod($value): self
+    public function staticMethod(ParamConfigurator|array $value): static
     {
         $this->staticMethod = $value;
     
@@ -77,7 +78,7 @@ class ValidationConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function translationDomain($value): self
+    public function translationDomain($value): static
     {
         $this->translationDomain = $value;
     
@@ -89,7 +90,7 @@ class ValidationConfig
      * @param ParamConfigurator|'html5'|'loose'|'strict' $value
      * @return $this
      */
-    public function emailValidationMode($value): self
+    public function emailValidationMode($value): static
     {
         $this->emailValidationMode = $value;
     

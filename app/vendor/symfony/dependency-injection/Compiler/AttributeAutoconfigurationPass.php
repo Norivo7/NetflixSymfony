@@ -29,7 +29,7 @@ final class AttributeAutoconfigurationPass extends AbstractRecursivePass
 
     public function process(ContainerBuilder $container): void
     {
-        if (80000 > \PHP_VERSION_ID || !$container->getAutoconfiguredAttributes()) {
+        if (!$container->getAutoconfiguredAttributes()) {
             return;
         }
 
@@ -78,7 +78,7 @@ final class AttributeAutoconfigurationPass extends AbstractRecursivePass
         parent::process($container);
     }
 
-    protected function processValue($value, bool $isRoot = false)
+    protected function processValue(mixed $value, bool $isRoot = false): mixed
     {
         if (!$value instanceof Definition
             || !$value->isAutoconfigured()

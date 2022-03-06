@@ -28,7 +28,7 @@ class JsonLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function provider($value): self
+    public function provider($value): static
     {
         $this->provider = $value;
     
@@ -40,7 +40,7 @@ class JsonLoginConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function rememberMe($value): self
+    public function rememberMe($value): static
     {
         $this->rememberMe = $value;
     
@@ -52,7 +52,7 @@ class JsonLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function successHandler($value): self
+    public function successHandler($value): static
     {
         $this->successHandler = $value;
     
@@ -64,7 +64,7 @@ class JsonLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function failureHandler($value): self
+    public function failureHandler($value): static
     {
         $this->failureHandler = $value;
     
@@ -76,7 +76,7 @@ class JsonLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function checkPath($value): self
+    public function checkPath($value): static
     {
         $this->checkPath = $value;
     
@@ -88,7 +88,7 @@ class JsonLoginConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function useForward($value): self
+    public function useForward($value): static
     {
         $this->useForward = $value;
     
@@ -100,7 +100,7 @@ class JsonLoginConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function requirePreviousSession($value): self
+    public function requirePreviousSession($value): static
     {
         $this->requirePreviousSession = $value;
     
@@ -112,7 +112,7 @@ class JsonLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function loginPath($value): self
+    public function loginPath($value): static
     {
         $this->loginPath = $value;
     
@@ -124,7 +124,7 @@ class JsonLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function usernamePath($value): self
+    public function usernamePath($value): static
     {
         $this->usernamePath = $value;
     
@@ -136,7 +136,7 @@ class JsonLoginConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function passwordPath($value): self
+    public function passwordPath($value): static
     {
         $this->passwordPath = $value;
     

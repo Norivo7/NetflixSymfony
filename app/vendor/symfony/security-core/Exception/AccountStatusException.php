@@ -26,10 +26,8 @@ abstract class AccountStatusException extends AuthenticationException
 
     /**
      * Get the user.
-     *
-     * @return UserInterface|null
      */
-    public function getUser()
+    public function getUser(): ?UserInterface
     {
         return $this->user;
     }

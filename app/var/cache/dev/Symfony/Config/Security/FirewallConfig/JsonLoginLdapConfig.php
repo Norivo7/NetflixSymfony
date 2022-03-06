@@ -33,7 +33,7 @@ class JsonLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function provider($value): self
+    public function provider($value): static
     {
         $this->provider = $value;
     
@@ -45,7 +45,7 @@ class JsonLoginLdapConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function rememberMe($value): self
+    public function rememberMe($value): static
     {
         $this->rememberMe = $value;
     
@@ -57,7 +57,7 @@ class JsonLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function successHandler($value): self
+    public function successHandler($value): static
     {
         $this->successHandler = $value;
     
@@ -69,7 +69,7 @@ class JsonLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function failureHandler($value): self
+    public function failureHandler($value): static
     {
         $this->failureHandler = $value;
     
@@ -81,7 +81,7 @@ class JsonLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function checkPath($value): self
+    public function checkPath($value): static
     {
         $this->checkPath = $value;
     
@@ -93,7 +93,7 @@ class JsonLoginLdapConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function useForward($value): self
+    public function useForward($value): static
     {
         $this->useForward = $value;
     
@@ -105,7 +105,7 @@ class JsonLoginLdapConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function requirePreviousSession($value): self
+    public function requirePreviousSession($value): static
     {
         $this->requirePreviousSession = $value;
     
@@ -117,7 +117,7 @@ class JsonLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function loginPath($value): self
+    public function loginPath($value): static
     {
         $this->loginPath = $value;
     
@@ -129,7 +129,7 @@ class JsonLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function usernamePath($value): self
+    public function usernamePath($value): static
     {
         $this->usernamePath = $value;
     
@@ -141,7 +141,7 @@ class JsonLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function passwordPath($value): self
+    public function passwordPath($value): static
     {
         $this->passwordPath = $value;
     
@@ -153,7 +153,7 @@ class JsonLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function service($value): self
+    public function service($value): static
     {
         $this->service = $value;
     
@@ -165,7 +165,7 @@ class JsonLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function dnString($value): self
+    public function dnString($value): static
     {
         $this->dnString = $value;
     
@@ -177,7 +177,7 @@ class JsonLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function queryString($value): self
+    public function queryString($value): static
     {
         $this->queryString = $value;
     
@@ -188,7 +188,7 @@ class JsonLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function searchDn($value): self
+    public function searchDn($value): static
     {
         $this->searchDn = $value;
     
@@ -199,7 +199,7 @@ class JsonLoginLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function searchPassword($value): self
+    public function searchPassword($value): static
     {
         $this->searchPassword = $value;
     

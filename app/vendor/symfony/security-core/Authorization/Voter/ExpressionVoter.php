@@ -52,7 +52,7 @@ class ExpressionVoter implements CacheableVoterInterface
     /**
      * {@inheritdoc}
      */
-    public function vote(TokenInterface $token, $subject, array $attributes)
+    public function vote(TokenInterface $token, mixed $subject, array $attributes): int
     {
         $result = VoterInterface::ACCESS_ABSTAIN;
         $variables = null;
@@ -74,7 +74,7 @@ class ExpressionVoter implements CacheableVoterInterface
         return $result;
     }
 
-    private function getVariables(TokenInterface $token, $subject): array
+    private function getVariables(TokenInterface $token, mixed $subject): array
     {
         $roleNames = $token->getRoleNames();
 

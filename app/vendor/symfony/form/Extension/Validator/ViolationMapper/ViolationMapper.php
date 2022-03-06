@@ -30,7 +30,7 @@ class ViolationMapper implements ViolationMapperInterface
 {
     private $formRenderer;
     private $translator;
-    private $allowNonSynchronized = false;
+    private bool $allowNonSynchronized = false;
 
     public function __construct(FormRendererInterface $formRenderer = null, TranslatorInterface $translator = null)
     {

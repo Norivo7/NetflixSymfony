@@ -19,7 +19,7 @@ class ViewConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function annotations($value): self
+    public function annotations($value): static
     {
         $this->annotations = $value;
     

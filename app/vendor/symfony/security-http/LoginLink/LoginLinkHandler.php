@@ -30,7 +30,7 @@ final class LoginLinkHandler implements LoginLinkHandlerInterface
 {
     private $urlGenerator;
     private $userProvider;
-    private $options;
+    private array $options;
     private $signatureHashUtil;
 
     public function __construct(UrlGeneratorInterface $urlGenerator, UserProviderInterface $userProvider, SignatureHasher $signatureHashUtil, array $options)
@@ -50,8 +50,7 @@ final class LoginLinkHandler implements LoginLinkHandlerInterface
         $expiresAt = new \DateTimeImmutable('@'.$expires);
 
         $parameters = [
-            // @deprecated since Symfony 5.3, change to $user->getUserIdentifier() in 6.0
-            'user' => method_exists($user, 'getUserIdentifier') ? $user->getUserIdentifier() : $user->getUsername(),
+            'user' => $user->getUserIdentifier(),
             'expires' => $expires,
             'hash' => $this->signatureHashUtil->computeSignatureHash($user, $expires),
         ];
@@ -85,14 +84,7 @@ final class LoginLinkHandler implements LoginLinkHandlerInterface
         $userIdentifier = $request->get('user');
 
         try {
-            // @deprecated since Symfony 5.3, change to $this->userProvider->loadUserByIdentifier() in 6.0
-            if (method_exists($this->userProvider, 'loadUserByIdentifier')) {
-                $user = $this->userProvider->loadUserByIdentifier($userIdentifier);
-            } else {
-                trigger_deprecation('symfony/security-core', '5.3', 'Not implementing method "loadUserByIdentifier()" in user provider "%s" is deprecated. This method will replace "loadUserByUsername()" in Symfony 6.0.', get_debug_type($this->userProvider));
-
-                $user = $this->userProvider->loadUserByUsername($userIdentifier);
-            }
+            $user = $this->userProvider->loadUserByIdentifier($userIdentifier);
         } catch (UserNotFoundException $exception) {
             throw new InvalidLoginLinkException('User not found.', 0, $exception);
         }

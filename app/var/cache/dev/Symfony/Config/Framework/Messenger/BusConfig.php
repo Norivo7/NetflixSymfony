@@ -21,7 +21,7 @@ class BusConfig
      * @param ParamConfigurator|true|false|'allow_no_handlers' $value
      * @return $this
      */
-    public function defaultMiddleware($value): self
+    public function defaultMiddleware($value): static
     {
         $this->defaultMiddleware = $value;
     

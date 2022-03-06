@@ -20,7 +20,7 @@ class HttpCodeConfig
      * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function code($value): self
+    public function code($value): static
     {
         $this->code = $value;
     
@@ -28,10 +28,11 @@ class HttpCodeConfig
     }
     
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function methods($value): self
+    public function methods(ParamConfigurator|array $value): static
     {
         $this->methods = $value;
     

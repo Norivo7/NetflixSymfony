@@ -20,7 +20,7 @@ class RemoteUserConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function provider($value): self
+    public function provider($value): static
     {
         $this->provider = $value;
     
@@ -32,7 +32,7 @@ class RemoteUserConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function user($value): self
+    public function user($value): static
     {
         $this->user = $value;
     

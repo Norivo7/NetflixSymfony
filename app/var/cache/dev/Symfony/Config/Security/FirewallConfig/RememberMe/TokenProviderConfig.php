@@ -22,7 +22,7 @@ class TokenProviderConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function service($value): self
+    public function service($value): static
     {
         $this->service = $value;
     

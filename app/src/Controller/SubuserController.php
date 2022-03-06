@@ -31,10 +31,10 @@ class SubuserController extends AbstractController
      * @Route ("manageUser/add")
      * @return Response
      */
-    public function addSubuser(): Response
+    public function addSubuser(ManagerRegistry $doctrine): Response
     {
         $currentUser = $this->getUser();
-        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager = $doctrine->getManager();
         $subusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
         $subuserCount = count($subusers);
         if ($subuserCount < 5) {
@@ -204,7 +204,7 @@ class SubuserController extends AbstractController
         $subuserId = $request->get('id');
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUserId));
         $currentSubuserId = $allSubusers[$subuserId]->getId();
-        $session = $this->get('session');
+        $session = new Session();
         $session->set('filter', array(
             'subuserId' => $currentSubuserId
         ));
@@ -235,34 +235,5 @@ class SubuserController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route ("/newuser", name="createSubuser")
-     * @param $value
-     * @return Response
-     */
-    public function createSubuser(): Response
-    {
-        $newSubuser = new Subuser();
-
-        $value = "wojtek";
-        $newSubuser->setName($value);
-
-        $currentUser = $this->getUser();
-        $currentUser->getUserIdentifier();
-
-        dump($currentUser);
-        $newSubuser->setSubaccountOf($currentUser);
-        $newSubuser->setAvatar('https://i.imgur.com/9nWtdiZ.png');
-        dump($newSubuser);
-
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($newSubuser);
-        $entityManager->flush();
-
-        return $this->redirectToRoute(
-            'chooseUser',
-            ['subUsers' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))]
-        );
-    }
 
 }

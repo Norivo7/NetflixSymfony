@@ -25,7 +25,7 @@ use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
  */
 class PasswordUpgradeBadge implements BadgeInterface
 {
-    private $plaintextPassword;
+    private ?string $plaintextPassword = null;
     private $passwordUpgrader;
 
     /**

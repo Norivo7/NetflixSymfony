@@ -24,7 +24,7 @@ class PropertyAccessConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled($value): self
+    public function enabled($value): static
     {
         $this->enabled = $value;
     
@@ -36,7 +36,7 @@ class PropertyAccessConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function magicCall($value): self
+    public function magicCall($value): static
     {
         $this->magicCall = $value;
     
@@ -48,7 +48,7 @@ class PropertyAccessConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function magicGet($value): self
+    public function magicGet($value): static
     {
         $this->magicGet = $value;
     
@@ -60,7 +60,7 @@ class PropertyAccessConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function magicSet($value): self
+    public function magicSet($value): static
     {
         $this->magicSet = $value;
     
@@ -72,7 +72,7 @@ class PropertyAccessConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function throwExceptionOnInvalidIndex($value): self
+    public function throwExceptionOnInvalidIndex($value): static
     {
         $this->throwExceptionOnInvalidIndex = $value;
     
@@ -84,7 +84,7 @@ class PropertyAccessConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function throwExceptionOnInvalidPropertyPath($value): self
+    public function throwExceptionOnInvalidPropertyPath($value): static
     {
         $this->throwExceptionOnInvalidPropertyPath = $value;
     

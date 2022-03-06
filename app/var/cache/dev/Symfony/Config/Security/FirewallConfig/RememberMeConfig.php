@@ -35,7 +35,7 @@ class RememberMeConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function secret($value): self
+    public function secret($value): static
     {
         $this->secret = $value;
     
@@ -47,7 +47,7 @@ class RememberMeConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function service($value): self
+    public function service($value): static
     {
         $this->service = $value;
     
@@ -55,10 +55,11 @@ class RememberMeConfig
     }
     
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function userProviders($value): self
+    public function userProviders(ParamConfigurator|array $value): static
     {
         $this->userProviders = $value;
     
@@ -70,7 +71,7 @@ class RememberMeConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function catchExceptions($value): self
+    public function catchExceptions($value): static
     {
         $this->catchExceptions = $value;
     
@@ -78,10 +79,11 @@ class RememberMeConfig
     }
     
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function signatureProperties($value): self
+    public function signatureProperties(ParamConfigurator|array $value): static
     {
         $this->signatureProperties = $value;
     
@@ -105,7 +107,7 @@ class RememberMeConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function tokenVerifier($value): self
+    public function tokenVerifier($value): static
     {
         $this->tokenVerifier = $value;
     
@@ -117,7 +119,7 @@ class RememberMeConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function name($value): self
+    public function name($value): static
     {
         $this->name = $value;
     
@@ -129,7 +131,7 @@ class RememberMeConfig
      * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function lifetime($value): self
+    public function lifetime($value): static
     {
         $this->lifetime = $value;
     
@@ -141,7 +143,7 @@ class RememberMeConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function path($value): self
+    public function path($value): static
     {
         $this->path = $value;
     
@@ -153,7 +155,7 @@ class RememberMeConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function domain($value): self
+    public function domain($value): static
     {
         $this->domain = $value;
     
@@ -165,7 +167,7 @@ class RememberMeConfig
      * @param ParamConfigurator|true|false|'auto' $value
      * @return $this
      */
-    public function secure($value): self
+    public function secure($value): static
     {
         $this->secure = $value;
     
@@ -177,7 +179,7 @@ class RememberMeConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function httponly($value): self
+    public function httponly($value): static
     {
         $this->httponly = $value;
     
@@ -189,7 +191,7 @@ class RememberMeConfig
      * @param ParamConfigurator|NULL|'lax'|'strict'|'none' $value
      * @return $this
      */
-    public function samesite($value): self
+    public function samesite($value): static
     {
         $this->samesite = $value;
     
@@ -201,7 +203,7 @@ class RememberMeConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function alwaysRememberMe($value): self
+    public function alwaysRememberMe($value): static
     {
         $this->alwaysRememberMe = $value;
     
@@ -213,7 +215,7 @@ class RememberMeConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function rememberMeParameter($value): self
+    public function rememberMeParameter($value): static
     {
         $this->rememberMeParameter = $value;
     

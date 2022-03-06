@@ -26,7 +26,7 @@ class MailerConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled($value): self
+    public function enabled($value): static
     {
         $this->enabled = $value;
     
@@ -39,7 +39,7 @@ class MailerConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function messageBus($value): self
+    public function messageBus($value): static
     {
         $this->messageBus = $value;
     
@@ -51,7 +51,7 @@ class MailerConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function dsn($value): self
+    public function dsn($value): static
     {
         $this->dsn = $value;
     
@@ -59,10 +59,9 @@ class MailerConfig
     }
     
     /**
-     * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function transport(string $name, $value): self
+    public function transport(string $name, mixed $value): static
     {
         $this->transports[$name] = $value;
     

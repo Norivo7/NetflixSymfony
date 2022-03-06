@@ -21,7 +21,7 @@ class RequestConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function converters($value): self
+    public function converters($value): static
     {
         $this->converters = $value;
     
@@ -33,7 +33,7 @@ class RequestConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function autoConvert($value): self
+    public function autoConvert($value): static
     {
         $this->autoConvert = $value;
     
@@ -41,10 +41,11 @@ class RequestConfig
     }
     
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function disable($value): self
+    public function disable(ParamConfigurator|array $value): static
     {
         $this->disable = $value;
     

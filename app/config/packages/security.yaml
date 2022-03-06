@@ -1,7 +1,4 @@
 security:
-    encoders:
-        App\Entity\User:
-            algorithm: auto
     enable_authenticator_manager: true
     # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
     password_hashers:
@@ -19,7 +16,9 @@ security:
             security: false
         main:
             form_login:
-                login_path: /login
+                login_path: login
+                check_path: login
+                enable_csrf: true
             http_basic: ~
             lazy: true
             provider: app_user_provider
@@ -39,12 +38,11 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login, roles: PUBLIC_ACCESS }
+        - { path: ^/register, roles: PUBLIC_ACCESS }
         - { path: ^/browse, roles: ROLE_USER }
         - { path: ^/chooseUser, roles: ROLE_USER }
         - { path: ^/newuser, roles: ROLE_USER }
-        #         - { path: ^/, roles: PUBLIC_ACCESS }
         - { path: ^/login, roles: ROLE_USER }
         - { path: ^/admin/*, roles: ROLE_USER }
         # - { path: ^/profile, roles: ROLE_USER }

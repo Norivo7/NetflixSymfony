@@ -29,10 +29,10 @@ class ServicesConfigurator extends AbstractConfigurator
     private $defaults;
     private $container;
     private $loader;
-    private $instanceof;
-    private $path;
-    private $anonymousHash;
-    private $anonymousCount;
+    private array $instanceof;
+    private ?string $path;
+    private string $anonymousHash;
+    private int $anonymousCount;
 
     public function __construct(ContainerBuilder $container, PhpFileLoader $loader, array &$instanceof, string $path = null, int &$anonymousCount = 0)
     {
@@ -101,7 +101,7 @@ class ServicesConfigurator extends AbstractConfigurator
      *
      * @return $this
      */
-    final public function remove(string $id): self
+    final public function remove(string $id): static
     {
         $this->container->removeDefinition($id);
         $this->container->removeAlias($id);

@@ -25,7 +25,7 @@ class HttpBasicLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function provider($value): self
+    public function provider($value): static
     {
         $this->provider = $value;
     
@@ -37,7 +37,7 @@ class HttpBasicLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function realm($value): self
+    public function realm($value): static
     {
         $this->realm = $value;
     
@@ -49,7 +49,7 @@ class HttpBasicLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function service($value): self
+    public function service($value): static
     {
         $this->service = $value;
     
@@ -61,7 +61,7 @@ class HttpBasicLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function dnString($value): self
+    public function dnString($value): static
     {
         $this->dnString = $value;
     
@@ -73,7 +73,7 @@ class HttpBasicLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function queryString($value): self
+    public function queryString($value): static
     {
         $this->queryString = $value;
     
@@ -84,7 +84,7 @@ class HttpBasicLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function searchDn($value): self
+    public function searchDn($value): static
     {
         $this->searchDn = $value;
     
@@ -95,7 +95,7 @@ class HttpBasicLdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function searchPassword($value): self
+    public function searchPassword($value): static
     {
         $this->searchPassword = $value;
     

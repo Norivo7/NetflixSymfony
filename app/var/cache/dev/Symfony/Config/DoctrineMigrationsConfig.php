@@ -28,10 +28,9 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     private $transactional;
     
     /**
-     * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function migrationsPath(string $namespace, $value): self
+    public function migrationsPath(string $namespace, mixed $value): static
     {
         $this->migrationsPaths[$namespace] = $value;
     
@@ -39,10 +38,9 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     }
     
     /**
-     * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function services(string $service, $value): self
+    public function services(string $service, mixed $value): static
     {
         $this->services[$service] = $value;
     
@@ -50,10 +48,9 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     }
     
     /**
-     * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function factories(string $factory, $value): self
+    public function factories(string $factory, mixed $value): static
     {
         $this->factories[$factory] = $value;
     
@@ -72,10 +69,11 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     }
     
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function migrations($value): self
+    public function migrations(ParamConfigurator|array $value): static
     {
         $this->migrations = $value;
     
@@ -88,7 +86,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function connection($value): self
+    public function connection($value): static
     {
         $this->connection = $value;
     
@@ -101,7 +99,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function em($value): self
+    public function em($value): static
     {
         $this->em = $value;
     
@@ -114,7 +112,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function allOrNothing($value): self
+    public function allOrNothing($value): static
     {
         $this->allOrNothing = $value;
     
@@ -127,7 +125,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function checkDatabasePlatform($value): self
+    public function checkDatabasePlatform($value): static
     {
         $this->checkDatabasePlatform = $value;
     
@@ -140,7 +138,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function customTemplate($value): self
+    public function customTemplate($value): static
     {
         $this->customTemplate = $value;
     
@@ -153,7 +151,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function organizeMigrations($value): self
+    public function organizeMigrations($value): static
     {
         $this->organizeMigrations = $value;
     
@@ -166,7 +164,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enableProfiler($value): self
+    public function enableProfiler($value): static
     {
         $this->enableProfiler = $value;
     
@@ -179,7 +177,7 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function transactional($value): self
+    public function transactional($value): static
     {
         $this->transactional = $value;
     

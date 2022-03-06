@@ -3,7 +3,6 @@
 namespace Symfony\Config;
 
 require_once __DIR__.\DIRECTORY_SEPARATOR.'Security'.\DIRECTORY_SEPARATOR.'AccessDecisionManagerConfig.php';
-require_once __DIR__.\DIRECTORY_SEPARATOR.'Security'.\DIRECTORY_SEPARATOR.'EncoderConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'Security'.\DIRECTORY_SEPARATOR.'PasswordHasherConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'Security'.\DIRECTORY_SEPARATOR.'ProviderConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'Security'.\DIRECTORY_SEPARATOR.'FirewallConfig.php';
@@ -21,11 +20,9 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
     private $accessDeniedUrl;
     private $sessionFixationStrategy;
     private $hideUserNotFound;
-    private $alwaysAuthenticateBeforeGranting;
     private $eraseCredentials;
     private $enableAuthenticatorManager;
     private $accessDecisionManager;
-    private $encoders;
     private $passwordHashers;
     private $providers;
     private $firewalls;
@@ -38,7 +35,7 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function accessDeniedUrl($value): self
+    public function accessDeniedUrl($value): static
     {
         $this->accessDeniedUrl = $value;
     
@@ -50,7 +47,7 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
      * @param ParamConfigurator|'none'|'migrate'|'invalidate' $value
      * @return $this
      */
-    public function sessionFixationStrategy($value): self
+    public function sessionFixationStrategy($value): static
     {
         $this->sessionFixationStrategy = $value;
     
@@ -62,22 +59,9 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function hideUserNotFound($value): self
+    public function hideUserNotFound($value): static
     {
         $this->hideUserNotFound = $value;
-    
-        return $this;
-    }
-    
-    /**
-     * @default false
-     * @param ParamConfigurator|bool $value
-     * @deprecated The child node "always_authenticate_before_granting" at path "security" is deprecated.
-     * @return $this
-     */
-    public function alwaysAuthenticateBeforeGranting($value): self
-    {
-        $this->alwaysAuthenticateBeforeGranting = $value;
     
         return $this;
     }
@@ -87,7 +71,7 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function eraseCredentials($value): self
+    public function eraseCredentials($value): static
     {
         $this->eraseCredentials = $value;
     
@@ -95,12 +79,11 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
     }
     
     /**
-     * Enables the new Symfony Security system based on Authenticators, all used authenticators must support this before enabling this.
-     * @default false
+     * @default true
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enableAuthenticatorManager($value): self
+    public function enableAuthenticatorManager($value): static
     {
         $this->enableAuthenticatorManager = $value;
     
@@ -116,18 +99,6 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
         }
     
         return $this->accessDecisionManager;
-    }
-    
-    public function encoder(string $class, array $value = []): \Symfony\Config\Security\EncoderConfig
-    {
-        if (!isset($this->encoders[$class])) {
-            return $this->encoders[$class] = new \Symfony\Config\Security\EncoderConfig($value);
-        }
-        if ([] === $value) {
-            return $this->encoders[$class];
-        }
-    
-        throw new InvalidConfigurationException('The node created by "encoder()" has already been initialized. You cannot pass values the second time you call encoder().');
     }
     
     public function passwordHasher(string $class, array $value = []): \Symfony\Config\Security\PasswordHasherConfig
@@ -172,10 +143,9 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
     }
     
     /**
-     * @param ParamConfigurator|array $value
      * @return $this
      */
-    public function roleHierarchy(string $id, $value): self
+    public function roleHierarchy(string $id, ParamConfigurator|array $value): static
     {
         $this->roleHierarchy[$id] = $value;
     
@@ -205,11 +175,6 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
             unset($value['hide_user_not_found']);
         }
     
-        if (isset($value['always_authenticate_before_granting'])) {
-            $this->alwaysAuthenticateBeforeGranting = $value['always_authenticate_before_granting'];
-            unset($value['always_authenticate_before_granting']);
-        }
-    
         if (isset($value['erase_credentials'])) {
             $this->eraseCredentials = $value['erase_credentials'];
             unset($value['erase_credentials']);
@@ -223,11 +188,6 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
         if (isset($value['access_decision_manager'])) {
             $this->accessDecisionManager = new \Symfony\Config\Security\AccessDecisionManagerConfig($value['access_decision_manager']);
             unset($value['access_decision_manager']);
-        }
-    
-        if (isset($value['encoders'])) {
-            $this->encoders = array_map(function ($v) { return new \Symfony\Config\Security\EncoderConfig($v); }, $value['encoders']);
-            unset($value['encoders']);
         }
     
         if (isset($value['password_hashers'])) {
@@ -272,9 +232,6 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
         if (null !== $this->hideUserNotFound) {
             $output['hide_user_not_found'] = $this->hideUserNotFound;
         }
-        if (null !== $this->alwaysAuthenticateBeforeGranting) {
-            $output['always_authenticate_before_granting'] = $this->alwaysAuthenticateBeforeGranting;
-        }
         if (null !== $this->eraseCredentials) {
             $output['erase_credentials'] = $this->eraseCredentials;
         }
@@ -283,9 +240,6 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
         }
         if (null !== $this->accessDecisionManager) {
             $output['access_decision_manager'] = $this->accessDecisionManager->toArray();
-        }
-        if (null !== $this->encoders) {
-            $output['encoders'] = array_map(function ($v) { return $v->toArray(); }, $this->encoders);
         }
         if (null !== $this->passwordHashers) {
             $output['password_hashers'] = array_map(function ($v) { return $v->toArray(); }, $this->passwordHashers);

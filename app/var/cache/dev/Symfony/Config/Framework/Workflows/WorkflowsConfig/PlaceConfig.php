@@ -20,7 +20,7 @@ class PlaceConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function name($value): self
+    public function name($value): static
     {
         $this->name = $value;
     
@@ -28,10 +28,11 @@ class PlaceConfig
     }
     
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function metadata($value): self
+    public function metadata(ParamConfigurator|array $value): static
     {
         $this->metadata = $value;
     

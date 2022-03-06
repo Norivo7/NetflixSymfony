@@ -23,7 +23,7 @@ class LoginThrottlingConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function limiter($value): self
+    public function limiter($value): static
     {
         $this->limiter = $value;
     
@@ -35,7 +35,7 @@ class LoginThrottlingConfig
      * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function maxAttempts($value): self
+    public function maxAttempts($value): static
     {
         $this->maxAttempts = $value;
     
@@ -47,7 +47,7 @@ class LoginThrottlingConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function interval($value): self
+    public function interval($value): static
     {
         $this->interval = $value;
     
@@ -60,7 +60,7 @@ class LoginThrottlingConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function lockFactory($value): self
+    public function lockFactory($value): static
     {
         $this->lockFactory = $value;
     

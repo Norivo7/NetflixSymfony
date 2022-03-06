@@ -24,7 +24,7 @@ class PseudoLocalizationConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled($value): self
+    public function enabled($value): static
     {
         $this->enabled = $value;
     
@@ -36,7 +36,7 @@ class PseudoLocalizationConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function accents($value): self
+    public function accents($value): static
     {
         $this->accents = $value;
     
@@ -48,7 +48,7 @@ class PseudoLocalizationConfig
      * @param ParamConfigurator|float $value
      * @return $this
      */
-    public function expansionFactor($value): self
+    public function expansionFactor($value): static
     {
         $this->expansionFactor = $value;
     
@@ -60,7 +60,7 @@ class PseudoLocalizationConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function brackets($value): self
+    public function brackets($value): static
     {
         $this->brackets = $value;
     
@@ -72,7 +72,7 @@ class PseudoLocalizationConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function parseHtml($value): self
+    public function parseHtml($value): static
     {
         $this->parseHtml = $value;
     
@@ -80,10 +80,11 @@ class PseudoLocalizationConfig
     }
     
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function localizableHtmlAttributes($value): self
+    public function localizableHtmlAttributes(ParamConfigurator|array $value): static
     {
         $this->localizableHtmlAttributes = $value;
     

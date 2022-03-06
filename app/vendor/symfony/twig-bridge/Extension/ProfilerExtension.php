@@ -26,7 +26,7 @@ final class ProfilerExtension extends BaseProfilerExtension
     /**
      * @var \SplObjectStorage<Profile, StopwatchEvent>
      */
-    private $events;
+    private \SplObjectStorage $events;
 
     public function __construct(Profile $profile, Stopwatch $stopwatch = null)
     {

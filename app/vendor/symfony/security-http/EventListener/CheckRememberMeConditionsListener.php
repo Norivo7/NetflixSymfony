@@ -35,7 +35,7 @@ use Symfony\Component\Security\Http\ParameterBagUtils;
  */
 class CheckRememberMeConditionsListener implements EventSubscriberInterface
 {
-    private $options;
+    private array $options;
     private $logger;
 
     public function __construct(array $options = [], LoggerInterface $logger = null)

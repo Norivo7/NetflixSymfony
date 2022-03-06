@@ -21,7 +21,7 @@ class MarkingStoreConfig
      * @param ParamConfigurator|'method' $value
      * @return $this
      */
-    public function type($value): self
+    public function type($value): static
     {
         $this->type = $value;
     
@@ -33,7 +33,7 @@ class MarkingStoreConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function property($value): self
+    public function property($value): static
     {
         $this->property = $value;
     
@@ -45,7 +45,7 @@ class MarkingStoreConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function service($value): self
+    public function service($value): static
     {
         $this->service = $value;
     

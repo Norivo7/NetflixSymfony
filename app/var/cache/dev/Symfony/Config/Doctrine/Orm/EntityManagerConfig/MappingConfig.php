@@ -24,7 +24,7 @@ class MappingConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function mapping($value): self
+    public function mapping($value): static
     {
         $this->mapping = $value;
     
@@ -36,7 +36,7 @@ class MappingConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function type($value): self
+    public function type($value): static
     {
         $this->type = $value;
     
@@ -48,7 +48,7 @@ class MappingConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function dir($value): self
+    public function dir($value): static
     {
         $this->dir = $value;
     
@@ -60,7 +60,7 @@ class MappingConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function alias($value): self
+    public function alias($value): static
     {
         $this->alias = $value;
     
@@ -72,7 +72,7 @@ class MappingConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function prefix($value): self
+    public function prefix($value): static
     {
         $this->prefix = $value;
     
@@ -84,7 +84,7 @@ class MappingConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function isBundle($value): self
+    public function isBundle($value): static
     {
         $this->isBundle = $value;
     

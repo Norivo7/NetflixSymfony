@@ -22,7 +22,7 @@ use Symfony\Contracts\EventDispatcher\Event;
 class LogoutEvent extends Event
 {
     private $request;
-    private $response;
+    private $response = null;
     private $token;
 
     public function __construct(Request $request, ?TokenInterface $token)

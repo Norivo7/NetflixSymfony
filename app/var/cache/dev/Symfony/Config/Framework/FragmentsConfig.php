@@ -21,7 +21,7 @@ class FragmentsConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled($value): self
+    public function enabled($value): static
     {
         $this->enabled = $value;
     
@@ -33,7 +33,7 @@ class FragmentsConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function hincludeDefaultTemplate($value): self
+    public function hincludeDefaultTemplate($value): static
     {
         $this->hincludeDefaultTemplate = $value;
     
@@ -45,7 +45,7 @@ class FragmentsConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function path($value): self
+    public function path($value): static
     {
         $this->path = $value;
     

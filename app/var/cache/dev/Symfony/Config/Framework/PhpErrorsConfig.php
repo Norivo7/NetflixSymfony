@@ -20,9 +20,10 @@ class PhpErrorsConfig
      * @example "true" to use the default configuration: log all errors. "false" to disable. An integer bit field of E_* constants, or an array mapping E_* constants to log levels.
      * @default true
      * @param ParamConfigurator|mixed $value
+     *
      * @return $this
      */
-    public function log($value = true): self
+    public function log(mixed $value = true): static
     {
         $this->log = $value;
     
@@ -35,7 +36,7 @@ class PhpErrorsConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function throw($value): self
+    public function throw($value): static
     {
         $this->throw = $value;
     

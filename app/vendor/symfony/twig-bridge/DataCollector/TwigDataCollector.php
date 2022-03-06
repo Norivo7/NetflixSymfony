@@ -30,7 +30,7 @@ class TwigDataCollector extends DataCollector implements LateDataCollectorInterf
 {
     private $profile;
     private $twig;
-    private $computed;
+    private array $computed;
 
     public function __construct(Profile $profile, Environment $twig = null)
     {
@@ -51,7 +51,7 @@ class TwigDataCollector extends DataCollector implements LateDataCollectorInterf
     public function reset()
     {
         $this->profile->reset();
-        $this->computed = null;
+        unset($this->computed);
         $this->data = [];
     }
 
@@ -140,18 +140,12 @@ class TwigDataCollector extends DataCollector implements LateDataCollectorInterf
 
     public function getProfile()
     {
-        if (null === $this->profile) {
-            $this->profile = unserialize($this->data['profile'], ['allowed_classes' => ['Twig_Profiler_Profile', 'Twig\Profiler\Profile']]);
-        }
-
-        return $this->profile;
+        return $this->profile ??= unserialize($this->data['profile'], ['allowed_classes' => ['Twig_Profiler_Profile', 'Twig\Profiler\Profile']]);
     }
 
     private function getComputedData(string $index)
     {
-        if (null === $this->computed) {
-            $this->computed = $this->computeData($this->getProfile());
-        }
+        $this->computed ??= $this->computeData($this->getProfile());
 
         return $this->computed[$index];
     }

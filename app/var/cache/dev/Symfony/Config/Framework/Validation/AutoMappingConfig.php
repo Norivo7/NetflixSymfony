@@ -15,10 +15,11 @@ class AutoMappingConfig
     private $services;
     
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function services($value): self
+    public function services(ParamConfigurator|array $value): static
     {
         $this->services = $value;
     

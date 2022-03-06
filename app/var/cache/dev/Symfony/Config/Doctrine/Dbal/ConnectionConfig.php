@@ -74,7 +74,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function url($value): self
+    public function url($value): static
     {
         $this->url = $value;
     
@@ -86,7 +86,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function dbname($value): self
+    public function dbname($value): static
     {
         $this->dbname = $value;
     
@@ -99,7 +99,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function host($value): self
+    public function host($value): static
     {
         $this->host = $value;
     
@@ -112,7 +112,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function port($value): self
+    public function port($value): static
     {
         $this->port = $value;
     
@@ -125,7 +125,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function user($value): self
+    public function user($value): static
     {
         $this->user = $value;
     
@@ -138,7 +138,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function password($value): self
+    public function password($value): static
     {
         $this->password = $value;
     
@@ -151,7 +151,7 @@ class ConnectionConfig
      * @deprecated The "doctrine.dbal.override_url" configuration key is deprecated.
      * @return $this
      */
-    public function overrideUrl($value): self
+    public function overrideUrl($value): static
     {
         $this->overrideUrl = $value;
     
@@ -163,7 +163,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function dbnameSuffix($value): self
+    public function dbnameSuffix($value): static
     {
         $this->dbnameSuffix = $value;
     
@@ -175,7 +175,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function applicationName($value): self
+    public function applicationName($value): static
     {
         $this->applicationName = $value;
     
@@ -187,7 +187,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function charset($value): self
+    public function charset($value): static
     {
         $this->charset = $value;
     
@@ -199,7 +199,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function path($value): self
+    public function path($value): static
     {
         $this->path = $value;
     
@@ -211,7 +211,7 @@ class ConnectionConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function memory($value): self
+    public function memory($value): static
     {
         $this->memory = $value;
     
@@ -224,7 +224,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function unixSocket($value): self
+    public function unixSocket($value): static
     {
         $this->unixSocket = $value;
     
@@ -237,7 +237,7 @@ class ConnectionConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function persistent($value): self
+    public function persistent($value): static
     {
         $this->persistent = $value;
     
@@ -250,7 +250,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function protocol($value): self
+    public function protocol($value): static
     {
         $this->protocol = $value;
     
@@ -263,7 +263,7 @@ class ConnectionConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function service($value): self
+    public function service($value): static
     {
         $this->service = $value;
     
@@ -276,7 +276,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function servicename($value): self
+    public function servicename($value): static
     {
         $this->servicename = $value;
     
@@ -289,7 +289,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function sessionMode($value): self
+    public function sessionMode($value): static
     {
         $this->sessionMode = $value;
     
@@ -302,7 +302,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function server($value): self
+    public function server($value): static
     {
         $this->server = $value;
     
@@ -315,7 +315,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function defaultDbname($value): self
+    public function defaultDbname($value): static
     {
         $this->defaultDbname = $value;
     
@@ -328,7 +328,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function sslmode($value): self
+    public function sslmode($value): static
     {
         $this->sslmode = $value;
     
@@ -341,7 +341,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function sslrootcert($value): self
+    public function sslrootcert($value): static
     {
         $this->sslrootcert = $value;
     
@@ -354,7 +354,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function sslcert($value): self
+    public function sslcert($value): static
     {
         $this->sslcert = $value;
     
@@ -367,7 +367,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function sslkey($value): self
+    public function sslkey($value): static
     {
         $this->sslkey = $value;
     
@@ -380,7 +380,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function sslcrl($value): self
+    public function sslcrl($value): static
     {
         $this->sslcrl = $value;
     
@@ -393,7 +393,7 @@ class ConnectionConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function pooled($value): self
+    public function pooled($value): static
     {
         $this->pooled = $value;
     
@@ -406,7 +406,7 @@ class ConnectionConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function multipleActiveResultSets($value): self
+    public function multipleActiveResultSets($value): static
     {
         $this->multipleActiveResultSets = $value;
     
@@ -419,7 +419,7 @@ class ConnectionConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function useSavepoints($value): self
+    public function useSavepoints($value): static
     {
         $this->useSavepoints = $value;
     
@@ -432,7 +432,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function instancename($value): self
+    public function instancename($value): static
     {
         $this->instancename = $value;
     
@@ -445,7 +445,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function connectstring($value): self
+    public function connectstring($value): static
     {
         $this->connectstring = $value;
     
@@ -457,7 +457,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function driver($value): self
+    public function driver($value): static
     {
         $this->driver = $value;
     
@@ -469,7 +469,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function platformService($value): self
+    public function platformService($value): static
     {
         $this->platformService = $value;
     
@@ -481,7 +481,7 @@ class ConnectionConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function autoCommit($value): self
+    public function autoCommit($value): static
     {
         $this->autoCommit = $value;
     
@@ -493,7 +493,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function schemaFilter($value): self
+    public function schemaFilter($value): static
     {
         $this->schemaFilter = $value;
     
@@ -505,7 +505,7 @@ class ConnectionConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function logging($value): self
+    public function logging($value): static
     {
         $this->logging = $value;
     
@@ -517,7 +517,7 @@ class ConnectionConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function profiling($value): self
+    public function profiling($value): static
     {
         $this->profiling = $value;
     
@@ -530,7 +530,7 @@ class ConnectionConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function profilingCollectBacktrace($value): self
+    public function profilingCollectBacktrace($value): static
     {
         $this->profilingCollectBacktrace = $value;
     
@@ -543,7 +543,7 @@ class ConnectionConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function profilingCollectSchemaErrors($value): self
+    public function profilingCollectSchemaErrors($value): static
     {
         $this->profilingCollectSchemaErrors = $value;
     
@@ -555,7 +555,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function serverVersion($value): self
+    public function serverVersion($value): static
     {
         $this->serverVersion = $value;
     
@@ -567,7 +567,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function driverClass($value): self
+    public function driverClass($value): static
     {
         $this->driverClass = $value;
     
@@ -579,7 +579,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function wrapperClass($value): self
+    public function wrapperClass($value): static
     {
         $this->wrapperClass = $value;
     
@@ -591,7 +591,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function shardManagerClass($value): self
+    public function shardManagerClass($value): static
     {
         $this->shardManagerClass = $value;
     
@@ -603,7 +603,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function shardChoser($value): self
+    public function shardChoser($value): static
     {
         $this->shardChoser = $value;
     
@@ -615,7 +615,7 @@ class ConnectionConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function shardChoserService($value): self
+    public function shardChoserService($value): static
     {
         $this->shardChoserService = $value;
     
@@ -628,7 +628,7 @@ class ConnectionConfig
      * @deprecated The "keep_slave" configuration key is deprecated since doctrine-bundle 2.2. Use the "keep_replica" configuration key instead.
      * @return $this
      */
-    public function keepSlave($value): self
+    public function keepSlave($value): static
     {
         $this->keepSlave = $value;
     
@@ -640,7 +640,7 @@ class ConnectionConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function keepReplica($value): self
+    public function keepReplica($value): static
     {
         $this->keepReplica = $value;
     
@@ -648,10 +648,9 @@ class ConnectionConfig
     }
     
     /**
-     * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function option(string $key, $value): self
+    public function option(string $key, mixed $value): static
     {
         $this->options[$key] = $value;
     
@@ -659,10 +658,9 @@ class ConnectionConfig
     }
     
     /**
-     * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function mappingType(string $name, $value): self
+    public function mappingType(string $name, mixed $value): static
     {
         $this->mappingTypes[$name] = $value;
     
@@ -670,10 +668,9 @@ class ConnectionConfig
     }
     
     /**
-     * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function defaultTableOption(string $name, $value): self
+    public function defaultTableOption(string $name, mixed $value): static
     {
         $this->defaultTableOptions[$name] = $value;
     

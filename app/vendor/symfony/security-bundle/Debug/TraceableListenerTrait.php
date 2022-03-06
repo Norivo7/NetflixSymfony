@@ -21,10 +21,10 @@ use Symfony\Component\VarDumper\Caster\ClassStub;
  */
 trait TraceableListenerTrait
 {
-    private $response;
-    private $listener;
-    private $time;
-    private $stub;
+    private $response = null;
+    private mixed $listener;
+    private ?float $time = null;
+    private object $stub;
 
     /**
      * Proxies all method calls to the original listener.

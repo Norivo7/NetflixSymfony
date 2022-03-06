@@ -27,9 +27,9 @@ class TraceableAccessDecisionManager implements AccessDecisionManagerInterface
     private $manager;
     private $strategy;
     /** @var iterable<mixed, VoterInterface> */
-    private $voters = [];
-    private $decisionLog = []; // All decision logs
-    private $currentLog = [];  // Logs being filled in
+    private iterable $voters = [];
+    private array $decisionLog = []; // All decision logs
+    private array $currentLog = [];  // Logs being filled in
 
     public function __construct(AccessDecisionManagerInterface $manager)
     {
@@ -48,10 +48,8 @@ class TraceableAccessDecisionManager implements AccessDecisionManagerInterface
 
     /**
      * {@inheritdoc}
-     *
-     * @param bool $allowMultipleAttributes Whether to allow passing multiple values to the $attributes array
      */
-    public function decide(TokenInterface $token, array $attributes, $object = null/*, bool $allowMultipleAttributes = false*/): bool
+    public function decide(TokenInterface $token, array $attributes, mixed $object = null, bool $allowMultipleAttributes = false): bool
     {
         $currentDecisionLog = [
             'attributes' => $attributes,
@@ -61,7 +59,7 @@ class TraceableAccessDecisionManager implements AccessDecisionManagerInterface
 
         $this->currentLog[] = &$currentDecisionLog;
 
-        $result = $this->manager->decide($token, $attributes, $object, 3 < \func_num_args() && func_get_arg(3));
+        $result = $this->manager->decide($token, $attributes, $object, $allowMultipleAttributes);
 
         $currentDecisionLog['result'] = $result;
 

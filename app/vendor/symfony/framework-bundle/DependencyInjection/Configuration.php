@@ -12,8 +12,6 @@
 namespace Symfony\Bundle\FrameworkBundle\DependencyInjection;
 
 use Doctrine\Common\Annotations\Annotation;
-use Doctrine\Common\Annotations\PsrCachedReader;
-use Doctrine\Common\Cache\Cache;
 use Doctrine\DBAL\Connection;
 use Psr\Log\LogLevel;
 use Symfony\Bundle\FullStack;
@@ -49,7 +47,7 @@ use Symfony\Component\Workflow\WorkflowEvents;
  */
 class Configuration implements ConfigurationInterface
 {
-    private $debug;
+    private bool $debug;
 
     /**
      * @param bool $debug Whether debugging is enabled or not
@@ -61,10 +59,8 @@ class Configuration implements ConfigurationInterface
 
     /**
      * Generates the configuration tree builder.
-     *
-     * @return TreeBuilder
      */
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('framework');
         $rootNode = $treeBuilder->getRootNode();
@@ -127,7 +123,7 @@ class Configuration implements ConfigurationInterface
             $parentPackages = (array) $parentPackage;
             $parentPackages[] = 'symfony/framework-bundle';
 
-            return ContainerBuilder::willBeAvailable($package, $class, $parentPackages, true);
+            return ContainerBuilder::willBeAvailable($package, $class, $parentPackages);
         };
 
         $enableIfStandalone = static function (string $package, string $class) use ($willBeAvailable) {
@@ -221,18 +217,8 @@ class Configuration implements ConfigurationInterface
                                 ->scalarNode('field_name')->defaultValue('_token')->end()
                             ->end()
                         ->end()
-                        // to be set to false in Symfony 6.0
-                        ->booleanNode('legacy_error_messages')
-                            ->defaultTrue()
-                            ->validate()
-                                ->ifTrue()
-                                ->then(function ($v) {
-                                    trigger_deprecation('symfony/framework-bundle', '5.2', 'Setting the "framework.form.legacy_error_messages" option to "true" is deprecated. It will have no effect as of Symfony 6.0.');
-
-                                    return $v;
-                                })
-                            ->end()
-                        ->end()
+                        // to be deprecated in Symfony 6.1
+                        ->booleanNode('legacy_error_messages')->end()
                     ->end()
                 ->end()
             ->end()
@@ -319,7 +305,6 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('collect_parameter')->defaultNull()->info('The name of the parameter to use to enable or disable collection on a per request basis')->end()
                         ->booleanNode('only_exceptions')->defaultFalse()->end()
                         ->booleanNode('only_main_requests')->defaultFalse()->end()
-                        ->booleanNode('only_master_requests')->setDeprecated('symfony/framework-bundle', '5.3', 'Option "%node%" at "%path%" is deprecated, use "only_main_requests" instead.')->defaultFalse()->end()
                         ->scalarNode('dsn')->defaultValue('file:%kernel.cache_dir%/profiler')->end()
                     ->end()
                 ->end()
@@ -615,7 +600,7 @@ class Configuration implements ConfigurationInterface
                             )
                             ->defaultTrue()
                         ->end()
-                        ->booleanNode('utf8')->defaultNull()->end()
+                        ->booleanNode('utf8')->defaultTrue()->end()
                     ->end()
                 ->end()
             ->end()
@@ -629,15 +614,8 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('session')
                     ->info('session configuration')
                     ->canBeEnabled()
-                    ->beforeNormalization()
-                        ->ifTrue(function ($v) {
-                            return \is_array($v) && isset($v['storage_id']) && isset($v['storage_factory_id']);
-                        })
-                        ->thenInvalid('You cannot use both "storage_id" and "storage_factory_id" at the same time under "framework.session"')
-                    ->end()
                     ->children()
-                        ->scalarNode('storage_id')->defaultValue('session.storage.native')->end()
-                        ->scalarNode('storage_factory_id')->defaultNull()->end()
+                        ->scalarNode('storage_factory_id')->defaultValue('session.storage.factory.native')->end()
                         ->scalarNode('handler_id')->defaultValue('session.handler.native_file')->end()
                         ->scalarNode('name')
                             ->validate()
@@ -809,7 +787,6 @@ class Configuration implements ConfigurationInterface
                     ->{$enableIfStandalone('symfony/translation', Translator::class)}()
                     ->fixXmlConfig('fallback')
                     ->fixXmlConfig('path')
-                    ->fixXmlConfig('enabled_locale')
                     ->fixXmlConfig('provider')
                     ->children()
                         ->arrayNode('fallbacks')
@@ -827,11 +804,6 @@ class Configuration implements ConfigurationInterface
                         ->end()
                         ->arrayNode('paths')
                             ->prototype('scalar')->end()
-                        ->end()
-                        ->arrayNode('enabled_locales')
-                            ->setDeprecated('symfony/framework-bundle', '5.3', 'Option "%node%" at "%path%" is deprecated, set the "framework.enabled_locales" option instead.')
-                            ->prototype('scalar')->end()
-                            ->defaultValue([])
                         ->end()
                         ->arrayNode('pseudo_localization')
                             ->canBeEnabled()
@@ -885,7 +857,7 @@ class Configuration implements ConfigurationInterface
                     ->{$enableIfStandalone('symfony/validator', Validation::class)}()
                     ->children()
                         ->scalarNode('cache')->end()
-                        ->booleanNode('enable_annotations')->{!class_exists(FullStack::class) && (\PHP_VERSION_ID >= 80000 || $willBeAvailable('doctrine/annotations', Annotation::class, 'symfony/validator')) ? 'defaultTrue' : 'defaultFalse'}()->end()
+                        ->booleanNode('enable_annotations')->{!class_exists(FullStack::class) ? 'defaultTrue' : 'defaultFalse'}()->end()
                         ->arrayNode('static_method')
                             ->defaultValue(['loadValidatorMetadata'])
                             ->prototype('scalar')->end()
@@ -968,16 +940,16 @@ class Configuration implements ConfigurationInterface
 
     private function addAnnotationsSection(ArrayNodeDefinition $rootNode, callable $willBeAvailable)
     {
-        $doctrineCache = $willBeAvailable('doctrine/cache', Cache::class, 'doctrine/annotations');
-        $psr6Cache = $willBeAvailable('symfony/cache', PsrCachedReader::class, 'doctrine/annotations');
-
         $rootNode
             ->children()
                 ->arrayNode('annotations')
                     ->info('annotation configuration')
                     ->{$willBeAvailable('doctrine/annotations', Annotation::class) ? 'canBeDisabled' : 'canBeEnabled'}()
                     ->children()
-                        ->scalarNode('cache')->defaultValue(($doctrineCache || $psr6Cache) ? 'php_array' : 'none')->end()
+                        ->enumNode('cache')
+                            ->values(['none', 'php_array', 'file'])
+                            ->defaultValue('php_array')
+                        ->end()
                         ->scalarNode('file_cache_dir')->defaultValue('%kernel.cache_dir%/annotations')->end()
                         ->booleanNode('debug')->defaultValue($this->debug)->end()
                     ->end()
@@ -994,7 +966,7 @@ class Configuration implements ConfigurationInterface
                     ->info('serializer configuration')
                     ->{$enableIfStandalone('symfony/serializer', Serializer::class)}()
                     ->children()
-                        ->booleanNode('enable_annotations')->{!class_exists(FullStack::class) && (\PHP_VERSION_ID >= 80000 || $willBeAvailable('doctrine/annotations', Annotation::class, 'symfony/serializer')) ? 'defaultTrue' : 'defaultFalse'}()->end()
+                        ->booleanNode('enable_annotations')->{!class_exists(FullStack::class) ? 'defaultTrue' : 'defaultFalse'}()->end()
                         ->scalarNode('name_converter')->end()
                         ->scalarNode('circular_reference_handler')->end()
                         ->scalarNode('max_depth_handler')->end()
@@ -1074,7 +1046,6 @@ class Configuration implements ConfigurationInterface
                             ->defaultValue('cache.adapter.system')
                         ->end()
                         ->scalarNode('directory')->defaultValue('%kernel.cache_dir%/pools/app')->end()
-                        ->scalarNode('default_doctrine_provider')->end()
                         ->scalarNode('default_psr6_provider')->end()
                         ->scalarNode('default_redis_provider')->defaultValue('redis://localhost')->end()
                         ->scalarNode('default_memcached_provider')->defaultValue('memcached://localhost')->end()
@@ -1453,8 +1424,12 @@ class Configuration implements ConfigurationInterface
                             ->info('Transport name to send failed messages to (after all retries have failed).')
                         ->end()
                         ->booleanNode('reset_on_message')
-                            ->defaultNull()
+                            ->defaultTrue()
                             ->info('Reset container services after each message.')
+                            ->validate()
+                                ->ifTrue(static fn ($v) => true !== $v)
+                                ->thenInvalid('The "framework.messenger.reset_on_message" configuration option can be set to "true" only. To prevent services resetting after each message you can set the "--no-reset" option in "messenger:consume" command.')
+                            ->end()
                         ->end()
                         ->scalarNode('default_bus')->defaultNull()->end()
                         ->arrayNode('buses')

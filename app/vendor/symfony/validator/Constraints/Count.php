@@ -43,13 +43,8 @@ class Count extends Constraint
     public $max;
     public $divisibleBy;
 
-    /**
-     * {@inheritdoc}
-     *
-     * @param int|array|null $exactly The expected exact count or a set of options
-     */
     public function __construct(
-        $exactly = null,
+        int|array $exactly = null,
         int $min = null,
         int $max = null,
         int $divisibleBy = null,
@@ -58,7 +53,7 @@ class Count extends Constraint
         string $maxMessage = null,
         string $divisibleByMessage = null,
         array $groups = null,
-        $payload = null,
+        mixed $payload = null,
         array $options = []
     ) {
         if (\is_array($exactly)) {

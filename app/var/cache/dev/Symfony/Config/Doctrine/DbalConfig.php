@@ -23,7 +23,7 @@ class DbalConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function defaultConnection($value): self
+    public function defaultConnection($value): static
     {
         $this->defaultConnection = $value;
     

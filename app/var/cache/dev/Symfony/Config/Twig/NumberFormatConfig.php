@@ -21,7 +21,7 @@ class NumberFormatConfig
      * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function decimals($value): self
+    public function decimals($value): static
     {
         $this->decimals = $value;
     
@@ -33,7 +33,7 @@ class NumberFormatConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function decimalPoint($value): self
+    public function decimalPoint($value): static
     {
         $this->decimalPoint = $value;
     
@@ -45,7 +45,7 @@ class NumberFormatConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function thousandsSeparator($value): self
+    public function thousandsSeparator($value): static
     {
         $this->thousandsSeparator = $value;
     

@@ -20,6 +20,7 @@ use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\VarDumper\Caster\Caster;
 use Symfony\Component\VarDumper\Caster\ClassStub;
 use Symfony\Component\VarDumper\Caster\StubCaster;
+use Symfony\Component\VarDumper\Cloner\Data;
 use Symfony\Component\VarDumper\Cloner\Stub;
 
 /**
@@ -40,10 +41,8 @@ class FormDataCollector extends DataCollector implements FormDataCollectorInterf
      * Uses the hashes of the forms as keys. This is preferable over using
      * {@link \SplObjectStorage}, because in this way no references are kept
      * to the {@link FormInterface} instances.
-     *
-     * @var array
      */
-    private $dataByForm;
+    private array $dataByForm;
 
     /**
      * Stores the collected data per {@link FormView} instance.
@@ -51,10 +50,8 @@ class FormDataCollector extends DataCollector implements FormDataCollectorInterf
      * Uses the hashes of the views as keys. This is preferable over using
      * {@link \SplObjectStorage}, because in this way no references are kept
      * to the {@link FormView} instances.
-     *
-     * @var array
      */
-    private $dataByView;
+    private array $dataByView;
 
     /**
      * Connects {@link FormView} with {@link FormInterface} instances.
@@ -62,10 +59,8 @@ class FormDataCollector extends DataCollector implements FormDataCollectorInterf
      * Uses the hashes of the views as keys and the hashes of the forms as
      * values. This is preferable over storing the objects directly, because
      * this way they can safely be discarded by the GC.
-     *
-     * @var array
      */
-    private $formsByView;
+    private array $formsByView;
 
     public function __construct(FormDataExtractorInterface $dataExtractor)
     {
@@ -227,7 +222,7 @@ class FormDataCollector extends DataCollector implements FormDataCollectorInterf
     /**
      * {@inheritdoc}
      */
-    public function getData()
+    public function getData(): array|Data
     {
         return $this->data;
     }

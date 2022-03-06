@@ -20,7 +20,7 @@ class SymfonycastsVerifyEmailConfig implements \Symfony\Component\Config\Builder
      * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function lifetime($value): self
+    public function lifetime($value): static
     {
         $this->lifetime = $value;
     

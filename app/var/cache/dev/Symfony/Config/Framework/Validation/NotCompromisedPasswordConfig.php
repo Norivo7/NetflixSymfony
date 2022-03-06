@@ -21,7 +21,7 @@ class NotCompromisedPasswordConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled($value): self
+    public function enabled($value): static
     {
         $this->enabled = $value;
     
@@ -34,7 +34,7 @@ class NotCompromisedPasswordConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function endpoint($value): self
+    public function endpoint($value): static
     {
         $this->endpoint = $value;
     

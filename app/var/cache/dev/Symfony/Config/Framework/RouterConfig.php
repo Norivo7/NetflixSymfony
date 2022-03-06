@@ -26,7 +26,7 @@ class RouterConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled($value): self
+    public function enabled($value): static
     {
         $this->enabled = $value;
     
@@ -38,7 +38,7 @@ class RouterConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function resource($value): self
+    public function resource($value): static
     {
         $this->resource = $value;
     
@@ -50,7 +50,7 @@ class RouterConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function type($value): self
+    public function type($value): static
     {
         $this->type = $value;
     
@@ -63,7 +63,7 @@ class RouterConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function defaultUri($value): self
+    public function defaultUri($value): static
     {
         $this->defaultUri = $value;
     
@@ -75,7 +75,7 @@ class RouterConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function httpPort($value): self
+    public function httpPort($value): static
     {
         $this->httpPort = $value;
     
@@ -87,7 +87,7 @@ class RouterConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function httpsPort($value): self
+    public function httpsPort($value): static
     {
         $this->httpsPort = $value;
     
@@ -103,7 +103,7 @@ class RouterConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function strictRequirements($value): self
+    public function strictRequirements($value): static
     {
         $this->strictRequirements = $value;
     
@@ -111,11 +111,11 @@ class RouterConfig
     }
     
     /**
-     * @default null
+     * @default true
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function utf8($value): self
+    public function utf8($value): static
     {
         $this->utf8 = $value;
     

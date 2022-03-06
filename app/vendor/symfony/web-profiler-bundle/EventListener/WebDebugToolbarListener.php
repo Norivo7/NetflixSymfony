@@ -40,11 +40,11 @@ class WebDebugToolbarListener implements EventSubscriberInterface
     public const DISABLED = 1;
     public const ENABLED = 2;
 
-    protected $twig;
-    protected $urlGenerator;
-    protected $interceptRedirects;
-    protected $mode;
-    protected $excludedAjaxPaths;
+    private $twig;
+    private $urlGenerator;
+    private bool $interceptRedirects;
+    private int $mode;
+    private string $excludedAjaxPaths;
     private $cspHandler;
     private $dumpDataCollector;
 

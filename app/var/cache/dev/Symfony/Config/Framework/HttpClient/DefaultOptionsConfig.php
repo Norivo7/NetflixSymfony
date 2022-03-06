@@ -35,10 +35,9 @@ class DefaultOptionsConfig
     private $retryFailed;
     
     /**
-     * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function header(string $name, $value): self
+    public function header(string $name, mixed $value): static
     {
         $this->headers[$name] = $value;
     
@@ -51,7 +50,7 @@ class DefaultOptionsConfig
      * @param ParamConfigurator|int $value
      * @return $this
      */
-    public function maxRedirects($value): self
+    public function maxRedirects($value): static
     {
         $this->maxRedirects = $value;
     
@@ -64,7 +63,7 @@ class DefaultOptionsConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function httpVersion($value): self
+    public function httpVersion($value): static
     {
         $this->httpVersion = $value;
     
@@ -72,10 +71,9 @@ class DefaultOptionsConfig
     }
     
     /**
-     * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function resolve(string $host, $value): self
+    public function resolve(string $host, mixed $value): static
     {
         $this->resolve[$host] = $value;
     
@@ -88,7 +86,7 @@ class DefaultOptionsConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function proxy($value): self
+    public function proxy($value): static
     {
         $this->proxy = $value;
     
@@ -101,7 +99,7 @@ class DefaultOptionsConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function noProxy($value): self
+    public function noProxy($value): static
     {
         $this->noProxy = $value;
     
@@ -114,7 +112,7 @@ class DefaultOptionsConfig
      * @param ParamConfigurator|float $value
      * @return $this
      */
-    public function timeout($value): self
+    public function timeout($value): static
     {
         $this->timeout = $value;
     
@@ -127,7 +125,7 @@ class DefaultOptionsConfig
      * @param ParamConfigurator|float $value
      * @return $this
      */
-    public function maxDuration($value): self
+    public function maxDuration($value): static
     {
         $this->maxDuration = $value;
     
@@ -140,7 +138,7 @@ class DefaultOptionsConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function bindto($value): self
+    public function bindto($value): static
     {
         $this->bindto = $value;
     
@@ -153,7 +151,7 @@ class DefaultOptionsConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function verifyPeer($value): self
+    public function verifyPeer($value): static
     {
         $this->verifyPeer = $value;
     
@@ -166,7 +164,7 @@ class DefaultOptionsConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function verifyHost($value): self
+    public function verifyHost($value): static
     {
         $this->verifyHost = $value;
     
@@ -179,7 +177,7 @@ class DefaultOptionsConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function cafile($value): self
+    public function cafile($value): static
     {
         $this->cafile = $value;
     
@@ -192,7 +190,7 @@ class DefaultOptionsConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function capath($value): self
+    public function capath($value): static
     {
         $this->capath = $value;
     
@@ -205,7 +203,7 @@ class DefaultOptionsConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function localCert($value): self
+    public function localCert($value): static
     {
         $this->localCert = $value;
     
@@ -218,7 +216,7 @@ class DefaultOptionsConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function localPk($value): self
+    public function localPk($value): static
     {
         $this->localPk = $value;
     
@@ -231,7 +229,7 @@ class DefaultOptionsConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function passphrase($value): self
+    public function passphrase($value): static
     {
         $this->passphrase = $value;
     
@@ -244,7 +242,7 @@ class DefaultOptionsConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function ciphers($value): self
+    public function ciphers($value): static
     {
         $this->ciphers = $value;
     

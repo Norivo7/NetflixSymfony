@@ -20,7 +20,7 @@ class DoctrineConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
-    public function enabled($value): self
+    public function enabled($value): static
     {
         $this->enabled = $value;
     
@@ -32,7 +32,7 @@ class DoctrineConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function connection($value): self
+    public function connection($value): static
     {
         $this->connection = $value;
     

@@ -20,7 +20,7 @@ class MiddlewareConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function id($value): self
+    public function id($value): static
     {
         $this->id = $value;
     
@@ -28,10 +28,11 @@ class MiddlewareConfig
     }
     
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function arguments($value): self
+    public function arguments(ParamConfigurator|array $value): static
     {
         $this->arguments = $value;
     

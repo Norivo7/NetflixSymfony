@@ -354,9 +354,6 @@ class ProfilerController
         ]);
     }
 
-    /**
-     * Gets the Template Manager.
-     */
     protected function getTemplateManager(): TemplateManager
     {
         if (null === $this->templateManager) {

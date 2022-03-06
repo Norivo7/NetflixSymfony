@@ -46,15 +46,15 @@ class Choice extends Constraint
     /**
      * {@inheritdoc}
      */
-    public function getDefaultOption()
+    public function getDefaultOption(): ?string
     {
         return 'choices';
     }
 
     public function __construct(
-        $options = [],
+        string|array $options = [],
         array $choices = null,
-        $callback = null,
+        callable|string $callback = null,
         bool $multiple = null,
         bool $strict = null,
         int $min = null,
@@ -63,11 +63,11 @@ class Choice extends Constraint
         string $multipleMessage = null,
         string $minMessage = null,
         string $maxMessage = null,
-        $groups = null,
-        $payload = null
+        array $groups = null,
+        mixed $payload = null
     ) {
         if (\is_array($options) && $options && array_is_list($options)) {
-            $choices = $choices ?? $options;
+            $choices ??= $options;
             $options = [];
         }
         if (null !== $choices) {

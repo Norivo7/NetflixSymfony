@@ -19,7 +19,7 @@ class MakerConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInte
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function rootNamespace($value): self
+    public function rootNamespace($value): static
     {
         $this->rootNamespace = $value;
     

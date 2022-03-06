@@ -27,7 +27,7 @@ class LdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function service($value): self
+    public function service($value): static
     {
         $this->service = $value;
     
@@ -39,7 +39,7 @@ class LdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function baseDn($value): self
+    public function baseDn($value): static
     {
         $this->baseDn = $value;
     
@@ -51,7 +51,7 @@ class LdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function searchDn($value): self
+    public function searchDn($value): static
     {
         $this->searchDn = $value;
     
@@ -63,7 +63,7 @@ class LdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function searchPassword($value): self
+    public function searchPassword($value): static
     {
         $this->searchPassword = $value;
     
@@ -71,10 +71,11 @@ class LdapConfig
     }
     
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function extraFields($value): self
+    public function extraFields(ParamConfigurator|array $value): static
     {
         $this->extraFields = $value;
     
@@ -82,10 +83,11 @@ class LdapConfig
     }
     
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function defaultRoles($value): self
+    public function defaultRoles(ParamConfigurator|array $value): static
     {
         $this->defaultRoles = $value;
     
@@ -97,7 +99,7 @@ class LdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function uidKey($value): self
+    public function uidKey($value): static
     {
         $this->uidKey = $value;
     
@@ -109,7 +111,7 @@ class LdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function filter($value): self
+    public function filter($value): static
     {
         $this->filter = $value;
     
@@ -121,7 +123,7 @@ class LdapConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function passwordAttribute($value): self
+    public function passwordAttribute($value): static
     {
         $this->passwordAttribute = $value;
     

@@ -43,7 +43,7 @@ class WorkflowsConfig
      * @param ParamConfigurator|'workflow'|'state_machine' $value
      * @return $this
      */
-    public function type($value): self
+    public function type($value): static
     {
         $this->type = $value;
     
@@ -62,10 +62,11 @@ class WorkflowsConfig
     }
     
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function supports($value): self
+    public function supports(ParamConfigurator|array $value): static
     {
         $this->supports = $value;
     
@@ -77,7 +78,7 @@ class WorkflowsConfig
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
-    public function supportStrategy($value): self
+    public function supportStrategy($value): static
     {
         $this->supportStrategy = $value;
     
@@ -85,10 +86,11 @@ class WorkflowsConfig
     }
     
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function initialMarking($value): self
+    public function initialMarking(ParamConfigurator|array $value): static
     {
         $this->initialMarking = $value;
     
@@ -101,9 +103,10 @@ class WorkflowsConfig
      * @example workflow.transition
      * @default null
      * @param ParamConfigurator|mixed $value
+     *
      * @return $this
      */
-    public function eventsToDispatch($value = NULL): self
+    public function eventsToDispatch(mixed $value = NULL): static
     {
         $this->eventsToDispatch = $value;
     
@@ -121,10 +124,11 @@ class WorkflowsConfig
     }
     
     /**
-     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed> $value
+     *
      * @return $this
      */
-    public function metadata($value): self
+    public function metadata(ParamConfigurator|array $value): static
     {
         $this->metadata = $value;
     
