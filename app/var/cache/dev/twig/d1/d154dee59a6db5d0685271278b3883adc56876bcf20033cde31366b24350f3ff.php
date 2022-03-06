@@ -75,7 +75,7 @@ class __TwigTemplate_d43599b2ad8b1ba0633fe00ea29b9589d898e555052941d74efa6e1597a
 
     }
 
-    // line 4
+    // line 5
     public function block_navigation($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -104,18 +104,18 @@ class __TwigTemplate_d43599b2ad8b1ba0633fe00ea29b9589d898e555052941d74efa6e1597a
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
 
         // line 8
-        echo "        <h2>Create new Subuser</h2>
+        echo "    <h2>Create new Subuser</h2>
 
-        ";
+    ";
         // line 10
         echo twig_include($this->env, $context, "admin/subuser_crud/_form.html.twig");
         echo "
 
-        <a class=\"profileButton\" href=\"";
+    <a class=\"profileButton\" href=\"";
         // line 12
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("subuser_crud_index");
         echo "\">wróć</a>
-    ";
+";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -136,7 +136,7 @@ class __TwigTemplate_d43599b2ad8b1ba0633fe00ea29b9589d898e555052941d74efa6e1597a
 
     public function getDebugInfo()
     {
-        return array (  116 => 12,  111 => 10,  107 => 8,  97 => 7,  79 => 4,  60 => 3,  37 => 1,);
+        return array (  116 => 12,  111 => 10,  107 => 8,  97 => 7,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -144,17 +144,17 @@ class __TwigTemplate_d43599b2ad8b1ba0633fe00ea29b9589d898e555052941d74efa6e1597a
         return new Source("{% extends 'admin/base.html.twig' %}
 
 {% block title %}New Subuser{% endblock %}
+
 {% block navigation %}{% endblock %}
 
-{#{% block body%}#}
-    {% block content %}
-        <h2>Create new Subuser</h2>
+{% block content %}
+    <h2>Create new Subuser</h2>
 
-        {{ include('admin/subuser_crud/_form.html.twig') }}
+    {{ include('admin/subuser_crud/_form.html.twig') }}
 
-        <a class=\"profileButton\" href=\"{{ path('subuser_crud_index') }}\">wróć</a>
-    {% endblock %}
-{#{% endblock %}#}
+    <a class=\"profileButton\" href=\"{{ path('subuser_crud_index') }}\">wróć</a>
+{% endblock %}
+
 
 ", "admin/subuser_crud/new.html.twig", "/var/www/symfony_docker/templates/admin/subuser_crud/new.html.twig");
     }

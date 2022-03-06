@@ -1,0 +1,13 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Nowy użytkownik{% endblock %}
+
+{% block navigation %}{% endblock %}
+
+{% block content %}
+    <h2>Stwórz nowego użytkownika</h2>
+
+    {{ include('admin/user_crud/_form.html.twig') }}
+
+    <a class="profileButton" href="{{ path('app_user_crud_index') }}">Wróć</a>
+{% endblock %}

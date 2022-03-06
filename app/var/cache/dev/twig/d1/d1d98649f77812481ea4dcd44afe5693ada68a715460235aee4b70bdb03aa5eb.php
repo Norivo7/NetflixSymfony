@@ -66,7 +66,7 @@ class __TwigTemplate_8a81f138b3f7de764362ffd9a836ad05deb639e769fe8f0356e340d3f09
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Edit Subuser";
+        echo "Edytuj profil";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -149,7 +149,7 @@ class __TwigTemplate_8a81f138b3f7de764362ffd9a836ad05deb639e769fe8f0356e340d3f09
     {
         return new Source("{% extends 'admin/base.html.twig' %}
 
-{% block title %}Edit Subuser{% endblock %}
+{% block title %}Edytuj profil{% endblock %}
 
 {% block navigation %}{% endblock %}
 

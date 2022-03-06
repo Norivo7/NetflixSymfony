@@ -42,6 +42,8 @@ return [
         '/newuser' => [[['_route' => 'createSubuser', '_controller' => 'App\\Controller\\SubuserController::createSubuser'], null, null, null, false, false, null]],
         '/admin/subusers' => [[['_route' => 'subuser_crud_index', '_controller' => 'App\\Controller\\SubuserCrudController::index'], null, ['GET' => 0], null, true, false, null]],
         '/admin/subusers/new' => [[['_route' => 'subuser_crud_new', '_controller' => 'App\\Controller\\SubuserCrudController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/admin/users' => [[['_route' => 'app_user_crud_index', '_controller' => 'App\\Controller\\UserCrudController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/admin/users/new' => [[['_route' => 'app_user_crud_new', '_controller' => 'App\\Controller\\UserCrudController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -71,11 +73,16 @@ return [
                         .'|/edit(*:259)'
                         .'|(*:267)'
                     .')'
+                    .'|users/([^/]++)(?'
+                        .'|(*:293)'
+                        .'|/edit(*:306)'
+                        .'|(*:314)'
+                    .')'
                 .')'
-                .'|/show/([^/]++)(*:291)'
+                .'|/show/([^/]++)(*:338)'
                 .'|/manageUser/(?'
-                    .'|delete/([^/]++)(*:329)'
-                    .'|update/([^/]++)(*:352)'
+                    .'|delete/([^/]++)(*:376)'
+                    .'|update/([^/]++)(*:399)'
                 .')'
             .')/?$}sDu',
     ],
@@ -93,9 +100,12 @@ return [
         246 => [[['_route' => 'subuser_crud_show', '_controller' => 'App\\Controller\\SubuserCrudController::show'], ['id'], ['GET' => 0], null, false, true, null]],
         259 => [[['_route' => 'subuser_crud_edit', '_controller' => 'App\\Controller\\SubuserCrudController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         267 => [[['_route' => 'subuser_crud_delete', '_controller' => 'App\\Controller\\SubuserCrudController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        291 => [[['_route' => 'show-one', '_controller' => 'App\\Controller\\MoviesController::show'], ['id'], null, null, false, true, null]],
-        329 => [[['_route' => 'deleteSubuser', '_controller' => 'App\\Controller\\SubuserController::delete'], ['id'], null, null, false, true, null]],
-        352 => [
+        293 => [[['_route' => 'app_user_crud_show', '_controller' => 'App\\Controller\\UserCrudController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        306 => [[['_route' => 'app_user_crud_edit', '_controller' => 'App\\Controller\\UserCrudController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        314 => [[['_route' => 'app_user_crud_delete', '_controller' => 'App\\Controller\\UserCrudController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        338 => [[['_route' => 'show-one', '_controller' => 'App\\Controller\\MoviesController::show'], ['id'], null, null, false, true, null]],
+        376 => [[['_route' => 'deleteSubuser', '_controller' => 'App\\Controller\\SubuserController::delete'], ['id'], null, null, false, true, null]],
+        399 => [
             [['_route' => 'update', '_controller' => 'App\\Controller\\SubuserController::update'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

@@ -75,7 +75,7 @@ class __TwigTemplate_0335d83e4387584691f7cd60c4ae942a1ab7c1a8e5246f53a78e85dba2b
 
     }
 
-    // line 4
+    // line 5
     public function block_navigation($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -93,7 +93,7 @@ class __TwigTemplate_0335d83e4387584691f7cd60c4ae942a1ab7c1a8e5246f53a78e85dba2b
 
     }
 
-    // line 6
+    // line 7
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -103,7 +103,7 @@ class __TwigTemplate_0335d83e4387584691f7cd60c4ae942a1ab7c1a8e5246f53a78e85dba2b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
 
-        // line 7
+        // line 8
         echo "    <h2>Subuser</h2>
 
     <table class=\"table\">
@@ -111,39 +111,39 @@ class __TwigTemplate_0335d83e4387584691f7cd60c4ae942a1ab7c1a8e5246f53a78e85dba2b
             <tr>
                 <th>Id</th>
                 <td>";
-        // line 13
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 13, $this->source); })()), "id", [], "any", false, false, false, 13), "html", null, true);
+        // line 14
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 14, $this->source); })()), "id", [], "any", false, false, false, 14), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Name</th>
                 <td>";
-        // line 17
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 17, $this->source); })()), "name", [], "any", false, false, false, 17), "html", null, true);
+        // line 18
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 18, $this->source); })()), "name", [], "any", false, false, false, 18), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Avatar</th>
                 <td>";
-        // line 21
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 21, $this->source); })()), "avatar", [], "any", false, false, false, 21), "html", null, true);
+        // line 22
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 22, $this->source); })()), "avatar", [], "any", false, false, false, 22), "html", null, true);
         echo "</td>
             </tr>
         </tbody>
     </table>
 
     <a class=\"profileButton\" href=\"";
-        // line 26
+        // line 27
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("subuser_crud_index");
         echo "\">Wróć</a>
 
     <a class=\"profileButton\" href=\"";
-        // line 28
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("subuser_crud_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 28, $this->source); })()), "id", [], "any", false, false, false, 28)]), "html", null, true);
+        // line 29
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("subuser_crud_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 29, $this->source); })()), "id", [], "any", false, false, false, 29)]), "html", null, true);
         echo "\">Edytuj</a>
 
     ";
-        // line 30
+        // line 31
         echo twig_include($this->env, $context, "admin/subuser_crud/_delete_form.html.twig");
         echo "
 ";
@@ -167,7 +167,7 @@ class __TwigTemplate_0335d83e4387584691f7cd60c4ae942a1ab7c1a8e5246f53a78e85dba2b
 
     public function getDebugInfo()
     {
-        return array (  147 => 30,  142 => 28,  137 => 26,  129 => 21,  122 => 17,  115 => 13,  107 => 7,  97 => 6,  79 => 4,  60 => 3,  37 => 1,);
+        return array (  147 => 31,  142 => 29,  137 => 27,  129 => 22,  122 => 18,  115 => 14,  107 => 8,  97 => 7,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -175,6 +175,7 @@ class __TwigTemplate_0335d83e4387584691f7cd60c4ae942a1ab7c1a8e5246f53a78e85dba2b
         return new Source("{% extends 'admin/base.html.twig' %}
 
 {% block title %}Subuser{% endblock %}
+
 {% block navigation %}{% endblock %}
 
 {% block content %}

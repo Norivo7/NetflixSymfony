@@ -61,7 +61,7 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
 ";
         // line 11
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 181
+        // line 184
         $this->displayBlock('body', $context, $blocks);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -268,6 +268,9 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
             border: 1px solid red;
             text-decoration: none;
         }
+        .table {
+           margin: 0;
+        }
     </style>
 ";
         
@@ -278,7 +281,7 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
 
     }
 
-    // line 181
+    // line 184
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -288,13 +291,13 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 182
+        // line 185
         echo "    <body>
     <div id=\"headerContainer\">
         <div class=\"brandLogoWrapper\">
             <a class=\"logo\" href=\"/\" target=\"_parent\">
                 <img class=\"logo\" src=\"";
-        // line 186
+        // line 189
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/netflixLogo.svg.png"), "html", null, true);
         echo "\" alt=\"av1\"/>
             </a>
@@ -302,14 +305,14 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
         <h1>Panel Administratora</h1>
     </div>
     ";
-        // line 191
+        // line 194
         $this->displayBlock('navigation', $context, $blocks);
-        // line 213
+        // line 216
         echo "    <div class=\"main\">
         ";
-        // line 214
-        $this->displayBlock('content', $context, $blocks);
         // line 217
+        $this->displayBlock('content', $context, $blocks);
+        // line 220
         echo "    </div>
 
     </body>
@@ -323,7 +326,7 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
 
     }
 
-    // line 191
+    // line 194
     public function block_navigation($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -333,7 +336,7 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navigation"));
 
-        // line 192
+        // line 195
         echo "
         <div class=\"wrapper\">
             <a href=\"admin/subusers\">
@@ -342,7 +345,7 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
             <a href=\"admin/movies\">
                 <div class=\"adminOption\"><i class=\"optionImage bi bi-film\"></i>Filmy</div>
             </a>
-            <a href=\"admin/subusers\">
+            <a href=\"admin/users\">
                 <div class=\"adminOption\"><i class=\"optionImage bi bi-people-fill\"></i>Użytkownicy</div>
             </a>
             <a href=\"admin/subusers\">
@@ -363,7 +366,7 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
 
     }
 
-    // line 214
+    // line 217
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -373,9 +376,9 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
 
-        // line 215
+        // line 218
         echo "            ";
-        // line 216
+        // line 219
         echo "        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -392,7 +395,7 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
 
     public function getDebugInfo()
     {
-        return array (  379 => 216,  377 => 215,  367 => 214,  337 => 192,  327 => 191,  313 => 217,  311 => 214,  308 => 213,  306 => 191,  298 => 186,  292 => 182,  282 => 181,  104 => 12,  94 => 11,  75 => 9,  65 => 181,  63 => 11,  58 => 9,  48 => 1,);
+        return array (  382 => 219,  380 => 218,  370 => 217,  340 => 195,  330 => 194,  316 => 220,  314 => 217,  311 => 216,  309 => 194,  301 => 189,  295 => 185,  285 => 184,  104 => 12,  94 => 11,  75 => 9,  65 => 184,  63 => 11,  58 => 9,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -575,6 +578,9 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
             border: 1px solid red;
             text-decoration: none;
         }
+        .table {
+           margin: 0;
+        }
     </style>
 {% endblock %}
 {% block body %}
@@ -596,7 +602,7 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
             <a href=\"admin/movies\">
                 <div class=\"adminOption\"><i class=\"optionImage bi bi-film\"></i>Filmy</div>
             </a>
-            <a href=\"admin/subusers\">
+            <a href=\"admin/users\">
                 <div class=\"adminOption\"><i class=\"optionImage bi bi-people-fill\"></i>Użytkownicy</div>
             </a>
             <a href=\"admin/subusers\">

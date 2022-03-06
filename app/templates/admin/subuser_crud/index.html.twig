@@ -2,6 +2,21 @@
 
 {% block title %}Profile Użytkowników - Netflix{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        td{
+            height: 100px;
+        }
+        .btnWrapper{
+            height: 100%;
+            display: flex;
+            gap:10px;
+            flex-direction: column;
+        }
+    </style>
+{% endblock %}
+
 {% block navigation %}{% endblock %}
 
 {% block content %}
@@ -25,8 +40,10 @@
                 <td>{{ subuser.avatar }}</td>
                 <td>{{ subuser.subaccountOf }}</td>
                 <td>
-                    <a href="{{ path('subuser_crud_show', {'id': subuser.id}) }}">wyświetl</a>
-                    <a href="{{ path('subuser_crud_edit', {'id': subuser.id}) }}">edytuj</a>
+                    <div class="btnWrapper">
+                    <a class="profileButton" href="{{ path('subuser_crud_show', {'id': subuser.id}) }}">Wyświetl</a>
+                    <a class="profileButton" href="{{ path('subuser_crud_edit', {'id': subuser.id}) }}">Edytuj</a>
+                    </div>
                 </td>
             </tr>
         {% else %}

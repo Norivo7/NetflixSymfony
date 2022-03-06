@@ -18,7 +18,8 @@ use Symfony\Component\Form\FormTypeInterface;
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
 
-    public function __toString() {
+    public function __toString()
+    {
         return $this->email;
     }
     /**

@@ -52,5 +52,10 @@ return [
     'subuser_crud_show' => [['id'], ['_controller' => 'App\\Controller\\SubuserCrudController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/subusers']], [], []],
     'subuser_crud_edit' => [['id'], ['_controller' => 'App\\Controller\\SubuserCrudController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/admin/subusers']], [], []],
     'subuser_crud_delete' => [['id'], ['_controller' => 'App\\Controller\\SubuserCrudController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/subusers']], [], []],
+    'app_user_crud_index' => [[], ['_controller' => 'App\\Controller\\UserCrudController::index'], [], [['text', '/admin/users/']], [], []],
+    'app_user_crud_new' => [[], ['_controller' => 'App\\Controller\\UserCrudController::new'], [], [['text', '/admin/users/new']], [], []],
+    'app_user_crud_show' => [['id'], ['_controller' => 'App\\Controller\\UserCrudController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/users']], [], []],
+    'app_user_crud_edit' => [['id'], ['_controller' => 'App\\Controller\\UserCrudController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/admin/users']], [], []],
+    'app_user_crud_delete' => [['id'], ['_controller' => 'App\\Controller\\UserCrudController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/users']], [], []],
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], []],
 ];

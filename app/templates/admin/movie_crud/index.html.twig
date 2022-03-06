@@ -2,6 +2,21 @@
 
 {% block title %}Filmy - Netflix{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        td{
+            height: 100px;
+        }
+        .btnWrapper{
+            height: 100%;
+            display: flex;
+            gap:10px;
+            flex-direction: column;
+        }
+    </style>
+{% endblock %}
+
 {% block navigation %}{% endblock %}
 
 {% block content %}
@@ -29,8 +44,10 @@
                 <td>{{ movie.img }}</td>
                 <td>{{ movie.link }}</td>
                 <td>
-                    <a href="{{ path('app_movie_crud_show', {'id': movie.id}) }}">wyświetl</a>
-                    <a href="{{ path('app_movie_crud_edit', {'id': movie.id}) }}">edytuj</a>
+                    <div class="btnWrapper">
+                        <a class="profileButton" href="{{ path('app_movie_crud_show', {'id': movie.id}) }}">wyświetl</a>
+                        <a class="profileButton" href="{{ path('app_movie_crud_edit', {'id': movie.id}) }}">edytuj</a>
+                    </div>
                 </td>
             </tr>
         {% else %}

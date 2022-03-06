@@ -1,0 +1,15 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Edytuj Użytkownika{% endblock %}
+
+{% block navigation %} {% endblock %}
+
+{% block content %}
+    <h2>Edytuj Użytkownika</h2>
+
+    {{ include('admin/user_crud/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="profileButton" href="{{ path('app_user_crud_index') }}">Wróć</a>
+
+    {{ include('admin/user_crud/_delete_form.html.twig') }}
+{% endblock %}
