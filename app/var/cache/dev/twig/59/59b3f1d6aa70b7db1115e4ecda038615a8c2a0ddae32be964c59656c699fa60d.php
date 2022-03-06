@@ -90,10 +90,10 @@ class __TwigTemplate_9ddfc9499f5393fd3441570a37a6252485e5227982f16fece97045fa706
                 // line 12
                 echo "            ";
                 $__internal_compile_0 = $context;
-                $__internal_compile_1 = ["collector" => twig_get_attribute($this->env, $this->source,                 // line 13
-(isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 13, $this->source); })()), "getcollector", [0 => $context["name"]], "method", false, false, false, 13), "profiler_url" =>                 // line 14
-(isset($context["profiler_url"]) || array_key_exists("profiler_url", $context) ? $context["profiler_url"] : (function () { throw new RuntimeError('Variable "profiler_url" does not exist.', 14, $this->source); })()), "token" => twig_get_attribute($this->env, $this->source,                 // line 15
-(isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 15, $this->source); })()), "token", [], "any", false, false, false, 15), "name" =>                 // line 16
+                $__internal_compile_1 = ["collector" => ((                // line 13
+(isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 13, $this->source); })())) ? (twig_get_attribute($this->env, $this->source, (isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 13, $this->source); })()), "getcollector", [0 => $context["name"]], "method", false, false, false, 13)) : (null)), "profiler_url" =>                 // line 14
+(isset($context["profiler_url"]) || array_key_exists("profiler_url", $context) ? $context["profiler_url"] : (function () { throw new RuntimeError('Variable "profiler_url" does not exist.', 14, $this->source); })()), "token" => ((                // line 15
+$context["token"]) ?? ((((isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 15, $this->source); })())) ? (twig_get_attribute($this->env, $this->source, (isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new RuntimeError('Variable "profile" does not exist.', 15, $this->source); })()), "token", [], "any", false, false, false, 15)) : (null)))), "name" =>                 // line 16
 $context["name"], "profiler_markup_version" =>                 // line 17
 (isset($context["profiler_markup_version"]) || array_key_exists("profiler_markup_version", $context) ? $context["profiler_markup_version"] : (function () { throw new RuntimeError('Variable "profiler_markup_version" does not exist.', 17, $this->source); })()), "csp_script_nonce" =>                 // line 18
 (isset($context["csp_script_nonce"]) || array_key_exists("csp_script_nonce", $context) ? $context["csp_script_nonce"] : (function () { throw new RuntimeError('Variable "csp_script_nonce" does not exist.', 18, $this->source); })()), "csp_style_nonce" =>                 // line 19
@@ -127,15 +127,35 @@ $context["name"], "profiler_markup_version" =>                 // line 17
         unset($context['_seq'], $context['_iterated'], $context['name'], $context['template'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 25
+        echo "    ";
+        if ((isset($context["full_stack"]) || array_key_exists("full_stack", $context) ? $context["full_stack"] : (function () { throw new RuntimeError('Variable "full_stack" does not exist.', 25, $this->source); })())) {
+            // line 26
+            echo "        <div class=\"sf-full-stack sf-toolbar-block sf-toolbar-block-full-stack sf-toolbar-status-red sf-toolbar-block-right\">
+            <div class=\"sf-toolbar-icon\">
+                <span class=\"sf-toolbar-value\">Using symfony/symfony is NOT supported</span>
+            </div>
+            <div class=\"sf-toolbar-info sf-toolbar-status-red\">
+                <p>This project is using Symfony via the \"symfony/symfony\" package.</p>
+                <p>This is NOT supported anymore since Symfony 4.0.</p>
+                <p>Even if it seems to work well, it has some important limitations with no workarounds.</p>
+                <p>Using this package also makes your project slower.</p>
+
+                <strong>Please, stop using this package and replace it with individual packages instead.</strong>
+            </div>
+            <div></div>
+        </div>
+    ";
+        }
+        // line 41
         echo "
     <button class=\"hide-button\" type=\"button\" id=\"sfToolbarHideButton-";
-        // line 26
-        echo twig_escape_filter($this->env, (isset($context["token"]) || array_key_exists("token", $context) ? $context["token"] : (function () { throw new RuntimeError('Variable "token" does not exist.', 26, $this->source); })()), "html", null, true);
+        // line 42
+        echo twig_escape_filter($this->env, (isset($context["token"]) || array_key_exists("token", $context) ? $context["token"] : (function () { throw new RuntimeError('Variable "token" does not exist.', 42, $this->source); })()), "html", null, true);
         echo "\" title=\"Close Toolbar\" accesskey=\"D\" aria-expanded=\"true\" aria-controls=\"sfToolbarMainContent-";
-        echo twig_escape_filter($this->env, (isset($context["token"]) || array_key_exists("token", $context) ? $context["token"] : (function () { throw new RuntimeError('Variable "token" does not exist.', 26, $this->source); })()), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["token"]) || array_key_exists("token", $context) ? $context["token"] : (function () { throw new RuntimeError('Variable "token" does not exist.', 42, $this->source); })()), "html", null, true);
         echo "\">
         ";
-        // line 27
+        // line 43
         echo twig_include($this->env, $context, "@WebProfiler/Icon/close.svg");
         echo "
     </button>
@@ -162,7 +182,7 @@ $context["name"], "profiler_markup_version" =>                 // line 17
 
     public function getDebugInfo()
     {
-        return array (  139 => 27,  133 => 26,  130 => 25,  116 => 24,  113 => 23,  107 => 21,  100 => 19,  99 => 18,  98 => 17,  97 => 16,  96 => 15,  95 => 14,  94 => 13,  91 => 12,  88 => 11,  71 => 10,  67 => 9,  62 => 7,  56 => 4,  50 => 3,  46 => 2,  43 => 1,);
+        return array (  159 => 43,  153 => 42,  150 => 41,  133 => 26,  130 => 25,  116 => 24,  113 => 23,  107 => 21,  100 => 19,  99 => 18,  98 => 17,  97 => 16,  96 => 15,  95 => 14,  94 => 13,  91 => 12,  88 => 11,  71 => 10,  67 => 9,  62 => 7,  56 => 4,  50 => 3,  46 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -179,9 +199,9 @@ $context["name"], "profiler_markup_version" =>                 // line 17
     {% for name, template in templates %}
         {% if block('toolbar', template) is defined %}
             {% with {
-                collector: profile.getcollector(name),
+                collector: profile ? profile.getcollector(name) : null,
                 profiler_url: profiler_url,
-                token: profile.token,
+                token: token ?? (profile ? profile.token : null),
                 name: name,
                 profiler_markup_version: profiler_markup_version,
                 csp_script_nonce: csp_script_nonce,
@@ -191,6 +211,22 @@ $context["name"], "profiler_markup_version" =>                 // line 17
             {% endwith %}
         {% endif %}
     {% endfor %}
+    {% if full_stack %}
+        <div class=\"sf-full-stack sf-toolbar-block sf-toolbar-block-full-stack sf-toolbar-status-red sf-toolbar-block-right\">
+            <div class=\"sf-toolbar-icon\">
+                <span class=\"sf-toolbar-value\">Using symfony/symfony is NOT supported</span>
+            </div>
+            <div class=\"sf-toolbar-info sf-toolbar-status-red\">
+                <p>This project is using Symfony via the \"symfony/symfony\" package.</p>
+                <p>This is NOT supported anymore since Symfony 4.0.</p>
+                <p>Even if it seems to work well, it has some important limitations with no workarounds.</p>
+                <p>Using this package also makes your project slower.</p>
+
+                <strong>Please, stop using this package and replace it with individual packages instead.</strong>
+            </div>
+            <div></div>
+        </div>
+    {% endif %}
 
     <button class=\"hide-button\" type=\"button\" id=\"sfToolbarHideButton-{{ token }}\" title=\"Close Toolbar\" accesskey=\"D\" aria-expanded=\"true\" aria-controls=\"sfToolbarMainContent-{{ token }}\">
         {{ include('@WebProfiler/Icon/close.svg') }}

@@ -10,12 +10,11 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 /**
  * This class is automatically generated to help creating config.
- *
- * @experimental in 5.3
  */
 class AssetsConfig 
 {
     private $enabled;
+    private $strictMode;
     private $versionStrategy;
     private $version;
     private $versionFormat;
@@ -32,6 +31,19 @@ class AssetsConfig
     public function enabled($value): self
     {
         $this->enabled = $value;
+    
+        return $this;
+    }
+    
+    /**
+     * Throw an exception if an entry is missing from the manifest.json
+     * @default false
+     * @param ParamConfigurator|bool $value
+     * @return $this
+     */
+    public function strictMode($value): self
+    {
+        $this->strictMode = $value;
     
         return $this;
     }
@@ -126,6 +138,11 @@ class AssetsConfig
             unset($value['enabled']);
         }
     
+        if (isset($value['strict_mode'])) {
+            $this->strictMode = $value['strict_mode'];
+            unset($value['strict_mode']);
+        }
+    
         if (isset($value['version_strategy'])) {
             $this->versionStrategy = $value['version_strategy'];
             unset($value['version_strategy']);
@@ -166,12 +183,14 @@ class AssetsConfig
         }
     }
     
-    
     public function toArray(): array
     {
         $output = [];
         if (null !== $this->enabled) {
             $output['enabled'] = $this->enabled;
+        }
+        if (null !== $this->strictMode) {
+            $output['strict_mode'] = $this->strictMode;
         }
         if (null !== $this->versionStrategy) {
             $output['version_strategy'] = $this->versionStrategy;
@@ -197,6 +216,5 @@ class AssetsConfig
     
         return $output;
     }
-    
 
 }

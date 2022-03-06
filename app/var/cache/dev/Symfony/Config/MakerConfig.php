@@ -9,8 +9,6 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 /**
  * This class is automatically generated to help creating config.
- *
- * @experimental in 5.3
  */
 class MakerConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInterface
 {
@@ -32,7 +30,6 @@ class MakerConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInte
     {
         return 'maker';
     }
-            
     
     public function __construct(array $value = [])
     {
@@ -47,7 +44,6 @@ class MakerConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInte
         }
     }
     
-    
     public function toArray(): array
     {
         $output = [];
@@ -57,6 +53,5 @@ class MakerConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInte
     
         return $output;
     }
-    
 
 }

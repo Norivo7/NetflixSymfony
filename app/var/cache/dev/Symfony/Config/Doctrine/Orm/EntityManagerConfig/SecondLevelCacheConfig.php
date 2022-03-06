@@ -12,8 +12,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator;
 
 /**
  * This class is automatically generated to help creating config.
- *
- * @experimental in 5.3
  */
 class SecondLevelCacheConfig 
 {
@@ -169,7 +167,6 @@ class SecondLevelCacheConfig
         }
     }
     
-    
     public function toArray(): array
     {
         $output = [];
@@ -200,6 +197,5 @@ class SecondLevelCacheConfig
     
         return $output;
     }
-    
 
 }

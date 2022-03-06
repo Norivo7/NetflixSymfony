@@ -9,8 +9,6 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 /**
  * This class is automatically generated to help creating config.
- *
- * @experimental in 5.3
  */
 class SymfonycastsVerifyEmailConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInterface
 {
@@ -33,7 +31,6 @@ class SymfonycastsVerifyEmailConfig implements \Symfony\Component\Config\Builder
     {
         return 'symfonycasts_verify_email';
     }
-            
     
     public function __construct(array $value = [])
     {
@@ -48,7 +45,6 @@ class SymfonycastsVerifyEmailConfig implements \Symfony\Component\Config\Builder
         }
     }
     
-    
     public function toArray(): array
     {
         $output = [];
@@ -58,6 +54,5 @@ class SymfonycastsVerifyEmailConfig implements \Symfony\Component\Config\Builder
     
         return $output;
     }
-    
 
 }

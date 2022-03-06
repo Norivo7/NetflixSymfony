@@ -9,8 +9,6 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 /**
  * This class is automatically generated to help creating config.
- *
- * @experimental in 5.3
  */
 class FormLoginConfig 
 {
@@ -28,6 +26,7 @@ class FormLoginConfig
     private $csrfTokenId;
     private $enableCsrf;
     private $postOnly;
+    private $formOnly;
     private $alwaysUseDefaultTargetPath;
     private $defaultTargetPath;
     private $targetPathParameter;
@@ -210,6 +209,18 @@ class FormLoginConfig
      * @param ParamConfigurator|bool $value
      * @return $this
      */
+    public function formOnly($value): self
+    {
+        $this->formOnly = $value;
+    
+        return $this;
+    }
+    
+    /**
+     * @default false
+     * @param ParamConfigurator|bool $value
+     * @return $this
+     */
     public function alwaysUseDefaultTargetPath($value): self
     {
         $this->alwaysUseDefaultTargetPath = $value;
@@ -374,6 +385,11 @@ class FormLoginConfig
             unset($value['post_only']);
         }
     
+        if (isset($value['form_only'])) {
+            $this->formOnly = $value['form_only'];
+            unset($value['form_only']);
+        }
+    
         if (isset($value['always_use_default_target_path'])) {
             $this->alwaysUseDefaultTargetPath = $value['always_use_default_target_path'];
             unset($value['always_use_default_target_path']);
@@ -418,7 +434,6 @@ class FormLoginConfig
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-    
     
     public function toArray(): array
     {
@@ -465,6 +480,9 @@ class FormLoginConfig
         if (null !== $this->postOnly) {
             $output['post_only'] = $this->postOnly;
         }
+        if (null !== $this->formOnly) {
+            $output['form_only'] = $this->formOnly;
+        }
         if (null !== $this->alwaysUseDefaultTargetPath) {
             $output['always_use_default_target_path'] = $this->alwaysUseDefaultTargetPath;
         }
@@ -492,6 +510,5 @@ class FormLoginConfig
     
         return $output;
     }
-    
 
 }

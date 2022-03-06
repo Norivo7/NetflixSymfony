@@ -9,8 +9,6 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 /**
  * This class is automatically generated to help creating config.
- *
- * @experimental in 5.3
  */
 class ShardConfig 
 {
@@ -605,7 +603,6 @@ class ShardConfig
         }
     }
     
-    
     public function toArray(): array
     {
         $output = [];
@@ -705,6 +702,5 @@ class ShardConfig
     
         return $output;
     }
-    
 
 }

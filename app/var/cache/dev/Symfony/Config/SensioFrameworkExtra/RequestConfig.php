@@ -9,8 +9,6 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 /**
  * This class is automatically generated to help creating config.
- *
- * @experimental in 5.3
  */
 class RequestConfig 
 {
@@ -76,7 +74,6 @@ class RequestConfig
         }
     }
     
-    
     public function toArray(): array
     {
         $output = [];
@@ -92,6 +89,5 @@ class RequestConfig
     
         return $output;
     }
-    
 
 }

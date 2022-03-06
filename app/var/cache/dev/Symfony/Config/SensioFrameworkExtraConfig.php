@@ -14,8 +14,6 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 /**
  * This class is automatically generated to help creating config.
- *
- * @experimental in 5.3
  */
 class SensioFrameworkExtraConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInterface
 {
@@ -96,7 +94,6 @@ class SensioFrameworkExtraConfig implements \Symfony\Component\Config\Builder\Co
     {
         return 'sensio_framework_extra';
     }
-            
     
     public function __construct(array $value = [])
     {
@@ -136,7 +133,6 @@ class SensioFrameworkExtraConfig implements \Symfony\Component\Config\Builder\Co
         }
     }
     
-    
     public function toArray(): array
     {
         $output = [];
@@ -161,6 +157,5 @@ class SensioFrameworkExtraConfig implements \Symfony\Component\Config\Builder\Co
     
         return $output;
     }
-    
 
 }

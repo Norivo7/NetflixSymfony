@@ -10,8 +10,6 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 /**
  * This class is automatically generated to help creating config.
- *
- * @experimental in 5.3
  */
 class CacheConfig 
 {
@@ -23,6 +21,7 @@ class CacheConfig
     private $defaultPsr6Provider;
     private $defaultRedisProvider;
     private $defaultMemcachedProvider;
+    private $defaultDoctrineDbalProvider;
     private $defaultPdoProvider;
     private $pools;
     
@@ -67,7 +66,7 @@ class CacheConfig
     }
     
     /**
-     * @default '%kernel.cache_dir%/pools'
+     * @default '%kernel.cache_dir%/pools/app'
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
@@ -122,6 +121,18 @@ class CacheConfig
     public function defaultMemcachedProvider($value): self
     {
         $this->defaultMemcachedProvider = $value;
+    
+        return $this;
+    }
+    
+    /**
+     * @default 'database_connection'
+     * @param ParamConfigurator|mixed $value
+     * @return $this
+     */
+    public function defaultDoctrineDbalProvider($value): self
+    {
+        $this->defaultDoctrineDbalProvider = $value;
     
         return $this;
     }
@@ -193,6 +204,11 @@ class CacheConfig
             unset($value['default_memcached_provider']);
         }
     
+        if (isset($value['default_doctrine_dbal_provider'])) {
+            $this->defaultDoctrineDbalProvider = $value['default_doctrine_dbal_provider'];
+            unset($value['default_doctrine_dbal_provider']);
+        }
+    
         if (isset($value['default_pdo_provider'])) {
             $this->defaultPdoProvider = $value['default_pdo_provider'];
             unset($value['default_pdo_provider']);
@@ -207,7 +223,6 @@ class CacheConfig
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-    
     
     public function toArray(): array
     {
@@ -236,6 +251,9 @@ class CacheConfig
         if (null !== $this->defaultMemcachedProvider) {
             $output['default_memcached_provider'] = $this->defaultMemcachedProvider;
         }
+        if (null !== $this->defaultDoctrineDbalProvider) {
+            $output['default_doctrine_dbal_provider'] = $this->defaultDoctrineDbalProvider;
+        }
         if (null !== $this->defaultPdoProvider) {
             $output['default_pdo_provider'] = $this->defaultPdoProvider;
         }
@@ -245,6 +263,5 @@ class CacheConfig
     
         return $output;
     }
-    
 
 }

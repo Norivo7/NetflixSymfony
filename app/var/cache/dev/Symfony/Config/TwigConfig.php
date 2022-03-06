@@ -12,8 +12,6 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 /**
  * This class is automatically generated to help creating config.
- *
- * @experimental in 5.3
  */
 class TwigConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInterface
 {
@@ -228,7 +226,6 @@ class TwigConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInter
     {
         return 'twig';
     }
-            
     
     public function __construct(array $value = [])
     {
@@ -318,7 +315,6 @@ class TwigConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInter
         }
     }
     
-    
     public function toArray(): array
     {
         $output = [];
@@ -373,6 +369,5 @@ class TwigConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInter
     
         return $output;
     }
-    
 
 }

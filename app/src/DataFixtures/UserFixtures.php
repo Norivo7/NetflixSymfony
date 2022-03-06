@@ -27,9 +27,9 @@ class UserFixtures extends Fixture
         $admin->setPassword($this->passwordHasher->hashPassword($admin, 'admin'));
 
         $adminSub1 = new Subuser();
-        $adminSub1->setName('Domyślny');
+        $adminSub1->setName('Kamil');
         $adminSub1->setSubaccountOf($admin);
-        $adminSub1->setAvatar('https://i.imgur.com/9nWtdiZ.png');
+        $adminSub1->setAvatar('https://i.imgur.com/WK2idvp.png');
 
         $user = new User();
         $user->setEmail('user@gmail.com');

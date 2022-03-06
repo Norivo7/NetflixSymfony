@@ -17,8 +17,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator;
 
 /**
  * This class is automatically generated to help creating config.
- *
- * @experimental in 5.3
  */
 class EntityManagerConfig 
 {
@@ -330,7 +328,6 @@ class EntityManagerConfig
         }
     }
     
-    
     public function toArray(): array
     {
         $output = [];
@@ -388,6 +385,5 @@ class EntityManagerConfig
     
         return $output;
     }
-    
 
 }

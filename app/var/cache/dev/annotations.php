@@ -74,6 +74,18 @@ return [[
 '[C]App%5CController%5CMailerController' => 1,
 'App%5CController%5CMailerController%23sendEmail' => 4,
 '[C]App%5CController%5CMailerController%23sendEmail' => 1,
+'App%5CController%5CMovieCrudController' => 0,
+'[C]App%5CController%5CMovieCrudController' => 1,
+'App%5CController%5CMovieCrudController%23index' => 0,
+'[C]App%5CController%5CMovieCrudController%23index' => 1,
+'App%5CController%5CMovieCrudController%23new' => 0,
+'[C]App%5CController%5CMovieCrudController%23new' => 1,
+'App%5CController%5CMovieCrudController%23show' => 0,
+'[C]App%5CController%5CMovieCrudController%23show' => 1,
+'App%5CController%5CMovieCrudController%23edit' => 0,
+'[C]App%5CController%5CMovieCrudController%23edit' => 1,
+'App%5CController%5CMovieCrudController%23delete' => 0,
+'[C]App%5CController%5CMovieCrudController%23delete' => 1,
 'App%5CController%5CMoviesController' => 0,
 '[C]App%5CController%5CMoviesController' => 1,
 'App%5CController%5CMoviesController%23__construct' => 0,
@@ -104,10 +116,10 @@ return [[
 '[C]App%5CController%5CMoviesController%23notif' => 1,
 'App%5CController%5CMoviesController%23search' => 16,
 '[C]App%5CController%5CMoviesController%23search' => 1,
-'App%5CController%5CMoviesController%24repo' => 0,
-'[C]App%5CController%5CMoviesController%24repo' => 1,
-'App%5CController%5CMoviesController%24categoryRepo' => 0,
-'[C]App%5CController%5CMoviesController%24categoryRepo' => 1,
+'App%5CController%5CMoviesController%24movieRepository' => 0,
+'[C]App%5CController%5CMoviesController%24movieRepository' => 1,
+'App%5CController%5CMoviesController%24categoryRepository' => 0,
+'[C]App%5CController%5CMoviesController%24categoryRepository' => 1,
 'App%5CController%5CMoviesController%24subuserRepository' => 0,
 '[C]App%5CController%5CMoviesController%24subuserRepository' => 1,
 'App%5CController%5CRegistrationController' => 0,
@@ -162,6 +174,18 @@ return [[
 '[C]App%5CController%5CSubuserCrudController%23edit' => 1,
 'App%5CController%5CSubuserCrudController%23delete' => 0,
 '[C]App%5CController%5CSubuserCrudController%23delete' => 1,
+'App%5CController%5CUserCrudController' => 0,
+'[C]App%5CController%5CUserCrudController' => 1,
+'App%5CController%5CUserCrudController%23index' => 0,
+'[C]App%5CController%5CUserCrudController%23index' => 1,
+'App%5CController%5CUserCrudController%23new' => 0,
+'[C]App%5CController%5CUserCrudController%23new' => 1,
+'App%5CController%5CUserCrudController%23show' => 0,
+'[C]App%5CController%5CUserCrudController%23show' => 1,
+'App%5CController%5CUserCrudController%23edit' => 0,
+'[C]App%5CController%5CUserCrudController%23edit' => 1,
+'App%5CController%5CUserCrudController%23delete' => 0,
+'[C]App%5CController%5CUserCrudController%23delete' => 1,
 'App%5CEntity%5CCategory' => 29,
 '[C]App%5CEntity%5CCategory' => 1,
 'App%5CEntity%5CCategory%23__toString' => 0,
@@ -208,10 +232,6 @@ return [[
 '[C]App%5CEntity%5CMovie%23getImg' => 1,
 'App%5CEntity%5CMovie%23setImg' => 0,
 '[C]App%5CEntity%5CMovie%23setImg' => 1,
-'App%5CEntity%5CMovie%23getLikes' => 0,
-'[C]App%5CEntity%5CMovie%23getLikes' => 1,
-'App%5CEntity%5CMovie%23setLikes' => 0,
-'[C]App%5CEntity%5CMovie%23setLikes' => 1,
 'App%5CEntity%5CMovie%23getCategory' => 0,
 '[C]App%5CEntity%5CMovie%23getCategory' => 1,
 'App%5CEntity%5CMovie%23setCategory' => 0,
@@ -220,14 +240,18 @@ return [[
 '[C]App%5CEntity%5CMovie%23getLink' => 1,
 'App%5CEntity%5CMovie%23setLink' => 0,
 '[C]App%5CEntity%5CMovie%23setLink' => 1,
-'App%5CEntity%5CMovie%23setIsSerial' => 0,
-'[C]App%5CEntity%5CMovie%23setIsSerial' => 1,
 'App%5CEntity%5CMovie%23getCategories' => 0,
 '[C]App%5CEntity%5CMovie%23getCategories' => 1,
 'App%5CEntity%5CMovie%23addCategory' => 0,
 '[C]App%5CEntity%5CMovie%23addCategory' => 1,
 'App%5CEntity%5CMovie%23removeCategory' => 0,
 '[C]App%5CEntity%5CMovie%23removeCategory' => 1,
+'App%5CEntity%5CMovie%23getLikedBy' => 0,
+'[C]App%5CEntity%5CMovie%23getLikedBy' => 1,
+'App%5CEntity%5CMovie%23addLikedBy' => 0,
+'[C]App%5CEntity%5CMovie%23addLikedBy' => 1,
+'App%5CEntity%5CMovie%23removeLikedBy' => 0,
+'[C]App%5CEntity%5CMovie%23removeLikedBy' => 1,
 'App%5CEntity%5CMovie%24id' => 30,
 '[C]App%5CEntity%5CMovie%24id' => 1,
 'App%5CEntity%5CMovie%24title' => 31,
@@ -238,14 +262,18 @@ return [[
 '[C]App%5CEntity%5CMovie%24year' => 1,
 'App%5CEntity%5CMovie%24img' => 31,
 '[C]App%5CEntity%5CMovie%24img' => 1,
-'App%5CEntity%5CMovie%24likes' => 35,
-'[C]App%5CEntity%5CMovie%24likes' => 1,
 'App%5CEntity%5CMovie%24link' => 31,
 '[C]App%5CEntity%5CMovie%24link' => 1,
 'App%5CEntity%5CMovie%24categories' => 36,
 '[C]App%5CEntity%5CMovie%24categories' => 1,
-'App%5CEntity%5CSubuser' => 37,
+'App%5CEntity%5CMovie%24likedBy' => 37,
+'[C]App%5CEntity%5CMovie%24likedBy' => 1,
+'App%5CEntity%5CSubuser' => 38,
 '[C]App%5CEntity%5CSubuser' => 1,
+'App%5CEntity%5CSubuser%23__toString' => 0,
+'[C]App%5CEntity%5CSubuser%23__toString' => 1,
+'App%5CEntity%5CSubuser%23__construct' => 0,
+'[C]App%5CEntity%5CSubuser%23__construct' => 1,
 'App%5CEntity%5CSubuser%23getId' => 0,
 '[C]App%5CEntity%5CSubuser%23getId' => 1,
 'App%5CEntity%5CSubuser%23getName' => 0,
@@ -260,15 +288,23 @@ return [[
 '[C]App%5CEntity%5CSubuser%23getAvatar' => 1,
 'App%5CEntity%5CSubuser%23setAvatar' => 0,
 '[C]App%5CEntity%5CSubuser%23setAvatar' => 1,
+'App%5CEntity%5CSubuser%23getLikedMovies' => 0,
+'[C]App%5CEntity%5CSubuser%23getLikedMovies' => 1,
+'App%5CEntity%5CSubuser%23addLikedMovie' => 0,
+'[C]App%5CEntity%5CSubuser%23addLikedMovie' => 1,
+'App%5CEntity%5CSubuser%23removeLikedMovie' => 0,
+'[C]App%5CEntity%5CSubuser%23removeLikedMovie' => 1,
 'App%5CEntity%5CSubuser%24id' => 30,
 '[C]App%5CEntity%5CSubuser%24id' => 1,
 'App%5CEntity%5CSubuser%24name' => 34,
 '[C]App%5CEntity%5CSubuser%24name' => 1,
-'App%5CEntity%5CSubuser%24subaccountOf' => 38,
+'App%5CEntity%5CSubuser%24subaccountOf' => 39,
 '[C]App%5CEntity%5CSubuser%24subaccountOf' => 1,
 'App%5CEntity%5CSubuser%24avatar' => 31,
 '[C]App%5CEntity%5CSubuser%24avatar' => 1,
-'App%5CEntity%5CUser' => 39,
+'App%5CEntity%5CSubuser%24likedMovies' => 40,
+'[C]App%5CEntity%5CSubuser%24likedMovies' => 1,
+'App%5CEntity%5CUser' => 41,
 '[C]App%5CEntity%5CUser' => 1,
 'App%5CEntity%5CUser%23__toString' => 0,
 '[C]App%5CEntity%5CUser%23__toString' => 1,
@@ -308,15 +344,15 @@ return [[
 '[C]App%5CEntity%5CUser%23removeSubuser' => 1,
 'App%5CEntity%5CUser%24id' => 30,
 '[C]App%5CEntity%5CUser%24id' => 1,
-'App%5CEntity%5CUser%24email' => 40,
+'App%5CEntity%5CUser%24email' => 42,
 '[C]App%5CEntity%5CUser%24email' => 1,
-'App%5CEntity%5CUser%24roles' => 41,
+'App%5CEntity%5CUser%24roles' => 43,
 '[C]App%5CEntity%5CUser%24roles' => 1,
-'App%5CEntity%5CUser%24password' => 42,
+'App%5CEntity%5CUser%24password' => 44,
 '[C]App%5CEntity%5CUser%24password' => 1,
-'App%5CEntity%5CUser%24isVerified' => 43,
+'App%5CEntity%5CUser%24isVerified' => 45,
 '[C]App%5CEntity%5CUser%24isVerified' => 1,
-'App%5CEntity%5CUser%24subusers' => 44,
+'App%5CEntity%5CUser%24subusers' => 46,
 '[C]App%5CEntity%5CUser%24subusers' => 1,
 'Doctrine%5CBundle%5CDoctrineBundle%5CController%5CProfilerController' => 0,
 '[C]Doctrine%5CBundle%5CDoctrineBundle%5CController%5CProfilerController' => 1,
@@ -866,7 +902,7 @@ return [[
 ], [
 
 0 => [],
-1 => 1646580892,
+1 => 1646598178,
 2 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
@@ -1667,6 +1703,28 @@ return [[
 37 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\ManyToMany'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ManyToMany')),
+        ],
+        null,
+        [
+            'stdClass' => [
+                'targetEntity' => [
+                    'App\\Entity\\Subuser',
+                ],
+                'inversedBy' => [
+                    'likedMovies',
+                ],
+            ],
+        ],
+        [
+            $o[0],
+        ],
+        []
+    );
+},
+38 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Entity'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Entity')),
         ],
         null,
@@ -1683,7 +1741,7 @@ return [[
         []
     );
 },
-38 => static function () {
+39 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ManyToOne'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ManyToOne')),
@@ -1710,7 +1768,29 @@ return [[
         []
     );
 },
-39 => static function () {
+40 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\ManyToMany'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ManyToMany')),
+        ],
+        null,
+        [
+            'stdClass' => [
+                'targetEntity' => [
+                    'App\\Entity\\Movie',
+                ],
+                'mappedBy' => [
+                    'likedBy',
+                ],
+            ],
+        ],
+        [
+            $o[0],
+        ],
+        []
+    );
+},
+41 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\Entity'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Entity')),
@@ -1744,7 +1824,7 @@ return [[
         []
     );
 },
-40 => static function () {
+42 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
@@ -1775,7 +1855,7 @@ return [[
         []
     );
 },
-41 => static function () {
+43 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
@@ -1800,7 +1880,7 @@ return [[
         []
     );
 },
-42 => static function () {
+44 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
@@ -1825,7 +1905,7 @@ return [[
         []
     );
 },
-43 => static function () {
+45 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
@@ -1850,7 +1930,7 @@ return [[
         []
     );
 },
-44 => static function () {
+46 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\OneToMany'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\OneToMany')),

@@ -9,8 +9,6 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 /**
  * This class is automatically generated to help creating config.
- *
- * @experimental in 5.3
  */
 class HttpBasicLdapConfig 
 {
@@ -147,7 +145,6 @@ class HttpBasicLdapConfig
         }
     }
     
-    
     public function toArray(): array
     {
         $output = [];
@@ -175,6 +172,5 @@ class HttpBasicLdapConfig
     
         return $output;
     }
-    
 
 }

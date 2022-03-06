@@ -15,7 +15,6 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\HttpKernel\KernelInterface;
-use Symfony\Contracts\Service\ResetInterface;
 
 /**
  * KernelTestCase is the base class for tests needing a Kernel.
@@ -42,17 +41,16 @@ abstract class KernelTestCase extends TestCase
 
     protected static $booted = false;
 
-    private static $kernelContainer;
-
     protected function tearDown(): void
     {
         static::ensureKernelShutdown();
+        static::$class = null;
         static::$kernel = null;
         static::$booted = false;
     }
 
     /**
-     * @return string The Kernel class name
+     * @return string
      *
      * @throws \RuntimeException
      * @throws \LogicException
@@ -73,17 +71,18 @@ abstract class KernelTestCase extends TestCase
     /**
      * Boots the Kernel for this test.
      *
-     * @return KernelInterface A KernelInterface instance
+     * @return KernelInterface
      */
     protected static function bootKernel(array $options = [])
     {
         static::ensureKernelShutdown();
 
-        static::$kernel = static::createKernel($options);
-        static::$kernel->boot();
+        $kernel = static::createKernel($options);
+        $kernel->boot();
+        self::$kernel = $kernel;
         static::$booted = true;
 
-        self::$kernelContainer = $container = static::$kernel->getContainer();
+        $container = static::$kernel->getContainer();
         static::$container = $container->has('test.service_container') ? $container->get('test.service_container') : $container;
 
         return static::$kernel;
@@ -104,7 +103,7 @@ abstract class KernelTestCase extends TestCase
         }
 
         try {
-            return self::$kernelContainer->get('test.service_container');
+            return self::$kernel->getContainer()->get('test.service_container');
         } catch (ServiceNotFoundException $e) {
             throw new \LogicException('Could not find service "test.service_container". Try updating the "framework.test" config to "true".', 0, $e);
         }
@@ -118,7 +117,7 @@ abstract class KernelTestCase extends TestCase
      *  * environment
      *  * debug
      *
-     * @return KernelInterface A KernelInterface instance
+     * @return KernelInterface
      */
     protected static function createKernel(array $options = [])
     {
@@ -155,14 +154,11 @@ abstract class KernelTestCase extends TestCase
     protected static function ensureKernelShutdown()
     {
         if (null !== static::$kernel) {
+            static::$kernel->boot();
             static::$kernel->shutdown();
             static::$booted = false;
         }
 
-        if (self::$kernelContainer instanceof ResetInterface) {
-            self::$kernelContainer->reset();
-        }
-
-        static::$container = self::$kernelContainer = null;
+        static::$container = null;
     }
 }

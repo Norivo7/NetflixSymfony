@@ -10,8 +10,6 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 /**
  * This class is automatically generated to help creating config.
- *
- * @experimental in 5.3
  */
 class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInterface
 {
@@ -192,7 +190,6 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     {
         return 'doctrine_migrations';
     }
-            
     
     public function __construct(array $value = [])
     {
@@ -267,7 +264,6 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
         }
     }
     
-    
     public function toArray(): array
     {
         $output = [];
@@ -313,6 +309,5 @@ class DoctrineMigrationsConfig implements \Symfony\Component\Config\Builder\Conf
     
         return $output;
     }
-    
 
 }

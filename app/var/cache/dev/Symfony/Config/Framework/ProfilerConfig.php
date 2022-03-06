@@ -9,13 +9,12 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 /**
  * This class is automatically generated to help creating config.
- *
- * @experimental in 5.3
  */
 class ProfilerConfig 
 {
     private $enabled;
     private $collect;
+    private $collectParameter;
     private $onlyExceptions;
     private $onlyMainRequests;
     private $onlyMasterRequests;
@@ -41,6 +40,19 @@ class ProfilerConfig
     public function collect($value): self
     {
         $this->collect = $value;
+    
+        return $this;
+    }
+    
+    /**
+     * The name of the parameter to use to enable or disable collection on a per request basis
+     * @default null
+     * @param ParamConfigurator|mixed $value
+     * @return $this
+     */
+    public function collectParameter($value): self
+    {
+        $this->collectParameter = $value;
     
         return $this;
     }
@@ -107,6 +119,11 @@ class ProfilerConfig
             unset($value['collect']);
         }
     
+        if (isset($value['collect_parameter'])) {
+            $this->collectParameter = $value['collect_parameter'];
+            unset($value['collect_parameter']);
+        }
+    
         if (isset($value['only_exceptions'])) {
             $this->onlyExceptions = $value['only_exceptions'];
             unset($value['only_exceptions']);
@@ -132,7 +149,6 @@ class ProfilerConfig
         }
     }
     
-    
     public function toArray(): array
     {
         $output = [];
@@ -141,6 +157,9 @@ class ProfilerConfig
         }
         if (null !== $this->collect) {
             $output['collect'] = $this->collect;
+        }
+        if (null !== $this->collectParameter) {
+            $output['collect_parameter'] = $this->collectParameter;
         }
         if (null !== $this->onlyExceptions) {
             $output['only_exceptions'] = $this->onlyExceptions;
@@ -157,6 +176,5 @@ class ProfilerConfig
     
         return $output;
     }
-    
 
 }

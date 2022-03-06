@@ -9,8 +9,6 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 /**
  * This class is automatically generated to help creating config.
- *
- * @experimental in 5.3
  */
 class RateConfig 
 {
@@ -61,7 +59,6 @@ class RateConfig
         }
     }
     
-    
     public function toArray(): array
     {
         $output = [];
@@ -74,6 +71,5 @@ class RateConfig
     
         return $output;
     }
-    
 
 }

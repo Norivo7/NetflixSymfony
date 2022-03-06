@@ -9,8 +9,6 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 /**
  * This class is automatically generated to help creating config.
- *
- * @experimental in 5.3
  */
 class WebpackEncoreConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInterface
 {
@@ -125,7 +123,6 @@ class WebpackEncoreConfig implements \Symfony\Component\Config\Builder\ConfigBui
     {
         return 'webpack_encore';
     }
-            
     
     public function __construct(array $value = [])
     {
@@ -175,7 +172,6 @@ class WebpackEncoreConfig implements \Symfony\Component\Config\Builder\ConfigBui
         }
     }
     
-    
     public function toArray(): array
     {
         $output = [];
@@ -206,6 +202,5 @@ class WebpackEncoreConfig implements \Symfony\Component\Config\Builder\ConfigBui
     
         return $output;
     }
-    
 
 }

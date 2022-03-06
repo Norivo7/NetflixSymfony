@@ -67,7 +67,7 @@ class KernelBrowser extends HttpKernelBrowser
     /**
      * Gets the profile associated with the current Response.
      *
-     * @return HttpProfile|false|null A Profile instance
+     * @return HttpProfile|false|null
      */
     public function getProfile()
     {
@@ -111,6 +111,8 @@ class KernelBrowser extends HttpKernelBrowser
 
     /**
      * @param UserInterface $user
+     *
+     * @return $this
      */
     public function loginUser(object $user, string $firewallContext = 'main'): self
     {
@@ -160,11 +162,12 @@ class KernelBrowser extends HttpKernelBrowser
      *
      * @return Response
      */
-    protected function doRequest($request)
+    protected function doRequest(object $request)
     {
         // avoid shutting down the Kernel if no request has been performed yet
         // WebTestCase::createClient() boots the Kernel but do not handle a request
         if ($this->hasPerformedRequest && $this->reboot) {
+            $this->kernel->boot();
             $this->kernel->shutdown();
         } else {
             $this->hasPerformedRequest = true;
@@ -187,7 +190,7 @@ class KernelBrowser extends HttpKernelBrowser
      *
      * @return Response
      */
-    protected function doRequestInProcess($request)
+    protected function doRequestInProcess(object $request)
     {
         $response = parent::doRequestInProcess($request);
 
@@ -208,7 +211,7 @@ class KernelBrowser extends HttpKernelBrowser
      *
      * @return string
      */
-    protected function getScript($request)
+    protected function getScript(object $request)
     {
         $kernel = var_export(serialize($this->kernel), true);
         $request = var_export(serialize($request), true);
@@ -216,7 +219,7 @@ class KernelBrowser extends HttpKernelBrowser
 
         $requires = '';
         foreach (get_declared_classes() as $class) {
-            if (0 === strpos($class, 'ComposerAutoloaderInit')) {
+            if (str_starts_with($class, 'ComposerAutoloaderInit')) {
                 $r = new \ReflectionClass($class);
                 $file = \dirname($r->getFileName(), 2).'/autoload.php';
                 if (is_file($file)) {

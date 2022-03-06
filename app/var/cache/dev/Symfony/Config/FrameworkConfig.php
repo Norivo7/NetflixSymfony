@@ -22,6 +22,7 @@ require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'Prop
 require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'PropertyInfoConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'CacheConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'PhpErrorsConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'ExceptionsConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'WebLinkConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'LockConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'Framework'.\DIRECTORY_SEPARATOR.'MessengerConfig.php';
@@ -38,8 +39,6 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 /**
  * This class is automatically generated to help creating config.
- *
- * @experimental in 5.3
  */
 class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInterface
 {
@@ -48,6 +47,9 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     private $ide;
     private $test;
     private $defaultLocale;
+    private $setLocaleFromAcceptLanguage;
+    private $setContentLanguageFromLocale;
+    private $enabledLocales;
     private $trustedHosts;
     private $trustedProxies;
     private $trustedHeaders;
@@ -72,6 +74,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     private $propertyInfo;
     private $cache;
     private $phpErrors;
+    private $exceptions;
     private $webLink;
     private $lock;
     private $messenger;
@@ -140,6 +143,43 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     public function defaultLocale($value): self
     {
         $this->defaultLocale = $value;
+    
+        return $this;
+    }
+    
+    /**
+     * Whether to use the Accept-Language HTTP header to set the Request locale (only when the "_locale" request attribute is not passed).
+     * @default false
+     * @param ParamConfigurator|bool $value
+     * @return $this
+     */
+    public function setLocaleFromAcceptLanguage($value): self
+    {
+        $this->setLocaleFromAcceptLanguage = $value;
+    
+        return $this;
+    }
+    
+    /**
+     * Whether to set the Content-Language HTTP header on the Response using the Request locale.
+     * @default false
+     * @param ParamConfigurator|bool $value
+     * @return $this
+     */
+    public function setContentLanguageFromLocale($value): self
+    {
+        $this->setContentLanguageFromLocale = $value;
+    
+        return $this;
+    }
+    
+    /**
+     * @param ParamConfigurator|list<mixed|ParamConfigurator> $value
+     * @return $this
+     */
+    public function enabledLocales($value): self
+    {
+        $this->enabledLocales = $value;
     
         return $this;
     }
@@ -410,6 +450,11 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         return $this->phpErrors;
     }
     
+    public function exceptions(array $value = []): \Symfony\Config\Framework\ExceptionsConfig
+    {
+        return $this->exceptions[] = new \Symfony\Config\Framework\ExceptionsConfig($value);
+    }
+    
     public function webLink(array $value = []): \Symfony\Config\Framework\WebLinkConfig
     {
         if (null === $this->webLink) {
@@ -526,7 +571,6 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     {
         return 'framework';
     }
-            
     
     public function __construct(array $value = [])
     {
@@ -554,6 +598,21 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (isset($value['default_locale'])) {
             $this->defaultLocale = $value['default_locale'];
             unset($value['default_locale']);
+        }
+    
+        if (isset($value['set_locale_from_accept_language'])) {
+            $this->setLocaleFromAcceptLanguage = $value['set_locale_from_accept_language'];
+            unset($value['set_locale_from_accept_language']);
+        }
+    
+        if (isset($value['set_content_language_from_locale'])) {
+            $this->setContentLanguageFromLocale = $value['set_content_language_from_locale'];
+            unset($value['set_content_language_from_locale']);
+        }
+    
+        if (isset($value['enabled_locales'])) {
+            $this->enabledLocales = $value['enabled_locales'];
+            unset($value['enabled_locales']);
         }
     
         if (isset($value['trusted_hosts'])) {
@@ -676,6 +735,11 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
             unset($value['php_errors']);
         }
     
+        if (isset($value['exceptions'])) {
+            $this->exceptions = array_map(function ($v) { return new \Symfony\Config\Framework\ExceptionsConfig($v); }, $value['exceptions']);
+            unset($value['exceptions']);
+        }
+    
         if (isset($value['web_link'])) {
             $this->webLink = new \Symfony\Config\Framework\WebLinkConfig($value['web_link']);
             unset($value['web_link']);
@@ -731,7 +795,6 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         }
     }
     
-    
     public function toArray(): array
     {
         $output = [];
@@ -749,6 +812,15 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         }
         if (null !== $this->defaultLocale) {
             $output['default_locale'] = $this->defaultLocale;
+        }
+        if (null !== $this->setLocaleFromAcceptLanguage) {
+            $output['set_locale_from_accept_language'] = $this->setLocaleFromAcceptLanguage;
+        }
+        if (null !== $this->setContentLanguageFromLocale) {
+            $output['set_content_language_from_locale'] = $this->setContentLanguageFromLocale;
+        }
+        if (null !== $this->enabledLocales) {
+            $output['enabled_locales'] = $this->enabledLocales;
         }
         if (null !== $this->trustedHosts) {
             $output['trusted_hosts'] = $this->trustedHosts;
@@ -822,6 +894,9 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
         if (null !== $this->phpErrors) {
             $output['php_errors'] = $this->phpErrors->toArray();
         }
+        if (null !== $this->exceptions) {
+            $output['exceptions'] = array_map(function ($v) { return $v->toArray(); }, $this->exceptions);
+        }
         if (null !== $this->webLink) {
             $output['web_link'] = $this->webLink->toArray();
         }
@@ -855,6 +930,5 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     
         return $output;
     }
-    
 
 }

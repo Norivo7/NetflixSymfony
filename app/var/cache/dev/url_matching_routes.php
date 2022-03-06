@@ -8,11 +8,6 @@
 return [
     false, // $matchHost
     [ // $staticRoutes
-        '/_profiler' => [[['_route' => '_profiler_home', '_controller' => 'web_profiler.controller.profiler::homeAction'], null, null, null, true, false, null]],
-        '/_profiler/search' => [[['_route' => '_profiler_search', '_controller' => 'web_profiler.controller.profiler::searchAction'], null, null, null, false, false, null]],
-        '/_profiler/search_bar' => [[['_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'], null, null, null, false, false, null]],
-        '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
-        '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/admin' => [[['_route' => 'admin_panel', '_controller' => 'App\\Controller\\AdminController::index'], null, null, null, false, false, null]],
         '/error' => [[['_route' => 'error', '_controller' => 'App\\Controller\\ExceptionController::handleError'], null, null, null, false, false, null]],
         '/email' => [[['_route' => 'app_mailer_sendemail', '_controller' => 'App\\Controller\\MailerController::sendEmail'], null, null, null, false, false, null]],
@@ -44,69 +39,74 @@ return [
         '/admin/subusers/new' => [[['_route' => 'subuser_crud_new', '_controller' => 'App\\Controller\\SubuserCrudController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/admin/users' => [[['_route' => 'app_user_crud_index', '_controller' => 'App\\Controller\\UserCrudController::index'], null, ['GET' => 0], null, true, false, null]],
         '/admin/users/new' => [[['_route' => 'app_user_crud_new', '_controller' => 'App\\Controller\\UserCrudController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/_profiler' => [[['_route' => '_profiler_home', '_controller' => 'web_profiler.controller.profiler::homeAction'], null, null, null, true, false, null]],
+        '/_profiler/search' => [[['_route' => '_profiler_search', '_controller' => 'web_profiler.controller.profiler::searchAction'], null, null, null, false, false, null]],
+        '/_profiler/search_bar' => [[['_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'], null, null, null, false, false, null]],
+        '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
+        '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
-                .'|/_(?'
-                    .'|wdt/([^/]++)(*:24)'
-                    .'|profiler/([^/]++)(?'
-                        .'|/(?'
-                            .'|search/results(*:69)'
-                            .'|router(*:82)'
-                            .'|exception(?'
-                                .'|(*:101)'
-                                .'|\\.css(*:114)'
-                            .')'
-                        .')'
-                        .'|(*:124)'
-                    .')'
-                    .'|error/(\\d+)(?:\\.([^/]++))?(*:159)'
-                .')'
                 .'|/admin/(?'
                     .'|movies/([^/]++)(?'
-                        .'|(*:196)'
-                        .'|/edit(*:209)'
-                        .'|(*:217)'
+                        .'|(*:35)'
+                        .'|/edit(*:47)'
+                        .'|(*:54)'
                     .')'
                     .'|subusers/([^/]++)(?'
-                        .'|(*:246)'
-                        .'|/edit(*:259)'
-                        .'|(*:267)'
+                        .'|(*:82)'
+                        .'|/edit(*:94)'
+                        .'|(*:101)'
                     .')'
                     .'|users/([^/]++)(?'
-                        .'|(*:293)'
-                        .'|/edit(*:306)'
-                        .'|(*:314)'
+                        .'|(*:127)'
+                        .'|/edit(*:140)'
+                        .'|(*:148)'
                     .')'
                 .')'
-                .'|/show/([^/]++)(*:338)'
+                .'|/show/([^/]++)(*:172)'
                 .'|/manageUser/(?'
-                    .'|delete/([^/]++)(*:376)'
-                    .'|update/([^/]++)(*:399)'
+                    .'|delete/([^/]++)(*:210)'
+                    .'|update/([^/]++)(*:233)'
+                .')'
+                .'|/_(?'
+                    .'|error/(\\d+)(?:\\.([^/]++))?(*:273)'
+                    .'|wdt/([^/]++)(*:293)'
+                    .'|profiler/([^/]++)(?'
+                        .'|/(?'
+                            .'|search/results(*:339)'
+                            .'|router(*:353)'
+                            .'|exception(?'
+                                .'|(*:373)'
+                                .'|\\.css(*:386)'
+                            .')'
+                        .')'
+                        .'|(*:396)'
+                    .')'
                 .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
-        24 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
-        69 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
-        82 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
-        101 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
-        114 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        124 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        159 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
-        196 => [[['_route' => 'app_movie_crud_show', '_controller' => 'App\\Controller\\MovieCrudController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        209 => [[['_route' => 'app_movie_crud_edit', '_controller' => 'App\\Controller\\MovieCrudController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        217 => [[['_route' => 'app_movie_crud_delete', '_controller' => 'App\\Controller\\MovieCrudController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        246 => [[['_route' => 'subuser_crud_show', '_controller' => 'App\\Controller\\SubuserCrudController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        259 => [[['_route' => 'subuser_crud_edit', '_controller' => 'App\\Controller\\SubuserCrudController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        267 => [[['_route' => 'subuser_crud_delete', '_controller' => 'App\\Controller\\SubuserCrudController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        293 => [[['_route' => 'app_user_crud_show', '_controller' => 'App\\Controller\\UserCrudController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        306 => [[['_route' => 'app_user_crud_edit', '_controller' => 'App\\Controller\\UserCrudController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        314 => [[['_route' => 'app_user_crud_delete', '_controller' => 'App\\Controller\\UserCrudController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        338 => [[['_route' => 'show-one', '_controller' => 'App\\Controller\\MoviesController::show'], ['id'], null, null, false, true, null]],
-        376 => [[['_route' => 'deleteSubuser', '_controller' => 'App\\Controller\\SubuserController::delete'], ['id'], null, null, false, true, null]],
-        399 => [
-            [['_route' => 'update', '_controller' => 'App\\Controller\\SubuserController::update'], ['id'], null, null, false, true, null],
+        35 => [[['_route' => 'app_movie_crud_show', '_controller' => 'App\\Controller\\MovieCrudController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        47 => [[['_route' => 'app_movie_crud_edit', '_controller' => 'App\\Controller\\MovieCrudController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        54 => [[['_route' => 'app_movie_crud_delete', '_controller' => 'App\\Controller\\MovieCrudController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        82 => [[['_route' => 'subuser_crud_show', '_controller' => 'App\\Controller\\SubuserCrudController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        94 => [[['_route' => 'subuser_crud_edit', '_controller' => 'App\\Controller\\SubuserCrudController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        101 => [[['_route' => 'subuser_crud_delete', '_controller' => 'App\\Controller\\SubuserCrudController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        127 => [[['_route' => 'app_user_crud_show', '_controller' => 'App\\Controller\\UserCrudController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        140 => [[['_route' => 'app_user_crud_edit', '_controller' => 'App\\Controller\\UserCrudController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        148 => [[['_route' => 'app_user_crud_delete', '_controller' => 'App\\Controller\\UserCrudController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        172 => [[['_route' => 'show-one', '_controller' => 'App\\Controller\\MoviesController::show'], ['id'], null, null, false, true, null]],
+        210 => [[['_route' => 'deleteSubuser', '_controller' => 'App\\Controller\\SubuserController::delete'], ['id'], null, null, false, true, null]],
+        233 => [[['_route' => 'update', '_controller' => 'App\\Controller\\SubuserController::update'], ['id'], null, null, false, true, null]],
+        273 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
+        293 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
+        339 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
+        353 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
+        373 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
+        386 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
+        396 => [
+            [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

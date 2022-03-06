@@ -15,8 +15,6 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 /**
  * This class is automatically generated to help creating config.
- *
- * @experimental in 5.3
  */
 class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderInterface
 {
@@ -74,6 +72,7 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
     /**
      * @default false
      * @param ParamConfigurator|bool $value
+     * @deprecated The child node "always_authenticate_before_granting" at path "security" is deprecated.
      * @return $this
      */
     public function alwaysAuthenticateBeforeGranting($value): self
@@ -187,7 +186,6 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
     {
         return 'security';
     }
-            
     
     public function __construct(array $value = [])
     {
@@ -262,7 +260,6 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
         }
     }
     
-    
     public function toArray(): array
     {
         $output = [];
@@ -308,6 +305,5 @@ class SecurityConfig implements \Symfony\Component\Config\Builder\ConfigBuilderI
     
         return $output;
     }
-    
 
 }

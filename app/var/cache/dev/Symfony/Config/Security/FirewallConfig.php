@@ -4,15 +4,15 @@ namespace Symfony\Config\Security;
 
 require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'LogoutConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'SwitchUserConfig.php';
-require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'X509Config.php';
-require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'RemoteUserConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'GuardConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'LoginThrottlingConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'X509Config.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'RemoteUserConfig.php';
+require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'LoginLinkConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'FormLoginConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'FormLoginLdapConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'JsonLoginConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'JsonLoginLdapConfig.php';
-require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'LoginLinkConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'HttpBasicConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'HttpBasicLdapConfig.php';
 require_once __DIR__.\DIRECTORY_SEPARATOR.'FirewallConfig'.\DIRECTORY_SEPARATOR.'RememberMeConfig.php';
@@ -24,8 +24,6 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 /**
  * This class is automatically generated to help creating config.
- *
- * @experimental in 5.3
  */
 class FirewallConfig 
 {
@@ -45,16 +43,16 @@ class FirewallConfig
     private $logout;
     private $switchUser;
     private $requiredBadges;
-    private $x509;
-    private $remoteUser;
     private $guard;
     private $customAuthenticators;
     private $loginThrottling;
+    private $x509;
+    private $remoteUser;
+    private $loginLink;
     private $formLogin;
     private $formLoginLdap;
     private $jsonLogin;
     private $jsonLoginLdap;
-    private $loginLink;
     private $httpBasic;
     private $httpBasicLdap;
     private $rememberMe;
@@ -250,28 +248,6 @@ class FirewallConfig
         return $this;
     }
     
-    public function x509(array $value = []): \Symfony\Config\Security\FirewallConfig\X509Config
-    {
-        if (null === $this->x509) {
-            $this->x509 = new \Symfony\Config\Security\FirewallConfig\X509Config($value);
-        } elseif ([] !== $value) {
-            throw new InvalidConfigurationException('The node created by "x509()" has already been initialized. You cannot pass values the second time you call x509().');
-        }
-    
-        return $this->x509;
-    }
-    
-    public function remoteUser(array $value = []): \Symfony\Config\Security\FirewallConfig\RemoteUserConfig
-    {
-        if (null === $this->remoteUser) {
-            $this->remoteUser = new \Symfony\Config\Security\FirewallConfig\RemoteUserConfig($value);
-        } elseif ([] !== $value) {
-            throw new InvalidConfigurationException('The node created by "remoteUser()" has already been initialized. You cannot pass values the second time you call remoteUser().');
-        }
-    
-        return $this->remoteUser;
-    }
-    
     public function guard(array $value = []): \Symfony\Config\Security\FirewallConfig\GuardConfig
     {
         if (null === $this->guard) {
@@ -303,6 +279,39 @@ class FirewallConfig
         }
     
         return $this->loginThrottling;
+    }
+    
+    public function x509(array $value = []): \Symfony\Config\Security\FirewallConfig\X509Config
+    {
+        if (null === $this->x509) {
+            $this->x509 = new \Symfony\Config\Security\FirewallConfig\X509Config($value);
+        } elseif ([] !== $value) {
+            throw new InvalidConfigurationException('The node created by "x509()" has already been initialized. You cannot pass values the second time you call x509().');
+        }
+    
+        return $this->x509;
+    }
+    
+    public function remoteUser(array $value = []): \Symfony\Config\Security\FirewallConfig\RemoteUserConfig
+    {
+        if (null === $this->remoteUser) {
+            $this->remoteUser = new \Symfony\Config\Security\FirewallConfig\RemoteUserConfig($value);
+        } elseif ([] !== $value) {
+            throw new InvalidConfigurationException('The node created by "remoteUser()" has already been initialized. You cannot pass values the second time you call remoteUser().');
+        }
+    
+        return $this->remoteUser;
+    }
+    
+    public function loginLink(array $value = []): \Symfony\Config\Security\FirewallConfig\LoginLinkConfig
+    {
+        if (null === $this->loginLink) {
+            $this->loginLink = new \Symfony\Config\Security\FirewallConfig\LoginLinkConfig($value);
+        } elseif ([] !== $value) {
+            throw new InvalidConfigurationException('The node created by "loginLink()" has already been initialized. You cannot pass values the second time you call loginLink().');
+        }
+    
+        return $this->loginLink;
     }
     
     public function formLogin(array $value = []): \Symfony\Config\Security\FirewallConfig\FormLoginConfig
@@ -347,17 +356,6 @@ class FirewallConfig
         }
     
         return $this->jsonLoginLdap;
-    }
-    
-    public function loginLink(array $value = []): \Symfony\Config\Security\FirewallConfig\LoginLinkConfig
-    {
-        if (null === $this->loginLink) {
-            $this->loginLink = new \Symfony\Config\Security\FirewallConfig\LoginLinkConfig($value);
-        } elseif ([] !== $value) {
-            throw new InvalidConfigurationException('The node created by "loginLink()" has already been initialized. You cannot pass values the second time you call loginLink().');
-        }
-    
-        return $this->loginLink;
     }
     
     public function httpBasic(array $value = []): \Symfony\Config\Security\FirewallConfig\HttpBasicConfig
@@ -487,16 +485,6 @@ class FirewallConfig
             unset($value['required_badges']);
         }
     
-        if (isset($value['x509'])) {
-            $this->x509 = new \Symfony\Config\Security\FirewallConfig\X509Config($value['x509']);
-            unset($value['x509']);
-        }
-    
-        if (isset($value['remote_user'])) {
-            $this->remoteUser = new \Symfony\Config\Security\FirewallConfig\RemoteUserConfig($value['remote_user']);
-            unset($value['remote_user']);
-        }
-    
         if (isset($value['guard'])) {
             $this->guard = new \Symfony\Config\Security\FirewallConfig\GuardConfig($value['guard']);
             unset($value['guard']);
@@ -510,6 +498,21 @@ class FirewallConfig
         if (isset($value['login_throttling'])) {
             $this->loginThrottling = new \Symfony\Config\Security\FirewallConfig\LoginThrottlingConfig($value['login_throttling']);
             unset($value['login_throttling']);
+        }
+    
+        if (isset($value['x509'])) {
+            $this->x509 = new \Symfony\Config\Security\FirewallConfig\X509Config($value['x509']);
+            unset($value['x509']);
+        }
+    
+        if (isset($value['remote_user'])) {
+            $this->remoteUser = new \Symfony\Config\Security\FirewallConfig\RemoteUserConfig($value['remote_user']);
+            unset($value['remote_user']);
+        }
+    
+        if (isset($value['login_link'])) {
+            $this->loginLink = new \Symfony\Config\Security\FirewallConfig\LoginLinkConfig($value['login_link']);
+            unset($value['login_link']);
         }
     
         if (isset($value['form_login'])) {
@@ -530,11 +533,6 @@ class FirewallConfig
         if (isset($value['json_login_ldap'])) {
             $this->jsonLoginLdap = new \Symfony\Config\Security\FirewallConfig\JsonLoginLdapConfig($value['json_login_ldap']);
             unset($value['json_login_ldap']);
-        }
-    
-        if (isset($value['login_link'])) {
-            $this->loginLink = new \Symfony\Config\Security\FirewallConfig\LoginLinkConfig($value['login_link']);
-            unset($value['login_link']);
         }
     
         if (isset($value['http_basic'])) {
@@ -561,7 +559,6 @@ class FirewallConfig
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-    
     
     public function toArray(): array
     {
@@ -614,12 +611,6 @@ class FirewallConfig
         if (null !== $this->requiredBadges) {
             $output['required_badges'] = $this->requiredBadges;
         }
-        if (null !== $this->x509) {
-            $output['x509'] = $this->x509->toArray();
-        }
-        if (null !== $this->remoteUser) {
-            $output['remote_user'] = $this->remoteUser->toArray();
-        }
         if (null !== $this->guard) {
             $output['guard'] = $this->guard->toArray();
         }
@@ -628,6 +619,15 @@ class FirewallConfig
         }
         if (null !== $this->loginThrottling) {
             $output['login_throttling'] = $this->loginThrottling->toArray();
+        }
+        if (null !== $this->x509) {
+            $output['x509'] = $this->x509->toArray();
+        }
+        if (null !== $this->remoteUser) {
+            $output['remote_user'] = $this->remoteUser->toArray();
+        }
+        if (null !== $this->loginLink) {
+            $output['login_link'] = $this->loginLink->toArray();
         }
         if (null !== $this->formLogin) {
             $output['form_login'] = $this->formLogin->toArray();
@@ -640,9 +640,6 @@ class FirewallConfig
         }
         if (null !== $this->jsonLoginLdap) {
             $output['json_login_ldap'] = $this->jsonLoginLdap->toArray();
-        }
-        if (null !== $this->loginLink) {
-            $output['login_link'] = $this->loginLink->toArray();
         }
         if (null !== $this->httpBasic) {
             $output['http_basic'] = $this->httpBasic->toArray();
@@ -659,6 +656,5 @@ class FirewallConfig
     
         return $output;
     }
-    
 
 }

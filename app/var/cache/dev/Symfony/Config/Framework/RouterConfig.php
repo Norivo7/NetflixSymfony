@@ -9,8 +9,6 @@ use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
 /**
  * This class is automatically generated to help creating config.
- *
- * @experimental in 5.3
  */
 class RouterConfig 
 {
@@ -172,7 +170,6 @@ class RouterConfig
         }
     }
     
-    
     public function toArray(): array
     {
         $output = [];
@@ -203,6 +200,5 @@ class RouterConfig
     
         return $output;
     }
-    
 
 }
