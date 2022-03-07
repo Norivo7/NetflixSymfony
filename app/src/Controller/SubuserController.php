@@ -3,12 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Subuser;
-use App\Entity\User;
 use App\Form\SubuserType;
-use App\Repository\CategoryRepository;
-use App\Repository\MovieRepository;
 use App\Repository\SubuserRepository;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,10 +16,22 @@ use Symfony\Component\Routing\Annotation\Route;
 class SubuserController extends AbstractController
 {
     private SubuserRepository $subuserRepository;
+    private ManagerRegistry $doctrine;
 
-    public function __construct(SubuserRepository $subuserRepository)
+    public function __construct(SubuserRepository $subuserRepository, ManagerRegistry $doctrine)
     {
+        $this->doctrine = $doctrine;
         $this->subuserRepository = $subuserRepository;
+    }
+
+    private function addDefaultSubuserForUser($currentUser) {
+        $subuser = new Subuser();
+        $subuser->setName('Nowy');
+        $subuser->setAvatar('https://i.imgur.com/9nWtdiZ.png');
+        $subuser->setSubaccountOf($currentUser);
+        $entityManager = $this->doctrine->getManager();
+        $entityManager->persist($subuser);
+        $entityManager->flush();
     }
 
 
@@ -31,19 +39,14 @@ class SubuserController extends AbstractController
      * @Route ("manageUser/add")
      * @return Response
      */
-    public function addSubuser(ManagerRegistry $doctrine): Response
+    public function addSubuser(): Response
     {
         $currentUser = $this->getUser();
-        $entityManager = $doctrine->getManager();
+
         $subusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
         $subuserCount = count($subusers);
         if ($subuserCount < 5) {
-            $subuser = new Subuser();
-            $subuser->setName('Nowy');
-            $subuser->setAvatar('https://i.imgur.com/9nWtdiZ.png');
-            $subuser->setSubaccountOf($currentUser);
-            $entityManager->persist($subuser);
-            $entityManager->flush();
+            $this->addDefaultSubuserForUser($currentUser);
             return $this->redirectToRoute('manageUser');
         } else {
             return $this->redirectToRoute('error', [
@@ -55,10 +58,9 @@ class SubuserController extends AbstractController
     /**
      * @Route ("manageUser/edit", name="edit")
      * @param Request $request
-     * @param EntityManagerInterface $entityManager
      * @return Response
      */
-    public function edit(Request $request, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request): Response
     {
         $user = $this->getUser();
         $errorRegex = $request->get('errorRegex');
@@ -200,7 +202,7 @@ class SubuserController extends AbstractController
      */
     public function success(Request $request): Response
     {
-        $currentUserId = $this->getUser()->getId();
+        $currentUserId = $this->getUser();
         $subuserId = $request->get('id');
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUserId));
         $currentSubuserId = $allSubusers[$subuserId]->getId();
@@ -212,28 +214,4 @@ class SubuserController extends AbstractController
         return $this->redirectToRoute('browse', [
         ]);
     }
-
-
-    /**
-     * @Route("/newSubuser", name="newSubuser")
-     * @return Response
-     */
-    public function newSubuser(): Response
-    {
-        $currentUser = $this->getUser();
-        $subuser = new Subuser();
-
-        $subuser->setName("Nowy profil");
-        $subuser->setAvatar("https://i.imgur.com/9nWtdiZ.png");
-        $subuser->setSubaccountOf($currentUser);
-
-        $form = $this->createForm(SubuserType::class, $subuser);
-        dump($form);
-        return $this->renderForm('user/manage.html.twig', [
-            'form' => $form,
-            'subUsers' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser)),
-        ]);
-    }
-
-
 }

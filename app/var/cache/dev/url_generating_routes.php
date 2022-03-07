@@ -34,7 +34,6 @@ return [
     'manageUser' => [[], ['_controller' => 'App\\Controller\\SubuserController::manageUser'], [], [['text', '/manageUser']], [], [], []],
     'chooseUser' => [[], ['_controller' => 'App\\Controller\\SubuserController::chooseUser'], [], [['text', '/chooseUser']], [], [], []],
     'success' => [[], ['_controller' => 'App\\Controller\\SubuserController::success'], [], [['text', '/success']], [], [], []],
-    'newSubuser' => [[], ['_controller' => 'App\\Controller\\SubuserController::newSubuser'], [], [['text', '/newSubuser']], [], [], []],
     'subuser_crud_index' => [[], ['_controller' => 'App\\Controller\\SubuserCrudController::index'], [], [['text', '/admin/subusers/']], [], [], []],
     'subuser_crud_new' => [[], ['_controller' => 'App\\Controller\\SubuserCrudController::new'], [], [['text', '/admin/subusers/new']], [], [], []],
     'subuser_crud_show' => [['id'], ['_controller' => 'App\\Controller\\SubuserCrudController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/admin/subusers']], [], [], []],

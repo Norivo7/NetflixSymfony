@@ -28,6 +28,20 @@ class MoviesController extends AbstractController
         $this->categoryRepository = $categoryRepository;
     }
 
+      // helper functions
+    private function isMovieLikedByCurrentUser(int $movieId, ?array $liked): bool
+    {
+        return in_array($movieId, array_column($liked, 'id'));
+    }
+
+    private function getCurrentSubuserIdFromSession(): mixed
+    {
+        $session = new Session();
+        $subuser = $session->get('filter');
+        return reset($subuser);
+    }
+
+
     /**
      * @Route("/", name="home")
      */
@@ -38,7 +52,6 @@ class MoviesController extends AbstractController
         );
     }
 
-
     /**
      * @Route("/browse", name="browse")
      * @param Request $request
@@ -47,16 +60,14 @@ class MoviesController extends AbstractController
     public function index(Request $request): Response
     {
 
-        $currentUserId = $this->getUser()->getId();
+        $currentUser = $this->getUser();
         $subuserFrontId = $request->get('id');
-        $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUserId));
+        $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
         $subuserCount = count($allSubusers);
-        // TODO: TESTOWANKO
-//        dump('ID subusera z frontu: '.$subuserFrontId);//  $subuserId to wiadomość z fronta od użytkownika (od 0 do 4)
-//        dump('Ilość subuserów: '.$subuserCount); // $subuserCount to liczba subuserów w systemie ( max 5 )
 
         $session = new Session();
         $subuser = $session->get('filter');
+
         if ($subuser != null) {
             $subuserId = reset($subuser);
         }
@@ -64,7 +75,6 @@ class MoviesController extends AbstractController
 
             return $this->render('movies/index.html.twig', [
                 'controller_name' => 'MovieController',
-//                'popular' => $this->movieRepository->popularFilter(),
                 'movies' => $this->movieRepository->getMoviesByCategory('Filmy'),
                 'originals' => $this->movieRepository->getMoviesByCategory('Eksluzywne'),
                 'shows' => $this->movieRepository->getMoviesByCategory('Seriale'),
@@ -81,20 +91,14 @@ class MoviesController extends AbstractController
 
     /**
      * @Route("/shows", name="shows")
-     * @param Request $request
      * @return Response
      */
-    public function shows(Request $request): Response
+    public function shows(): Response
     {
-        $session = new Session();
-        $session->start();
-
-        $subuser = $session->get('filter');
-        $subuserId = reset($subuser);
         return $this->render(
-            'movies/list.html.twig',
-            ['movies' => $this->movieRepository->getMoviesByCategory('Seriale'),
-                'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()
+            'movies/list.html.twig', [
+                'movies' => $this->movieRepository->getMoviesByCategory('Seriale'),
+                'userAvatar' => $this->subuserRepository->find($this->getCurrentSubuserIdFromSession())->getAvatar()
             ]
         );
     }
@@ -105,16 +109,13 @@ class MoviesController extends AbstractController
      */
     public function profile(): Response
     {
-        $session = new Session();
-        $session->start();
-        $subuser = $session->get('filter');
-        $subuserId = reset($subuser);
+        $subuserId = $this->getCurrentSubuserIdFromSession();
         $currentUser = $this->getUser();
+
         return $this->render('user/profile.html.twig', [
             'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar(),
             'email' => $currentUser->getUserIdentifier(),
             'profiles' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
-//            'liked' =>$this->repo->getLikedMoviesByUser()
         ]);
     }
 
@@ -124,28 +125,25 @@ class MoviesController extends AbstractController
      */
     public function show(Movie $movie): Response
     {
-        $session = new Session();
-        $session->start();
-        $subuser = $session->get('filter');
-        $subuserId = reset($subuser);
+        $subuserId = $this->getCurrentSubuserIdFromSession();
 
         $liked = $this->movieRepository->getLikedMoviesBySubuser($subuserId);
         $movie = $this->movieRepository->find($movie);
         $categories = $this->categoryRepository->getCategoryByMovie($movie->getTitle());
         $movieId = $movie->getId();
 
-        if (array_search($movieId, array_column($liked, 'id')) !== false) {
+        if ($this->isMovieLikedByCurrentUser($movieId, $liked)) {
             return $this->render('movies/show.html.twig', [
                 'liked' => 'yes',
                 'movie' => $movie,
                 'categories' => $categories
             ]);
-        } else {
-            return $this->render('movies/show.html.twig', [
-                'movie' => $movie,
-                'categories' => $categories
-            ]);
         }
+        return $this->render('movies/show.html.twig', [
+            'movie' => $movie,
+            'categories' => $categories
+        ]);
+
     }
 
     public function exclusive(): Response
@@ -164,15 +162,11 @@ class MoviesController extends AbstractController
      */
     public function myList(): Response
     {
-        $session = new Session();
-        $session->start();
-        $subuser = $session->get('filter');
-        $subuserId = reset($subuser);
-        $currentSubuser = $this->subuserRepository->find($subuserId);
+        $currentSubuser = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
 
         return $this->render(
             'movies/list.html.twig', [
-                'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar(),
+                'userAvatar' => $currentSubuser->getAvatar(),
                 'movies' => $this->movieRepository->getLikedMoviesBySubuser(($currentSubuser->getId()))
             ]
         );
@@ -184,10 +178,7 @@ class MoviesController extends AbstractController
      */
     public function movies(): Response
     {
-        $session = new Session();
-        $session->start();
-        $subuser = $session->get('filter');
-        $subuserId = reset($subuser);
+        $subuserId = $this->getCurrentSubuserIdFromSession();
 
         return $this->render(
             'movies/list.html.twig', [
@@ -202,10 +193,7 @@ class MoviesController extends AbstractController
      */
     public function new(): Response
     {
-        $session = new Session();
-        $session->start();
-        $subuser = $session->get('filter');
-        $subuserId = reset($subuser);
+        $subuserId = $this->getCurrentSubuserIdFromSession();
 
         return $this->render(
             'movies/list.html.twig', [
@@ -217,21 +205,23 @@ class MoviesController extends AbstractController
     /**
      * @Route ("/like", name="like", methods={"POST"})
      * @param Request $request
+     * @param ManagerRegistry $doctrine
      * @return Response
      */
     public function like(Request $request, ManagerRegistry $doctrine): Response
     {
+        // get movie
         $id = $request->request->all();
         $movie = $this->movieRepository->find($id['id']);
-        $session = new Session();
+
         // get subuser
-        $subuser = $session->get('filter');
-        $subuserId = reset($subuser);
+        $subuserId = $this->getCurrentSubuserIdFromSession();
         $currentSubuser = $this->subuserRepository->find($subuserId);
+
         $movie->addLikedBy($currentSubuser);
 
-        $entityManager = $doctrine->getManager();
         // make changes in database
+        $entityManager = $doctrine->getManager();
         $entityManager->persist($movie);
         $entityManager->persist($currentSubuser);
         $entityManager->flush();
@@ -242,19 +232,20 @@ class MoviesController extends AbstractController
     /**
      * @Route ("/dislike", name="dislike", methods={"POST"})
      * @param Request $request
+     * @param ManagerRegistry $doctrine
      * @return Response
      */
     public function dislike(Request $request, ManagerRegistry $doctrine): Response
     {
         $id = $request->request->all();
         $movie = $this->movieRepository->find($id['id']);
-        $session = new Session();
-        $subuser = $session->get('filter');
-        $subuserId = reset($subuser);
-        $currentSubuser = $this->subuserRepository->find($subuserId);
-        $movie->removeLikedBy($currentSubuser);
-        $entityManager = $doctrine->getManager();
 
+        $subuserId = $this->getCurrentSubuserIdFromSession();
+        $currentSubuser = $this->subuserRepository->find($subuserId);
+
+        $movie->removeLikedBy($currentSubuser);
+
+        $entityManager = $doctrine->getManager();
         $entityManager->persist($movie);
         $entityManager->persist($currentSubuser);
         $entityManager->flush();
@@ -269,7 +260,6 @@ class MoviesController extends AbstractController
      */
     public function notif(Request $request): Response
     {
-
         $errorMsg = "501: Nie zaimplementowano.";
         return $this->render('error/error.html.twig', [
             'error' => $errorMsg
@@ -284,17 +274,16 @@ class MoviesController extends AbstractController
      */
     public function search(MovieRepository $movieRepository, Request $request): Response
     {
-        $session = new Session();
-        $session->start();
-        $subuser = $session->get('filter');
-        $subuserId = reset($subuser);
+        $subuserId = $this->getCurrentSubuserIdFromSession();
+        $currentSubuser = $this->subuserRepository->find($subuserId);
+
         $movies = $movieRepository->search(
             $request->query->get('v')
         );
 
         return $this->render('movies/list.html.twig', [
             'movies' => $movies,
-            'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()
+            'userAvatar' => $currentSubuser->getAvatar()
         ]);
     }
 }

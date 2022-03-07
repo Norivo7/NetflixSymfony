@@ -33,7 +33,6 @@ return [
         '/manageUser' => [[['_route' => 'manageUser', '_controller' => 'App\\Controller\\SubuserController::manageUser'], null, null, null, false, false, null]],
         '/chooseUser' => [[['_route' => 'chooseUser', '_controller' => 'App\\Controller\\SubuserController::chooseUser'], null, null, null, false, false, null]],
         '/success' => [[['_route' => 'success', '_controller' => 'App\\Controller\\SubuserController::success'], null, null, null, false, false, null]],
-        '/newSubuser' => [[['_route' => 'newSubuser', '_controller' => 'App\\Controller\\SubuserController::newSubuser'], null, null, null, false, false, null]],
         '/admin/subusers' => [[['_route' => 'subuser_crud_index', '_controller' => 'App\\Controller\\SubuserCrudController::index'], null, ['GET' => 0], null, true, false, null]],
         '/admin/subusers/new' => [[['_route' => 'subuser_crud_new', '_controller' => 'App\\Controller\\SubuserCrudController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/admin/users' => [[['_route' => 'app_user_crud_index', '_controller' => 'App\\Controller\\UserCrudController::index'], null, ['GET' => 0], null, true, false, null]],
