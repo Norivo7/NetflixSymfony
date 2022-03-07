@@ -60,7 +60,7 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
     <hr>
     ";
         // line 97
-        $this->loadTemplate("registration/register.html.twig", "registration/register.html.twig", 97, "815518182")->display($context);
+        $this->loadTemplate("registration/register.html.twig", "registration/register.html.twig", 97, "191663880")->display($context);
         // line 98
         echo "</div>";
         
@@ -351,7 +351,7 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
 
 
 /* registration/register.html.twig */
-class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db93298___815518182 extends Template
+class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db93298___191663880 extends Template
 {
     private $source;
     private $macros = [];

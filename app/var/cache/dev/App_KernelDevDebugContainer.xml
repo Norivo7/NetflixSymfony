@@ -4544,7 +4544,7 @@
     <service id="webpack_encore.entrypoint_lookup.cache_warmer" class="Symfony\WebpackEncoreBundle\CacheWarmer\EntrypointCacheWarmer">
       <tag name="kernel.cache_warmer"/>
       <argument type="collection">
-        <argument key="_default">/var/www/symfony_docker/public/build/entrypoints.json</argument>
+        <argument key="_default">/var/www/symfony_docker/public/entrypoints.json</argument>
       </argument>
       <argument>/var/www/symfony_docker/var/cache/dev/webpack_encore.cache.php</argument>
     </service>
@@ -4575,7 +4575,7 @@
     </service>
     <service id="webpack_encore.entrypoint_lookup[_default]" class="Symfony\WebpackEncoreBundle\Asset\EntrypointLookup">
       <tag name="kernel.reset" method="reset"/>
-      <argument>/var/www/symfony_docker/public/build/entrypoints.json</argument>
+      <argument>/var/www/symfony_docker/public/entrypoints.json</argument>
       <argument>null</argument>
       <argument>_default</argument>
       <argument>true</argument>

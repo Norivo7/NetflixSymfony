@@ -38,10 +38,12 @@
         }
 
         .navbar {
+            background: rgb(0,0,0);
+            background: linear-gradient(360deg, rgba(0,0,0,1) 0%, rgba(22,15,15,1) 35%, rgba(45,48,50,1) 100%);
             padding-top: 0px;
             overflow: hidden;
-            width: 96%;
-            margin-left: 40px;
+            width: 100%;
+            /*margin-left: 40px;*/
             gap: 25px;
             display: flex;
             flex-direction: row;
@@ -138,6 +140,7 @@
         }
 
         .brandLogoWrapper {
+            margin-left: 30px;
             width: 113px;
             justify-content: center;
         }
@@ -145,6 +148,7 @@
         .userAvatar {
             width: 30px;
             border-radius: 4px;
+            margin-right: 25px;
         }
 
     </style>
@@ -234,12 +238,12 @@
             {% endfor %}
         </div>
 
-        <h5 id="popular" class="title-home">Popularne</h5>
-        <div class="box">
+{#        <h5 id="popular" class="title-home">Popularne</h5>#}
+{#        <div class="box">#}
 {#            {% for movie in popular %}#}
 {#                <a href="/show/{{ movie.id }}"><img src="{{ movie.img }}" alt="{{ movie.title }}"></a>#}
 {#            {% endfor %}#}
-        </div>
+{#        </div>#}
 
     </section>
 

@@ -89,9 +89,11 @@ class __TwigTemplate_4c3429a81403940e7c5f59dc027eec62a8d487e507414cb9fc663d20c82
           }
         .navbar {
             overflow: hidden;
-            width: 96%;
-            margin-top: 20px;
-            margin-left: 40px;
+            width: 100%;
+        }
+        .brandLogoWrapper{
+            margin-left: 30px;
+            margin-top: 18px;
         }
         .logo {
             height: 31px;
@@ -108,7 +110,7 @@ class __TwigTemplate_4c3429a81403940e7c5f59dc027eec62a8d487e507414cb9fc663d20c82
 
     }
 
-    // line 35
+    // line 37
     public function block_navigation($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -118,12 +120,12 @@ class __TwigTemplate_4c3429a81403940e7c5f59dc027eec62a8d487e507414cb9fc663d20c82
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navigation"));
 
-        // line 36
+        // line 38
         echo "<div class=\"navbar\">
     <div class=\"brandLogoWrapper\">
         <a class=\"logo\" href=\"/browse\" target=\"_parent\">
             <img class=\"logo\" src=\"";
-        // line 39
+        // line 41
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/netflixLogoSmall.svg.png"), "html", null, true);
         echo "\" alt=\"av1\"/>
         </a>
@@ -138,7 +140,7 @@ class __TwigTemplate_4c3429a81403940e7c5f59dc027eec62a8d487e507414cb9fc663d20c82
 
     }
 
-    // line 45
+    // line 47
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -148,7 +150,7 @@ class __TwigTemplate_4c3429a81403940e7c5f59dc027eec62a8d487e507414cb9fc663d20c82
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 46
+        // line 48
         echo "    <body>
     <div class=\"container my-5\">
         <div class=\"row\">
@@ -157,54 +159,54 @@ class __TwigTemplate_4c3429a81403940e7c5f59dc027eec62a8d487e507414cb9fc663d20c82
                 <div class=\"jumbotron jumbotron-dark bg-darkness\">
 
                     <iframe width=\"640\" height=\"480\" src=\"";
-        // line 53
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 53, $this->source); })()), "link", [], "any", false, false, false, 53), "html", null, true);
+        // line 55
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 55, $this->source); })()), "link", [], "any", false, false, false, 55), "html", null, true);
         echo "\" frameborder=\"0\"
                             allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\"
                             allowfullscreen></iframe>
                     <div class=\"mt-3\">
                         <small>
                             <h3 class=\"title my-3\" href='#'>";
-        // line 58
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 58, $this->source); })()), "title", [], "any", false, false, false, 58), "html", null, true);
+        // line 60
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 60, $this->source); })()), "title", [], "any", false, false, false, 60), "html", null, true);
         echo "</h3>
                             <p>Opis : <br>";
-        // line 59
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 59, $this->source); })()), "description", [], "any", false, false, false, 59), "html", null, true);
+        // line 61
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 61, $this->source); })()), "description", [], "any", false, false, false, 61), "html", null, true);
         echo "</p>
                             <p>Rok : ";
-        // line 60
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 60, $this->source); })()), "year", [], "any", false, false, false, 60), "html", null, true);
+        // line 62
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 62, $this->source); })()), "year", [], "any", false, false, false, 62), "html", null, true);
         echo " <br>
                                 Kategorie :
 
                                 ";
-        // line 63
+        // line 65
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 63, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 65, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-            // line 64
+            // line 66
             echo "                            <li> ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 64), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 66), "html", null, true);
             echo "</li>
                             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 66
+        // line 68
         echo "                            </p>
                         </small>
                         ";
-        // line 68
+        // line 70
         if (array_key_exists("liked", $context)) {
-            // line 69
+            // line 71
             echo "                            <form id=\"dislike\" method=\"POST\" action=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("dislike");
             echo "\">
                                 <input type=\"text\" name=\"id\" value=\"";
-            // line 70
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 70, $this->source); })()), "id", [], "any", false, false, false, 70), "html", null, true);
+            // line 72
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 72, $this->source); })()), "id", [], "any", false, false, false, 72), "html", null, true);
             echo "\" style=\"display: none\">
                                 <a class=\"profileButton\"
                                    href=\"#\"
@@ -212,15 +214,15 @@ class __TwigTemplate_4c3429a81403940e7c5f59dc027eec62a8d487e507414cb9fc663d20c82
                             </form>
                         ";
         } else {
-            // line 76
+            // line 78
             echo "
                             <form id=\"like\" method=\"POST\" action=\"";
-            // line 77
+            // line 79
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("like");
             echo "\">
                                 <input type=\"text\" name=\"id\" value=\"";
-            // line 78
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 78, $this->source); })()), "id", [], "any", false, false, false, 78), "html", null, true);
+            // line 80
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 80, $this->source); })()), "id", [], "any", false, false, false, 80), "html", null, true);
             echo "\" style=\"display: none\">
                                 <a class=\"profileButton\"
                                    href=\"#\"
@@ -230,7 +232,7 @@ class __TwigTemplate_4c3429a81403940e7c5f59dc027eec62a8d487e507414cb9fc663d20c82
 
                         ";
         }
-        // line 86
+        // line 88
         echo "                    </div>
                 </div>
             </div>
@@ -259,7 +261,7 @@ class __TwigTemplate_4c3429a81403940e7c5f59dc027eec62a8d487e507414cb9fc663d20c82
 
     public function getDebugInfo()
     {
-        return array (  234 => 86,  223 => 78,  219 => 77,  216 => 76,  207 => 70,  202 => 69,  200 => 68,  196 => 66,  187 => 64,  183 => 63,  177 => 60,  173 => 59,  169 => 58,  161 => 53,  152 => 46,  142 => 45,  127 => 39,  122 => 36,  112 => 35,  70 => 3,  60 => 2,  37 => 1,);
+        return array (  236 => 88,  225 => 80,  221 => 79,  218 => 78,  209 => 72,  204 => 71,  202 => 70,  198 => 68,  189 => 66,  185 => 65,  179 => 62,  175 => 61,  171 => 60,  163 => 55,  154 => 48,  144 => 47,  129 => 41,  124 => 38,  114 => 37,  70 => 3,  60 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -286,9 +288,11 @@ class __TwigTemplate_4c3429a81403940e7c5f59dc027eec62a8d487e507414cb9fc663d20c82
           }
         .navbar {
             overflow: hidden;
-            width: 96%;
-            margin-top: 20px;
-            margin-left: 40px;
+            width: 100%;
+        }
+        .brandLogoWrapper{
+            margin-left: 30px;
+            margin-top: 18px;
         }
         .logo {
             height: 31px;

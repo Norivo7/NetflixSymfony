@@ -74,26 +74,6 @@ class __TwigTemplate_1b7b58094237be22f9e7ca02bab256ba48c1ff65602daade31a03ee5d55
 
 
 
-{#{% block costam %}#}
-{#<!DOCTYPE html>#}
-{#<html>#}
-{#    <head>#}
-{#        <meta charset=\"UTF-8\">#}
-{#        <title>{% block title %}Welcome!{% endblock %}</title>#}
-{#        <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>\">#}
-{#         Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-{#        {% block stylesheets %}#}
-{#            {{ encore_entry_link_tags('app') }}#}
-{#        {% endblock %}#}
-
-{#        {% block javascripts %}#}
-{#            {{ encore_entry_script_tags('app') }}#}
-{#        {% endblock %}#}
-{#    </head>#}
-{#    <body>#}
-{#        {% block body %}{% endblock %}#}
-{#    </body>#}
-{#</html>#}
-{#{% endblock %}#}", "base.html.twig", "/var/www/symfony_docker/templates/base.html.twig");
+", "base.html.twig", "/var/www/symfony_docker/templates/base.html.twig");
     }
 }

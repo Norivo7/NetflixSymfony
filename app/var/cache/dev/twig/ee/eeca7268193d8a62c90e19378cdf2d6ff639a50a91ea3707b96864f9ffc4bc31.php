@@ -52,22 +52,22 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 ";
         // line 19
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 21
-        echo "
-";
         // line 22
+        echo "
+";
+        // line 23
         $this->displayBlock('body', $context, $blocks);
-        // line 209
-        echo "
-";
         // line 210
-        $this->displayBlock('stylesheets', $context, $blocks);
-        // line 267
         echo "
 ";
-        // line 268
-        $this->loadTemplate("root.html.twig", "root.html.twig", 268, "679714688")->display($context);
+        // line 211
+        $this->displayBlock('stylesheets', $context, $blocks);
         // line 269
+        echo "
+";
+        // line 270
+        $this->loadTemplate("root.html.twig", "root.html.twig", 270, "21079817")->display($context);
+        // line 271
         echo "</html>
 ";
         
@@ -144,6 +144,11 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
+        // line 20
+        echo "    ";
+        echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackScriptTags("app");
+        echo "
+";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -152,7 +157,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
     }
 
-    // line 22
+    // line 23
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -162,7 +167,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 23
+        // line 24
         echo "    <body>
     <div class=\"concord-img-wrapper\">
         <nav class=\"navbar\">
@@ -181,9 +186,9 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
                 </div>
 
                 ";
-        // line 40
+        // line 41
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-            // line 41
+            // line 42
             echo "                    <a href=\"/admin\">
                         <button type=\"button\" class=\"buttonLogin\">
                             <i class=\"bi bi-wrench-adjustable-circle\"></i>
@@ -192,25 +197,25 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
                     </a>
                 ";
         }
-        // line 48
+        // line 49
         echo "
                 <a href=\"/login\">
                     ";
-        // line 50
+        // line 51
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
-            // line 51
+            // line 52
             echo "                        <button type=\"button\" class=\"buttonLogin\">
                             Przejdź dalej
                         </button>
                     ";
         } else {
-            // line 55
+            // line 56
             echo "                        <button type=\"button\" class=\"buttonLogin\">
                             Zaloguj się
                         </button>
                     ";
         }
-        // line 59
+        // line 60
         echo "                </a>
             </div>
         </nav>
@@ -218,19 +223,19 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
         <div class=\"blockColumn\">
             <div class=\"blockIntro\">
                 ";
-        // line 65
+        // line 66
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
-            // line 66
+            // line 67
             echo "                    <p>Debug: zalogowany użytkownik: ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 66, $this->source); })()), "user", [], "any", false, false, false, 66), "email", [], "any", false, false, false, 66), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 67, $this->source); })()), "user", [], "any", false, false, false, 67), "email", [], "any", false, false, false, 67), "html", null, true);
             echo "</p>
                 ";
         } else {
-            // line 68
+            // line 69
             echo "                    <p>Debug: nie jesteś zalogowany.</p>
                 ";
         }
-        // line 70
+        // line 71
         echo "                <h1> Nieograniczona oferta filmów, seriali, programów <br> i nie tylko. </h1>
                 <h2> Oglądaj wszędzie. Anuluj w każdej chwili. </h2>
                 <h3></h3>
@@ -378,7 +383,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
     }
 
-    // line 210
+    // line 211
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -388,8 +393,11 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 211
-        echo "    <style>
+        // line 212
+        echo "    ";
+        echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackLinkTags("app");
+        echo "
+    <style>
         body {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
         }
@@ -465,7 +473,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
     public function getDebugInfo()
     {
-        return array (  392 => 211,  382 => 210,  234 => 70,  230 => 68,  224 => 66,  222 => 65,  214 => 59,  208 => 55,  202 => 51,  200 => 50,  196 => 48,  187 => 41,  185 => 40,  166 => 23,  156 => 22,  138 => 19,  119 => 7,  101 => 8,  99 => 7,  92 => 2,  82 => 1,  71 => 269,  69 => 268,  66 => 267,  64 => 210,  61 => 209,  59 => 22,  56 => 21,  54 => 19,  50 => 17,  48 => 1,);
+        return array (  397 => 212,  387 => 211,  239 => 71,  235 => 69,  229 => 67,  227 => 66,  219 => 60,  213 => 56,  207 => 52,  205 => 51,  201 => 49,  192 => 42,  190 => 41,  171 => 24,  161 => 23,  148 => 20,  138 => 19,  119 => 7,  101 => 8,  99 => 7,  92 => 2,  82 => 1,  71 => 271,  69 => 270,  66 => 269,  64 => 211,  61 => 210,  59 => 23,  56 => 22,  54 => 19,  50 => 17,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -489,6 +497,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
 
 {% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
 {% endblock %}
 
 {% block body %}
@@ -680,6 +689,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 {% endblock %}
 
 {% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
     <style>
         body {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
@@ -745,7 +755,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
 
 /* root.html.twig */
-class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b722b0d___679714688 extends Template
+class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b722b0d___21079817 extends Template
 {
     private $source;
     private $macros = [];
@@ -762,7 +772,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
     protected function doGetParent(array $context)
     {
-        // line 268
+        // line 270
         return "reusable/footer.html.twig";
     }
 
@@ -775,7 +785,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "root.html.twig"));
 
-        $this->parent = $this->loadTemplate("reusable/footer.html.twig", "root.html.twig", 268);
+        $this->parent = $this->loadTemplate("reusable/footer.html.twig", "root.html.twig", 270);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -797,7 +807,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
     public function getDebugInfo()
     {
-        return array (  766 => 268,  392 => 211,  382 => 210,  234 => 70,  230 => 68,  224 => 66,  222 => 65,  214 => 59,  208 => 55,  202 => 51,  200 => 50,  196 => 48,  187 => 41,  185 => 40,  166 => 23,  156 => 22,  138 => 19,  119 => 7,  101 => 8,  99 => 7,  92 => 2,  82 => 1,  71 => 269,  69 => 268,  66 => 267,  64 => 210,  61 => 209,  59 => 22,  56 => 21,  54 => 19,  50 => 17,  48 => 1,);
+        return array (  776 => 270,  397 => 212,  387 => 211,  239 => 71,  235 => 69,  229 => 67,  227 => 66,  219 => 60,  213 => 56,  207 => 52,  205 => 51,  201 => 49,  192 => 42,  190 => 41,  171 => 24,  161 => 23,  148 => 20,  138 => 19,  119 => 7,  101 => 8,  99 => 7,  92 => 2,  82 => 1,  71 => 271,  69 => 270,  66 => 269,  64 => 211,  61 => 210,  59 => 23,  56 => 22,  54 => 19,  50 => 17,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -821,6 +831,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
 
 {% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
 {% endblock %}
 
 {% block body %}
@@ -1012,6 +1023,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 {% endblock %}
 
 {% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
     <style>
         body {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;

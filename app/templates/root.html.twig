@@ -17,6 +17,7 @@
 
 
 {% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
 {% endblock %}
 
 {% block body %}
@@ -208,6 +209,7 @@
 {% endblock %}
 
 {% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
     <style>
         body {
             font-family: 'Netflix Sans Regular', "Helvetica Neue", "Helvetica", Arial, sans-serif;
