@@ -24,14 +24,77 @@ class SubuserController extends AbstractController
         $this->subuserRepository = $subuserRepository;
     }
 
+//    private function showImgDir(): array
+//    {
+//        $dir = "../public/images/netflix_avatars";
+//
+//        $ext_list = array("jpg","png");
+//        $listImg = [];
+//
+//        $picDir = opendir($dir);
+//            while ($file = readdir($picDir)) {
+//                if ($file === '.' || $file === '..') {
+//                    continue;
+//                }
+//            }
+//            $listImg[] = $dir . '/' . $file;
+//            return $listImg;
+//    }
+
+//      private function random_pic()
+//      {
+//          $dir = '../public/images/netflix_avatars';
+//        $files = glob($dir . '/*.*');
+//        $file = array_rand($files);
+//        return $files[$file];
+//      }
+
+
+    private function getRandomAvatarUrl(){
+        $images = array('https://i.imgur.com/zBr1CQ3.png','https://i.imgur.com/ih6xvXa.png','https://i.imgur.com/6ZIfuJG.png','https://i.imgur.com/QhKoEyB.png',
+            'https://i.imgur.com/C39AF1P.png','https://i.imgur.com/ZvH6qpn.png','https://i.imgur.com/hYkzmZj.png','https://i.imgur.com/6FgZxbi.png');
+
+        $key = array_rand($images);
+        return $images[$key];
+    }
+
+
     private function addDefaultSubuserForUser($currentUser) {
+
         $subuser = new Subuser();
         $subuser->setName('Nowy');
-        $subuser->setAvatar('https://i.imgur.com/9nWtdiZ.png');
+        $subuser->setAvatar($this->getRandomAvatarUrl());
         $subuser->setSubaccountOf($currentUser);
         $entityManager = $this->doctrine->getManager();
         $entityManager->persist($subuser);
         $entityManager->flush();
+    }
+
+
+    /**
+     * @Route("/chooseUser", name="chooseUser")
+     * @param Request $request
+     * @return Response
+     */
+    public function chooseUser(Request $request): Response
+    {
+//        dump($this->getRandomAvatarUrl());
+//        dump($this->random_pic());
+        //   var_dump($listImg = $this->showImgDir());
+        $currentUser = $this->getUser();
+
+        if ($request->getMethod() == 'POST') {
+            $id = $request->request->get('id');
+            return $this->redirectToRoute('success', [
+                    'id' => $id,
+                ]
+            );
+        }
+        return $this->render(
+            'user/user.html.twig', [
+                'subUsers' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
+            ]
+        );
     }
 
 
@@ -169,28 +232,6 @@ class SubuserController extends AbstractController
         return $this->render(
             'user/manage.html.twig', [
                 'subUsers' => $subusers
-            ]
-        );
-    }
-
-    /**
-     * @Route("/chooseUser", name="chooseUser")
-     * @param Request $request
-     * @return Response
-     */
-    public function chooseUser(Request $request): Response
-    {
-        $currentUser = $this->getUser();
-        if ($request->getMethod() == 'POST') {
-            $id = $request->request->get('id');
-            return $this->redirectToRoute('success', [
-                    'id' => $id,
-                ]
-            );
-        }
-        return $this->render(
-            'user/user.html.twig', [
-                'subUsers' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
             ]
         );
     }

@@ -28,19 +28,29 @@ class MoviesController extends AbstractController
         $this->categoryRepository = $categoryRepository;
     }
 
-      // helper functions
+    // helper functions
     private function isMovieLikedByCurrentUser(int $movieId, ?array $liked): bool
     {
         return in_array($movieId, array_column($liked, 'id'));
     }
 
-    private function getCurrentSubuserIdFromSession(): mixed
+    private function getCurrentSubuserIdFromSession(): int
     {
         $session = new Session();
         $subuser = $session->get('filter');
         return reset($subuser);
     }
 
+    private function getOtherSubusers(): array
+    {
+        $session = new Session();
+        $subuser = $session->get('filter');
+        $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $this->getUser()));
+        $subuserId = reset($subuser);
+        $currentSubuser = $this->subuserRepository->find($subuserId);
+        $to_remove = array($currentSubuser);
+        return array_diff($allSubusers, $to_remove);
+    }
 
     /**
      * @Route("/", name="home")
@@ -65,6 +75,7 @@ class MoviesController extends AbstractController
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
         $subuserCount = count($allSubusers);
 
+
         $session = new Session();
         $subuser = $session->get('filter');
 
@@ -75,6 +86,7 @@ class MoviesController extends AbstractController
 
             return $this->render('movies/index.html.twig', [
                 'controller_name' => 'MovieController',
+                'profiles' => $this->getOtherSubusers(),
                 'movies' => $this->movieRepository->getMoviesByCategory('Filmy'),
                 'originals' => $this->movieRepository->getMoviesByCategory('Eksluzywne'),
                 'shows' => $this->movieRepository->getMoviesByCategory('Seriale'),
@@ -97,6 +109,7 @@ class MoviesController extends AbstractController
     {
         return $this->render(
             'movies/list.html.twig', [
+                'profiles' => $this->getOtherSubusers(),
                 'movies' => $this->movieRepository->getMoviesByCategory('Seriale'),
                 'userAvatar' => $this->subuserRepository->find($this->getCurrentSubuserIdFromSession())->getAvatar()
             ]
@@ -118,7 +131,6 @@ class MoviesController extends AbstractController
             'profiles' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
         ]);
     }
-
 
     /**
      * @Route("/show/{id}", name="show-one")
@@ -166,6 +178,7 @@ class MoviesController extends AbstractController
 
         return $this->render(
             'movies/list.html.twig', [
+                'profiles' => $this->getOtherSubusers(),
                 'userAvatar' => $currentSubuser->getAvatar(),
                 'movies' => $this->movieRepository->getLikedMoviesBySubuser(($currentSubuser->getId()))
             ]
@@ -182,6 +195,7 @@ class MoviesController extends AbstractController
 
         return $this->render(
             'movies/list.html.twig', [
+                'profiles' => $this->getOtherSubusers(),
                 'movies' => $this->movieRepository->getMoviesByCategory('Filmy'),
                 'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()]
         );
@@ -197,6 +211,7 @@ class MoviesController extends AbstractController
 
         return $this->render(
             'movies/list.html.twig', [
+                'profiles' => $this->getOtherSubusers(),
                 'movies' => $this->movieRepository->recentlyAdd(),
                 'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()]
         );
@@ -282,6 +297,7 @@ class MoviesController extends AbstractController
         );
 
         return $this->render('movies/list.html.twig', [
+            'profiles' => $this->getOtherSubusers(),
             'movies' => $movies,
             'userAvatar' => $currentSubuser->getAvatar()
         ]);

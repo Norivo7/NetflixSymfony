@@ -38,17 +38,15 @@
         }
 
         .navbar {
-            background: rgb(0,0,0);
-            background: linear-gradient(360deg, rgba(0,0,0,1) 0%, rgba(22,15,15,1) 35%, rgba(45,48,50,1) 100%);
             padding-top: 0px;
             overflow: hidden;
             width: 100%;
-            /*margin-left: 40px;*/
             gap: 25px;
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
             flex-wrap: nowrap;
+
         }
 
         .navbar a {
@@ -98,7 +96,7 @@
             /*grid-template-rows: minmax(150px, 1fr);*/
         }
 
-        box a {
+        .box a {
             transition: transform 0.3s;
         }
 
@@ -151,10 +149,58 @@
             margin-right: 25px;
         }
 
+        .dropdown {
+            width: 6%;
+            left:0;
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            left:0;
+            margin-top: 55px;
+            display: none;
+            position: absolute;
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.6);
+            border: 3px solid white;
+            min-width: 100px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+
+        .dropdown-content a {
+            margin-bottom: 10px;
+            opacity: 100%;
+            font-size: 13px;
+            padding-bottom: 10px;
+            color: white;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+
+        .dropdown-content a:hover {
+            text-decoration: underline;
+        }
+
+        .dropdown:hover .dropdown-content {
+            margin-right: 1200px;
+            flex-direction: column;
+            display: flex;
+            min-height: 100px;
+        }
+        .navbarWrapper{
+            display: flex;
+            background: rgb(0,0,0);
+            background: linear-gradient(360deg, rgba(0,0,0,1) 0%, rgba(22,15,15,1) 35%, rgba(45,48,50,1) 100%);
+        }
+
+
     </style>
 {% endblock %}
 
 {% block navigation %}
+    <div class="navbarWrapper">
     <div class="navbar">
         <div class="brandLogoWrapper">
             <a class="logo" href="/" target="_parent">
@@ -178,9 +224,7 @@
                 href="/myList">Moja lista</a>
         <div class="navbar_end">
             <div id="search">
-                {#                <i class="bi bi-search"></i> #}
                 <form method="GET" action="{{ path('search') }}">
-
                     <input
                             name="v"
                             type="search"
@@ -193,29 +237,33 @@
             <a class="right" href="/notif">
                 <i style="padding: 1px;margin-left: 10px" class="bi bi-bell-fill"></i>
             </a>
-            <a class="right" href="/profile">
-                <img class="userAvatar" src="{{ userAvatar }}" alt="avatar">
-                {#                <i style="padding: 1px" class="bi bi-person-circle"></i> #}
-            </a>
         </div>
+
+    </div>
+    <div class="dropdown">
+        <a class="right dropbtn" href="/profile">
+            <img class="userAvatar" src="{{ userAvatar }}" alt="avatar">
+            <div class="dropdown-content">
+                {% for profile in profiles %}
+                <a href="/chooseUser">
+                    <li style="  list-style-type: none;">
+                    <img style="width: 40px" src="{{ profile.avatar }}" alt="profile">
+                    {{ profile.name }}
+                    </li>
+                </a>
+                 {% endfor %}
+                <a href="/manageUser">Zarządzaj profilami</a>
+                <a href="/profile">Konto</a>
+                <a href="#">Centrum Pomocy</a>
+                <a href="/logout">Wyloguj się</a>
+            </div>
+        </a>
+    </div>
     </div>
 {% endblock %}
 
 {% block body %}
 <body>
-{#<div class="btn-group">#}
-{#    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
-{#        Action#}
-{#    </button>#}
-{#    <div class="dropdown-menu">#}
-{#        <a class="dropdown-item" href="#">Action</a>#}
-{#        <a class="dropdown-item" href="#">Another action</a>#}
-{#        <a class="dropdown-item" href="#">Something else here</a>#}
-{#        <div class="dropdown-divider"></div>#}
-{#        <a class="dropdown-item" href="#">Separated link</a>#}
-{#    </div>#}
-{#</div>#}
-
     <section id="main-container">
         <h5 id="serials" class="title-home">Filmy</h5>
         <div class="box">

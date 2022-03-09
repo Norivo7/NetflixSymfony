@@ -146,8 +146,9 @@ class __TwigTemplate_18972bb4e1b4e281397089ac4bc79d3034f8778d2ed4a228411d093d91e
                 <th>Id</th>
                 <th>Email</th>
                 <th>Roles</th>
-                <th>Password</th>
-                <th>IsVerified</th>
+";
+        // line 34
+        echo "                <th>IsVerified</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -172,12 +173,9 @@ class __TwigTemplate_18972bb4e1b4e281397089ac4bc79d3034f8778d2ed4a228411d093d91e
             // line 43
             ((twig_get_attribute($this->env, $this->source, $context["user"], "roles", [], "any", false, false, false, 43)) ? (print (twig_escape_filter($this->env, json_encode(twig_get_attribute($this->env, $this->source, $context["user"], "roles", [], "any", false, false, false, 43)), "html", null, true))) : (print ("")));
             echo "</td>
-                <td>";
-            // line 44
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "password", [], "any", false, false, false, 44), "html", null, true);
-            echo "</td>
-                <td>";
+";
             // line 45
+            echo "                <td>";
             echo ((twig_get_attribute($this->env, $this->source, $context["user"], "isVerified", [], "any", false, false, false, 45)) ? ("Yes") : ("No"));
             echo "</td>
                 <td>
@@ -239,7 +237,7 @@ class __TwigTemplate_18972bb4e1b4e281397089ac4bc79d3034f8778d2ed4a228411d093d91e
 
     public function getDebugInfo()
     {
-        return array (  219 => 62,  215 => 61,  210 => 58,  201 => 54,  191 => 49,  187 => 48,  181 => 45,  177 => 44,  173 => 43,  169 => 42,  165 => 41,  162 => 40,  157 => 39,  141 => 25,  131 => 24,  113 => 22,  94 => 20,  71 => 4,  61 => 3,  38 => 1,);
+        return array (  217 => 62,  213 => 61,  208 => 58,  199 => 54,  189 => 49,  185 => 48,  178 => 45,  174 => 43,  170 => 42,  166 => 41,  163 => 40,  158 => 39,  151 => 34,  141 => 25,  131 => 24,  113 => 22,  94 => 20,  71 => 4,  61 => 3,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -276,7 +274,7 @@ class __TwigTemplate_18972bb4e1b4e281397089ac4bc79d3034f8778d2ed4a228411d093d91e
                 <th>Id</th>
                 <th>Email</th>
                 <th>Roles</th>
-                <th>Password</th>
+{#                <th>Password</th>#}
                 <th>IsVerified</th>
                 <th>actions</th>
             </tr>
@@ -287,7 +285,7 @@ class __TwigTemplate_18972bb4e1b4e281397089ac4bc79d3034f8778d2ed4a228411d093d91e
                 <td>{{ user.id }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>{{ user.password }}</td>
+{#                <td>{{ user.password }}</td>#}
                 <td>{{ user.isVerified ? 'Yes' : 'No' }}</td>
                 <td>
                     <div class=\"btnWrapper\">

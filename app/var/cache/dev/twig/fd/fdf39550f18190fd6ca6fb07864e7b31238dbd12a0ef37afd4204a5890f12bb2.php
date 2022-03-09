@@ -129,14 +129,9 @@ class __TwigTemplate_b5b07cf5aee7316aa4d428f8f4172729cad0119c3d646859453a507f789
         ((twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 22, $this->source); })()), "roles", [], "any", false, false, false, 22)) ? (print (twig_escape_filter($this->env, json_encode(twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 22, $this->source); })()), "roles", [], "any", false, false, false, 22)), "html", null, true))) : (print ("")));
         echo "</td>
             </tr>
-            <tr>
-                <th>Password</th>
-                <td>";
-        // line 26
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 26, $this->source); })()), "password", [], "any", false, false, false, 26), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
+";
+        // line 28
+        echo "            <tr>
                 <th>IsVerified</th>
                 <td>";
         // line 30
@@ -181,7 +176,7 @@ class __TwigTemplate_b5b07cf5aee7316aa4d428f8f4172729cad0119c3d646859453a507f789
 
     public function getDebugInfo()
     {
-        return array (  161 => 39,  156 => 37,  151 => 35,  143 => 30,  136 => 26,  129 => 22,  122 => 18,  115 => 14,  107 => 8,  97 => 7,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  156 => 39,  151 => 37,  146 => 35,  138 => 30,  134 => 28,  129 => 22,  122 => 18,  115 => 14,  107 => 8,  97 => 7,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -209,10 +204,10 @@ class __TwigTemplate_b5b07cf5aee7316aa4d428f8f4172729cad0119c3d646859453a507f789
                 <th>Roles</th>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
             </tr>
-            <tr>
-                <th>Password</th>
-                <td>{{ user.password }}</td>
-            </tr>
+{#            <tr>#}
+{#                <th>Password</th>#}
+{#                <td>{{ user.password }}</td>#}
+{#            </tr>#}
             <tr>
                 <th>IsVerified</th>
                 <td>{{ user.isVerified ? 'Yes' : 'No' }}</td>

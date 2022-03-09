@@ -16,7 +16,7 @@ class UserType extends AbstractType
         $builder
             ->add('email')
             ->add('roles', CollectionType::class)
-            ->add('password')
+//            ->add('password')
             ->add('isVerified')
         ;
     }

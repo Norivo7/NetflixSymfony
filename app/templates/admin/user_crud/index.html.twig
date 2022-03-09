@@ -30,7 +30,7 @@
                 <th>Id</th>
                 <th>Email</th>
                 <th>Roles</th>
-                <th>Password</th>
+{#                <th>Password</th>#}
                 <th>IsVerified</th>
                 <th>actions</th>
             </tr>
@@ -41,7 +41,7 @@
                 <td>{{ user.id }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>{{ user.password }}</td>
+{#                <td>{{ user.password }}</td>#}
                 <td>{{ user.isVerified ? 'Yes' : 'No' }}</td>
                 <td>
                     <div class="btnWrapper">

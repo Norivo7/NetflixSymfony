@@ -495,17 +495,17 @@ class ComposerStaticInita2b74f0bba0246b2f35735204618bfdd
     );
 
     public static $classMap = array (
-        'App\\Controller\\AdminController' => __DIR__ . '/../..' . '/src/Controller/AdminController.php',
+        'App\\Controller\\AdminController' => __DIR__ . '/../..',
         'App\\Controller\\ExceptionController' => __DIR__ . '/../..' . '/src/Controller/ExceptionController.php',
         'App\\Controller\\LoginController' => __DIR__ . '/../..' . '/src/Controller/LoginController.php',
         'App\\Controller\\MailerController' => __DIR__ . '/../..' . '/src/Controller/MailerController.php',
-        'App\\Controller\\MovieCrudController' => __DIR__ . '/../..' . '/src/Controller/MovieCrudController.php',
+        'App\\Controller\\MovieCrudController' => __DIR__ . '/../..',
         'App\\Controller\\MoviesController' => __DIR__ . '/../..' . '/src/Controller/MoviesController.php',
         'App\\Controller\\RegistrationController' => __DIR__ . '/../..' . '/src/Controller/RegistrationController.php',
         'App\\Controller\\SecurityController' => __DIR__ . '/../..' . '/src/Controller/SecurityController.php',
         'App\\Controller\\SubuserController' => __DIR__ . '/../..' . '/src/Controller/SubuserController.php',
-        'App\\Controller\\SubuserCrudController' => __DIR__ . '/../..' . '/src/Controller/SubuserCrudController.php',
-        'App\\Controller\\UserCrudController' => __DIR__ . '/../..' . '/src/Controller/UserCrudController.php',
+        'App\\Controller\\SubuserCrudController' => __DIR__ . '/../..',
+        'App\\Controller\\UserCrudController' => __DIR__ . '/../..',
         'App\\DataFixtures\\MovieFixtures' => __DIR__ . '/../..' . '/src/DataFixtures/MovieFixtures.php',
         'App\\DataFixtures\\UserFixtures' => __DIR__ . '/../..' . '/src/DataFixtures/UserFixtures.php',
         'App\\Entity\\Category' => __DIR__ . '/../..' . '/src/Entity/Category.php',

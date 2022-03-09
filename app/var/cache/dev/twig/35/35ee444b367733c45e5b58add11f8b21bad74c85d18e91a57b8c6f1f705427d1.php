@@ -189,35 +189,42 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
                             </a>
 
                         </div>
-                        <form method=\"post\">
+                        ";
+            // line 87
+            if (((isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 87, $this->source); })()) != 0)) {
+                // line 88
+                echo "                        <form method=\"post\">
                             <div class=\"deleteBtnContainer\">
                                 <a class=\"deleteButton\" href=\"/manageUser/delete/";
-            // line 89
-            echo twig_escape_filter($this->env, (isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 89, $this->source); })()), "html", null, true);
-            echo "\">
+                // line 90
+                echo twig_escape_filter($this->env, (isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 90, $this->source); })()), "html", null, true);
+                echo "\">
                                     Usuń
                                 </a>
                             </div>
                         </form>
-                    </div>
+                        ";
+            }
+            // line 96
+            echo "                    </div>
                 </div>
 
 
             </div>
 
             ";
-            // line 101
-            echo "            ";
-            // line 102
-            echo "            ";
             // line 103
             echo "            ";
             // line 104
+            echo "            ";
+            // line 105
+            echo "            ";
+            // line 106
             echo "        ";
         }
-        // line 105
+        // line 107
         echo "        ";
-        // line 106
+        // line 108
         echo "    </form>
 
     </body>
@@ -230,7 +237,7 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
 
     }
 
-    // line 111
+    // line 113
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -240,7 +247,7 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 112
+        // line 114
         echo "    <style>
         .deleteBtnContainer {
             text-align: center;
@@ -506,7 +513,7 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
 
     public function getDebugInfo()
     {
-        return array (  244 => 112,  234 => 111,  221 => 106,  219 => 105,  216 => 104,  214 => 103,  212 => 102,  210 => 101,  196 => 89,  184 => 79,  182 => 78,  180 => 77,  147 => 45,  141 => 43,  139 => 42,  135 => 41,  130 => 38,  123 => 29,  117 => 26,  107 => 18,  105 => 17,  102 => 16,  98 => 13,  88 => 12,  70 => 3,  60 => 2,  37 => 1,);
+        return array (  251 => 114,  241 => 113,  228 => 108,  226 => 107,  223 => 106,  221 => 105,  219 => 104,  217 => 103,  209 => 96,  200 => 90,  196 => 88,  194 => 87,  184 => 79,  182 => 78,  180 => 77,  147 => 45,  141 => 43,  139 => 42,  135 => 41,  130 => 38,  123 => 29,  117 => 26,  107 => 18,  105 => 17,  102 => 16,  98 => 13,  88 => 12,  70 => 3,  60 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -597,6 +604,7 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
                             </a>
 
                         </div>
+                        {% if id != 0 %}
                         <form method=\"post\">
                             <div class=\"deleteBtnContainer\">
                                 <a class=\"deleteButton\" href=\"/manageUser/delete/{{ id }}\">
@@ -604,6 +612,7 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
                                 </a>
                             </div>
                         </form>
+                        {% endif %}
                     </div>
                 </div>
 

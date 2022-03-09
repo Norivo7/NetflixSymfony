@@ -84,6 +84,7 @@
                             </a>
 
                         </div>
+                        {% if id != 0 %}
                         <form method="post">
                             <div class="deleteBtnContainer">
                                 <a class="deleteButton" href="/manageUser/delete/{{ id }}">
@@ -91,6 +92,7 @@
                                 </a>
                             </div>
                         </form>
+                        {% endif %}
                     </div>
                 </div>
 

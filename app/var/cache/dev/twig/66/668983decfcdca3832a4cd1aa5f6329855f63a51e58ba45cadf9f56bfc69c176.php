@@ -168,10 +168,10 @@ class __TwigTemplate_54e468f3375413ecd2a6ed00dec82511670796dd8f126172cb2e32ebc5b
             // line 39
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "name", [], "any", false, false, false, 39), "html", null, true);
             echo "</td>
-                <td>";
+                <td><img src=\"";
             // line 40
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "avatar", [], "any", false, false, false, 40), "html", null, true);
-            echo "</td>
+            echo "\" style=\"width: 70px\"></td>
                 <td>";
             // line 41
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "subaccountOf", [], "any", false, false, false, 41), "html", null, true);
@@ -278,7 +278,7 @@ class __TwigTemplate_54e468f3375413ecd2a6ed00dec82511670796dd8f126172cb2e32ebc5b
             <tr>
                 <td>{{ subuser.id }}</td>
                 <td>{{ subuser.name }}</td>
-                <td>{{ subuser.avatar }}</td>
+                <td><img src=\"{{ subuser.avatar }}\" style=\"width: 70px\"></td>
                 <td>{{ subuser.subaccountOf }}</td>
                 <td>
                     <div class=\"btnWrapper\">
