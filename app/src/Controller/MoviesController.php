@@ -50,7 +50,7 @@ class MoviesController extends AbstractController
         $currentSubuser = $this->subuserRepository->find($subuserId);
         $subuserPosition = array_keys($allSubusers, $currentSubuser);
         unset($allSubusers[reset($subuserPosition)]);
-        return $allSubusers;
+        return array_values($allSubusers);
     }
 
     /**
@@ -63,6 +63,7 @@ class MoviesController extends AbstractController
         );
     }
 
+
     /**
      * @Route("/browse", name="browse")
      * @param Request $request
@@ -70,7 +71,13 @@ class MoviesController extends AbstractController
      */
     public function index(Request $request): Response
     {
-
+        if ($request->getMethod() == 'POST') {
+            $id = $request->request->get('id');
+            return $this->redirectToRoute('changeProfile', [
+                    'id' => $id,
+                ]
+        );
+        }
         $session = new Session();
         $subuser = $session->get('filter');
         $subuserId = reset($subuser);
@@ -79,7 +86,6 @@ class MoviesController extends AbstractController
         $subuserFrontId = $request->get('id');
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
         $subuserCount = count($allSubusers);
-
 
         $session = new Session();
         $subuser = $session->get('filter');
@@ -108,10 +114,18 @@ class MoviesController extends AbstractController
 
     /**
      * @Route("/shows", name="shows")
+     * @param $request
      * @return Response
      */
-    public function shows(): Response
+    public function shows(Request $request): Response
     {
+        if ($request->getMethod() == 'POST') {
+            $id = $request->request->get('id');
+            return $this->redirectToRoute('changeProfile', [
+                    'id' => $id,
+                ]
+            );
+        }
         return $this->render(
             'movies/list.html.twig', [
                 'profiles' => $this->getOtherSubusers(),
@@ -175,10 +189,18 @@ class MoviesController extends AbstractController
 
     /**
      * @Route("/myList", name="myList")
+     * @param $request
      * @return Response
      */
-    public function myList(): Response
+    public function myList(Request $request): Response
     {
+        if ($request->getMethod() == 'POST') {
+            $id = $request->request->get('id');
+            return $this->redirectToRoute('changeProfile', [
+                    'id' => $id,
+                ]
+            );
+        }
         $currentSubuser = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
 
         return $this->render(
@@ -194,8 +216,15 @@ class MoviesController extends AbstractController
      * @Route("/movies", name="movies")
      * @return Response
      */
-    public function movies(): Response
+    public function movies(Request $request): Response
     {
+        if ($request->getMethod() == 'POST') {
+            $id = $request->request->get('id');
+            return $this->redirectToRoute('changeProfile', [
+                    'id' => $id,
+                ]
+            );
+        }
         $subuserId = $this->getCurrentSubuserIdFromSession();
 
         return $this->render(
@@ -210,8 +239,15 @@ class MoviesController extends AbstractController
      * @Route("/new", name="new")
      * @return Response
      */
-    public function new(): Response
+    public function new(Request $request): Response
     {
+        if ($request->getMethod() == 'POST') {
+            $id = $request->request->get('id');
+            return $this->redirectToRoute('changeProfile', [
+                    'id' => $id,
+                ]
+            );
+        }
         $subuserId = $this->getCurrentSubuserIdFromSession();
 
         return $this->render(
@@ -294,6 +330,13 @@ class MoviesController extends AbstractController
      */
     public function search(MovieRepository $movieRepository, Request $request): Response
     {
+        if ($request->getMethod() == 'POST') {
+            $id = $request->request->get('id');
+            return $this->redirectToRoute('changeProfile', [
+                    'id' => $id,
+                ]
+            );
+        }
         $subuserId = $this->getCurrentSubuserIdFromSession();
         $currentSubuser = $this->subuserRepository->find($subuserId);
 

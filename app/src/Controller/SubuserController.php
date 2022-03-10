@@ -49,6 +49,17 @@ class SubuserController extends AbstractController
 //        return $files[$file];
 //      }
 
+    private function getOtherSubusers(): array
+    {
+        $session = new Session();
+        $subuser = $session->get('filter');
+        $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $this->getUser()));
+        $subuserId = reset($subuser);
+        $currentSubuser = $this->subuserRepository->find($subuserId);
+        $subuserPosition = array_keys($allSubusers, $currentSubuser);
+        unset($allSubusers[reset($subuserPosition)]);
+        return array_values($allSubusers);
+    }
 
     private function getRandomAvatarUrl(){
         $images = array('https://i.imgur.com/zBr1CQ3.png','https://i.imgur.com/ih6xvXa.png','https://i.imgur.com/6ZIfuJG.png','https://i.imgur.com/QhKoEyB.png',
@@ -78,9 +89,6 @@ class SubuserController extends AbstractController
      */
     public function chooseUser(Request $request): Response
     {
-//        dump($this->getRandomAvatarUrl());
-//        dump($this->random_pic());
-        //   var_dump($listImg = $this->showImgDir());
         $currentUser = $this->getUser();
 
         if ($request->getMethod() == 'POST') {
@@ -243,9 +251,30 @@ class SubuserController extends AbstractController
      */
     public function success(Request $request): Response
     {
+
         $currentUserId = $this->getUser();
         $subuserId = $request->get('id');
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUserId));
+        $currentSubuserId = $allSubusers[$subuserId]->getId();
+
+        $session = new Session();
+        $session->set('filter', array(
+            'subuserId' => $currentSubuserId
+        ));
+
+        return $this->redirectToRoute('browse', [
+        ]);
+    }
+
+    /**
+     * @Route("/changeProfile", name="changeProfile")
+     * @param Request $request
+     * @return Response
+     */
+    public function changeProfileAction(Request $request): Response
+    {
+        $subuserId = $request->get('id');
+        $allSubusers = $this->getOtherSubusers();
         $currentSubuserId = $allSubusers[$subuserId]->getId();
         $session = new Session();
         $session->set('filter', array(

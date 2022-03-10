@@ -42,6 +42,7 @@ return [
         '/manageUser/edit' => [[['_route' => 'edit', '_controller' => 'App\\Controller\\SubuserController::edit'], null, null, null, false, false, null]],
         '/manageUser' => [[['_route' => 'manageUser', '_controller' => 'App\\Controller\\SubuserController::manageUser'], null, null, null, false, false, null]],
         '/success' => [[['_route' => 'success', '_controller' => 'App\\Controller\\SubuserController::success'], null, null, null, false, false, null]],
+        '/changeProfile' => [[['_route' => 'changeProfile', '_controller' => 'App\\Controller\\SubuserController::changeProfileAction'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

@@ -56,4 +56,5 @@ return [
     'update' => [['id'], ['_controller' => 'App\\Controller\\SubuserController::update'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/manageUser/update']], [], [], []],
     'manageUser' => [[], ['_controller' => 'App\\Controller\\SubuserController::manageUser'], [], [['text', '/manageUser']], [], [], []],
     'success' => [[], ['_controller' => 'App\\Controller\\SubuserController::success'], [], [['text', '/success']], [], [], []],
+    'changeProfile' => [[], ['_controller' => 'App\\Controller\\SubuserController::changeProfileAction'], [], [['text', '/changeProfile']], [], [], []],
 ];

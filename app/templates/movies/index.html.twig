@@ -194,7 +194,23 @@
             background: rgb(0,0,0);
             background: linear-gradient(360deg, rgba(0,0,0,1) 0%, rgba(22,15,15,1) 35%, rgba(45,48,50,1) 100%);
         }
+        .form-control{
 
+            width: 80%;
+            border: none;
+            border-radius: 5px;
+            padding: 0;
+            margin-left: 10px;
+        }
+        .profile {
+            line-height: 40px;
+            align-content: center;
+            font-size:12px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-right: 10px;
+        }
 
     </style>
 {% endblock %}
@@ -222,13 +238,17 @@
         <a {% if app.request.attributes.get('_route') in
             'myList' %} class="active" {% endif %}
                 href="/myList">Moja lista</a>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="/admin" style="color: red">Przejdź do panelu administratora</a>
+        {% endif %}
+
         <div class="navbar_end">
             <div id="search">
                 <form method="GET" action="{{ path('search') }}">
                     <input
                             name="v"
                             type="search"
-                            class="form-control searchInput"
+                            class="searchInput"
                             placeholder="&#xF52A;  Wyszukaj.."
                             aria-label="Search"
                     >
@@ -244,18 +264,47 @@
         <a class="right dropbtn" href="/profile">
             <img class="userAvatar" src="{{ userAvatar }}" alt="avatar">
             <div class="dropdown-content">
-                {% for profile in profiles %}
-                <a href="/chooseUser">
-                    <li style="  list-style-type: none;">
-                    <img style="width: 40px" src="{{ profile.avatar }}" alt="profile">
-                    {{ profile.name }}
-                    </li>
-                </a>
-                 {% endfor %}
+                {% set profile_id = 0 %}
+
+                    {% for profile in profiles %}
+                        <form method="POST">
+                            <div class="profile">
+                            <a>
+                                <input
+                                        class="form-control"
+                                        id="text"
+                                        type="hidden"
+                                        name="id"
+                                        value="{{ profile_id }}"
+                                >
+{#                                <li style="  list-style-type: none;">#}
+                                    <input
+                                            class="form-control"
+                                            id="text"
+                                            type="image"
+                                            name="id"
+                                            value="{{ profile.avatar }}"
+                                            src="{{ profile.avatar }}"
+                                    >
+
+{#                                    <img style="width: 40px" src="{{ profile.avatar }}" alt="profile">#}
+
+{#                                </li>#}
+
+                            </a>
+                                <p style="margin-left: 5px;">
+                                {{ profile.name }}
+                                </p>
+                            </div>
+                        </form>
+                    {% set profile_id = profile_id + 1 %}
+                    {% endfor %}
                 <a href="/manageUser">Zarządzaj profilami</a>
                 <a href="/profile">Konto</a>
                 <a href="#">Centrum Pomocy</a>
                 <a href="/logout">Wyloguj się</a>
+
+
             </div>
         </a>
     </div>
