@@ -48,8 +48,9 @@ class MoviesController extends AbstractController
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $this->getUser()));
         $subuserId = reset($subuser);
         $currentSubuser = $this->subuserRepository->find($subuserId);
-        $to_remove = array($currentSubuser);
-        return array_diff($allSubusers, $to_remove);
+        $subuserPosition = array_keys($allSubusers, $currentSubuser);
+        unset($allSubusers[reset($subuserPosition)]);
+        return $allSubusers;
     }
 
     /**
@@ -69,6 +70,10 @@ class MoviesController extends AbstractController
      */
     public function index(Request $request): Response
     {
+
+        $session = new Session();
+        $subuser = $session->get('filter');
+        $subuserId = reset($subuser);
 
         $currentUser = $this->getUser();
         $subuserFrontId = $request->get('id');
