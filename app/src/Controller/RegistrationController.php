@@ -8,6 +8,7 @@ use App\Form\RegistrationFormType;
 use App\Security\EmailVerifier;
 use App\Security\LoginFormAuthenticator;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,6 +28,15 @@ class RegistrationController extends AbstractController
         $this->emailVerifier = $emailVerifier;
     }
 
+    private function getRandomAvatarUrl()
+    {
+        $images = array('https://i.imgur.com/zBr1CQ3.png', 'https://i.imgur.com/ih6xvXa.png', 'https://i.imgur.com/6ZIfuJG.png', 'https://i.imgur.com/QhKoEyB.png',
+            'https://i.imgur.com/C39AF1P.png', 'https://i.imgur.com/ZvH6qpn.png', 'https://i.imgur.com/hYkzmZj.png', 'https://i.imgur.com/6FgZxbi.png');
+
+        $key = array_rand($images);
+        return $images[$key];
+    }
+
     #[Route('/register', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, LoginFormAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
     {
@@ -38,14 +48,14 @@ class RegistrationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
             $user->setPassword(
-            $userPasswordHasher->hashPassword(
+                $userPasswordHasher->hashPassword(
                     $user,
                     $form->get('plainPassword')->getData()
                 )
             );
             $user->setRoles(["ROLE_USER"]);
             $subuser->setSubaccountOf($user);
-            $subuser->setAvatar('https://i.imgur.com/WM6zTNc.png');
+            $subuser->setAvatar($this->getRandomAvatarUrl());
             $subuser->setName("Domyślny");
             $entityManager->persist($subuser);
             $entityManager->persist($user);

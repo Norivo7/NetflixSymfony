@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "41a71c2c89e47c9f79017127e858bb14",
+    "content-hash": "bb703792fe97835ae411d4ac7b5c81ae",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -3824,6 +3824,76 @@
                 }
             ],
             "time": "2022-01-02T09:55:41+00:00"
+        },
+        {
+            "name": "symfony/oh-my-smtp-mailer",
+            "version": "v6.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/oh-my-smtp-mailer.git",
+                "reference": "96df038afb69a6beaaa625a8bb73769dd62f9138"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/oh-my-smtp-mailer/zipball/96df038afb69a6beaaa625a8bb73769dd62f9138",
+                "reference": "96df038afb69a6beaaa625a8bb73769dd62f9138",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.2",
+                "psr/event-dispatcher": "^1",
+                "symfony/mailer": "^5.4|^6.0"
+            },
+            "require-dev": {
+                "symfony/http-client": "^5.4|^6.0"
+            },
+            "type": "symfony-mailer-bridge",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Mailer\\Bridge\\OhMySmtp\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                },
+                {
+                    "name": "Paul Oms",
+                    "homepage": "https://ohmysmtp.com"
+                }
+            ],
+            "description": "Symfony OhMySMTP Mailer Bridge",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/oh-my-smtp-mailer/tree/v6.0.3"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-01-02T09:59:35+00:00"
         },
         {
             "name": "symfony/options-resolver",

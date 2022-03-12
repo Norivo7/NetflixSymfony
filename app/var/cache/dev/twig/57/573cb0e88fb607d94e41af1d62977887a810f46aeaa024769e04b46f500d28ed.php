@@ -83,7 +83,7 @@ class __TwigTemplate_3c6d76b427e1983ca08d9f501245772efa7823755347a0b63c98b631767
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "<title>Wybierz profil - Netflix</title>";
+        echo "<title>Zarządzaj profilami - Netflix</title>";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -473,7 +473,7 @@ class __TwigTemplate_3c6d76b427e1983ca08d9f501245772efa7823755347a0b63c98b631767
           href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css\">
 </head>
 
- {% block title %}<title>Wybierz profil - Netflix</title>{% endblock %}
+ {% block title %}<title>Zarządzaj profilami - Netflix</title>{% endblock %}
 
 {% block body %}
     <div id=\"headerContainer\">

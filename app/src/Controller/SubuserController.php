@@ -3,25 +3,26 @@
 namespace App\Controller;
 
 use App\Entity\Subuser;
-use App\Form\SubuserType;
 use App\Repository\SubuserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 
 class SubuserController extends AbstractController
 {
     private SubuserRepository $subuserRepository;
     private ManagerRegistry $doctrine;
+    private RequestStack $requestStack;
 
-    public function __construct(SubuserRepository $subuserRepository, ManagerRegistry $doctrine)
+    public function __construct(SubuserRepository $subuserRepository, ManagerRegistry $doctrine, RequestStack $requestStack)
     {
         $this->doctrine = $doctrine;
         $this->subuserRepository = $subuserRepository;
+        $this->requestStack = $requestStack;
     }
 
 //    private function showImgDir(): array
@@ -51,8 +52,9 @@ class SubuserController extends AbstractController
 
     private function getOtherSubusers(): array
     {
-        $session = new Session();
-        $subuser = $session->get('filter');
+        if (!empty($this->requestStack)) {
+            $subuser = $this->requestStack->getSession()->get('filter');
+        }
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $this->getUser()));
         $subuserId = reset($subuser);
         $currentSubuser = $this->subuserRepository->find($subuserId);
@@ -61,7 +63,8 @@ class SubuserController extends AbstractController
         return array_values($allSubusers);
     }
 
-    private function getRandomAvatarUrl(){
+    private function getRandomAvatarUrl(): string
+    {
         $images = array('https://i.imgur.com/zBr1CQ3.png','https://i.imgur.com/ih6xvXa.png','https://i.imgur.com/6ZIfuJG.png','https://i.imgur.com/QhKoEyB.png',
             'https://i.imgur.com/C39AF1P.png','https://i.imgur.com/ZvH6qpn.png','https://i.imgur.com/hYkzmZj.png','https://i.imgur.com/6FgZxbi.png');
 
@@ -133,30 +136,37 @@ class SubuserController extends AbstractController
      */
     public function edit(Request $request): Response
     {
-        $user = $this->getUser();
-        $errorRegex = $request->get('errorRegex');
         $subuserFrontId = $request->get('id');
+
+//       if($referer == 'http://localhost:8080/manageUser/update/'. $subuserFrontId . '?name=' ){
+//
+//       }
+        $errorRegex = "Profil musi mieć od 3 do 15 liter, żadnych znaków specjalnych i cyfr.";
+        $user = $this->getUser();
+//        $errorRegex = $request->get('errorRegex');
 
         if ($request->getMethod() == 'POST') {
             $name = $request->request->get('name');
             return $this->redirectToRoute('update', [
                     'id' => $subuserFrontId,
                     'name' => $name,
+
                 ]
             );
         }
+
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $user));
         if (isset($subuserFrontId) && $allSubusers[$subuserFrontId] != null) {
             $currentSubuser = $allSubusers[$subuserFrontId];
             return $this->render('user/edit.html.twig', [
                 'subuser' => $currentSubuser,
                 'id' => $subuserFrontId,
-                'errorRegex' => $errorRegex
+//                'errorRegex' => $errorRegex
             ]);
         } else {
 
             return $this->render('user/edit.html.twig', [
-                'error' => "nie znaleziono"
+                'error' => "Nie znaleziono użytkownika."
             ]);
         }
 
@@ -176,10 +186,7 @@ class SubuserController extends AbstractController
         $currentSubuser = $allSubusers[$subuserFrontId];
         $entityManager->remove($currentSubuser);
         $entityManager->flush();
-
-        return $this->redirectToRoute('manageUser', [
-            'subUsers' => $allSubusers,
-        ]);
+        return $this->redirectToRoute('manageUser');
     }
 
     /**
@@ -214,9 +221,8 @@ class SubuserController extends AbstractController
             }
             $errorRegex = "Profil musi mieć od 3 do 15 liter, żadnych znaków specjalnych i cyfr.";
             return $this->redirectToRoute('edit', [
-                    'subuser' => $currentSubuser,
                     'id' => $subuserFrontId,
-                    'errorRegex' => $errorRegex
+//                    'errorRegex' => $errorRegex
                 ]);
         }
     }
@@ -228,6 +234,7 @@ class SubuserController extends AbstractController
      */
     public function manageUser(Request $request): Response
     {
+
         if ($request->getMethod() == 'POST') {
             $id = $request->request->get('id');
             return $this->redirectToRoute('edit', [
@@ -257,8 +264,7 @@ class SubuserController extends AbstractController
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUserId));
         $currentSubuserId = $allSubusers[$subuserId]->getId();
 
-        $session = new Session();
-        $session->set('filter', array(
+        $this->requestStack->getSession()->set('filter', array(
             'subuserId' => $currentSubuserId
         ));
 
@@ -276,8 +282,7 @@ class SubuserController extends AbstractController
         $subuserId = $request->get('id');
         $allSubusers = $this->getOtherSubusers();
         $currentSubuserId = $allSubusers[$subuserId]->getId();
-        $session = new Session();
-        $session->set('filter', array(
+        $this->requestStack->getSession()->set('filter', array(
             'subuserId' => $currentSubuserId
         ));
 

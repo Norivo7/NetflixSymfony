@@ -258,6 +258,9 @@
     "symfony/mime": {
         "version": "v5.3.4"
     },
+    "symfony/oh-my-smtp-mailer": {
+        "version": "v6.0.3"
+    },
     "symfony/options-resolver": {
         "version": "v5.3.4"
     },

@@ -6,59 +6,21 @@
               crossorigin="anonymous">
     </head>
 {% endblock %}
-{% block title %}<title>Ustawienia konta - Netflix</title>{% endblock %}
 
-{% block stylesheets %}
-    <link rel="stylesheet" href="assets/user.css">
-    <style>
-        body {
-            font-family: 'Netflix Sans Regular', "Helvetica Neue", "Helvetica", Arial, sans-serif;
-        }
+{% block title %}<title>Wybór profilu - Netflix</title>{% endblock %}
 
-        .main {
-            height: 90%;
-        }
-
-        ul {
-            padding: 0;
-        }
-
-        .form-control {
-            padding: 0;
-        }
-
-        input#round {
-            outline-offset: -4px;
-            border: 0px solid;
-            border-radius: 10px;
-        }
-
-        input#round:hover {
-            color: #000;
-            box-shadow: 0px 0px 0px 4px white;
-            background-color: #FFF;
-            background-image: none;
-        }
-
-        #buttonDiv {
-            margin-top: 20px;
-        }
-    </style>
+{% block header %}
+    <div id="headerContainer">
+        <div class="brandLogoWrapper">
+            <a class="logo" href="/" target="_parent">
+                <img class="logo" src="{{ asset('images/netflixLogo.svg.png') }}" alt="av1"/>
+            </a>
+        </div>
+    </div>
 {% endblock %}
 
-    {% block header %}
-        <div id="headerContainer">
-            <div class="brandLogoWrapper">
-                <a class="logo" href="/" target="_parent">
-                    <img class="logo" src="{{ asset('images/netflixLogo.svg.png') }}" alt="av1"/>
-                </a>
-
-            </div>
-        </div>
-    {% endblock %}
-
 {% block body %}
-    <body>
+<body>
     <div class="main">
         <div class="profilesContainer">
             <div class="profilesList">
@@ -114,6 +76,44 @@
             </div>
         </div>
     </div>
-    </body>
+</body>
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="assets/user.css">
+    <style>
+        body {
+            font-family: 'Netflix Sans Regular', "Helvetica Neue", "Helvetica", Arial, sans-serif;
+        }
+
+        .main {
+            height: 90%;
+        }
+
+        ul {
+            padding: 0;
+        }
+
+        .form-control {
+            padding: 0;
+        }
+
+        input#round {
+            outline-offset: -4px;
+            border: 0px solid;
+            border-radius: 10px;
+        }
+
+        input#round:hover {
+            color: #000;
+            box-shadow: 0px 0px 0px 4px white;
+            background-color: #FFF;
+            background-image: none;
+        }
+
+        #buttonDiv {
+            margin-top: 20px;
+        }
+    </style>
 
 {% endblock %}

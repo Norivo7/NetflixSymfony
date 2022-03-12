@@ -16,8 +16,8 @@ security:
             security: false
         main:
             form_login:
-                login_path: login
-                check_path: login
+                login_path: app_login
+                check_path: app_login
                 enable_csrf: true
             http_basic: ~
             lazy: true

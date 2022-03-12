@@ -346,6 +346,7 @@
       <argument type="service" id="App\Repository\MovieRepository"/>
       <argument type="service" id="App\Repository\CategoryRepository"/>
       <argument type="service" id="App\Repository\SubuserRepository"/>
+      <argument type="service" id="request_stack"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.l1ae.Qz.App\Controller\MoviesController"/>
       </call>
@@ -363,6 +364,7 @@
       <tag name="container.service_subscriber"/>
       <argument type="service" id="App\Repository\SubuserRepository"/>
       <argument type="service" id="doctrine"/>
+      <argument type="service" id="request_stack"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.l1ae.Qz.App\Controller\SubuserController"/>
       </call>
@@ -1319,6 +1321,12 @@
       <argument type="service" id="logger" on-invalid="ignore"/>
     </service>
     <service id="mailer.transport_factory.sendmail" class="Symfony\Component\Mailer\Transport\SendmailTransportFactory">
+      <tag name="mailer.transport_factory"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument>null</argument>
+      <argument type="service" id="logger" on-invalid="ignore"/>
+    </service>
+    <service id="mailer.transport_factory.ohmysmtp" class="Symfony\Component\Mailer\Bridge\OhMySmtp\Transport\OhMySmtpTransportFactory">
       <tag name="mailer.transport_factory"/>
       <argument type="service" id="debug.event_dispatcher"/>
       <argument>null</argument>
@@ -4359,8 +4367,8 @@
       <argument type="service" id="security.authentication.success_handler.main.form_login"/>
       <argument type="service" id="security.authentication.failure_handler.main.form_login"/>
       <argument type="collection">
-        <argument key="login_path">login</argument>
-        <argument key="check_path">login</argument>
+        <argument key="login_path">app_login</argument>
+        <argument key="check_path">app_login</argument>
         <argument key="enable_csrf">true</argument>
         <argument key="use_forward">false</argument>
         <argument key="require_previous_session">false</argument>
@@ -4377,7 +4385,7 @@
       <argument type="collection"/>
       <call method="setOptions">
         <argument type="collection">
-          <argument key="login_path">login</argument>
+          <argument key="login_path">app_login</argument>
           <argument key="always_use_default_target_path">false</argument>
           <argument key="default_target_path">/</argument>
           <argument key="target_path_parameter">_target_path</argument>
@@ -4395,7 +4403,7 @@
       <argument type="service" id="logger" on-invalid="null"/>
       <call method="setOptions">
         <argument type="collection">
-          <argument key="login_path">login</argument>
+          <argument key="login_path">app_login</argument>
           <argument key="failure_path">null</argument>
           <argument key="failure_forward">false</argument>
           <argument key="failure_path_parameter">_failure_path</argument>

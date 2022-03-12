@@ -550,6 +550,15 @@
             'reference' => '2cd9601efd040e56f43360daa68f3c6b0534923a',
             'dev_requirement' => false,
         ),
+        'symfony/oh-my-smtp-mailer' => array(
+            'pretty_version' => 'v6.0.3',
+            'version' => '6.0.3.0',
+            'type' => 'symfony-mailer-bridge',
+            'install_path' => __DIR__ . '/../symfony/oh-my-smtp-mailer',
+            'aliases' => array(),
+            'reference' => '96df038afb69a6beaaa625a8bb73769dd62f9138',
+            'dev_requirement' => false,
+        ),
         'symfony/options-resolver' => array(
             'pretty_version' => 'v6.0.3',
             'version' => '6.0.3.0',

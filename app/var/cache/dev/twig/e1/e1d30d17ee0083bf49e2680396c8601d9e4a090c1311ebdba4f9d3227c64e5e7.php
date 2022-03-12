@@ -27,6 +27,7 @@ class __TwigTemplate_e4ed2b732c73c4c0b50dde8b6711c43f3325b621ffd93a5b1c63c9b3042
         $this->parent = false;
 
         $this->blocks = [
+            'stylesheets' => [$this, 'block_stylesheets'],
         ];
     }
 
@@ -40,8 +41,10 @@ class __TwigTemplate_e4ed2b732c73c4c0b50dde8b6711c43f3325b621ffd93a5b1c63c9b3042
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "reusable/footer.html.twig"));
 
         // line 1
-        echo "<footer class=\"footer\">
-
+        $this->displayBlock('stylesheets', $context, $blocks);
+        // line 4
+        echo "
+<footer class=\"footer\">
     <div class=\"container-fluid mt-5\">
         <p>Pytania? Zadzwoń pod numer <a href=\"#\">00 800 112 4392</a></p>
         <div class=\"row text-center\">
@@ -107,6 +110,27 @@ class __TwigTemplate_e4ed2b732c73c4c0b50dde8b6711c43f3325b621ffd93a5b1c63c9b3042
 
     }
 
+    // line 1
+    public function block_stylesheets($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
+
+        // line 2
+        echo "    <link rel=\"stylesheet\" href=\"assets/footer.css\">
+";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
     public function getTemplateName()
     {
         return "reusable/footer.html.twig";
@@ -114,13 +138,16 @@ class __TwigTemplate_e4ed2b732c73c4c0b50dde8b6711c43f3325b621ffd93a5b1c63c9b3042
 
     public function getDebugInfo()
     {
-        return array (  43 => 1,);
+        return array (  124 => 2,  114 => 1,  46 => 4,  44 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("<footer class=\"footer\">
+        return new Source("{% block stylesheets %}
+    <link rel=\"stylesheet\" href=\"assets/footer.css\">
+{% endblock %}
 
+<footer class=\"footer\">
     <div class=\"container-fluid mt-5\">
         <p>Pytania? Zadzwoń pod numer <a href=\"#\">00 800 112 4392</a></p>
         <div class=\"row text-center\">

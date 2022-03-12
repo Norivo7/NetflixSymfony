@@ -81,7 +81,7 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Panel Administratora - Netflix";
+        echo "Panel administratora - Netflix";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -408,7 +408,7 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
           rel=\"stylesheet\"
           integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
           crossorigin=\"anonymous\">
-    <title>{% block title %}Panel Administratora - Netflix{% endblock %}</title>
+    <title>{% block title %}Panel administratora - Netflix{% endblock %}</title>
 </head>
 {% block stylesheets %}
     <style>

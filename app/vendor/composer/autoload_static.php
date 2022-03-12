@@ -60,6 +60,7 @@ class ComposerStaticInita2b74f0bba0246b2f35735204618bfdd
             'Symfony\\Component\\PasswordHasher\\' => 33,
             'Symfony\\Component\\OptionsResolver\\' => 34,
             'Symfony\\Component\\Mime\\' => 23,
+            'Symfony\\Component\\Mailer\\Bridge\\OhMySmtp\\' => 41,
             'Symfony\\Component\\Mailer\\Bridge\\Google\\' => 39,
             'Symfony\\Component\\Mailer\\' => 25,
             'Symfony\\Component\\HttpKernel\\' => 29,
@@ -265,6 +266,10 @@ class ComposerStaticInita2b74f0bba0246b2f35735204618bfdd
         'Symfony\\Component\\Mime\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/mime',
+        ),
+        'Symfony\\Component\\Mailer\\Bridge\\OhMySmtp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/oh-my-smtp-mailer',
         ),
         'Symfony\\Component\\Mailer\\Bridge\\Google\\' => 
         array (
@@ -495,17 +500,16 @@ class ComposerStaticInita2b74f0bba0246b2f35735204618bfdd
     );
 
     public static $classMap = array (
-        'App\\Controller\\AdminController' => __DIR__ . '/../..',
+        'App\\Controller\\Admin\\AdminController' => __DIR__ . '/../..' . '/src/Controller/Admin/AdminController.php',
+        'App\\Controller\\Admin\\MovieCrudController' => __DIR__ . '/../..' . '/src/Controller/Admin/MovieCrudController.php',
+        'App\\Controller\\Admin\\SubuserCrudController' => __DIR__ . '/../..' . '/src/Controller/Admin/SubuserCrudController.php',
+        'App\\Controller\\Admin\\UserCrudController' => __DIR__ . '/../..' . '/src/Controller/Admin/UserCrudController.php',
         'App\\Controller\\ExceptionController' => __DIR__ . '/../..' . '/src/Controller/ExceptionController.php',
         'App\\Controller\\LoginController' => __DIR__ . '/../..' . '/src/Controller/LoginController.php',
         'App\\Controller\\MailerController' => __DIR__ . '/../..' . '/src/Controller/MailerController.php',
-        'App\\Controller\\MovieCrudController' => __DIR__ . '/../..',
         'App\\Controller\\MoviesController' => __DIR__ . '/../..' . '/src/Controller/MoviesController.php',
         'App\\Controller\\RegistrationController' => __DIR__ . '/../..' . '/src/Controller/RegistrationController.php',
-        'App\\Controller\\SecurityController' => __DIR__ . '/../..' . '/src/Controller/SecurityController.php',
         'App\\Controller\\SubuserController' => __DIR__ . '/../..' . '/src/Controller/SubuserController.php',
-        'App\\Controller\\SubuserCrudController' => __DIR__ . '/../..',
-        'App\\Controller\\UserCrudController' => __DIR__ . '/../..',
         'App\\DataFixtures\\MovieFixtures' => __DIR__ . '/../..' . '/src/DataFixtures/MovieFixtures.php',
         'App\\DataFixtures\\UserFixtures' => __DIR__ . '/../..' . '/src/DataFixtures/UserFixtures.php',
         'App\\Entity\\Category' => __DIR__ . '/../..' . '/src/Entity/Category.php',
@@ -4107,6 +4111,9 @@ class ComposerStaticInita2b74f0bba0246b2f35735204618bfdd
         'Symfony\\Component\\HttpKernel\\UriSigner' => __DIR__ . '/..' . '/symfony/http-kernel/UriSigner.php',
         'Symfony\\Component\\Mailer\\Bridge\\Google\\Transport\\GmailSmtpTransport' => __DIR__ . '/..' . '/symfony/google-mailer/Transport/GmailSmtpTransport.php',
         'Symfony\\Component\\Mailer\\Bridge\\Google\\Transport\\GmailTransportFactory' => __DIR__ . '/..' . '/symfony/google-mailer/Transport/GmailTransportFactory.php',
+        'Symfony\\Component\\Mailer\\Bridge\\OhMySmtp\\Transport\\OhMySmtpApiTransport' => __DIR__ . '/..' . '/symfony/oh-my-smtp-mailer/Transport/OhMySmtpApiTransport.php',
+        'Symfony\\Component\\Mailer\\Bridge\\OhMySmtp\\Transport\\OhMySmtpSmtpTransport' => __DIR__ . '/..' . '/symfony/oh-my-smtp-mailer/Transport/OhMySmtpSmtpTransport.php',
+        'Symfony\\Component\\Mailer\\Bridge\\OhMySmtp\\Transport\\OhMySmtpTransportFactory' => __DIR__ . '/..' . '/symfony/oh-my-smtp-mailer/Transport/OhMySmtpTransportFactory.php',
         'Symfony\\Component\\Mailer\\DataCollector\\MessageDataCollector' => __DIR__ . '/..' . '/symfony/mailer/DataCollector/MessageDataCollector.php',
         'Symfony\\Component\\Mailer\\DelayedEnvelope' => __DIR__ . '/..' . '/symfony/mailer/DelayedEnvelope.php',
         'Symfony\\Component\\Mailer\\Envelope' => __DIR__ . '/..' . '/symfony/mailer/Envelope.php',

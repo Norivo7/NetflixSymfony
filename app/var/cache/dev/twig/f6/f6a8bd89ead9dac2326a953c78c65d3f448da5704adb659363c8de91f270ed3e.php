@@ -28,7 +28,8 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
         $this->blocks = [
             'head' => [$this, 'block_head'],
-            'header' => [$this, 'block_header'],
+            'title' => [$this, 'block_title'],
+            'navigation' => [$this, 'block_navigation'],
             'body' => [$this, 'block_body'],
             'stylesheets' => [$this, 'block_stylesheets'],
         ];
@@ -45,20 +46,20 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
         // line 2
         $this->displayBlock('head', $context, $blocks);
-        // line 12
-        echo "
-";
         // line 13
-        $this->displayBlock('header', $context, $blocks);
-        // line 24
         echo "
 ";
+        // line 14
+        $this->displayBlock('navigation', $context, $blocks);
         // line 25
-        $this->displayBlock('body', $context, $blocks);
-        // line 112
         echo "
 ";
-        // line 113
+        // line 26
+        $this->displayBlock('body', $context, $blocks);
+        // line 114
+        echo "
+";
+        // line 115
         $this->displayBlock('stylesheets', $context, $blocks);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -80,7 +81,11 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
         // line 3
         echo "    <head>
-        <link rel=\"stylesheet\"
+        ";
+        // line 4
+        $this->displayBlock('title', $context, $blocks);
+        // line 5
+        echo "        <link rel=\"stylesheet\"
               href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css\">
         <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\"
               rel=\"stylesheet\"
@@ -96,30 +101,49 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
     }
 
-    // line 13
-    public function block_header($context, array $blocks = [])
+    // line 4
+    public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "header"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "header"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        // line 14
+        echo "<title> Ustawienia Konta - Netflix</title>";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 14
+    public function block_navigation($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navigation"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navigation"));
+
+        // line 15
         echo "    <div id=\"headerContainer\">
         <div class=\"brandLogoWrapper\">
             <a class=\"logo\" href=\"/\" target=\"_parent\">
                 <img class=\"logo\" src=\"";
-        // line 17
+        // line 18
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/netflixLogo.svg.png"), "html", null, true);
         echo "\" alt=\"av1\"/>
             </a>
         </div>
         <a class=\"avatar\" href=\"/browse\">
             <img class=\"userAvatar\" src=\"";
-        // line 21
-        echo twig_escape_filter($this->env, (isset($context["userAvatar"]) || array_key_exists("userAvatar", $context) ? $context["userAvatar"] : (function () { throw new RuntimeError('Variable "userAvatar" does not exist.', 21, $this->source); })()), "html", null, true);
+        // line 22
+        echo twig_escape_filter($this->env, (isset($context["userAvatar"]) || array_key_exists("userAvatar", $context) ? $context["userAvatar"] : (function () { throw new RuntimeError('Variable "userAvatar" does not exist.', 22, $this->source); })()), "html", null, true);
         echo "\" alt=\"avatar\"></a>
     </div>
 ";
@@ -131,7 +155,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
     }
 
-    // line 25
+    // line 26
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -141,10 +165,8 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 26
-        echo "
-    <div class=\"mainWrapper\">
-
+        // line 27
+        echo "    <div class=\"mainWrapper\">
         <div class=\"parent\">
             <div class=\"div1\"><p style=\"font-size: 26px\">Konto</p>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style=\"font-size: 20px;color:red\" class=\"bi bi-person-video3\">&nbsp;&nbsp;</i>użytkownik
@@ -159,11 +181,11 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             <div class=\"div3\">
                 <hr>
                 ";
-        // line 42
-        echo twig_escape_filter($this->env, (isset($context["email"]) || array_key_exists("email", $context) ? $context["email"] : (function () { throw new RuntimeError('Variable "email" does not exist.', 42, $this->source); })()), "html", null, true);
+        // line 41
+        echo twig_escape_filter($this->env, (isset($context["email"]) || array_key_exists("email", $context) ? $context["email"] : (function () { throw new RuntimeError('Variable "email" does not exist.', 41, $this->source); })()), "html", null, true);
         echo "<br>
-                hasło:<br>
-                telefon:s
+                hasło: ******<br>
+                telefon:
             </div>
             <div class=\"div4\">
                 <hr>
@@ -208,19 +230,19 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             <div class=\"div12\">
                 <hr>
                 ";
-        // line 88
+        // line 87
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["profiles"]) || array_key_exists("profiles", $context) ? $context["profiles"] : (function () { throw new RuntimeError('Variable "profiles" does not exist.', 88, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["profiles"]) || array_key_exists("profiles", $context) ? $context["profiles"] : (function () { throw new RuntimeError('Variable "profiles" does not exist.', 87, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["profile"]) {
-            // line 89
+            // line 88
             echo "                    <div class=\"row\">
                         <img class=\"profile\" src=\"";
-            // line 90
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["profile"], "avatar", [], "any", false, false, false, 90), "html", null, true);
+            // line 89
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["profile"], "avatar", [], "any", false, false, false, 89), "html", null, true);
             echo "\" alt=\"profile avatar\">
                         ";
-            // line 91
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["profile"], "name", [], "any", false, false, false, 91), "html", null, true);
+            // line 90
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["profile"], "name", [], "any", false, false, false, 90), "html", null, true);
             echo "
                     </div>
                 ";
@@ -228,7 +250,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['profile'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 94
+        // line 93
         echo "            </div>
             <div class=\"div13\">
                 <hr>
@@ -244,11 +266,14 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
                 <a href=\"#\">Pobierz swoje dane osobowe</a>
             </div>
         </div>
-        ";
+        <div class=\"footer\">
+            ";
         // line 109
-        $this->loadTemplate("user/profile.html.twig", "user/profile.html.twig", 109, "70717003")->display($context);
+        $this->loadTemplate("user/profile.html.twig", "user/profile.html.twig", 109, "93449388")->display($context);
         // line 110
-        echo "    </div>
+        echo "        </div>
+
+    </div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -258,7 +283,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
     }
 
-    // line 113
+    // line 115
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -268,7 +293,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 114
+        // line 116
         echo "    <style>
         .gray {
             color: #757575;
@@ -288,7 +313,6 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             margin: auto;
             width: 70%;
             height: 100%;
-            /*border: 4px solid red;*/
             display: grid;
             grid-template-columns: repeat(8, 1fr);
             grid-template-rows: repeat(11, 1fr);
@@ -302,7 +326,6 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             flex-direction: row;
             height: 20%;
             width: 100%;
-            /*border: 4px solid green;*/
             grid-area: 1 / 1 / 2 / 9;
         }
 
@@ -359,11 +382,9 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         }
 
         .div12 {
-
             display: flex;
             flex-direction: column;
             grid-area: 6 / 3 / 9 / 9;
-            padding-bottom: 150px;
         }
 
         .profile {
@@ -372,13 +393,13 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         }
 
         .div13 {
-            margin-top: 250px;
+            margin-top: 100px;
             text-align: left;
             grid-area: 9 / 1 / 12 / 3;
         }
 
         .div14 {
-            margin-top: 250px;
+            margin-top: 100px;
             line-height: 2.5;
             text-align: left;
             grid-area: 9 / 3 / 12 / 9;
@@ -422,7 +443,6 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         }
 
         .avatar {
-            /*padding: 13px 0;*/
             height: 20px;
             margin-top: 14px;
             margin-right: 28px;
@@ -431,9 +451,6 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             justify-content: center;
         }
 
-        /*a:link {*/
-        /*    color: #0a53be;*/
-        /*}*/
         a:hover {
             opacity: 0.8;
         }
@@ -443,17 +460,6 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             color: #0a53be;
         }
 
-        /*a:hover {*/
-        /*    color: red;*/
-        /*}*/
-
-        /*a:active {*/
-        /*    color: red;*/
-        /*}*/
-
-        /*a:visited {*/
-        /*    color: red;*/
-        /*}*/
         body {
             background-color: black;
             color: black;
@@ -461,7 +467,8 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
         .mainWrapper {
             width: 100%;
-            height: 2000px;
+            /*height: 190%;*/
+            height: 1700px;
             background-color: #f3f3f3;
         }
 
@@ -480,7 +487,6 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             font-size: 1.2rem;
             color: #FFFFFF;
         }
-
     </style>
 ";
         
@@ -498,7 +504,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
     public function getDebugInfo()
     {
-        return array (  272 => 114,  262 => 113,  251 => 110,  249 => 109,  232 => 94,  223 => 91,  219 => 90,  216 => 89,  212 => 88,  163 => 42,  145 => 26,  135 => 25,  122 => 21,  115 => 17,  110 => 14,  100 => 13,  82 => 3,  72 => 2,  62 => 113,  59 => 112,  57 => 25,  54 => 24,  52 => 13,  49 => 12,  47 => 2,);
+        return array (  297 => 116,  287 => 115,  274 => 110,  272 => 109,  254 => 93,  245 => 90,  241 => 89,  238 => 88,  234 => 87,  185 => 41,  169 => 27,  159 => 26,  146 => 22,  139 => 18,  134 => 15,  124 => 14,  105 => 4,  88 => 5,  86 => 4,  83 => 3,  73 => 2,  63 => 115,  60 => 114,  58 => 26,  55 => 25,  53 => 14,  50 => 13,  48 => 2,);
     }
 
     public function getSourceContext()
@@ -506,6 +512,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         return new Source("{# {% extends 'user/user.html.twig' %} #}
 {% block head %}
     <head>
+        {% block title %}<title> Ustawienia Konta - Netflix</title>{% endblock %}
         <link rel=\"stylesheet\"
               href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css\">
         <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\"
@@ -515,7 +522,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
     </head>
 {% endblock %}
 
-{% block header %}
+{% block navigation %}
     <div id=\"headerContainer\">
         <div class=\"brandLogoWrapper\">
             <a class=\"logo\" href=\"/\" target=\"_parent\">
@@ -528,9 +535,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 {% endblock %}
 
 {% block body %}
-
     <div class=\"mainWrapper\">
-
         <div class=\"parent\">
             <div class=\"div1\"><p style=\"font-size: 26px\">Konto</p>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style=\"font-size: 20px;color:red\" class=\"bi bi-person-video3\">&nbsp;&nbsp;</i>użytkownik
@@ -545,8 +550,8 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             <div class=\"div3\">
                 <hr>
                 {{ email }}<br>
-                hasło:<br>
-                telefon:s
+                hasło: ******<br>
+                telefon:
             </div>
             <div class=\"div4\">
                 <hr>
@@ -611,7 +616,10 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
                 <a href=\"#\">Pobierz swoje dane osobowe</a>
             </div>
         </div>
-        {% embed 'reusable/footer.html.twig' %} {% endembed %}
+        <div class=\"footer\">
+            {% embed 'reusable/footer.html.twig' %} {% endembed %}
+        </div>
+
     </div>
 {% endblock %}
 
@@ -635,7 +643,6 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             margin: auto;
             width: 70%;
             height: 100%;
-            /*border: 4px solid red;*/
             display: grid;
             grid-template-columns: repeat(8, 1fr);
             grid-template-rows: repeat(11, 1fr);
@@ -649,7 +656,6 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             flex-direction: row;
             height: 20%;
             width: 100%;
-            /*border: 4px solid green;*/
             grid-area: 1 / 1 / 2 / 9;
         }
 
@@ -706,11 +712,9 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         }
 
         .div12 {
-
             display: flex;
             flex-direction: column;
             grid-area: 6 / 3 / 9 / 9;
-            padding-bottom: 150px;
         }
 
         .profile {
@@ -719,13 +723,13 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         }
 
         .div13 {
-            margin-top: 250px;
+            margin-top: 100px;
             text-align: left;
             grid-area: 9 / 1 / 12 / 3;
         }
 
         .div14 {
-            margin-top: 250px;
+            margin-top: 100px;
             line-height: 2.5;
             text-align: left;
             grid-area: 9 / 3 / 12 / 9;
@@ -769,7 +773,6 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         }
 
         .avatar {
-            /*padding: 13px 0;*/
             height: 20px;
             margin-top: 14px;
             margin-right: 28px;
@@ -778,9 +781,6 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             justify-content: center;
         }
 
-        /*a:link {*/
-        /*    color: #0a53be;*/
-        /*}*/
         a:hover {
             opacity: 0.8;
         }
@@ -790,17 +790,6 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             color: #0a53be;
         }
 
-        /*a:hover {*/
-        /*    color: red;*/
-        /*}*/
-
-        /*a:active {*/
-        /*    color: red;*/
-        /*}*/
-
-        /*a:visited {*/
-        /*    color: red;*/
-        /*}*/
         body {
             background-color: black;
             color: black;
@@ -808,7 +797,8 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
         .mainWrapper {
             width: 100%;
-            height: 2000px;
+            /*height: 190%;*/
+            height: 1700px;
             background-color: #f3f3f3;
         }
 
@@ -827,7 +817,6 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             font-size: 1.2rem;
             color: #FFFFFF;
         }
-
     </style>
 {% endblock %}", "user/profile.html.twig", "/var/www/symfony_docker/templates/user/profile.html.twig");
     }
@@ -835,7 +824,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
 
 /* user/profile.html.twig */
-class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b592268d28___70717003 extends Template
+class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b592268d28___93449388 extends Template
 {
     private $source;
     private $macros = [];
@@ -887,7 +876,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
     public function getDebugInfo()
     {
-        return array (  856 => 109,  272 => 114,  262 => 113,  251 => 110,  249 => 109,  232 => 94,  223 => 91,  219 => 90,  216 => 89,  212 => 88,  163 => 42,  145 => 26,  135 => 25,  122 => 21,  115 => 17,  110 => 14,  100 => 13,  82 => 3,  72 => 2,  62 => 113,  59 => 112,  57 => 25,  54 => 24,  52 => 13,  49 => 12,  47 => 2,);
+        return array (  845 => 109,  297 => 116,  287 => 115,  274 => 110,  272 => 109,  254 => 93,  245 => 90,  241 => 89,  238 => 88,  234 => 87,  185 => 41,  169 => 27,  159 => 26,  146 => 22,  139 => 18,  134 => 15,  124 => 14,  105 => 4,  88 => 5,  86 => 4,  83 => 3,  73 => 2,  63 => 115,  60 => 114,  58 => 26,  55 => 25,  53 => 14,  50 => 13,  48 => 2,);
     }
 
     public function getSourceContext()
@@ -895,6 +884,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         return new Source("{# {% extends 'user/user.html.twig' %} #}
 {% block head %}
     <head>
+        {% block title %}<title> Ustawienia Konta - Netflix</title>{% endblock %}
         <link rel=\"stylesheet\"
               href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css\">
         <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\"
@@ -904,7 +894,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
     </head>
 {% endblock %}
 
-{% block header %}
+{% block navigation %}
     <div id=\"headerContainer\">
         <div class=\"brandLogoWrapper\">
             <a class=\"logo\" href=\"/\" target=\"_parent\">
@@ -917,9 +907,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 {% endblock %}
 
 {% block body %}
-
     <div class=\"mainWrapper\">
-
         <div class=\"parent\">
             <div class=\"div1\"><p style=\"font-size: 26px\">Konto</p>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style=\"font-size: 20px;color:red\" class=\"bi bi-person-video3\">&nbsp;&nbsp;</i>użytkownik
@@ -934,8 +922,8 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             <div class=\"div3\">
                 <hr>
                 {{ email }}<br>
-                hasło:<br>
-                telefon:s
+                hasło: ******<br>
+                telefon:
             </div>
             <div class=\"div4\">
                 <hr>
@@ -1000,7 +988,10 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
                 <a href=\"#\">Pobierz swoje dane osobowe</a>
             </div>
         </div>
-        {% embed 'reusable/footer.html.twig' %} {% endembed %}
+        <div class=\"footer\">
+            {% embed 'reusable/footer.html.twig' %} {% endembed %}
+        </div>
+
     </div>
 {% endblock %}
 
@@ -1024,7 +1015,6 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             margin: auto;
             width: 70%;
             height: 100%;
-            /*border: 4px solid red;*/
             display: grid;
             grid-template-columns: repeat(8, 1fr);
             grid-template-rows: repeat(11, 1fr);
@@ -1038,7 +1028,6 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             flex-direction: row;
             height: 20%;
             width: 100%;
-            /*border: 4px solid green;*/
             grid-area: 1 / 1 / 2 / 9;
         }
 
@@ -1095,11 +1084,9 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         }
 
         .div12 {
-
             display: flex;
             flex-direction: column;
             grid-area: 6 / 3 / 9 / 9;
-            padding-bottom: 150px;
         }
 
         .profile {
@@ -1108,13 +1095,13 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         }
 
         .div13 {
-            margin-top: 250px;
+            margin-top: 100px;
             text-align: left;
             grid-area: 9 / 1 / 12 / 3;
         }
 
         .div14 {
-            margin-top: 250px;
+            margin-top: 100px;
             line-height: 2.5;
             text-align: left;
             grid-area: 9 / 3 / 12 / 9;
@@ -1158,7 +1145,6 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         }
 
         .avatar {
-            /*padding: 13px 0;*/
             height: 20px;
             margin-top: 14px;
             margin-right: 28px;
@@ -1167,9 +1153,6 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             justify-content: center;
         }
 
-        /*a:link {*/
-        /*    color: #0a53be;*/
-        /*}*/
         a:hover {
             opacity: 0.8;
         }
@@ -1179,17 +1162,6 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             color: #0a53be;
         }
 
-        /*a:hover {*/
-        /*    color: red;*/
-        /*}*/
-
-        /*a:active {*/
-        /*    color: red;*/
-        /*}*/
-
-        /*a:visited {*/
-        /*    color: red;*/
-        /*}*/
         body {
             background-color: black;
             color: black;
@@ -1197,7 +1169,8 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
         .mainWrapper {
             width: 100%;
-            height: 2000px;
+            /*height: 190%;*/
+            height: 1700px;
             background-color: #f3f3f3;
         }
 
@@ -1216,7 +1189,6 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             font-size: 1.2rem;
             color: #FFFFFF;
         }
-
     </style>
 {% endblock %}", "user/profile.html.twig", "/var/www/symfony_docker/templates/user/profile.html.twig");
     }

@@ -22,6 +22,8 @@
         "symfony/framework-bundle": "6.0.*",
         "symfony/google-mailer": "6.0.*",
         "symfony/mailer": "6.0.*",
+        "symfony/mime": "6.0.*",
+        "symfony/oh-my-smtp-mailer": "6.0.*",
         "symfony/proxy-manager-bridge": "6.0.*",
         "symfony/runtime": "6.0.*",
         "symfony/security-bundle": "6.0.*",

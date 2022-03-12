@@ -26,6 +26,7 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
 
         $this->blocks = [
             'head' => [$this, 'block_head'],
+            'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
             'stylesheets' => [$this, 'block_stylesheets'],
         ];
@@ -56,7 +57,7 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
 
     }
 
-    // line 2
+    // line 4
     public function block_head($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -66,16 +67,20 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "head"));
 
-        // line 3
+        // line 5
         echo "<head>
-    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\"
+    ";
+        // line 6
+        $this->displayBlock('title', $context, $blocks);
+        // line 7
+        echo "    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\"
           rel=\"stylesheet\"
           integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
           crossorigin=\"anonymous\">
     <link rel=\"stylesheet\"
           href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css\">
 
-    ";
+";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -84,7 +89,26 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
 
     }
 
-    // line 12
+    // line 6
+    public function block_title($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        echo "<title> Edytuj profil - Netflix</title>";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 16
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -94,16 +118,13 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 13
+        // line 17
         echo "    <body>
     <form id=\"myForm\" method=\"post\">
         ";
-        // line 16
-        echo "
-        ";
-        // line 17
+        // line 19
         if (array_key_exists("subuser", $context)) {
-            // line 18
+            // line 20
             echo "            <div class=\"parent\">
                 <div class=\"div1\"><p class=\"heading\">Edytuj profil</p>
                     <hr>
@@ -113,37 +134,35 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
                            type=\"hidden\"
                            name=\"avatar\"
                            value=\"";
-            // line 26
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 26, $this->source); })()), "avatar", [], "any", false, false, false, 26), "html", null, true);
+            // line 28
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 28, $this->source); })()), "avatar", [], "any", false, false, false, 28), "html", null, true);
             echo "\"/>
 
                     <img class=\"avatar\"
                          src=\"";
-            // line 29
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 29, $this->source); })()), "avatar", [], "any", false, false, false, 29), "html", null, true);
+            // line 31
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 31, $this->source); })()), "avatar", [], "any", false, false, false, 31), "html", null, true);
             echo "\"
                          alt=\"avatar\">
                 </div>
                 <div class=\"div3\">
-";
-            // line 38
-            echo "                    <input class=\"name\"
+                    <input class=\"name\"
                            type=\"text\"
                            name=\"name\"
                            placeholder=\"";
-            // line 41
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 41, $this->source); })()), "name", [], "any", false, false, false, 41), "html", null, true);
+            // line 38
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 38, $this->source); })()), "name", [], "any", false, false, false, 38), "html", null, true);
             echo "\"/>
                     ";
-            // line 42
+            // line 39
             if (array_key_exists("errorRegex", $context)) {
-                // line 43
+                // line 40
                 echo "                        ";
-                echo twig_escape_filter($this->env, (isset($context["errorRegex"]) || array_key_exists("errorRegex", $context) ? $context["errorRegex"] : (function () { throw new RuntimeError('Variable "errorRegex" does not exist.', 43, $this->source); })()), "html", null, true);
+                echo twig_escape_filter($this->env, (isset($context["errorRegex"]) || array_key_exists("errorRegex", $context) ? $context["errorRegex"] : (function () { throw new RuntimeError('Variable "errorRegex" does not exist.', 40, $this->source); })()), "html", null, true);
                 echo "
                     ";
             }
-            // line 45
+            // line 42
             echo "                    <div class=\"selectMedium\">
                         <select>
                             <option value=\"0\">Polski</option>
@@ -174,13 +193,13 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
                     <hr>
                     <div class=\"div7\">
                         <div>
-                            <a class=\"profileButton\" href=\"#\" onclick=\"document.getElementById('myForm').submit()\">Zapisz</a>
+                            <a class=\"profileButton\" onclick=\"document.getElementById('myForm').submit()\">Zapisz</a>
                             ";
-            // line 77
+            // line 74
             echo "                            ";
-            // line 78
+            // line 75
             echo "                            ";
-            // line 79
+            // line 76
             echo "                        </div>
                         <div>
 
@@ -190,14 +209,14 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
 
                         </div>
                         ";
-            // line 87
-            if (((isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 87, $this->source); })()) != 0)) {
-                // line 88
+            // line 84
+            if (((isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 84, $this->source); })()) != 0)) {
+                // line 85
                 echo "                        <form method=\"post\">
                             <div class=\"deleteBtnContainer\">
                                 <a class=\"deleteButton\" href=\"/manageUser/delete/";
-                // line 90
-                echo twig_escape_filter($this->env, (isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 90, $this->source); })()), "html", null, true);
+                // line 87
+                echo twig_escape_filter($this->env, (isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 87, $this->source); })()), "html", null, true);
                 echo "\">
                                     Usuń
                                 </a>
@@ -205,7 +224,7 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
                         </form>
                         ";
             }
-            // line 96
+            // line 93
             echo "                    </div>
                 </div>
 
@@ -213,18 +232,18 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
             </div>
 
             ";
+            // line 100
+            echo "            ";
+            // line 101
+            echo "            ";
+            // line 102
+            echo "            ";
             // line 103
-            echo "            ";
-            // line 104
-            echo "            ";
-            // line 105
-            echo "            ";
-            // line 106
             echo "        ";
         }
-        // line 107
+        // line 104
         echo "        ";
-        // line 108
+        // line 105
         echo "    </form>
 
     </body>
@@ -237,7 +256,7 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
 
     }
 
-    // line 113
+    // line 110
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -247,7 +266,7 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 114
+        // line 111
         echo "    <style>
         .deleteBtnContainer {
             text-align: center;
@@ -513,14 +532,17 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
 
     public function getDebugInfo()
     {
-        return array (  251 => 114,  241 => 113,  228 => 108,  226 => 107,  223 => 106,  221 => 105,  219 => 104,  217 => 103,  209 => 96,  200 => 90,  196 => 88,  194 => 87,  184 => 79,  182 => 78,  180 => 77,  147 => 45,  141 => 43,  139 => 42,  135 => 41,  130 => 38,  123 => 29,  117 => 26,  107 => 18,  105 => 17,  102 => 16,  98 => 13,  88 => 12,  70 => 3,  60 => 2,  37 => 1,);
+        return array (  270 => 111,  260 => 110,  247 => 105,  245 => 104,  242 => 103,  240 => 102,  238 => 101,  236 => 100,  228 => 93,  219 => 87,  215 => 85,  213 => 84,  203 => 76,  201 => 75,  199 => 74,  166 => 42,  160 => 40,  158 => 39,  154 => 38,  144 => 31,  138 => 28,  128 => 20,  126 => 19,  122 => 17,  112 => 16,  93 => 6,  76 => 7,  74 => 6,  71 => 5,  61 => 4,  38 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'user/user.html.twig' %}
+
+
 {% block head %}
 <head>
+    {% block title %}<title> Edytuj profil - Netflix</title>{% endblock %}
     <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\"
           rel=\"stylesheet\"
           integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
@@ -528,12 +550,11 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
     <link rel=\"stylesheet\"
           href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css\">
 
-    {% endblock %}
-    {% block body %}
+{% endblock %}
+
+{% block body %}
     <body>
     <form id=\"myForm\" method=\"post\">
-        {#    <div class=\"main\"> #}
-
         {% if subuser is defined %}
             <div class=\"parent\">
                 <div class=\"div1\"><p class=\"heading\">Edytuj profil</p>
@@ -550,11 +571,6 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
                          alt=\"avatar\">
                 </div>
                 <div class=\"div3\">
-{#                    <input class=\"name\"#}
-{#                           type=\"hidden\"#}
-{#                           name=\"name\"#}
-{#                           src=\"{{ subuser.name }}\"#}
-{#                           placeholder=\"{{ subuser.name }}\"/>#}
                     <input class=\"name\"
                            type=\"text\"
                            name=\"name\"
@@ -592,7 +608,7 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
                     <hr>
                     <div class=\"div7\">
                         <div>
-                            <a class=\"profileButton\" href=\"#\" onclick=\"document.getElementById('myForm').submit()\">Zapisz</a>
+                            <a class=\"profileButton\" onclick=\"document.getElementById('myForm').submit()\">Zapisz</a>
                             {#                                <button type=\"submit\">Zapisz #}
                             {#                                    <a href=\"/manageUser/update/{{ id }}\" class=\"profileButton\">Zapisz</a> #}
                             {#                                </button> #}

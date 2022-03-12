@@ -9,8 +9,8 @@ use App\Repository\SubuserRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MoviesController extends AbstractController
@@ -18,14 +18,17 @@ class MoviesController extends AbstractController
     private MovieRepository $movieRepository;
     private CategoryRepository $categoryRepository;
     private SubuserRepository $subuserRepository;
+    private RequestStack $requestStack;
 
     public function __construct(MovieRepository    $movieRepository,
                                 CategoryRepository $categoryRepository,
-                                SubuserRepository  $subuserRepository)
+                                SubuserRepository  $subuserRepository,
+                                RequestStack $requestStack)
     {
         $this->subuserRepository = $subuserRepository;
         $this->movieRepository = $movieRepository;
         $this->categoryRepository = $categoryRepository;
+        $this->requestStack = $requestStack;
     }
 
     // helper functions
@@ -36,15 +39,13 @@ class MoviesController extends AbstractController
 
     private function getCurrentSubuserIdFromSession(): int
     {
-        $session = new Session();
-        $subuser = $session->get('filter');
+        $subuser = $this->requestStack->getSession()->get('filter');
         return reset($subuser);
     }
 
     private function getOtherSubusers(): array
     {
-        $session = new Session();
-        $subuser = $session->get('filter');
+        $subuser = $this->requestStack->getSession()->get('filter');
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $this->getUser()));
         $subuserId = reset($subuser);
         $currentSubuser = $this->subuserRepository->find($subuserId);
@@ -63,7 +64,6 @@ class MoviesController extends AbstractController
         );
     }
 
-
     /**
      * @Route("/browse", name="browse")
      * @param Request $request
@@ -75,26 +75,20 @@ class MoviesController extends AbstractController
             $id = $request->request->get('id');
             return $this->redirectToRoute('changeProfile', [
                     'id' => $id,
-                ]
-        );
+                ]);
         }
-        $session = new Session();
-        $subuser = $session->get('filter');
-        $subuserId = reset($subuser);
 
-        $currentUser = $this->getUser();
-        $subuserFrontId = $request->get('id');
-        $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
-        $subuserCount = count($allSubusers);
-
-        $session = new Session();
-        $subuser = $session->get('filter');
+        $subuser = $this->requestStack->getSession()->get('filter');
 
         if ($subuser != null) {
             $subuserId = reset($subuser);
-        }
-        if ($subuserId != null && $subuserFrontId < $subuserCount) {
+        } else return $this->redirectToRoute('chooseUser');
 
+        $subuserFrontId = $request->get('id');
+        $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $this->getUser()));
+
+
+        if ($subuserId != null && $subuserFrontId < count($allSubusers)) {
             return $this->render('movies/index.html.twig', [
                 'controller_name' => 'MovieController',
                 'profiles' => $this->getOtherSubusers(),
@@ -103,18 +97,18 @@ class MoviesController extends AbstractController
                 'shows' => $this->movieRepository->getMoviesByCategory('Seriale'),
                 'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()
             ]);
-        } else {
-            $errorMessage = "404: Nie znaleziono użytkownika.";
-            return $this->render('/error/error.html.twig', [
-                'error' => $errorMessage,
-            ]);
         }
-    }
 
+        $errorMessage = "404: Nie znaleziono użytkownika.";
+        return $this->render('/error/error.html.twig', [
+            'error' => $errorMessage,
+        ]);
+
+    }
 
     /**
      * @Route("/shows", name="shows")
-     * @param $request
+     * @param Request $request
      * @return Response
      */
     public function shows(Request $request): Response
@@ -179,17 +173,15 @@ class MoviesController extends AbstractController
 
     public function exclusive(): Response
     {
-
         return $this->render(
             'movies/list.html.twig',
             ['movies' => $this->movieRepository->getMoviesByCategory('Eksluzywne')]
         );
     }
 
-
     /**
      * @Route("/myList", name="myList")
-     * @param $request
+     * @param Request $request
      * @return Response
      */
     public function myList(Request $request): Response
@@ -214,6 +206,7 @@ class MoviesController extends AbstractController
 
     /**
      * @Route("/movies", name="movies")
+     * @param Request $request
      * @return Response
      */
     public function movies(Request $request): Response
@@ -237,6 +230,7 @@ class MoviesController extends AbstractController
 
     /**
      * @Route("/new", name="new")
+     * @param Request $request
      * @return Response
      */
     public function new(Request $request): Response
