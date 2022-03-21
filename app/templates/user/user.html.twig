@@ -82,22 +82,16 @@
 {% block stylesheets %}
     <link rel="stylesheet" href="assets/user.css">
     <style>
+
+        {#======================
+                Global
+        ======================#}
         body {
             font-family: 'Netflix Sans Regular', "Helvetica Neue", "Helvetica", Arial, sans-serif;
         }
-
-        .main {
-            height: 90%;
-        }
-
         ul {
             padding: 0;
         }
-
-        .form-control {
-            padding: 0;
-        }
-
         input#round {
             outline-offset: -4px;
             border: 0px solid;
@@ -111,9 +105,22 @@
             background-image: none;
         }
 
+        {#======================
+                Content
+        ======================#}
+
+        .main {
+            height: 90%;
+        }
+
+        .form-control {
+            padding: 0;
+        }
+
         #buttonDiv {
             margin-top: 20px;
         }
+
     </style>
 
 {% endblock %}

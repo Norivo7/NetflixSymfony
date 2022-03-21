@@ -211,6 +211,11 @@
 {% block stylesheets %}
     {{ encore_entry_link_tags('app') }}
     <style>
+
+        {#======================
+                Global
+        ======================#}
+
         body {
             font-family: 'Netflix Sans Regular', "Helvetica Neue", "Helvetica", Arial, sans-serif;
         }
@@ -243,14 +248,6 @@
             text-decoration: underline;
         }
 
-        .buttonsWrapper {
-            gap: 20px;
-        }
-
-        .selectMedium {
-            margin-right: 0;
-        }
-
         select {
             font-family: "Netflix Sans Black", bootstrap-icons, serif;
             padding: 10px 10px 10px;
@@ -260,6 +257,23 @@
         i {
             vertical-align: -1px;
         }
+
+        {#======================
+                Buttons
+        ======================#}
+
+
+        .buttonsWrapper {
+            gap: 20px;
+        }
+
+        .selectMedium {
+            margin-right: 0;
+        }
+
+        {#======================
+              Backgrounds
+        ======================#}
 
         .concord-img-wrapper {
             font-family: 'Netflix Sans Regular', "Helvetica Neue", "Helvetica", Arial, sans-serif;

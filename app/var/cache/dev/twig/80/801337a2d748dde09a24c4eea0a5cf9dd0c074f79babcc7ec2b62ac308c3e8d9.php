@@ -67,53 +67,56 @@ class __TwigTemplate_7054c61692d20a322ddc13f19705773293abcc6b4d845a2be19c089e33e
         // line 4
         echo "
  <body>
- <section class=\"main-container\">
-     <div class=\"location\" id=\"home\">
-         <div class=\"box\">
-             ";
+     <section class=\"movie_container\">
+             <div class=\"movie\">
+
+                 ";
         // line 9
         if (array_key_exists("movies", $context)) {
             // line 10
             echo "
-                 ";
+                     ";
             // line 11
             if (twig_test_empty((isset($context["movies"]) || array_key_exists("movies", $context) ? $context["movies"] : (function () { throw new RuntimeError('Variable "movies" does not exist.', 11, $this->source); })()))) {
                 // line 12
-                echo "                     Nie znaleziono wyniku wyszukiwania.
-                 ";
+                echo "                         Nie znaleziono wyniku wyszukiwania.
+                     ";
             }
             // line 14
             echo "
-                 ";
+                     ";
             // line 15
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["movies"]) || array_key_exists("movies", $context) ? $context["movies"] : (function () { throw new RuntimeError('Variable "movies" does not exist.', 15, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["movie"]) {
                 // line 16
-                echo "                     <a href=\"/show/";
+                echo "                         <a class=\"movie-hero\" href=\"/show/";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 16), "html", null, true);
-                echo "\"><img src=\"";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 16), "html", null, true);
+                echo "\">
+                             <img class=\"movie-hero-image\" src=\"";
+                // line 17
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 17), "html", null, true);
                 echo "\" alt=\"";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 16), "html", null, true);
-                echo " jacket\"></a>
-                 ";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 17), "html", null, true);
+                echo " jacket\">
+                         </a>
+                     ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movie'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 18
-            echo "
-             ";
-        } else {
             // line 20
-            echo "                 Nie znaleziono filmów dla tej kategorii.
-             ";
+            echo "
+                 ";
+        } else {
+            // line 22
+            echo "                     Nie znaleziono filmów dla tej kategorii.
+                 ";
         }
-        // line 22
-        echo "         </div>
-     </div>
- </section>
+        // line 24
+        echo "
+             </div>
+     </section>
  </body>
 
 ";
@@ -137,7 +140,7 @@ class __TwigTemplate_7054c61692d20a322ddc13f19705773293abcc6b4d845a2be19c089e33e
 
     public function getDebugInfo()
     {
-        return array (  114 => 22,  110 => 20,  106 => 18,  93 => 16,  89 => 15,  86 => 14,  82 => 12,  80 => 11,  77 => 10,  75 => 9,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  117 => 24,  113 => 22,  109 => 20,  98 => 17,  93 => 16,  89 => 15,  86 => 14,  82 => 12,  80 => 11,  77 => 10,  75 => 9,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -147,27 +150,30 @@ class __TwigTemplate_7054c61692d20a322ddc13f19705773293abcc6b4d845a2be19c089e33e
 {% block body %}
 
  <body>
- <section class=\"main-container\">
-     <div class=\"location\" id=\"home\">
-         <div class=\"box\">
-             {% if movies is defined %}
+     <section class=\"movie_container\">
+             <div class=\"movie\">
 
-                 {% if movies is empty %}
-                     Nie znaleziono wyniku wyszukiwania.
+                 {% if movies is defined %}
+
+                     {% if movies is empty %}
+                         Nie znaleziono wyniku wyszukiwania.
+                     {% endif %}
+
+                     {% for movie in movies %}
+                         <a class=\"movie-hero\" href=\"/show/{{ movie.id }}\">
+                             <img class=\"movie-hero-image\" src=\"{{ movie.img }}\" alt=\"{{ movie.title }} jacket\">
+                         </a>
+                     {% endfor %}
+
+                 {% else %}
+                     Nie znaleziono filmów dla tej kategorii.
                  {% endif %}
 
-                 {% for movie in movies %}
-                     <a href=\"/show/{{ movie.id }}\"><img src=\"{{ movie.img }}\" alt=\"{{ movie.title }} jacket\"></a>
-                 {% endfor %}
-
-             {% else %}
-                 Nie znaleziono filmów dla tej kategorii.
-             {% endif %}
-         </div>
-     </div>
- </section>
+             </div>
+     </section>
  </body>
 
-{% endblock %}", "movies/list.html.twig", "/var/www/symfony_docker/templates/movies/list.html.twig");
+{% endblock %}
+", "movies/list.html.twig", "/var/www/symfony_docker/templates/movies/list.html.twig");
     }
 }

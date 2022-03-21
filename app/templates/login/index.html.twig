@@ -1,8 +1,65 @@
 
+<head>
+    {% block title %}<title> Zaloguj się - Netflix</title>{% endblock %}
+    <a class="logo" href="/" target="_parent">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png"
+             style="vertical-align:middle;margin:20px 50px;width: 167px; height: 45px" alt="netflixLogo">
+    </a>
+</head>
+
+<body>
+    {% block body %}
+    <form method="post">
+        {% if app.user %}
+            <div class="mb-3">
+                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+            </div>
+        {% endif %}
+        <div class="login">
+            <h1 class="login__title">Zaloguj się</h1>
+            {% if error is defined %}
+                {% if error %}
+                    <div class="login__group">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+            {% endif %}
+            <div class="login__group">
+                <input class="login__group__input" type="email" class="form-control" id="inputEmail"
+                       name="email" required>
+                <label class="login__group__label" for="inputEmail"></label>
+            </div>
+            <div class="login__group">
+                <input class="login__group__input" type="password" name="password" id="inputPassword"
+                       class="form-control" required>
+                <label class="login__group__label" for="inputPassword"></label>
+            </div>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <button class="login__sign-in" type="submit">Zaloguj się</button>
+            <div class="login__secondary-cta">
+                <a class="login__secondary-cta__text" href="/register">Zarejestruj się</a>
+                <a class="login__secondary-cta__text login__secondary-cta__text--need-help" href="#">Potrzebujesz
+                    pomocy?</a>
+            </div>
+            <div class="misc">
+                Ta strona korzysta z zabezpieczenia Google reCAPTCHA, by upewnić się, że nie jesteś botem. Dowiedz się
+                więcej.
+            </div>
+        </div>
+        <hr>
+    </form>
+   </body>
+{% endblock %}
+
+
 {% block stylesheet %}
 
     <style>
+
+        {#======================
+                Global
+        ======================#}
+
         body {
+
             position: relative;
             display: flex;
             align-items: center;
@@ -83,6 +140,7 @@
         }
 
         body .login__sign-in {
+
             margin: 24px 0 12px;
             padding: 16px;
             color: #fff;
@@ -127,67 +185,6 @@
             font-size: 13px;
         }
 
-        .footer {
-            width: 1000px;
-            padding-top: 175px;
-            margin: auto;
-            display: block;
-            flex-direction: column;
-        }
+
     </style>
 {% endblock %}
-
-{% block body %}
-    <body>
-    <a class="logo" href="/" target="_parent">
-        <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png"
-                width="167"
-                height="45"
-                style="vertical-align:middle;margin:20px 50px;" alt="netflixLogo">
-    </a>
-
-    <form method="post">
-        {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-            </div>
-        {% endif %}
-        <div class="login">
-            <h1 class="login__title">Zaloguj się</h1>
-            {% if error is defined %}
-                {% if error %}
-                    <div class="login__group">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                {% endif %}
-            {% endif %}
-            <div class="login__group">
-                <input class="login__group__input" type="email" class="form-control" id="inputEmail"
-                       name="email" required>
-                <label class="login__group__label" for="inputEmail"></label>
-            </div>
-            <div class="login__group">
-                <input class="login__group__input" type="password" name="password" id="inputPassword"
-                       class="form-control" required>
-                <label class="login__group__label" for="inputPassword"></label>
-            </div>
-            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-            <button class="login__sign-in" type="submit">Zaloguj się</button>
-            <div class="login__secondary-cta">
-                <a class="login__secondary-cta__text" href="/register">Zarejestruj się</a>
-                <a class="login__secondary-cta__text login__secondary-cta__text--need-help" href="#">Potrzebujesz
-                    pomocy?</a>
-            </div>
-            <div class="misc">
-                Ta strona korzysta z zabezpieczenia Google reCAPTCHA, by upewnić się, że nie jesteś botem. Dowiedz się
-                więcej.
-            </div>
-
-        </div>
-
-        <hr>
-
-    </form>
-
-   </body>
-{% endblock %}
-

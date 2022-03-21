@@ -44,22 +44,21 @@
 
 {% endblock %}
 
+{% block footer %}
 
+<div class="footerWrap">
+    <hr>
+    {% embed 'reusable/footer.html.twig' %} {% endembed %}
+</div>
+
+{% endblock %}
 
 {% block stylesheets %}
     <style>
-        .brandLogoWrapper {
-            margin: 30px;
-            align-items: center;
-            justify-content: center;
-            vertical-align: middle;
-        }
 
-        .login {
-            float: right;
-            margin-right: 10px;
-
-        }
+        {#======================
+                Global
+        ======================#}
 
         a, a:visited, a:active {
             color: #757575;
@@ -71,9 +70,22 @@
             text-decoration: underline;
         }
 
-        .footerWrap {
-            background-color: #f3f3f3;
-            height: 400px;
+
+        {#======================
+                Content
+        ======================#}
+
+        .brandLogoWrapper {
+            margin: 30px;
+            align-items: center;
+            justify-content: center;
+            vertical-align: middle;
+        }
+
+        .login {
+            float: right;
+            margin-right: 10px;
+
         }
 
         .main {
@@ -92,6 +104,11 @@
             margin: 10px;
         }
 
+        .footerWrap {
+            background-color: #f3f3f3;
+            height: 400px;
+        }
+
         .btn {
             color: red;
         }
@@ -102,14 +119,5 @@
             color: red;
         }
     </style>
-
-{% endblock %}
-
-{% block footer %}
-
-<div class="footerWrap">
-    <hr>
-    {% embed 'reusable/footer.html.twig' %} {% endembed %}
-</div>
 
 {% endblock %}

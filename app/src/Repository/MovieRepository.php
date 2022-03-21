@@ -39,7 +39,7 @@ class MovieRepository extends ServiceEntityRepository
      * @param $category
      * @return Movie[] Returns an array of Movie objects
      */
-    public function getMoviesByCategory($category)
+    public function getMoviesByCategory($category): array
     {
         return $this->createQueryBuilder('movie')
             ->select('movie', 'category')

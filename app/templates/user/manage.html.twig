@@ -7,7 +7,7 @@
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 </head>
 
- {% block title %}<title>Zarządzaj profilami - Netflix</title>{% endblock %}
+{% block title %}<title>Zarządzaj profilami - Netflix</title>{% endblock %}
 
 {% block body %}
     <div id="headerContainer">
@@ -26,46 +26,27 @@
                 <ul class="chooseProfile">
                     {% set subuser_id = 0 %}
                     {% for subuser in subUsers %}
-                        {#                        {{ app.session.set('subuser_name', subuser.name ) }} #}
-                        {#                        {{ dump(app.session.get('subuser_name')) }} #}
-
-                        <li class="profile">
-                            {#                            <form action="{{ path('switchSubuser')}}" method="POST"> #}
-                            {#                            <form method="POST"> #}
-                            {#                                <input class="form-control" #}
-                            {#                                       id="text" #}
-                            {#                                       type="hidden" #}
-                            {#                                       name="id" #}
-                            {#                                       value="{{ subuser_id }}" #}
-                            {#                                > #}
-                            {#                                <a href="/manageUser/edit">edytuj 2</a> #}
-                            {#                            </form> #}
-                            <form method="POST">
-                                <div class="subuser">
-                                    <div class="content-overlay"></div>
-                                    {#                                    <a class="profileLink" href="/manageUser/delete/{{ subuser_id }}"> #}
-                                    {#                                    Usuń #}
-                                    {#                                    </a> #}
-                                    {#                                    <a class="profileLink" href="/manageUser/update/{{ subuser_id }}"> #}
-                                    {#                                        edytuj #}
-                                    {#                                    </a> #}
-                                    <input
-                                            class="form-control"
-                                            id="text"
-                                            type="hidden"
-                                            name="id"
-                                            value="{{ subuser_id }}"
-                                    >
-                                    <input
-                                            class="form-control content-image imageContainer"
-                                            class="subuser__input"
-                                            id="round"
-                                            type="image"
-                                            name="avatar"
-                                            value="{{ subuser.avatar }} "
-                                            src="{{ subuser.avatar }}"
-                                    >
-                                    <span class="profileName">
+                    <li class="profile">
+                        <form method="POST">
+                            <div class="subuser">
+                                <div class="content-overlay"></div>
+                                <input
+                                        class="form-control"
+                                        id="text"
+                                        type="hidden"
+                                        name="id"
+                                        value="{{ subuser_id }}"
+                                >
+                                <input
+                                        class="form-control content-image imageContainer"
+                                        class="subuser__input"
+                                        id="round"
+                                        type="image"
+                                        name="avatar"
+                                        value="{{ subuser.avatar }} "
+                                        src="{{ subuser.avatar }}"
+                                >
+                                <span class="profileName">
                                         <input
                                                 class="form-control"
                                                 class="subuser__input"
@@ -74,38 +55,28 @@
                                                 value="{{ subuser.name }}">
 
                                     </span>
-                                    <div class="content-details fadeIn-top fadeIn-right">
-                                        <h3><i class="bi bi-pencil-square"
-                                               style="font-size: 60px;padding:20px;color: white">
-
-                                            </i></h3>
-                                        {#                                        <p>This is a short description</p> #}
-                                    </div>
-                                    {#                                <input type="hidden" name="submit" value="Submit"> #}
-                                    {#                                <button class="subuser__sign-in" type="submit">Zaloguj się</button> #}
+                                <div class="content-details fadeIn-top fadeIn-right">
+                                    <h3>
+                                        <i class="bi bi-pencil-square"
+                                           style="font-size: 60px;padding:20px;color: white">
+                                        </i>
+                                    </h3>
                                 </div>
-                                <span class="profileName">{{ subuser.name }}</span>
-                            </form>
-                            {% set subuser_id = subuser_id + 1 %}
-                            {% endfor %}
-                            {% if subuser_id < 5 %}
-                        </li>
+                            </div>
+                            <span class="profileName">{{ subuser.name }}</span>
+                        </form>
+                        {% set subuser_id = subuser_id + 1 %}
+                        {% endfor %}
+                        {% if subuser_id < 5 %}
+                    </li>
 
                     <li class="profile">
-                         <div class="add"><a href="manageUser/add" class="plus">
+                        <div class="add"><a href="manageUser/add" class="plus">
                                 <i class="bi bi-plus-square" style="font-size: 180px;"></i></a>
                         </div>
                     </li>
                     {% endif %}
                 </ul>
-                {#            <a class="navbar-brand" href="/"> #}
-                {#                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png"
-{#                     width="167" height="45" style="vertical-align:middle;margin:20px 50px" alt="netflixLogo"/> #}
-                {#            </a> #}
-                {#            <a class="navbar-brand" href="/"> #}
-                {#                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png" #}
-                {#                     width="167" height="45" style="vertical-align:middle;margin:20px 50px" alt="netflixLogo"/> #}
-                {#            </a> #}
             </div>
             <div id="buttonDiv">
                 <a>
@@ -117,50 +88,30 @@
 
     </div>
 
-
-    {#    <a href="/browse"> #}
-    {#        <button type="button" class="buttonNext">Dalej</button> #}
-    {#    </a> #}
 {% endblock %}
 
 {% block stylesheets %}
     <link rel="stylesheet" href="assets/user.css">
     <style>
+
+        {#======================
+                Global
+        ======================#}
+
         *, *:before, *:after {
-            /*margin: 0;*/
             padding: 0;
             -webkit-box-sizing: border-box;
             -moz-box-sizing: border-box;
             box-sizing: border-box;
         }
 
-        .main {
-            height: 90%;
-        }
-
         ul {
             padding: 0;
         }
 
-        .form-control {
-            padding: 0;
-        }
-
         input#round {
-            /*outline-offset: -4px;*/
             border: 0px solid;
             border-radius: 10px;
-        }
-
-        input#round:hover {
-            /*color:#000;*/
-            /*box-shadow: 0px 0px 0px 4px white;*/
-            /*background-color:#FFF;*/
-            /*background-image:none;*/
-        }
-
-        #buttonDiv {
-            margin-top: 20px;
         }
 
         a:link {
@@ -179,14 +130,34 @@
             color: red;
         }
 
+        a.plus {
+            opacity: 60%;
+        }
+
+        {#======================
+                Buttons
+        ======================#}
+
+        #buttonDiv {
+            margin-top: 20px;
+        }
+
         .add {
             text-decoration: none;
             margin-bottom: 40px;
             font-size: 200px;
         }
 
-        a.plus {
-            opacity: 60%;
+        .form-control {
+            padding: 0;
+        }
+
+        {#======================
+                Content
+        ======================#}
+
+        .main {
+            height: 90%;
         }
 
         .subuser {
@@ -217,10 +188,6 @@
 
         .subuser:hover .content-overlay {
             opacity: 1;
-        }
-
-        .content-image {
-            width: 100%;
         }
 
         .content-details {

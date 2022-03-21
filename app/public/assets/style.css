@@ -1,11 +1,7 @@
-/*@font-face {*/
-/*    font-family: 'Netflix_Sans';*/
-/*    src:*/
-/*            url('./fonts/Netflix_Sans/NetflixSansBlack.woff') format('woff'),*/
-/*    font-weight: 400;*/
-/*    font-style: normal;*/
-/*}*/
 
+/*======================
+        Global
+======================*/
 
 body {
     background-color: black;
@@ -22,6 +18,7 @@ h1 {
     line-height: 1.1;
     font-weight: bold;
 }
+
 h2 {
     font-weight: 400;
     color: #FFFFFF;
@@ -32,14 +29,49 @@ h3 {
     font-size: 1.2rem;
     color: #FFFFFF;
 }
+
 label {
     font-size: 1.2rem;
 }
 
-.column {
-    display: flex;
-    flex-direction: column;
+input[type=text] {
+    width: 450px;
+    height: 60px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid rgb(118, 118, 118);
+    border-radius: 4px;
 }
+
+select {
+    text-align-last: center;
+    align-content: center;
+    padding: 16px 20px 16px;
+    border-radius: 4px;
+    background-color: #222222;
+    color: #FFF;
+}
+
+/*======================
+       Navigation
+======================*/
+
+
+.headerWrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.concord-img-wrapper {
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url("https://assets.nflxext.com/ffe/siteui/vlv3/9c5457b8-9ab0-4a04-9fc1-e608d5670f1a/b76aa42d-4795-4ff8-b840-cb09f232ef35/PL-pl-20210719-popsignuptwoweeks-perspective_alpha_website_small.jpg");
+    background-size: cover;
+    font-family: 'Source Sans Pro', sans-serif;
+    height: 760px;
+}
+
 .navbar {
     display: flex;
     flex-direction: row;
@@ -47,19 +79,11 @@ label {
     margin: 0 3.5rem;
 }
 
-.concord-img-wrapper {
-    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-        url("https://assets.nflxext.com/ffe/siteui/vlv3/9c5457b8-9ab0-4a04-9fc1-e608d5670f1a/b76aa42d-4795-4ff8-b840-cb09f232ef35/PL-pl-20210719-popsignuptwoweeks-perspective_alpha_website_small.jpg");
-    background-size: cover;
-    font-family: 'Source Sans Pro', sans-serif;
-    height: 760px;
-}
 
-.headerWrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-}
+
+/*======================
+        Buttons
+======================*/
 
 .buttonsWrapper {
     display: flex;
@@ -75,64 +99,31 @@ label {
     float: right;
     border-radius: 3px;
     border-color: transparent;
-
-
 }
 
-.blockWrapper {
-
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-
-.block {
-    max-width: 1100px;
-    padding: 70px 45px;
-    margin: 0 auto;
-}
-
-.blockIntro {
-    line-height: 1.1;
-    text-align: center;
-    max-width: 950px;
-    padding: 120px 0;
-    /*width: 100%;*/
-    margin: 0 auto;
-    width: 700px;
-    height: 700px;
-}
 .buttonSubmit {
-
     width: 207px;
     height: 50px;
     color: #fff;
     background-color: #e50914;
     font-size: 1.625rem;
-
 }
 
-.blockRow {
-    display: flex;
-    flex-direction: row;
-}
+/*======================
+        Content
+======================*/
 
-.blockColumn{
-    /*height: 100%;*/
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.block6 {
+.column {
     display: flex;
     flex-direction: column;
 }
 
+.blockWrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
 
-
-/* dropdown */
 .dropbtn {
     background-color: #303030;
     font-weight: 400;
@@ -146,10 +137,39 @@ label {
     text-align: left;
 
 }
-/* Dropdown button on hover & focus */
-/*.dropbtn:hover, .dropbtn:focus {*/
-/*    background-color: #2980B9;*/
-/*}*/
+
+.block {
+    max-width: 1100px;
+    padding: 70px 45px;
+    margin: 0 auto;
+}
+
+.blockIntro {
+    line-height: 1.1;
+    text-align: center;
+    max-width: 950px;
+    padding: 120px 0;
+    margin: 0 auto;
+    width: 700px;
+    height: 700px;
+}
+
+.blockRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.blockColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.block6 {
+    display: flex;
+    flex-direction: column;
+}
 
 .dropdown {
     position: relative;
@@ -162,26 +182,8 @@ label {
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-}
-input[type=text] {
-    width: 450px;
-    height: 60px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 1px solid rgb(118, 118, 118);
-    border-radius: 4px;
-}
-
-select {
-    text-align-last:center;
-    align-content: center;
-    padding: 16px 20px 16px ;
-    border-radius: 4px;
-    background-color: #222222;
-    color: #FFF;
 }
 
 .selectMedium {
@@ -189,4 +191,7 @@ select {
     background-color: #222222;
 
 }
-.show {display:block;}
+
+.show {
+    display: block;
+}

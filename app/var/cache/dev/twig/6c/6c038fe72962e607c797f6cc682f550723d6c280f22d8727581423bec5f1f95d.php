@@ -269,22 +269,15 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
         // line 83
         echo "    <link rel=\"stylesheet\" href=\"assets/user.css\">
     <style>
-        body {
+
+        ";
+        // line 89
+        echo "        body {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
         }
-
-        .main {
-            height: 90%;
-        }
-
         ul {
             padding: 0;
         }
-
-        .form-control {
-            padding: 0;
-        }
-
         input#round {
             outline-offset: -4px;
             border: 0px solid;
@@ -298,9 +291,21 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
             background-image: none;
         }
 
+        ";
+        // line 111
+        echo "
+        .main {
+            height: 90%;
+        }
+
+        .form-control {
+            padding: 0;
+        }
+
         #buttonDiv {
             margin-top: 20px;
         }
+
     </style>
 
 ";
@@ -319,7 +324,7 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
 
     public function getDebugInfo()
     {
-        return array (  270 => 83,  260 => 82,  235 => 65,  229 => 64,  227 => 63,  220 => 59,  214 => 56,  203 => 48,  199 => 47,  188 => 39,  178 => 31,  173 => 30,  171 => 29,  163 => 23,  153 => 22,  138 => 16,  133 => 13,  123 => 12,  104 => 10,  88 => 2,  78 => 1,  68 => 82,  65 => 81,  63 => 22,  60 => 21,  58 => 12,  55 => 11,  53 => 10,  50 => 9,  48 => 1,);
+        return array (  296 => 111,  275 => 89,  270 => 83,  260 => 82,  235 => 65,  229 => 64,  227 => 63,  220 => 59,  214 => 56,  203 => 48,  199 => 47,  188 => 39,  178 => 31,  173 => 30,  171 => 29,  163 => 23,  153 => 22,  138 => 16,  133 => 13,  123 => 12,  104 => 10,  88 => 2,  78 => 1,  68 => 82,  65 => 81,  63 => 22,  60 => 21,  58 => 12,  55 => 11,  53 => 10,  50 => 9,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -408,22 +413,16 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
 {% block stylesheets %}
     <link rel=\"stylesheet\" href=\"assets/user.css\">
     <style>
+
+        {#======================
+                Global
+        ======================#}
         body {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
         }
-
-        .main {
-            height: 90%;
-        }
-
         ul {
             padding: 0;
         }
-
-        .form-control {
-            padding: 0;
-        }
-
         input#round {
             outline-offset: -4px;
             border: 0px solid;
@@ -437,9 +436,22 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
             background-image: none;
         }
 
+        {#======================
+                Content
+        ======================#}
+
+        .main {
+            height: 90%;
+        }
+
+        .form-control {
+            padding: 0;
+        }
+
         #buttonDiv {
             margin-top: 20px;
         }
+
     </style>
 
 {% endblock %}

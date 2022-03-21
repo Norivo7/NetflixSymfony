@@ -57,8 +57,7 @@ class Movie
 
     public function __construct()
     {
-        $this->likes = new ArrayCollection();
-        $this->categories = new ArrayCollection();
+//        $this->categories = new ArrayCollection();
         $this->likedBy = new ArrayCollection();
     }
 
@@ -116,29 +115,6 @@ class Movie
         return $this;
     }
 
-//    public function getLikes(): ?int
-//    {
-//        return $this->likes;
-//    }
-
-//    public function setLikes(int $likes): self
-//    {
-//        $this->likes = $likes;
-//
-//        return $this;
-//    }
-
-    public function getCategory(): ?Category
-    {
-        return $this->category;
-    }
-
-    public function setCategory(?Category $category): self
-    {
-        $this->category = $category;
-        return $this;
-    }
-
     public function getLink(): ?string
     {
         return $this->link;
@@ -150,10 +126,9 @@ class Movie
 
         return $this;
     }
-    /**
-     * @return Collection|Category[]
-     */
-    public function getCategories(): Collection
+
+
+    public function getCategories()
     {
         return $this->categories;
     }
@@ -174,47 +149,38 @@ class Movie
         return $this;
     }
 
-//    public function getLikedBySubuser(): ?Subuser
-//    {
-//        return $this->likedBySubuser;
-//    }
-//
-//    public function addLikedBySubuser(?Subuser $likedBySubuser): self
-//    {
-//        if (!$this->likedBySubuser->contains($likedBySubuser)) {
-//            $this->likedBySubuser[] = $likedBySubuser;
-//        }
-//        return $this;
-//    }
-//    public function removeLikedBySubuser(?Subuser $likedBySubuser): self
-//    {
-//        $this->likedBySubuser->removeElement($likedBySubuser);
-//        return $this;
-//    }
+    public function setCategories($category): self
+    {
+        $this->categories = $category;
 
-/**
- * @return Collection<int, Subuser>
- */
-public function getLikedBy(): Collection
-{
-    return $this->likedBy;
-}
-
-public function addLikedBy(Subuser $likedBy): self
-{
-    if (!$this->likedBy->contains($likedBy)) {
-        $this->likedBy[] = $likedBy;
+        return $this;
     }
 
-    return $this;
-}
 
-public function removeLikedBy(Subuser $likedBy): self
-{
-    $this->likedBy->removeElement($likedBy);
+    /**
+     * @return Collection<int, Subuser>
+     */
+    public function getLikedBy(): Collection
+    {
+        return $this->likedBy;
+    }
 
-    return $this;
-}
+    public function addLikedBy(Subuser $likedBy): self
+    {
+        if (!$this->likedBy->contains($likedBy)) {
+            $this->likedBy[] = $likedBy;
+        }
+
+        return $this;
+    }
+
+    public function removeLikedBy(Subuser $likedBy): self
+    {
+        $this->likedBy->removeElement($likedBy);
+
+        return $this;
+    }
+
 
 
 }

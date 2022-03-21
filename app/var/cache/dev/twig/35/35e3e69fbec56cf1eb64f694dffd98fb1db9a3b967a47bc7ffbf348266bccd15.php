@@ -47,7 +47,7 @@ class __TwigTemplate_460a2371b4fe2874570fd26079fbb08425f11a02a04363ce6d37de265f9
         // line 2
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 2, $this->source); })()), "id", [], "any", false, false, false, 2))), "html", null, true);
         echo "\">
-    <button class=\"profileButton\">Usuń</button>
+    <button class=\"deleteButton\">Usuń</button>
 </form>
 ";
         
@@ -77,7 +77,7 @@ class __TwigTemplate_460a2371b4fe2874570fd26079fbb08425f11a02a04363ce6d37de265f9
     {
         return new Source("<form method=\"post\" action=\"{{ path('app_movie_crud_delete', {'id': movie.id}) }}\" onsubmit=\"return confirm('Czy na pewno chcesz usunąć ten rekord?');\">
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ movie.id) }}\">
-    <button class=\"profileButton\">Usuń</button>
+    <button class=\"deleteButton\">Usuń</button>
 </form>
 ", "admin/movie_crud/_delete_form.html.twig", "/var/www/symfony_docker/templates/admin/movie_crud/_delete_form.html.twig");
     }

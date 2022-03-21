@@ -269,7 +269,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         <div class=\"footer\">
             ";
         // line 109
-        $this->loadTemplate("user/profile.html.twig", "user/profile.html.twig", 109, "93449388")->display($context);
+        $this->loadTemplate("user/profile.html.twig", "user/profile.html.twig", 109, "1961392310")->display($context);
         // line 110
         echo "        </div>
 
@@ -295,10 +295,55 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
         // line 116
         echo "    <style>
+
+        ";
+        // line 121
+        echo "
+        li {
+            list-style-type: none;
+            color: black;
+        }
+
+        a {
+            color: #0a53be;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0a53be;
+        }
+
+        body {
+            background-color: black;
+            color: black;
+        }
+        hr {
+            border-bottom: 2px solid rgb(118, 118, 118);
+        }
+
+        h2 {
+            font-weight: 400;
+            color: black;
+            width: 10px;
+        }
+
+        h3 {
+            padding-bottom: 20px;
+            font-size: 1.2rem;
+            color: #FFFFFF;
+        }
+
         .gray {
             color: #757575;
         }
 
+        ";
+        // line 167
+        echo "
         .btnAccount {
             font-size: 14px;
             background-color: #e6e6e6;
@@ -307,6 +352,51 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             padding: 13px;
             box-shadow: 0 1px 0 rgb(0 0 0 / 20%);
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
+        }
+
+        ";
+        // line 181
+        echo "
+        #headerContainer {
+            display: flex;
+            flex-direction: row;
+            height: 70px;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+        }
+
+        .brandLogoWrapper {
+            height: 100%;
+            justify-content: center;
+            padding: 17px 40px;
+            margin-right: 15px;
+        }
+
+        .logo {
+            height: 31px;
+        }
+
+        .userAvatar {
+            width: 30px;
+            border-radius: 4px;
+        }
+
+        .avatar {
+            height: 20px;
+            margin-top: 14px;
+            margin-right: 28px;
+            color: white;
+            align-items: center;
+            justify-content: center;
+        }
+
+        ";
+        // line 218
+        echo "
+        .mainWrapper {
+            width: 100%;
+            height: 190%;
+            background-color: #f3f3f3;
         }
 
         .parent {
@@ -409,84 +499,17 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             flex-direction: row;
         }
 
-        li {
-            list-style-type: none;
-            color: black;
+        ";
+        // line 328
+        echo "
+        .footer {
+            color: gray;
+        }
+        .footer a {
+            color: gray;
         }
 
-        a {
-            color: #0a53be;
-        }
 
-        #headerContainer {
-            display: flex;
-            flex-direction: row;
-            height: 70px;
-            justify-content: space-between;
-            flex-wrap: nowrap;
-        }
-
-        .brandLogoWrapper {
-            height: 100%;
-            justify-content: center;
-            padding: 17px 40px;
-            margin-right: 15px;
-        }
-
-        .logo {
-            height: 31px;
-        }
-
-        .userAvatar {
-            width: 30px;
-            border-radius: 4px;
-        }
-
-        .avatar {
-            height: 20px;
-            margin-top: 14px;
-            margin-right: 28px;
-            color: white;
-            align-items: center;
-            justify-content: center;
-        }
-
-        a:hover {
-            opacity: 0.8;
-        }
-
-        a {
-            text-decoration: none;
-            color: #0a53be;
-        }
-
-        body {
-            background-color: black;
-            color: black;
-        }
-
-        .mainWrapper {
-            width: 100%;
-            /*height: 190%;*/
-            height: 1700px;
-            background-color: #f3f3f3;
-        }
-
-        hr {
-            border-bottom: 2px solid rgb(118, 118, 118);
-        }
-
-        h2 {
-            font-weight: 400;
-            color: black;
-            width: 10px;
-        }
-
-        h3 {
-            padding-bottom: 20px;
-            font-size: 1.2rem;
-            color: #FFFFFF;
-        }
     </style>
 ";
         
@@ -504,7 +527,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
     public function getDebugInfo()
     {
-        return array (  297 => 116,  287 => 115,  274 => 110,  272 => 109,  254 => 93,  245 => 90,  241 => 89,  238 => 88,  234 => 87,  185 => 41,  169 => 27,  159 => 26,  146 => 22,  139 => 18,  134 => 15,  124 => 14,  105 => 4,  88 => 5,  86 => 4,  83 => 3,  73 => 2,  63 => 115,  60 => 114,  58 => 26,  55 => 25,  53 => 14,  50 => 13,  48 => 2,);
+        return array (  504 => 328,  395 => 218,  359 => 181,  346 => 167,  301 => 121,  297 => 116,  287 => 115,  274 => 110,  272 => 109,  254 => 93,  245 => 90,  241 => 89,  238 => 88,  234 => 87,  185 => 41,  169 => 27,  159 => 26,  146 => 22,  139 => 18,  134 => 15,  124 => 14,  105 => 4,  88 => 5,  86 => 4,  83 => 3,  73 => 2,  63 => 115,  60 => 114,  58 => 26,  55 => 25,  53 => 14,  50 => 13,  48 => 2,);
     }
 
     public function getSourceContext()
@@ -625,9 +648,56 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
 {% block stylesheets %}
     <style>
+
+        {#======================
+                 Global
+        ======================#}
+
+        li {
+            list-style-type: none;
+            color: black;
+        }
+
+        a {
+            color: #0a53be;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0a53be;
+        }
+
+        body {
+            background-color: black;
+            color: black;
+        }
+        hr {
+            border-bottom: 2px solid rgb(118, 118, 118);
+        }
+
+        h2 {
+            font-weight: 400;
+            color: black;
+            width: 10px;
+        }
+
+        h3 {
+            padding-bottom: 20px;
+            font-size: 1.2rem;
+            color: #FFFFFF;
+        }
+
         .gray {
             color: #757575;
         }
+
+        {#======================
+                Buttons
+        ======================#}
 
         .btnAccount {
             font-size: 14px;
@@ -637,6 +707,53 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             padding: 13px;
             box-shadow: 0 1px 0 rgb(0 0 0 / 20%);
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
+        }
+
+        {#======================
+               Navigation
+        ======================#}
+
+        #headerContainer {
+            display: flex;
+            flex-direction: row;
+            height: 70px;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+        }
+
+        .brandLogoWrapper {
+            height: 100%;
+            justify-content: center;
+            padding: 17px 40px;
+            margin-right: 15px;
+        }
+
+        .logo {
+            height: 31px;
+        }
+
+        .userAvatar {
+            width: 30px;
+            border-radius: 4px;
+        }
+
+        .avatar {
+            height: 20px;
+            margin-top: 14px;
+            margin-right: 28px;
+            color: white;
+            align-items: center;
+            justify-content: center;
+        }
+
+        {#======================
+                Content
+        ======================#}
+
+        .mainWrapper {
+            width: 100%;
+            height: 190%;
+            background-color: #f3f3f3;
         }
 
         .parent {
@@ -739,84 +856,18 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             flex-direction: row;
         }
 
-        li {
-            list-style-type: none;
-            color: black;
+        {#======================
+                Footer
+        ======================#}
+
+        .footer {
+            color: gray;
+        }
+        .footer a {
+            color: gray;
         }
 
-        a {
-            color: #0a53be;
-        }
 
-        #headerContainer {
-            display: flex;
-            flex-direction: row;
-            height: 70px;
-            justify-content: space-between;
-            flex-wrap: nowrap;
-        }
-
-        .brandLogoWrapper {
-            height: 100%;
-            justify-content: center;
-            padding: 17px 40px;
-            margin-right: 15px;
-        }
-
-        .logo {
-            height: 31px;
-        }
-
-        .userAvatar {
-            width: 30px;
-            border-radius: 4px;
-        }
-
-        .avatar {
-            height: 20px;
-            margin-top: 14px;
-            margin-right: 28px;
-            color: white;
-            align-items: center;
-            justify-content: center;
-        }
-
-        a:hover {
-            opacity: 0.8;
-        }
-
-        a {
-            text-decoration: none;
-            color: #0a53be;
-        }
-
-        body {
-            background-color: black;
-            color: black;
-        }
-
-        .mainWrapper {
-            width: 100%;
-            /*height: 190%;*/
-            height: 1700px;
-            background-color: #f3f3f3;
-        }
-
-        hr {
-            border-bottom: 2px solid rgb(118, 118, 118);
-        }
-
-        h2 {
-            font-weight: 400;
-            color: black;
-            width: 10px;
-        }
-
-        h3 {
-            padding-bottom: 20px;
-            font-size: 1.2rem;
-            color: #FFFFFF;
-        }
     </style>
 {% endblock %}", "user/profile.html.twig", "/var/www/symfony_docker/templates/user/profile.html.twig");
     }
@@ -824,7 +875,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
 
 /* user/profile.html.twig */
-class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b592268d28___93449388 extends Template
+class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b592268d28___1961392310 extends Template
 {
     private $source;
     private $macros = [];
@@ -876,7 +927,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
     public function getDebugInfo()
     {
-        return array (  845 => 109,  297 => 116,  287 => 115,  274 => 110,  272 => 109,  254 => 93,  245 => 90,  241 => 89,  238 => 88,  234 => 87,  185 => 41,  169 => 27,  159 => 26,  146 => 22,  139 => 18,  134 => 15,  124 => 14,  105 => 4,  88 => 5,  86 => 4,  83 => 3,  73 => 2,  63 => 115,  60 => 114,  58 => 26,  55 => 25,  53 => 14,  50 => 13,  48 => 2,);
+        return array (  896 => 109,  504 => 328,  395 => 218,  359 => 181,  346 => 167,  301 => 121,  297 => 116,  287 => 115,  274 => 110,  272 => 109,  254 => 93,  245 => 90,  241 => 89,  238 => 88,  234 => 87,  185 => 41,  169 => 27,  159 => 26,  146 => 22,  139 => 18,  134 => 15,  124 => 14,  105 => 4,  88 => 5,  86 => 4,  83 => 3,  73 => 2,  63 => 115,  60 => 114,  58 => 26,  55 => 25,  53 => 14,  50 => 13,  48 => 2,);
     }
 
     public function getSourceContext()
@@ -997,9 +1048,56 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
 {% block stylesheets %}
     <style>
+
+        {#======================
+                 Global
+        ======================#}
+
+        li {
+            list-style-type: none;
+            color: black;
+        }
+
+        a {
+            color: #0a53be;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0a53be;
+        }
+
+        body {
+            background-color: black;
+            color: black;
+        }
+        hr {
+            border-bottom: 2px solid rgb(118, 118, 118);
+        }
+
+        h2 {
+            font-weight: 400;
+            color: black;
+            width: 10px;
+        }
+
+        h3 {
+            padding-bottom: 20px;
+            font-size: 1.2rem;
+            color: #FFFFFF;
+        }
+
         .gray {
             color: #757575;
         }
+
+        {#======================
+                Buttons
+        ======================#}
 
         .btnAccount {
             font-size: 14px;
@@ -1009,6 +1107,53 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             padding: 13px;
             box-shadow: 0 1px 0 rgb(0 0 0 / 20%);
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
+        }
+
+        {#======================
+               Navigation
+        ======================#}
+
+        #headerContainer {
+            display: flex;
+            flex-direction: row;
+            height: 70px;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+        }
+
+        .brandLogoWrapper {
+            height: 100%;
+            justify-content: center;
+            padding: 17px 40px;
+            margin-right: 15px;
+        }
+
+        .logo {
+            height: 31px;
+        }
+
+        .userAvatar {
+            width: 30px;
+            border-radius: 4px;
+        }
+
+        .avatar {
+            height: 20px;
+            margin-top: 14px;
+            margin-right: 28px;
+            color: white;
+            align-items: center;
+            justify-content: center;
+        }
+
+        {#======================
+                Content
+        ======================#}
+
+        .mainWrapper {
+            width: 100%;
+            height: 190%;
+            background-color: #f3f3f3;
         }
 
         .parent {
@@ -1111,84 +1256,18 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             flex-direction: row;
         }
 
-        li {
-            list-style-type: none;
-            color: black;
+        {#======================
+                Footer
+        ======================#}
+
+        .footer {
+            color: gray;
+        }
+        .footer a {
+            color: gray;
         }
 
-        a {
-            color: #0a53be;
-        }
 
-        #headerContainer {
-            display: flex;
-            flex-direction: row;
-            height: 70px;
-            justify-content: space-between;
-            flex-wrap: nowrap;
-        }
-
-        .brandLogoWrapper {
-            height: 100%;
-            justify-content: center;
-            padding: 17px 40px;
-            margin-right: 15px;
-        }
-
-        .logo {
-            height: 31px;
-        }
-
-        .userAvatar {
-            width: 30px;
-            border-radius: 4px;
-        }
-
-        .avatar {
-            height: 20px;
-            margin-top: 14px;
-            margin-right: 28px;
-            color: white;
-            align-items: center;
-            justify-content: center;
-        }
-
-        a:hover {
-            opacity: 0.8;
-        }
-
-        a {
-            text-decoration: none;
-            color: #0a53be;
-        }
-
-        body {
-            background-color: black;
-            color: black;
-        }
-
-        .mainWrapper {
-            width: 100%;
-            /*height: 190%;*/
-            height: 1700px;
-            background-color: #f3f3f3;
-        }
-
-        hr {
-            border-bottom: 2px solid rgb(118, 118, 118);
-        }
-
-        h2 {
-            font-weight: 400;
-            color: black;
-            width: 10px;
-        }
-
-        h3 {
-            padding-bottom: 20px;
-            font-size: 1.2rem;
-            color: #FFFFFF;
-        }
     </style>
 {% endblock %}", "user/profile.html.twig", "/var/www/symfony_docker/templates/user/profile.html.twig");
     }

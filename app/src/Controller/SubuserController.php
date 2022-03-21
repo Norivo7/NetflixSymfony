@@ -25,6 +25,8 @@ class SubuserController extends AbstractController
         $this->requestStack = $requestStack;
     }
 
+    // future image upload from disk as avatar
+
 //    private function showImgDir(): array
 //    {
 //        $dir = "../public/images/netflix_avatars";
@@ -49,6 +51,7 @@ class SubuserController extends AbstractController
 //        $file = array_rand($files);
 //        return $files[$file];
 //      }
+
 
     private function getOtherSubusers(): array
     {
@@ -137,13 +140,8 @@ class SubuserController extends AbstractController
     public function edit(Request $request): Response
     {
         $subuserFrontId = $request->get('id');
-
-//       if($referer == 'http://localhost:8080/manageUser/update/'. $subuserFrontId . '?name=' ){
-//
-//       }
         $errorRegex = "Profil musi mieć od 3 do 15 liter, żadnych znaków specjalnych i cyfr.";
         $user = $this->getUser();
-//        $errorRegex = $request->get('errorRegex');
 
         if ($request->getMethod() == 'POST') {
             $name = $request->request->get('name');
@@ -222,7 +220,7 @@ class SubuserController extends AbstractController
             $errorRegex = "Profil musi mieć od 3 do 15 liter, żadnych znaków specjalnych i cyfr.";
             return $this->redirectToRoute('edit', [
                     'id' => $subuserFrontId,
-//                    'errorRegex' => $errorRegex
+
                 ]);
         }
     }

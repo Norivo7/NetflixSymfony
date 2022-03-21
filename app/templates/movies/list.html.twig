@@ -3,25 +3,27 @@
 {% block body %}
 
  <body>
- <section class="main-container">
-     <div class="location" id="home">
-         <div class="box">
-             {% if movies is defined %}
+     <section class="movie_container">
+             <div class="movie">
 
-                 {% if movies is empty %}
-                     Nie znaleziono wyniku wyszukiwania.
+                 {% if movies is defined %}
+
+                     {% if movies is empty %}
+                         Nie znaleziono wyniku wyszukiwania.
+                     {% endif %}
+
+                     {% for movie in movies %}
+                         <a class="movie-hero" href="/show/{{ movie.id }}">
+                             <img class="movie-hero-image" src="{{ movie.img }}" alt="{{ movie.title }} jacket">
+                         </a>
+                     {% endfor %}
+
+                 {% else %}
+                     Nie znaleziono filmów dla tej kategorii.
                  {% endif %}
 
-                 {% for movie in movies %}
-                     <a href="/show/{{ movie.id }}"><img src="{{ movie.img }}" alt="{{ movie.title }} jacket"></a>
-                 {% endfor %}
-
-             {% else %}
-                 Nie znaleziono filmów dla tej kategorii.
-             {% endif %}
-         </div>
-     </div>
- </section>
+             </div>
+     </section>
  </body>
 
 {% endblock %}

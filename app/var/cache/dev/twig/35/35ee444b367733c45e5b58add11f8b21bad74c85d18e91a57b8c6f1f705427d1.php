@@ -194,29 +194,21 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
                     <div class=\"div7\">
                         <div>
                             <a class=\"profileButton\" onclick=\"document.getElementById('myForm').submit()\">Zapisz</a>
-                            ";
-            // line 74
-            echo "                            ";
-            // line 75
-            echo "                            ";
-            // line 76
-            echo "                        </div>
+                        </div>
                         <div>
-
                             <a href=\"/manageUser\" class=\"profileButton\">
                                 Anuluj
                             </a>
-
                         </div>
                         ";
-            // line 84
-            if (((isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 84, $this->source); })()) != 0)) {
-                // line 85
+            // line 79
+            if (((isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 79, $this->source); })()) != 0)) {
+                // line 80
                 echo "                        <form method=\"post\">
                             <div class=\"deleteBtnContainer\">
                                 <a class=\"deleteButton\" href=\"/manageUser/delete/";
-                // line 87
-                echo twig_escape_filter($this->env, (isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 87, $this->source); })()), "html", null, true);
+                // line 82
+                echo twig_escape_filter($this->env, (isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 82, $this->source); })()), "html", null, true);
                 echo "\">
                                     Usuń
                                 </a>
@@ -224,28 +216,14 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
                         </form>
                         ";
             }
-            // line 93
+            // line 88
             echo "                    </div>
                 </div>
-
-
             </div>
-
-            ";
-            // line 100
-            echo "            ";
-            // line 101
-            echo "            ";
-            // line 102
-            echo "            ";
-            // line 103
-            echo "        ";
+        ";
         }
-        // line 104
-        echo "        ";
-        // line 105
+        // line 92
         echo "    </form>
-
     </body>
 ";
         
@@ -256,7 +234,7 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
 
     }
 
-    // line 110
+    // line 96
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -266,17 +244,12 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 111
+        // line 97
         echo "    <style>
-        .deleteBtnContainer {
-            text-align: center;
-            padding-bottom: 10px;
-        }
 
-        .selectMedium {
-            margin-right: 0;
-        }
-
+        ";
+        // line 102
+        echo "
         select {
             font-family: \"Netflix Sans Black\", serif;
             text-align-last: left;
@@ -305,29 +278,46 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
             background-color: #141414;
         }
-
-        .main {
-            margin: 0 auto;
-            display: flex;
-            height: 90%;
-            align-items: center;
-            /*vertical-align: center;*/
-            justify-content: space-evenly;
-            /*width: 100%;*/
-        }
-
         h1 {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
             color: white;
             text-align: center;
         }
+        ul {
+            list-style-type: none;
+        }
 
-        /*.profile:hover {*/
-        /*    color:#000;*/
-        /*    background-color:#FFF;*/
-        /*    background-image:none;*/
+        li {
+            background-color: #333;
+            width: 40%;
+            height: 30%;
+            padding: 7px 0;
+            text-align: center;
+            border-radius: 10px;
+            color: white;
+        }
 
-        /*}*/
+        img.round {
+            outline-offset: -4px;
+            border: 0px solid;
+            border-radius: 10px;
+        }
+
+        img.round:hover {
+            color: #000;
+            box-shadow: 0px 0px 0px 4px white;
+            background-color: #FFF;
+            background-image: none;
+        }
+
+        ";
+        // line 166
+        echo "
+        .deleteBtnContainer {
+            text-align: center;
+            padding-bottom: 10px;
+        }
+
         .profileButton {
             color: gray;
             padding: .5em 1.5em;
@@ -336,7 +326,6 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
             background-color: transparent;
             border: 1px solid grey;
             text-decoration: none;
-
         }
 
         .deleteButton {
@@ -353,41 +342,9 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
             color: red;
         }
 
-        ul {
-            list-style-type: none;
-        }
-
-        li {
-
-            background-color: #333;
-            width: 40%;
-            height: 30%;
-            padding: 7px 0;
-            text-align: center;
-            /*border: 2px solid red;*/
-            border-radius: 10px;
-            color: white;
-            /*padding: 20px;*/
-
-        }
-
-        img.round {
-            outline-offset: -4px;
-            border: 0px solid;
-            border-radius: 10px;
-        }
-
-        img.round:hover {
-            color: #000;
-            box-shadow: 0px 0px 0px 4px white;
-            background-color: #FFF;
-            background-image: none;
-        }
-
-        .brandLogoWrapper {
-
-        }
-
+        ";
+        // line 199
+        echo "
         .logo {
             margin-left: 25px;
             margin-top: 10px;
@@ -396,13 +353,6 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
             display: inline-block;
             height: 60%;
             justify-content: center;
-
-        }
-
-        #buttonDiv {
-            align-items: center;
-            text-align: center;
-            width: 100%;
 
         }
 
@@ -417,12 +367,13 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
             width: 100vw;
             height: 5vh;
         }
-
+        ";
+        // line 225
+        echo "
         .parent {
             margin: auto;
             align-content: center;
             color: white;
-            /*border: 2px solid red;*/
             width: 60%;
             justify-items: center;
             display: grid;
@@ -433,7 +384,6 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
         }
 
         .div1 {
-            /*margin-right: auto;*/
             margin-top: auto;
             height: 130px;
             text-align: left;
@@ -444,14 +394,12 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
         .div2 {
             display: flex;
             justify-content: center;
-            /*border: 2px solid green;*/
             grid-area: 2 / 1 / 5 / 2;
         }
 
         .div3 {
             height: 100px;
             width: 100%;
-            /*padding-left: 20px;*/
             display: flex;
             flex-direction: column;
             float: left;
@@ -478,7 +426,6 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
             flex-direction: column;
             height: 100px;
             width: 100%;
-            /*width: 1000px;*/
             flex-shrink: 1;
             grid-area: 5 / 1 / 6 / 6;
         }
@@ -486,8 +433,6 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
         .div7 {
             display: flex;
             gap: 20px;
-            /*height: 100%;*/
-            /*margin-bottom: 100px;*/
         }
 
         .heading {
@@ -532,7 +477,7 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
 
     public function getDebugInfo()
     {
-        return array (  270 => 111,  260 => 110,  247 => 105,  245 => 104,  242 => 103,  240 => 102,  238 => 101,  236 => 100,  228 => 93,  219 => 87,  215 => 85,  213 => 84,  203 => 76,  201 => 75,  199 => 74,  166 => 42,  160 => 40,  158 => 39,  154 => 38,  144 => 31,  138 => 28,  128 => 20,  126 => 19,  122 => 17,  112 => 16,  93 => 6,  76 => 7,  74 => 6,  71 => 5,  61 => 4,  38 => 1,);
+        return array (  372 => 225,  347 => 199,  315 => 166,  252 => 102,  248 => 97,  238 => 96,  226 => 92,  220 => 88,  211 => 82,  207 => 80,  205 => 79,  166 => 42,  160 => 40,  158 => 39,  154 => 38,  144 => 31,  138 => 28,  128 => 20,  126 => 19,  122 => 17,  112 => 16,  93 => 6,  76 => 7,  74 => 6,  71 => 5,  61 => 4,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -609,16 +554,11 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
                     <div class=\"div7\">
                         <div>
                             <a class=\"profileButton\" onclick=\"document.getElementById('myForm').submit()\">Zapisz</a>
-                            {#                                <button type=\"submit\">Zapisz #}
-                            {#                                    <a href=\"/manageUser/update/{{ id }}\" class=\"profileButton\">Zapisz</a> #}
-                            {#                                </button> #}
                         </div>
                         <div>
-
                             <a href=\"/manageUser\" class=\"profileButton\">
                                 Anuluj
                             </a>
-
                         </div>
                         {% if id != 0 %}
                         <form method=\"post\">
@@ -631,31 +571,18 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
                         {% endif %}
                     </div>
                 </div>
-
-
             </div>
-
-            {#        {% else %} #}
-            {#            <p> #}
-            {#                     {{ error }} #}
-            {#            </p> #}
         {% endif %}
-        {#    </div> #}
     </form>
-
     </body>
 {% endblock %}
 
 {% block stylesheets %}
     <style>
-        .deleteBtnContainer {
-            text-align: center;
-            padding-bottom: 10px;
-        }
 
-        .selectMedium {
-            margin-right: 0;
-        }
+        {#======================
+                Global
+        ======================#}
 
         select {
             font-family: \"Netflix Sans Black\", serif;
@@ -685,29 +612,47 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
             background-color: #141414;
         }
-
-        .main {
-            margin: 0 auto;
-            display: flex;
-            height: 90%;
-            align-items: center;
-            /*vertical-align: center;*/
-            justify-content: space-evenly;
-            /*width: 100%;*/
-        }
-
         h1 {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
             color: white;
             text-align: center;
         }
+        ul {
+            list-style-type: none;
+        }
 
-        /*.profile:hover {*/
-        /*    color:#000;*/
-        /*    background-color:#FFF;*/
-        /*    background-image:none;*/
+        li {
+            background-color: #333;
+            width: 40%;
+            height: 30%;
+            padding: 7px 0;
+            text-align: center;
+            border-radius: 10px;
+            color: white;
+        }
 
-        /*}*/
+        img.round {
+            outline-offset: -4px;
+            border: 0px solid;
+            border-radius: 10px;
+        }
+
+        img.round:hover {
+            color: #000;
+            box-shadow: 0px 0px 0px 4px white;
+            background-color: #FFF;
+            background-image: none;
+        }
+
+        {#======================
+                Buttons
+        ======================#}
+
+        .deleteBtnContainer {
+            text-align: center;
+            padding-bottom: 10px;
+        }
+
         .profileButton {
             color: gray;
             padding: .5em 1.5em;
@@ -716,7 +661,6 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
             background-color: transparent;
             border: 1px solid grey;
             text-decoration: none;
-
         }
 
         .deleteButton {
@@ -733,40 +677,9 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
             color: red;
         }
 
-        ul {
-            list-style-type: none;
-        }
-
-        li {
-
-            background-color: #333;
-            width: 40%;
-            height: 30%;
-            padding: 7px 0;
-            text-align: center;
-            /*border: 2px solid red;*/
-            border-radius: 10px;
-            color: white;
-            /*padding: 20px;*/
-
-        }
-
-        img.round {
-            outline-offset: -4px;
-            border: 0px solid;
-            border-radius: 10px;
-        }
-
-        img.round:hover {
-            color: #000;
-            box-shadow: 0px 0px 0px 4px white;
-            background-color: #FFF;
-            background-image: none;
-        }
-
-        .brandLogoWrapper {
-
-        }
+        {#======================
+                Header
+        ======================#}
 
         .logo {
             margin-left: 25px;
@@ -776,13 +689,6 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
             display: inline-block;
             height: 60%;
             justify-content: center;
-
-        }
-
-        #buttonDiv {
-            align-items: center;
-            text-align: center;
-            width: 100%;
 
         }
 
@@ -797,12 +703,14 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
             width: 100vw;
             height: 5vh;
         }
+        {#======================
+                Content
+        ======================#}
 
         .parent {
             margin: auto;
             align-content: center;
             color: white;
-            /*border: 2px solid red;*/
             width: 60%;
             justify-items: center;
             display: grid;
@@ -813,7 +721,6 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
         }
 
         .div1 {
-            /*margin-right: auto;*/
             margin-top: auto;
             height: 130px;
             text-align: left;
@@ -824,14 +731,12 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
         .div2 {
             display: flex;
             justify-content: center;
-            /*border: 2px solid green;*/
             grid-area: 2 / 1 / 5 / 2;
         }
 
         .div3 {
             height: 100px;
             width: 100%;
-            /*padding-left: 20px;*/
             display: flex;
             flex-direction: column;
             float: left;
@@ -858,7 +763,6 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
             flex-direction: column;
             height: 100px;
             width: 100%;
-            /*width: 1000px;*/
             flex-shrink: 1;
             grid-area: 5 / 1 / 6 / 6;
         }
@@ -866,8 +770,6 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
         .div7 {
             display: flex;
             gap: 20px;
-            /*height: 100%;*/
-            /*margin-bottom: 100px;*/
         }
 
         .heading {

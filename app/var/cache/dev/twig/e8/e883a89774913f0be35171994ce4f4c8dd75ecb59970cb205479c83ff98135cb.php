@@ -30,8 +30,8 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
             'head' => [$this, 'block_head'],
             'navigation' => [$this, 'block_navigation'],
             'body' => [$this, 'block_body'],
-            'stylesheets' => [$this, 'block_stylesheets'],
             'footer' => [$this, 'block_footer'],
+            'stylesheets' => [$this, 'block_stylesheets'],
         ];
     }
 
@@ -61,16 +61,14 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
         $this->displayBlock('body', $context, $blocks);
         // line 46
         echo "
-
-
 ";
-        // line 49
-        $this->displayBlock('stylesheets', $context, $blocks);
-        // line 107
+        // line 47
+        $this->displayBlock('footer', $context, $blocks);
+        // line 55
         echo "
 ";
-        // line 108
-        $this->displayBlock('footer', $context, $blocks);
+        // line 56
+        $this->displayBlock('stylesheets', $context, $blocks);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -214,7 +212,36 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
 
     }
 
-    // line 49
+    // line 47
+    public function block_footer($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
+
+        // line 48
+        echo "
+<div class=\"footerWrap\">
+    <hr>
+    ";
+        // line 51
+        $this->loadTemplate("registration/register.html.twig", "registration/register.html.twig", 51, "1863272051")->display($context);
+        // line 52
+        echo "</div>
+
+";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 56
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -224,8 +251,26 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 50
+        // line 57
         echo "    <style>
+
+        ";
+        // line 62
+        echo "
+        a, a:visited, a:active {
+            color: #757575;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #757575;
+            text-decoration: underline;
+        }
+
+
+        ";
+        // line 77
+        echo "
         .brandLogoWrapper {
             margin: 30px;
             align-items: center;
@@ -237,21 +282,6 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
             float: right;
             margin-right: 10px;
 
-        }
-
-        a, a:visited, a:active {
-            color: #757575;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #757575;
-            text-decoration: underline;
-        }
-
-        .footerWrap {
-            background-color: #f3f3f3;
-            height: 400px;
         }
 
         .main {
@@ -268,6 +298,11 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
         .input {
             text-align: left;
             margin: 10px;
+        }
+
+        .footerWrap {
+            background-color: #f3f3f3;
+            height: 400px;
         }
 
         .btn {
@@ -290,35 +325,6 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
 
     }
 
-    // line 108
-    public function block_footer($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
-
-        // line 109
-        echo "
-<div class=\"footerWrap\">
-    <hr>
-    ";
-        // line 112
-        $this->loadTemplate("registration/register.html.twig", "registration/register.html.twig", 112, "3870036")->display($context);
-        // line 113
-        echo "</div>
-
-";
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-    }
-
     public function getTemplateName()
     {
         return "registration/register.html.twig";
@@ -326,7 +332,7 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
 
     public function getDebugInfo()
     {
-        return array (  311 => 113,  309 => 112,  304 => 109,  294 => 108,  228 => 50,  218 => 49,  204 => 42,  199 => 40,  195 => 39,  191 => 38,  187 => 37,  183 => 36,  179 => 35,  175 => 34,  172 => 33,  163 => 31,  159 => 30,  155 => 28,  145 => 27,  127 => 18,  121 => 14,  111 => 13,  93 => 3,  83 => 2,  73 => 108,  70 => 107,  68 => 49,  63 => 46,  61 => 27,  58 => 26,  56 => 13,  53 => 12,  51 => 2,  48 => 1,);
+        return array (  273 => 77,  259 => 62,  255 => 57,  245 => 56,  233 => 52,  231 => 51,  226 => 48,  216 => 47,  202 => 42,  197 => 40,  193 => 39,  189 => 38,  185 => 37,  181 => 36,  177 => 35,  173 => 34,  170 => 33,  161 => 31,  157 => 30,  153 => 28,  143 => 27,  125 => 18,  119 => 14,  109 => 13,  91 => 3,  81 => 2,  71 => 56,  68 => 55,  66 => 47,  63 => 46,  61 => 27,  58 => 26,  56 => 13,  53 => 12,  51 => 2,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -377,22 +383,21 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
 
 {% endblock %}
 
+{% block footer %}
 
+<div class=\"footerWrap\">
+    <hr>
+    {% embed 'reusable/footer.html.twig' %} {% endembed %}
+</div>
+
+{% endblock %}
 
 {% block stylesheets %}
     <style>
-        .brandLogoWrapper {
-            margin: 30px;
-            align-items: center;
-            justify-content: center;
-            vertical-align: middle;
-        }
 
-        .login {
-            float: right;
-            margin-right: 10px;
-
-        }
+        {#======================
+                Global
+        ======================#}
 
         a, a:visited, a:active {
             color: #757575;
@@ -404,9 +409,22 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
             text-decoration: underline;
         }
 
-        .footerWrap {
-            background-color: #f3f3f3;
-            height: 400px;
+
+        {#======================
+                Content
+        ======================#}
+
+        .brandLogoWrapper {
+            margin: 30px;
+            align-items: center;
+            justify-content: center;
+            vertical-align: middle;
+        }
+
+        .login {
+            float: right;
+            margin-right: 10px;
+
         }
 
         .main {
@@ -425,6 +443,11 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
             margin: 10px;
         }
 
+        .footerWrap {
+            background-color: #f3f3f3;
+            height: 400px;
+        }
+
         .btn {
             color: red;
         }
@@ -436,22 +459,13 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
         }
     </style>
 
-{% endblock %}
-
-{% block footer %}
-
-<div class=\"footerWrap\">
-    <hr>
-    {% embed 'reusable/footer.html.twig' %} {% endembed %}
-</div>
-
 {% endblock %}", "registration/register.html.twig", "/var/www/symfony_docker/templates/registration/register.html.twig");
     }
 }
 
 
 /* registration/register.html.twig */
-class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db93298___3870036 extends Template
+class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db93298___1863272051 extends Template
 {
     private $source;
     private $macros = [];
@@ -468,7 +482,7 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
 
     protected function doGetParent(array $context)
     {
-        // line 112
+        // line 51
         return "reusable/footer.html.twig";
     }
 
@@ -481,7 +495,7 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "registration/register.html.twig"));
 
-        $this->parent = $this->loadTemplate("reusable/footer.html.twig", "registration/register.html.twig", 112);
+        $this->parent = $this->loadTemplate("reusable/footer.html.twig", "registration/register.html.twig", 51);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -503,7 +517,7 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
 
     public function getDebugInfo()
     {
-        return array (  472 => 112,  311 => 113,  309 => 112,  304 => 109,  294 => 108,  228 => 50,  218 => 49,  204 => 42,  199 => 40,  195 => 39,  191 => 38,  187 => 37,  183 => 36,  179 => 35,  175 => 34,  172 => 33,  163 => 31,  159 => 30,  155 => 28,  145 => 27,  127 => 18,  121 => 14,  111 => 13,  93 => 3,  83 => 2,  73 => 108,  70 => 107,  68 => 49,  63 => 46,  61 => 27,  58 => 26,  56 => 13,  53 => 12,  51 => 2,  48 => 1,);
+        return array (  486 => 51,  273 => 77,  259 => 62,  255 => 57,  245 => 56,  233 => 52,  231 => 51,  226 => 48,  216 => 47,  202 => 42,  197 => 40,  193 => 39,  189 => 38,  185 => 37,  181 => 36,  177 => 35,  173 => 34,  170 => 33,  161 => 31,  157 => 30,  153 => 28,  143 => 27,  125 => 18,  119 => 14,  109 => 13,  91 => 3,  81 => 2,  71 => 56,  68 => 55,  66 => 47,  63 => 46,  61 => 27,  58 => 26,  56 => 13,  53 => 12,  51 => 2,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -554,22 +568,21 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
 
 {% endblock %}
 
+{% block footer %}
 
+<div class=\"footerWrap\">
+    <hr>
+    {% embed 'reusable/footer.html.twig' %} {% endembed %}
+</div>
+
+{% endblock %}
 
 {% block stylesheets %}
     <style>
-        .brandLogoWrapper {
-            margin: 30px;
-            align-items: center;
-            justify-content: center;
-            vertical-align: middle;
-        }
 
-        .login {
-            float: right;
-            margin-right: 10px;
-
-        }
+        {#======================
+                Global
+        ======================#}
 
         a, a:visited, a:active {
             color: #757575;
@@ -581,9 +594,22 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
             text-decoration: underline;
         }
 
-        .footerWrap {
-            background-color: #f3f3f3;
-            height: 400px;
+
+        {#======================
+                Content
+        ======================#}
+
+        .brandLogoWrapper {
+            margin: 30px;
+            align-items: center;
+            justify-content: center;
+            vertical-align: middle;
+        }
+
+        .login {
+            float: right;
+            margin-right: 10px;
+
         }
 
         .main {
@@ -602,6 +628,11 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
             margin: 10px;
         }
 
+        .footerWrap {
+            background-color: #f3f3f3;
+            height: 400px;
+        }
+
         .btn {
             color: red;
         }
@@ -612,15 +643,6 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
             color: red;
         }
     </style>
-
-{% endblock %}
-
-{% block footer %}
-
-<div class=\"footerWrap\">
-    <hr>
-    {% embed 'reusable/footer.html.twig' %} {% endembed %}
-</div>
 
 {% endblock %}", "registration/register.html.twig", "/var/www/symfony_docker/templates/registration/register.html.twig");
     }

@@ -28,6 +28,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
         $this->blocks = [
             'head' => [$this, 'block_head'],
+            'title' => [$this, 'block_title'],
             'navigation' => [$this, 'block_navigation'],
             'body' => [$this, 'block_body'],
             'stylesheets' => [$this, 'block_stylesheets'],
@@ -45,21 +46,20 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
         // line 1
         $this->displayBlock('head', $context, $blocks);
-        // line 33
-        echo "
-";
         // line 34
-        $this->displayBlock('navigation', $context, $blocks);
-        // line 125
         echo "
 ";
-        // line 126
+        // line 35
+        $this->displayBlock('navigation', $context, $blocks);
+        // line 122
+        echo "
+";
+        // line 123
         $this->displayBlock('body', $context, $blocks);
         // line 180
         echo "
-
 ";
-        // line 182
+        // line 181
         $this->displayBlock('stylesheets', $context, $blocks);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -83,42 +83,9 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         echo "    <head>
         ";
         // line 3
-        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 3, $this->source); })()), "request", [], "any", false, false, false, 3), "attributes", [], "any", false, false, false, 3), "get", [0 => "_route"], "method", false, false, false, 3), "browse")) {
-            // line 4
-            echo "            <title>Strona główna - Netflix</title>
-        ";
-        }
-        // line 6
-        echo "        ";
-        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 6, $this->source); })()), "request", [], "any", false, false, false, 6), "attributes", [], "any", false, false, false, 6), "get", [0 => "_route"], "method", false, false, false, 6), "shows")) {
-            // line 7
-            echo "            <title>Seriale i programy - Netflix</title>
-        ";
-        }
-        // line 9
-        echo "        ";
-        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 9, $this->source); })()), "request", [], "any", false, false, false, 9), "attributes", [], "any", false, false, false, 9), "get", [0 => "_route"], "method", false, false, false, 9), "movies")) {
-            // line 10
-            echo "            <title>Filmy - Netflix</title>
-        ";
-        }
-        // line 12
-        echo "        ";
-        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 12, $this->source); })()), "request", [], "any", false, false, false, 12), "attributes", [], "any", false, false, false, 12), "get", [0 => "_route"], "method", false, false, false, 12), "new")) {
-            // line 13
-            echo "            <title>Nowe i popularne - Netflix</title>
-        ";
-        }
-        // line 15
-        echo "        ";
-        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 15, $this->source); })()), "request", [], "any", false, false, false, 15), "attributes", [], "any", false, false, false, 15), "get", [0 => "_route"], "method", false, false, false, 15), "myList")) {
-            // line 16
-            echo "            <title>Moja lista - Netflix</title>
-        ";
-        }
-        // line 18
-        echo "
-        <script src=\"https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js\"
+        $this->displayBlock('title', $context, $blocks);
+        // line 20
+        echo "        <script src=\"https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js\"
                 integrity=\"sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB\"
                 crossorigin=\"anonymous\"></script>
         <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\"
@@ -140,7 +107,62 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
     }
 
-    // line 34
+    // line 3
+    public function block_title($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        // line 4
+        echo "            ";
+        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 4, $this->source); })()), "request", [], "any", false, false, false, 4), "attributes", [], "any", false, false, false, 4), "get", [0 => "_route"], "method", false, false, false, 4), "browse")) {
+            // line 5
+            echo "                <title>Strona główna - Netflix</title>
+            ";
+        }
+        // line 7
+        echo "            ";
+        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 7, $this->source); })()), "request", [], "any", false, false, false, 7), "attributes", [], "any", false, false, false, 7), "get", [0 => "_route"], "method", false, false, false, 7), "shows")) {
+            // line 8
+            echo "                <title>Seriale i programy - Netflix</title>
+            ";
+        }
+        // line 10
+        echo "            ";
+        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 10, $this->source); })()), "request", [], "any", false, false, false, 10), "attributes", [], "any", false, false, false, 10), "get", [0 => "_route"], "method", false, false, false, 10), "movies")) {
+            // line 11
+            echo "                <title>Filmy - Netflix</title>
+            ";
+        }
+        // line 13
+        echo "            ";
+        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 13, $this->source); })()), "request", [], "any", false, false, false, 13), "attributes", [], "any", false, false, false, 13), "get", [0 => "_route"], "method", false, false, false, 13), "new")) {
+            // line 14
+            echo "                <title>Nowe i popularne - Netflix</title>
+            ";
+        }
+        // line 16
+        echo "            ";
+        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 16, $this->source); })()), "request", [], "any", false, false, false, 16), "attributes", [], "any", false, false, false, 16), "get", [0 => "_route"], "method", false, false, false, 16), "myList")) {
+            // line 17
+            echo "                <title>Moja lista - Netflix</title>
+            ";
+        }
+        // line 19
+        echo "        ";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 35
     public function block_navigation($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -150,70 +172,68 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navigation"));
 
-        // line 35
-        echo "    <div class=\"navbarWrapper\">
+        // line 36
+        echo "    <div class=\"navbar_wrapper\">
         <div class=\"navbar\">
-            <div class=\"brandLogoWrapper\">
-                <a class=\"logo\" href=\"/\" target=\"_parent\">
-                    <img class=\"logo\" src=\"";
+            <a href=\"/\" target=\"_parent\">
+                <img class=\"navbar_logo\" src=\"";
         // line 39
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/netflixLogoSmall.svg.png"), "html", null, true);
-        echo "\" alt=\"av1\"/>
-                </a>
-            </div>
+        echo "\" alt=\"netflix_logo\"/>
+            </a>
             <a ";
-        // line 42
-        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 42, $this->source); })()), "request", [], "any", false, false, false, 42), "attributes", [], "any", false, false, false, 42), "get", [0 => "_route"], "method", false, false, false, 42), "browse")) {
-            // line 43
+        // line 41
+        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 41, $this->source); })()), "request", [], "any", false, false, false, 41), "attributes", [], "any", false, false, false, 41), "get", [0 => "_route"], "method", false, false, false, 41), "browse")) {
+            // line 42
             echo " class=\"active\" ";
         }
-        // line 44
+        // line 43
         echo "                    href=\"/browse\">Strona główna</a>
             <a ";
-        // line 45
-        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 45, $this->source); })()), "request", [], "any", false, false, false, 45), "attributes", [], "any", false, false, false, 45), "get", [0 => "_route"], "method", false, false, false, 45), "shows")) {
-            // line 46
+        // line 44
+        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 44, $this->source); })()), "request", [], "any", false, false, false, 44), "attributes", [], "any", false, false, false, 44), "get", [0 => "_route"], "method", false, false, false, 44), "shows")) {
+            // line 45
             echo " class=\"active\" ";
         }
-        // line 47
+        // line 46
         echo "                    href=\"/shows\">Seriale i programy</a>
             <a ";
-        // line 48
-        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 48, $this->source); })()), "request", [], "any", false, false, false, 48), "attributes", [], "any", false, false, false, 48), "get", [0 => "_route"], "method", false, false, false, 48), "movies")) {
-            // line 49
+        // line 47
+        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 47, $this->source); })()), "request", [], "any", false, false, false, 47), "attributes", [], "any", false, false, false, 47), "get", [0 => "_route"], "method", false, false, false, 47), "movies")) {
+            // line 48
             echo " class=\"active\" ";
         }
-        // line 50
+        // line 49
         echo "                    href=\"/movies\">Filmy</a>
             <a ";
-        // line 51
-        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 51, $this->source); })()), "request", [], "any", false, false, false, 51), "attributes", [], "any", false, false, false, 51), "get", [0 => "_route"], "method", false, false, false, 51), "new")) {
-            // line 52
+        // line 50
+        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 50, $this->source); })()), "request", [], "any", false, false, false, 50), "attributes", [], "any", false, false, false, 50), "get", [0 => "_route"], "method", false, false, false, 50), "new")) {
+            // line 51
             echo " class=\"active\" ";
         }
-        // line 53
+        // line 52
         echo "                    href=\"/new\">Nowe i popularne</a>
             <a ";
-        // line 54
-        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 54, $this->source); })()), "request", [], "any", false, false, false, 54), "attributes", [], "any", false, false, false, 54), "get", [0 => "_route"], "method", false, false, false, 54), "myList")) {
-            // line 55
+        // line 53
+        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 53, $this->source); })()), "request", [], "any", false, false, false, 53), "attributes", [], "any", false, false, false, 53), "get", [0 => "_route"], "method", false, false, false, 53), "myList")) {
+            // line 54
             echo " class=\"active\" ";
         }
-        // line 56
+        // line 55
         echo "                    href=\"/myList\">Moja lista</a>
             ";
-        // line 57
+        // line 56
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-            // line 58
+            // line 57
             echo "                <a href=\"/admin\" style=\"color: red\">Przejdź do panelu administratora</a>
             ";
         }
-        // line 60
+        // line 59
         echo "
             <div class=\"navbar_end\">
                 <div id=\"search\">
                     <form method=\"GET\" action=\"";
-        // line 63
+        // line 62
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("search");
         echo "\">
                         <input
@@ -234,32 +254,32 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         <div class=\"dropdown\">
             <a class=\"right dropbtn\" href=\"/profile\">
                 <img class=\"userAvatar\" src=\"";
-        // line 81
-        echo twig_escape_filter($this->env, (isset($context["userAvatar"]) || array_key_exists("userAvatar", $context) ? $context["userAvatar"] : (function () { throw new RuntimeError('Variable "userAvatar" does not exist.', 81, $this->source); })()), "html", null, true);
+        // line 80
+        echo twig_escape_filter($this->env, (isset($context["userAvatar"]) || array_key_exists("userAvatar", $context) ? $context["userAvatar"] : (function () { throw new RuntimeError('Variable "userAvatar" does not exist.', 80, $this->source); })()), "html", null, true);
         echo "\" alt=\"avatar\">
                 <div class=\"dropdown-content\">
                     ";
-        // line 83
+        // line 82
         $context["profile_id"] = 0;
-        // line 84
+        // line 83
         echo "
                     ";
-        // line 85
+        // line 84
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["profiles"]) || array_key_exists("profiles", $context) ? $context["profiles"] : (function () { throw new RuntimeError('Variable "profiles" does not exist.', 85, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["profiles"]) || array_key_exists("profiles", $context) ? $context["profiles"] : (function () { throw new RuntimeError('Variable "profiles" does not exist.', 84, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["profile"]) {
-            // line 86
+            // line 85
             echo "                        <form id=\"changeProfile\" method=\"POST\">
-                            <div class=\"profile\">
-                                <a>
+                            <div class=\"dropdown-profile\">
+                                <a class=\"profile_wrapper\">
                                     <input
                                             class=\"form-control\"
                                             id=\"text\"
                                             type=\"hidden\"
                                             name=\"id\"
                                             value=\"";
-            // line 94
-            echo twig_escape_filter($this->env, (isset($context["profile_id"]) || array_key_exists("profile_id", $context) ? $context["profile_id"] : (function () { throw new RuntimeError('Variable "profile_id" does not exist.', 94, $this->source); })()), "html", null, true);
+            // line 93
+            echo twig_escape_filter($this->env, (isset($context["profile_id"]) || array_key_exists("profile_id", $context) ? $context["profile_id"] : (function () { throw new RuntimeError('Variable "profile_id" does not exist.', 93, $this->source); })()), "html", null, true);
             echo "\"
                                     >
                                     <input
@@ -268,40 +288,37 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
                                             type=\"image\"
                                             name=\"id\"
                                             value=\"";
+            // line 100
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["profile"], "avatar", [], "any", false, false, false, 100), "html", null, true);
+            echo "\"
+                                            src=\"";
             // line 101
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["profile"], "avatar", [], "any", false, false, false, 101), "html", null, true);
             echo "\"
-                                            src=\"";
-            // line 102
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["profile"], "avatar", [], "any", false, false, false, 102), "html", null, true);
-            echo "\"
                                     >
-                                    <a
-                                            ";
-            // line 106
-            echo "                                            style=\"margin-left: 5px\">
-                                        ";
-            // line 107
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["profile"], "name", [], "any", false, false, false, 107), "html", null, true);
-            echo "
-                                    </a>
+                                    <button class=\"dropdown_submit\">";
+            // line 103
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["profile"], "name", [], "any", false, false, false, 103), "html", null, true);
+            echo "</button>
                                 </a>
                             </div>
                         </form>
                         ";
-            // line 112
-            $context["profile_id"] = ((isset($context["profile_id"]) || array_key_exists("profile_id", $context) ? $context["profile_id"] : (function () { throw new RuntimeError('Variable "profile_id" does not exist.', 112, $this->source); })()) + 1);
-            // line 113
+            // line 107
+            $context["profile_id"] = ((isset($context["profile_id"]) || array_key_exists("profile_id", $context) ? $context["profile_id"] : (function () { throw new RuntimeError('Variable "profile_id" does not exist.', 107, $this->source); })()) + 1);
+            // line 108
             echo "                    ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['profile'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 114
-        echo "                    <a href=\"/manageUser\">Zarządzaj profilami</a>
-                    <a href=\"/profile\">Konto</a>
+        // line 109
+        echo "                    <a href=\"/manageUser\"> &#xF4CB; Zarządzaj profilami</a>
+                    <hr>
+                    <a style=\"margin-bottom: 15px\" href=\"/profile\">Konto</a>
                     <a href=\"#\">Centrum Pomocy</a>
-                    <a href=\"/logout\">Wyloguj się</a>
+                    <hr>
+                    <a style=\"margin-bottom: 15px\" href=\"/logout\">Wyloguj się</a>
 
 
                 </div>
@@ -317,7 +334,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
     }
 
-    // line 126
+    // line 123
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -327,63 +344,80 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 127
+        // line 124
         echo "    <body>
-    <section id=\"main-container\">
-        <h5 id=\"serials\" class=\"title-home\">Filmy</h5>
-        <div class=\"box\">
+    <section class=\"movie_container\">
+        <h1 id=\"movies\" class=\"category_label\">Filmy - Test Modalu</h1>
+
+
+        <div class=\"movie\">
             ";
-        // line 131
+        // line 130
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["movies"]) || array_key_exists("movies", $context) ? $context["movies"] : (function () { throw new RuntimeError('Variable "movies" does not exist.', 131, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["movies"]) || array_key_exists("movies", $context) ? $context["movies"] : (function () { throw new RuntimeError('Variable "movies" does not exist.', 130, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["movie"]) {
+            // line 131
+            echo "                <a class=\"movie-hero\" onclick=\"document.getElementById('";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 131), "html", null, true);
+            echo "').style.display='block';\">
+                    <img class=\"movie-hero-image\" src=\"";
             // line 132
-            echo "                <a onclick=\"document.getElementById('";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 132), "html", null, true);
-            echo "').style.display='block'\"
-";
-            // line 134
-            echo "                >
-                    <img src=\"";
-            // line 135
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 135), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 132), "html", null, true);
             echo "\" alt=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 135), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 132), "html", null, true);
             echo "\">
                 </a>
-
                 <div id=\"";
-            // line 138
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 138), "html", null, true);
+            // line 134
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 134), "html", null, true);
             echo "\" class=\"modal\">
                     <div class=\"modal-content\">
-                        <div class=\"modal-desc\">
-                            <a href=\"/show/";
-            // line 141
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 141), "html", null, true);
+                        <div class=\"modal-header\">
+                            <a class=\"modal-image\" href=\"/show/";
+            // line 137
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 137), "html", null, true);
             echo "\" style=\"text-decoration: none\">
-                                <img style=\"width: 100%\" src=\"";
-            // line 142
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 142), "html", null, true);
-            echo "\">
+                                <img class=\"modal-image\" src=\"";
+            // line 138
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 138), "html", null, true);
+            echo "\" alt=\"movie_image\">
                             </a>
-                            <span onclick=\"document.getElementById('";
-            // line 144
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 144), "html", null, true);
-            echo "').style.display='none'\" class=\"bi bi-x-circle-fill modal-exit\"></span>
-                            <h1 class=\"modal-title\">";
-            // line 145
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 145), "html", null, true);
-            echo "</h1>
+
+                        </div>
+                        <div class=\"modal-desc\">
+                            <h2 class=\"modal-title\">";
+            // line 143
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 143), "html", null, true);
+            echo "</h2>
                             <p>";
-            // line 146
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "description", [], "any", false, false, false, 146), "html", null, true);
+            // line 144
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "description", [], "any", false, false, false, 144), "html", null, true);
             echo "</p>
                             <a class=\"profileButton\" href=\"/show/";
-            // line 147
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 147), "html", null, true);
-            echo "\"> Oglądaj teraz</a>
-                        </div>
+            // line 145
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 145), "html", null, true);
+            echo "\"> Oglądaj teraz </a>
+                            ";
+            // line 146
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["movie"], "categories", [], "any", false, false, false, 146));
+            foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
+                // line 147
+                echo "                                ";
+                echo twig_escape_filter($this->env, $context["category"], "html", null, true);
+                echo "
+                            ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 149
+            echo "                        </div>
+                        <span onclick=\"document.getElementById('";
+            // line 150
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 150), "html", null, true);
+            echo "').style.display='none'\"
+                              class=\"bi bi-x-circle-fill modal-exit\"></span>
                     </div>
                 </div>
             ";
@@ -391,68 +425,61 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 152
-        echo "
-        </div>
-        <h5 id=\"serials\" class=\"title-home\">Seriale</h5>
-        <div class=\"box\">
+        // line 155
+        echo "        </div>
+
+        <h1 id=\"shows\" class=\"category_label\">Seriale</h1>
+        <div class=\"movie\">
             ";
-        // line 156
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["shows"]) || array_key_exists("shows", $context) ? $context["shows"] : (function () { throw new RuntimeError('Variable "shows" does not exist.', 156, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["movie"]) {
-            // line 157
-            echo "                <a href=\"/show/";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 157), "html", null, true);
-            echo "\"><img src=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 157), "html", null, true);
-            echo "\" alt=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 157), "html", null, true);
-            echo "\"></a>
-            ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movie'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
         // line 159
-        echo "        </div>
-
-        <h5 id=\"movies\" class=\"title-home\">Tylko na Netflixie</h5>
-        <div class=\"box\">
-            ";
-        // line 163
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["originals"]) || array_key_exists("originals", $context) ? $context["originals"] : (function () { throw new RuntimeError('Variable "originals" does not exist.', 163, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["shows"]) || array_key_exists("shows", $context) ? $context["shows"] : (function () { throw new RuntimeError('Variable "shows" does not exist.', 159, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["movie"]) {
-            // line 164
-            echo "                <a href=\"/show/";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 164), "html", null, true);
-            echo "\"><img src=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 164), "html", null, true);
+            // line 160
+            echo "                <a class=\"movie-hero\" href=\"/show/";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 160), "html", null, true);
+            echo "\">
+                    <img class=\"movie-hero-image\" src=\"";
+            // line 161
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 161), "html", null, true);
             echo "\" alt=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 164), "html", null, true);
-            echo "\"></a>
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 161), "html", null, true);
+            echo "\">
+                </a>
             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 166
+        // line 164
         echo "        </div>
 
-        ";
-        // line 169
-        echo "        ";
-        // line 170
-        echo "        ";
-        // line 171
-        echo "        ";
-        // line 172
-        echo "        ";
+        <h1 id=\"movies\" class=\"category_label\">Tylko na Netflixie</h1>
+        <div class=\"movie\">
+            ";
+        // line 168
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["originals"]) || array_key_exists("originals", $context) ? $context["originals"] : (function () { throw new RuntimeError('Variable "originals" does not exist.', 168, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["movie"]) {
+            // line 169
+            echo "                <a class=\"movie-hero\" href=\"/show/";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 169), "html", null, true);
+            echo "\">
+                    <img class=\"movie-hero-image\" src=\"";
+            // line 170
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 170), "html", null, true);
+            echo "\" alt=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 170), "html", null, true);
+            echo "\">
+                </a>
+            ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movie'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
         // line 173
-        echo "        ";
-        // line 174
-        echo "
+        echo "        </div>
+
     </section>
 
     </body>
@@ -466,7 +493,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
     }
 
-    // line 182
+    // line 181
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -476,15 +503,47 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 183
-        echo "    <style>
+        // line 182
+        echo "
+    <style>
 
+        ";
+        // line 188
+        echo "
         body {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
             background-color: black;
             color: white;
         }
 
+        a.right {
+            float: right;
+            padding: 13px 0;
+            align-items: center;
+        }
+
+        a.active {
+            font-weight: 900;
+
+        }
+
+        h5 {
+            font-size: 20px;
+        }
+
+        i {
+            font-size: 23px;
+            margin-top: 8px;
+            margin-right: 8px;
+        }
+
+        h1.category_label {
+            font-size: 21px;
+        }
+
+        ";
+        // line 223
+        echo "
         .modal {
             top: 2%;
             left: 30%;
@@ -496,9 +555,30 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
             margin: 0 auto;
             align-content: center;
         }
+
+        .modal-header {
+            width: 100%;
+            overflow: hidden;
+            padding: 0;
+            border-bottom: 1px solid gray;
+        }
+
         .modal-desc {
             width: 100%;
         }
+
+        .modal-image {
+            width: 100%;
+            transition: transform 1s;
+        }
+
+        .modal-image:hover {
+            transition: transform 1s;
+            -ms-transform: scale(1.03);
+            -webkit-transform: scale(1.03);
+            transform: scale(1.03);
+        }
+
         .modal-content {
             max-height: calc(100vh + 2210px);
             overflow-y: auto;
@@ -511,18 +591,20 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
         .modal-exit {
             font-size: 40px;
-            position: relative;
             /*bottom: 72%;*/
             /*left: 45%;*/
             bottom: 50vh;
             left: 20vw;
-            color: black;
             /*position: -webkit-sticky;*/
             /*position: sticky;*/
             /*top: -2000px;*/
+            color: black;
         }
 
-        .profileButton {
+        ";
+        // line 284
+        echo "
+        .profile_button {
             color: gray;
             padding: .5em 1.5em;
             letter-spacing: 2px;
@@ -532,17 +614,30 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
             text-decoration: none;
         }
 
-        h5 {
-            font-size: 20px;
-        }
-
-        #main {
+        .dropdown_submit {
+            font-size: 13px;
             display: flex;
+            flex-direction: row;
+            background: none !important;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin-left: 5px;
+            line-height: 40px;
         }
 
-        a.active {
-            font-weight: 900;
 
+        .dropdown_submit:hover {
+            text-decoration: underline;
+        }
+
+        ";
+        // line 315
+        echo "
+        .navbar_wrapper {
+            display: flex;
+            background: rgb(0, 0, 0);
+            background: linear-gradient(360deg, rgba(0, 0, 0, 1) 0%, rgba(22, 15, 15, 1) 35%, rgba(45, 48, 50, 1) 100%);
         }
 
         .navbar {
@@ -554,16 +649,18 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
             flex-direction: row;
             justify-content: flex-start;
             flex-wrap: nowrap;
-
         }
 
         .navbar a {
             float: left;
             color: #f2f2f2;
             text-align: center;
-            /*padding: 14px 16px;*/
             text-decoration: none;
             font-size: 14px;
+        }
+
+        .navbar a:hover {
+            opacity: 0.8;
         }
 
         .navbar_end {
@@ -574,60 +671,22 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
             justify-content: flex-end;
         }
 
-        .navbar a:hover {
-            opacity: 0.8;
-        }
-
-        .logo {
-            /*margin-top: -3px;*/
-        }
-
-        #search {
-            display: flex;
-            float: right;
-        }
-
-        a.right {
-            float: right;
-            padding: 13px 0;
-            align-items: center;
-        }
-
-        .box {
-            margin: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            grid-gap: 25px;
-            /*grid-template-columns: repeat(6, calc(1% - 40px));*/
-            grid-template-columns:
-                repeat(6, minmax(270px, 1fr));
-            /*grid-template-rows: minmax(150px, 1fr);*/
-        }
-
-        .box a {
-            transition: transform 0.3s;
-        }
-
-        .box a:hover {
-            transition: transform 0.3s;
-            -ms-transform: scale(1.3);
-            -webkit-transform: scale(1.3);
-            transform: scale(1.3);
-        }
-
-        .box img {
-            border-radius: 2px;
-            width: 270px;
-            /*width: auto;*/
-            height: auto;
-        }
-
-        #search {
-            margin-top: 12px;
-        }
-
-        #main-container {
+        .navbar_logo {
             margin-left: 30px;
+            height: 31px;
+            margin-right: 15px;
+        }
+
+        .userAvatar {
+            width: 30px;
+            border-radius: 4px;
+            margin-right: 25px;
+        }
+
+        #search {
+            display: flex;
+            float: right;
+            margin-top: 12px;
         }
 
         .searchInput {
@@ -639,71 +698,67 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
             border-radius: 7px;
         }
 
-        i {
-            font-size: 23px;
-            margin-top: 8px;
-            margin-right: 8px;
-        }
-
-        .logo {
-            height: 31px;
-            margin-right: 15px;
-        }
-
-        .brandLogoWrapper {
+        ";
+        // line 383
+        echo "
+        .movie_container {
             margin-left: 30px;
-            width: 113px;
-            justify-content: center;
         }
 
-        .userAvatar {
-            width: 30px;
-            border-radius: 4px;
-            margin-right: 25px;
+        .movie {
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            grid-gap: 25px;
+            grid-template-columns:
+            repeat(6, minmax(270px, 1fr));
         }
 
+        .movie-hero {
+            transition: transform 0.3s;
+            cursor: pointer;
+
+        }
+
+        .movie-hero:hover {
+            transition: transform 0.3s;
+            -ms-transform: scale(1.3);
+            -webkit-transform: scale(1.3);
+            transform: scale(1.3);
+        }
+
+        .movie-hero-image {
+            border-radius: 2px;
+            width: 270px;
+            height: auto;
+        }
+
+        ";
+        // line 419
+        echo "
         .dropdown {
-            transition: all 1s ease;
             width: 8%;
             left: 0;
-            position: relative;
-            display: inline-block;
-        }
-
-        @keyframes growDown {
-            0% {
-                transform: scaleY(0)
-            }
-            80% {
-                transform: scaleY(1.1)
-            }
-            100% {
-                transform: scaleY(1)
-            }
         }
 
         .dropdown-content {
             transform-origin: top center;
             animation: growDown 200ms ease-in-out forwards;
-            left: 0;
             margin-top: 55px;
             display: none;
             position: absolute;
-            z-index: 10;
             background-color: rgba(0, 0, 0, 0.6);
-            border: 3px solid white;
+            border: 1px solid gray;
+            border-radius: 3px;
             min-width: 135px;
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         }
 
         .dropdown-content a {
-            margin-bottom: 10px;
-            opacity: 100%;
+            font-family: var(--bs-body-font-family), bootstrap-icons;
             font-size: 13px;
-            padding-bottom: 10px;
             color: white;
             text-decoration: none;
-            display: block;
             text-align: center;
         }
 
@@ -718,29 +773,38 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
             min-height: 100px;
         }
 
-        .navbarWrapper {
-            display: flex;
-            background: rgb(0, 0, 0);
-            background: linear-gradient(360deg, rgba(0, 0, 0, 1) 0%, rgba(22, 15, 15, 1) 35%, rgba(45, 48, 50, 1) 100%);
+        @keyframes growDown {
+            0% {
+                transform: scaleY(0)
+            }
+            80% {
+                transform: scaleY(1.1)
+            }
+            100% {
+                transform: scaleY(1)
+            }
         }
 
-        .form-control {
-
-            width: 80%;
-            border: none;
-            border-radius: 5px;
-            padding: 0;
-            margin-left: 10px;
-        }
-
-        .profile {
-            line-height: 60px;
+        .dropdown-profile {
             align-content: center;
             font-size: 12px;
             display: flex;
             flex-direction: row;
             justify-content: center;
-            margin-right: 10px;
+        }
+
+        .profile_wrapper {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .form-control {
+            width: 30%;
+            height: 100%;
+            border: none;
+            border-radius: 5px;
+            padding: 0;
+            margin-left: 10px;
         }
 
     </style>
@@ -760,29 +824,30 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
     public function getDebugInfo()
     {
-        return array (  480 => 183,  470 => 182,  455 => 174,  453 => 173,  451 => 172,  449 => 171,  447 => 170,  445 => 169,  441 => 166,  428 => 164,  424 => 163,  418 => 159,  405 => 157,  401 => 156,  395 => 152,  384 => 147,  380 => 146,  376 => 145,  372 => 144,  367 => 142,  363 => 141,  357 => 138,  349 => 135,  346 => 134,  341 => 132,  337 => 131,  331 => 127,  321 => 126,  301 => 114,  295 => 113,  293 => 112,  285 => 107,  282 => 106,  276 => 102,  272 => 101,  262 => 94,  252 => 86,  248 => 85,  245 => 84,  243 => 83,  238 => 81,  217 => 63,  212 => 60,  208 => 58,  206 => 57,  203 => 56,  200 => 55,  198 => 54,  195 => 53,  192 => 52,  190 => 51,  187 => 50,  184 => 49,  182 => 48,  179 => 47,  176 => 46,  174 => 45,  171 => 44,  168 => 43,  166 => 42,  160 => 39,  154 => 35,  144 => 34,  120 => 18,  116 => 16,  113 => 15,  109 => 13,  106 => 12,  102 => 10,  99 => 9,  95 => 7,  92 => 6,  88 => 4,  86 => 3,  83 => 2,  73 => 1,  63 => 182,  59 => 180,  57 => 126,  54 => 125,  52 => 34,  49 => 33,  47 => 1,);
+        return array (  738 => 419,  703 => 383,  636 => 315,  606 => 284,  546 => 223,  512 => 188,  507 => 182,  497 => 181,  481 => 173,  470 => 170,  465 => 169,  461 => 168,  455 => 164,  444 => 161,  439 => 160,  435 => 159,  429 => 155,  418 => 150,  415 => 149,  406 => 147,  402 => 146,  398 => 145,  394 => 144,  390 => 143,  382 => 138,  378 => 137,  372 => 134,  365 => 132,  360 => 131,  356 => 130,  348 => 124,  338 => 123,  316 => 109,  310 => 108,  308 => 107,  301 => 103,  296 => 101,  292 => 100,  282 => 93,  272 => 85,  268 => 84,  265 => 83,  263 => 82,  258 => 80,  237 => 62,  232 => 59,  228 => 57,  226 => 56,  223 => 55,  220 => 54,  218 => 53,  215 => 52,  212 => 51,  210 => 50,  207 => 49,  204 => 48,  202 => 47,  199 => 46,  196 => 45,  194 => 44,  191 => 43,  188 => 42,  186 => 41,  181 => 39,  176 => 36,  166 => 35,  156 => 19,  152 => 17,  149 => 16,  145 => 14,  142 => 13,  138 => 11,  135 => 10,  131 => 8,  128 => 7,  124 => 5,  121 => 4,  111 => 3,  88 => 20,  86 => 3,  83 => 2,  73 => 1,  63 => 181,  60 => 180,  58 => 123,  55 => 122,  53 => 35,  50 => 34,  48 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% block head %}
     <head>
-        {% if app.request.attributes.get('_route') in 'browse' %}
-            <title>Strona główna - Netflix</title>
-        {% endif %}
-        {% if app.request.attributes.get('_route') in 'shows' %}
-            <title>Seriale i programy - Netflix</title>
-        {% endif %}
-        {% if app.request.attributes.get('_route') in 'movies' %}
-            <title>Filmy - Netflix</title>
-        {% endif %}
-        {% if app.request.attributes.get('_route') in 'new' %}
-            <title>Nowe i popularne - Netflix</title>
-        {% endif %}
-        {% if app.request.attributes.get('_route') in 'myList' %}
-            <title>Moja lista - Netflix</title>
-        {% endif %}
-
+        {% block title %}
+            {% if app.request.attributes.get('_route') in 'browse' %}
+                <title>Strona główna - Netflix</title>
+            {% endif %}
+            {% if app.request.attributes.get('_route') in 'shows' %}
+                <title>Seriale i programy - Netflix</title>
+            {% endif %}
+            {% if app.request.attributes.get('_route') in 'movies' %}
+                <title>Filmy - Netflix</title>
+            {% endif %}
+            {% if app.request.attributes.get('_route') in 'new' %}
+                <title>Nowe i popularne - Netflix</title>
+            {% endif %}
+            {% if app.request.attributes.get('_route') in 'myList' %}
+                <title>Moja lista - Netflix</title>
+            {% endif %}
+        {% endblock %}
         <script src=\"https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js\"
                 integrity=\"sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB\"
                 crossorigin=\"anonymous\"></script>
@@ -799,13 +864,11 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 {% endblock %}
 
 {% block navigation %}
-    <div class=\"navbarWrapper\">
+    <div class=\"navbar_wrapper\">
         <div class=\"navbar\">
-            <div class=\"brandLogoWrapper\">
-                <a class=\"logo\" href=\"/\" target=\"_parent\">
-                    <img class=\"logo\" src=\"{{ asset('images/netflixLogoSmall.svg.png') }}\" alt=\"av1\"/>
-                </a>
-            </div>
+            <a href=\"/\" target=\"_parent\">
+                <img class=\"navbar_logo\" src=\"{{ asset('images/netflixLogoSmall.svg.png') }}\" alt=\"netflix_logo\"/>
+            </a>
             <a {% if app.request.attributes.get('_route') in
                 'browse' %} class=\"active\" {% endif %}
                     href=\"/browse\">Strona główna</a>
@@ -851,8 +914,8 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
                     {% for profile in profiles %}
                         <form id=\"changeProfile\" method=\"POST\">
-                            <div class=\"profile\">
-                                <a>
+                            <div class=\"dropdown-profile\">
+                                <a class=\"profile_wrapper\">
                                     <input
                                             class=\"form-control\"
                                             id=\"text\"
@@ -868,20 +931,18 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
                                             value=\"{{ profile.avatar }}\"
                                             src=\"{{ profile.avatar }}\"
                                     >
-                                    <a
-                                            {#                                      onclick=\"document.getElementById('changeProfile').submit()\" #}
-                                            style=\"margin-left: 5px\">
-                                        {{ profile.name }}
-                                    </a>
+                                    <button class=\"dropdown_submit\">{{ profile.name }}</button>
                                 </a>
                             </div>
                         </form>
                         {% set profile_id = profile_id + 1 %}
                     {% endfor %}
-                    <a href=\"/manageUser\">Zarządzaj profilami</a>
-                    <a href=\"/profile\">Konto</a>
+                    <a href=\"/manageUser\"> &#xF4CB; Zarządzaj profilami</a>
+                    <hr>
+                    <a style=\"margin-bottom: 15px\" href=\"/profile\">Konto</a>
                     <a href=\"#\">Centrum Pomocy</a>
-                    <a href=\"/logout\">Wyloguj się</a>
+                    <hr>
+                    <a style=\"margin-bottom: 15px\" href=\"/logout\">Wyloguj się</a>
 
 
                 </div>
@@ -892,52 +953,55 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
 {% block body %}
     <body>
-    <section id=\"main-container\">
-        <h5 id=\"serials\" class=\"title-home\">Filmy</h5>
-        <div class=\"box\">
-            {% for movie in movies %}
-                <a onclick=\"document.getElementById('{{ movie.id }}').style.display='block'\"
-{#                   href=\"/show/{{ movie.id }}\"#}
-                >
-                    <img src=\"{{ movie.img }}\" alt=\"{{ movie.title }}\">
-                </a>
+    <section class=\"movie_container\">
+        <h1 id=\"movies\" class=\"category_label\">Filmy - Test Modalu</h1>
 
+
+        <div class=\"movie\">
+            {% for movie in movies %}
+                <a class=\"movie-hero\" onclick=\"document.getElementById('{{ movie.id }}').style.display='block';\">
+                    <img class=\"movie-hero-image\" src=\"{{ movie.img }}\" alt=\"{{ movie.title }}\">
+                </a>
                 <div id=\"{{ movie.id }}\" class=\"modal\">
                     <div class=\"modal-content\">
-                        <div class=\"modal-desc\">
-                            <a href=\"/show/{{ movie.id }}\" style=\"text-decoration: none\">
-                                <img style=\"width: 100%\" src=\"{{ movie.img }}\">
+                        <div class=\"modal-header\">
+                            <a class=\"modal-image\" href=\"/show/{{ movie.id }}\" style=\"text-decoration: none\">
+                                <img class=\"modal-image\" src=\"{{ movie.img }}\" alt=\"movie_image\">
                             </a>
-                            <span onclick=\"document.getElementById('{{ movie.id }}').style.display='none'\" class=\"bi bi-x-circle-fill modal-exit\"></span>
-                            <h1 class=\"modal-title\">{{ movie.title }}</h1>
-                            <p>{{ movie.description }}</p>
-                            <a class=\"profileButton\" href=\"/show/{{ movie.id }}\"> Oglądaj teraz</a>
+
                         </div>
+                        <div class=\"modal-desc\">
+                            <h2 class=\"modal-title\">{{ movie.title }}</h2>
+                            <p>{{ movie.description }}</p>
+                            <a class=\"profileButton\" href=\"/show/{{ movie.id }}\"> Oglądaj teraz </a>
+                            {% for category in movie.categories %}
+                                {{ category }}
+                            {% endfor %}
+                        </div>
+                        <span onclick=\"document.getElementById('{{ movie.id }}').style.display='none'\"
+                              class=\"bi bi-x-circle-fill modal-exit\"></span>
                     </div>
                 </div>
             {% endfor %}
-
         </div>
-        <h5 id=\"serials\" class=\"title-home\">Seriale</h5>
-        <div class=\"box\">
+
+        <h1 id=\"shows\" class=\"category_label\">Seriale</h1>
+        <div class=\"movie\">
             {% for movie in shows %}
-                <a href=\"/show/{{ movie.id }}\"><img src=\"{{ movie.img }}\" alt=\"{{ movie.title }}\"></a>
+                <a class=\"movie-hero\" href=\"/show/{{ movie.id }}\">
+                    <img class=\"movie-hero-image\" src=\"{{ movie.img }}\" alt=\"{{ movie.title }}\">
+                </a>
             {% endfor %}
         </div>
 
-        <h5 id=\"movies\" class=\"title-home\">Tylko na Netflixie</h5>
-        <div class=\"box\">
+        <h1 id=\"movies\" class=\"category_label\">Tylko na Netflixie</h1>
+        <div class=\"movie\">
             {% for movie in originals %}
-                <a href=\"/show/{{ movie.id }}\"><img src=\"{{ movie.img }}\" alt=\"{{ movie.title }}\"></a>
+                <a class=\"movie-hero\" href=\"/show/{{ movie.id }}\">
+                    <img class=\"movie-hero-image\" src=\"{{ movie.img }}\" alt=\"{{ movie.title }}\">
+                </a>
             {% endfor %}
         </div>
-
-        {#        <h5 id=\"popular\" class=\"title-home\">Popularne</h5> #}
-        {#        <div class=\"box\"> #}
-        {#            {% for movie in popular %} #}
-        {#                <a href=\"/show/{{ movie.id }}\"><img src=\"{{ movie.img }}\" alt=\"{{ movie.title }}\"></a> #}
-        {#            {% endfor %} #}
-        {#        </div> #}
 
     </section>
 
@@ -945,15 +1009,48 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
 {% endblock %}
 
-
 {% block stylesheets %}
+
     <style>
+
+        {#======================
+                Global
+        ======================#}
 
         body {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
             background-color: black;
             color: white;
         }
+
+        a.right {
+            float: right;
+            padding: 13px 0;
+            align-items: center;
+        }
+
+        a.active {
+            font-weight: 900;
+
+        }
+
+        h5 {
+            font-size: 20px;
+        }
+
+        i {
+            font-size: 23px;
+            margin-top: 8px;
+            margin-right: 8px;
+        }
+
+        h1.category_label {
+            font-size: 21px;
+        }
+
+        {#======================
+           Modal - Movie Card
+         ======================#}
 
         .modal {
             top: 2%;
@@ -966,9 +1063,30 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
             margin: 0 auto;
             align-content: center;
         }
+
+        .modal-header {
+            width: 100%;
+            overflow: hidden;
+            padding: 0;
+            border-bottom: 1px solid gray;
+        }
+
         .modal-desc {
             width: 100%;
         }
+
+        .modal-image {
+            width: 100%;
+            transition: transform 1s;
+        }
+
+        .modal-image:hover {
+            transition: transform 1s;
+            -ms-transform: scale(1.03);
+            -webkit-transform: scale(1.03);
+            transform: scale(1.03);
+        }
+
         .modal-content {
             max-height: calc(100vh + 2210px);
             overflow-y: auto;
@@ -981,18 +1099,21 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
         .modal-exit {
             font-size: 40px;
-            position: relative;
             /*bottom: 72%;*/
             /*left: 45%;*/
             bottom: 50vh;
             left: 20vw;
-            color: black;
             /*position: -webkit-sticky;*/
             /*position: sticky;*/
             /*top: -2000px;*/
+            color: black;
         }
 
-        .profileButton {
+        {#======================
+                Buttons
+        ======================#}
+
+        .profile_button {
             color: gray;
             padding: .5em 1.5em;
             letter-spacing: 2px;
@@ -1002,17 +1123,31 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
             text-decoration: none;
         }
 
-        h5 {
-            font-size: 20px;
-        }
-
-        #main {
+        .dropdown_submit {
+            font-size: 13px;
             display: flex;
+            flex-direction: row;
+            background: none !important;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin-left: 5px;
+            line-height: 40px;
         }
 
-        a.active {
-            font-weight: 900;
 
+        .dropdown_submit:hover {
+            text-decoration: underline;
+        }
+
+        {#======================
+                Navigation
+         ======================#}
+
+        .navbar_wrapper {
+            display: flex;
+            background: rgb(0, 0, 0);
+            background: linear-gradient(360deg, rgba(0, 0, 0, 1) 0%, rgba(22, 15, 15, 1) 35%, rgba(45, 48, 50, 1) 100%);
         }
 
         .navbar {
@@ -1024,16 +1159,18 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
             flex-direction: row;
             justify-content: flex-start;
             flex-wrap: nowrap;
-
         }
 
         .navbar a {
             float: left;
             color: #f2f2f2;
             text-align: center;
-            /*padding: 14px 16px;*/
             text-decoration: none;
             font-size: 14px;
+        }
+
+        .navbar a:hover {
+            opacity: 0.8;
         }
 
         .navbar_end {
@@ -1044,60 +1181,22 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
             justify-content: flex-end;
         }
 
-        .navbar a:hover {
-            opacity: 0.8;
-        }
-
-        .logo {
-            /*margin-top: -3px;*/
-        }
-
-        #search {
-            display: flex;
-            float: right;
-        }
-
-        a.right {
-            float: right;
-            padding: 13px 0;
-            align-items: center;
-        }
-
-        .box {
-            margin: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            grid-gap: 25px;
-            /*grid-template-columns: repeat(6, calc(1% - 40px));*/
-            grid-template-columns:
-                repeat(6, minmax(270px, 1fr));
-            /*grid-template-rows: minmax(150px, 1fr);*/
-        }
-
-        .box a {
-            transition: transform 0.3s;
-        }
-
-        .box a:hover {
-            transition: transform 0.3s;
-            -ms-transform: scale(1.3);
-            -webkit-transform: scale(1.3);
-            transform: scale(1.3);
-        }
-
-        .box img {
-            border-radius: 2px;
-            width: 270px;
-            /*width: auto;*/
-            height: auto;
-        }
-
-        #search {
-            margin-top: 12px;
-        }
-
-        #main-container {
+        .navbar_logo {
             margin-left: 30px;
+            height: 31px;
+            margin-right: 15px;
+        }
+
+        .userAvatar {
+            width: 30px;
+            border-radius: 4px;
+            margin-right: 25px;
+        }
+
+        #search {
+            display: flex;
+            float: right;
+            margin-top: 12px;
         }
 
         .searchInput {
@@ -1109,71 +1208,69 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
             border-radius: 7px;
         }
 
-        i {
-            font-size: 23px;
-            margin-top: 8px;
-            margin-right: 8px;
-        }
+        {#======================
+                Content
+        ======================#}
 
-        .logo {
-            height: 31px;
-            margin-right: 15px;
-        }
-
-        .brandLogoWrapper {
+        .movie_container {
             margin-left: 30px;
-            width: 113px;
-            justify-content: center;
         }
 
-        .userAvatar {
-            width: 30px;
-            border-radius: 4px;
-            margin-right: 25px;
+        .movie {
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            grid-gap: 25px;
+            grid-template-columns:
+            repeat(6, minmax(270px, 1fr));
         }
+
+        .movie-hero {
+            transition: transform 0.3s;
+            cursor: pointer;
+
+        }
+
+        .movie-hero:hover {
+            transition: transform 0.3s;
+            -ms-transform: scale(1.3);
+            -webkit-transform: scale(1.3);
+            transform: scale(1.3);
+        }
+
+        .movie-hero-image {
+            border-radius: 2px;
+            width: 270px;
+            height: auto;
+        }
+
+        {#======================
+                 Dropdown
+         ======================#}
 
         .dropdown {
-            transition: all 1s ease;
             width: 8%;
             left: 0;
-            position: relative;
-            display: inline-block;
-        }
-
-        @keyframes growDown {
-            0% {
-                transform: scaleY(0)
-            }
-            80% {
-                transform: scaleY(1.1)
-            }
-            100% {
-                transform: scaleY(1)
-            }
         }
 
         .dropdown-content {
             transform-origin: top center;
             animation: growDown 200ms ease-in-out forwards;
-            left: 0;
             margin-top: 55px;
             display: none;
             position: absolute;
-            z-index: 10;
             background-color: rgba(0, 0, 0, 0.6);
-            border: 3px solid white;
+            border: 1px solid gray;
+            border-radius: 3px;
             min-width: 135px;
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         }
 
         .dropdown-content a {
-            margin-bottom: 10px;
-            opacity: 100%;
+            font-family: var(--bs-body-font-family), bootstrap-icons;
             font-size: 13px;
-            padding-bottom: 10px;
             color: white;
             text-decoration: none;
-            display: block;
             text-align: center;
         }
 
@@ -1188,29 +1285,38 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
             min-height: 100px;
         }
 
-        .navbarWrapper {
-            display: flex;
-            background: rgb(0, 0, 0);
-            background: linear-gradient(360deg, rgba(0, 0, 0, 1) 0%, rgba(22, 15, 15, 1) 35%, rgba(45, 48, 50, 1) 100%);
+        @keyframes growDown {
+            0% {
+                transform: scaleY(0)
+            }
+            80% {
+                transform: scaleY(1.1)
+            }
+            100% {
+                transform: scaleY(1)
+            }
         }
 
-        .form-control {
-
-            width: 80%;
-            border: none;
-            border-radius: 5px;
-            padding: 0;
-            margin-left: 10px;
-        }
-
-        .profile {
-            line-height: 60px;
+        .dropdown-profile {
             align-content: center;
             font-size: 12px;
             display: flex;
             flex-direction: row;
             justify-content: center;
-            margin-right: 10px;
+        }
+
+        .profile_wrapper {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .form-control {
+            width: 30%;
+            height: 100%;
+            border: none;
+            border-radius: 5px;
+            padding: 0;
+            margin-left: 10px;
         }
 
     </style>

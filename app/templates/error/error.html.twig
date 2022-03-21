@@ -7,26 +7,6 @@
               crossorigin="anonymous">
     </head>
 {% endblock %}
-{% block stylesheets %}
-    {{ parent() }}
-    <style>
-        body {
-            font-family: 'Netflix Sans Regular', "Helvetica Neue", "Helvetica", Arial, sans-serif;
-        }
-
-        .error_wrapper {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 92%;
-        }
-
-        .error_image {
-            width: 400px;
-        }
-    </style>
-{% endblock %}
 
 {% block body %}
     <body>
@@ -48,4 +28,26 @@
     </div>
 
     </body>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+
+        body {
+            font-family: 'Netflix Sans Regular', "Helvetica Neue", "Helvetica", Arial, sans-serif;
+        }
+
+        .error_wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 92%;
+        }
+
+        .error_image {
+            width: 400px;
+        }
+    </style>
 {% endblock %}

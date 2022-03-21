@@ -34,4 +34,33 @@ class CategoryRepository extends ServiceEntityRepository
             ->getQuery()
             ->getArrayResult();
     }
+
+    /**
+     * @param $movieId
+     * @return Category[] Returns an array of Movie objects
+     */
+    public function getCategoryByMovieId($movieId): array
+    {
+        return $this->createQueryBuilder('category')
+            ->select('category', 'movie')
+            ->leftJoin('category.movies', 'movie')
+            ->AndWhere('movie.id = :movieId')
+            ->setParameter('movieId', $movieId)
+            ->getQuery()
+            ->getArrayResult();
+    }
+    /**
+     * @param $movieId
+     * @return Category[] Returns an array of Movie objects
+     */
+    public function getCategoriesByMovieId($movieId): array
+    {
+        return $this->createQueryBuilder('category')
+            ->select('category', 'movie')
+            ->leftJoin('category.movies', 'movie')
+            ->AndWhere('movie.id = :movieId')
+            ->setParameter('movieId', $movieId)
+            ->getQuery()
+            ->getArrayResult();
+    }
 }

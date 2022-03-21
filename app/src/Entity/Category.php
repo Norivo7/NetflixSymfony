@@ -57,7 +57,7 @@ class Category
     }
 
     /**
-     * @return Collection|Movie[]
+     * @return Collection
      */
     public function getMovies(): Collection
     {
@@ -68,28 +68,18 @@ class Category
     {
         if (!$this->movies->contains($movie)) {
             $this->movies[] = $movie;
-            $movie->setCategory($this);
+            $movie->addCategory($this);
         }
 
         return $this;
     }
-    // ManytoMany pozostalosci
-//    public function removeMovie(Movie $movie): self
-//    {
-//        if ($this->movies->contains($movie)) {
-//            $this->movies->removeElement($movie);
-//            $movie->removeCategory($this);
-//            }
-//        return $this;
-//    }
-
 
     public function removeMovie(Movie $movie): self
     {
         if ($this->movies->contains($movie)) {
             $this->movies->removeElement($movie);
-            if ($movie->getCategory() === $this) {
-                $movie->setCategory(null);
+            if ($movie->getCategories() == $this) {
+                $movie->setCategories(null);
             }
         }
         return $this;

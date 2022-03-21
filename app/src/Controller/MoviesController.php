@@ -71,7 +71,8 @@ class MoviesController extends AbstractController
      */
     public function index(Request $request): Response
     {
-        if ($request->getMethod() == 'POST') {
+            // if id has changed, change user
+        if ($request->getMethod() == 'POST' && $request->request->get('id') != null) {
             $id = $request->request->get('id');
             return $this->redirectToRoute('changeProfile', [
                     'id' => $id,
@@ -86,7 +87,6 @@ class MoviesController extends AbstractController
 
         $subuserFrontId = $request->get('id');
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $this->getUser()));
-
 
         if ($subuserId != null && $subuserFrontId < count($allSubusers)) {
             return $this->render('movies/index.html.twig', [

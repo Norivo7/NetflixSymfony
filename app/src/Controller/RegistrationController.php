@@ -28,6 +28,7 @@ class RegistrationController extends AbstractController
         $this->emailVerifier = $emailVerifier;
     }
 
+
     private function getRandomAvatarUrl()
     {
         $images = array('https://i.imgur.com/zBr1CQ3.png', 'https://i.imgur.com/ih6xvXa.png', 'https://i.imgur.com/6ZIfuJG.png', 'https://i.imgur.com/QhKoEyB.png',

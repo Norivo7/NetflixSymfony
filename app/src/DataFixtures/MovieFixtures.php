@@ -41,7 +41,7 @@ class MovieFixtures extends Fixture
         $movie3 = new Movie();
         $movie3->addCategory($catSerials);
         $movie3->addCategory($catExclusive);
-        $movie3->setTitle('Peaky Blinders'); // albo many to many w kategorii  edit2: good good, dzialczy
+        $movie3->setTitle('Peaky Blinders');
         $movie3->setDescription('lorem ipsum');
         $movie3->setYear(2018);
         $movie3->setImg('https://occ-0-2507-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABe5HswoEnt177Tub7t7PayOliSGYL0dX1EdgRNNjmIhKPgp8j1vvLpRH7SMK5b-Ts30ZUQyOxue517b35q9nTqW-Cf9SCFuu0GJpkrzS61tEXsNkCgs7ZjgCghrI.jpg?r=aa0');

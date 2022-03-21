@@ -61,7 +61,7 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
 ";
         // line 11
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 184
+        // line 186
         $this->displayBlock('body', $context, $blocks);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -102,41 +102,13 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
 
         // line 12
         echo "    <style>
+
+        ";
+        // line 17
+        echo "
         body {
             color: white;
             background-color: #141414;
-        }
-
-        .main {
-            margin-top: 150px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            align-content: center;
-            justify-content: center;
-            gap: 30px;
-        }
-
-        .profileButton {
-            color: gray;
-            padding: .5em 1.5em;
-            letter-spacing: 2px;
-            cursor: pointer;
-            background-color: transparent;
-            border: 1px solid grey;
-            text-decoration: none;
-
-        }
-
-        .table {
-            /*margin-top: 100px;*/
-            width: 1000px;
-            color: white;
-            flex-direction: column;
-        }
-
-        .tbody {
-            /*display: flex;*/
         }
 
         h1 {
@@ -152,6 +124,29 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
             padding: 20px;
         }
 
+        h1 {
+            font-weight: 10;
+            width: 100%;
+            justify-content: center;
+            vertical-align: center;
+            position: absolute;
+            top: 0;
+        }
+
+        h2 {
+            color: white;
+        }
+
+        ul {
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+            text-align: center;
+        }
+        ";
+        // line 59
+        echo "
         .logo {
             margin-left: 25px;
             margin-top: 10px;
@@ -160,14 +155,6 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
             display: inline-block;
             height: 60%;
             justify-content: center;
-
-        }
-
-        #buttonDiv {
-            align-items: center;
-            text-align: center;
-            width: 100%;
-            margin-top: 20px;
         }
 
         .brandLogoWrapper {
@@ -182,31 +169,24 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
             height: 5vh;
         }
 
-        h1 {
-            font-weight: 10;
+        ";
+        // line 85
+        echo "
+        .profileButton {
+            color: gray;
+            padding: .5em 1.5em;
+            letter-spacing: 2px;
+            cursor: pointer;
+            background-color: transparent;
+            border: 1px solid grey;
+            text-decoration: none;
+        }
+
+        #buttonDiv {
+            align-items: center;
+            text-align: center;
             width: 100%;
-            justify-content: center;
-            vertical-align: center;
-            position: absolute;
-            top: 0;
-            /*left:50%;*/
-        }
-
-        h2 {
-            color: white;
-        }
-
-        ul {
-            padding: 0;
-        }
-
-        .wrapper {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 130px;
-            gap: 70px;
+            margin-top: 20px;
         }
 
         .adminOption {
@@ -217,12 +197,10 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
             padding: 5em 1.5em;
             letter-spacing: 2px;
             cursor: pointer;
-            /*background-color: transparent;*/
             border-radius: 20px;
             border: 1px solid grey;
             text-decoration: none;
             position: relative;
-            /*box-shadow: 5px 2px 2px gray;*/
             background-color: #7f5a83;
             background-image: linear-gradient(315deg, black 0%, #141414 74%);
 
@@ -250,15 +228,6 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
             transition: all 0.4s ease-in-out;
         }
 
-        a {
-            text-decoration: none;
-            text-align: center;
-        }
-
-        .optionImage {
-            font-size: 42px;
-        }
-
         .deleteButton {
             color: red;
             padding: .5em 1.5em;
@@ -268,8 +237,37 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
             border: 1px solid red;
             text-decoration: none;
         }
+        ";
+        // line 154
+        echo "
+        .main {
+            margin-top: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            gap: 30px;
+        }
+
         .table {
-           margin: 0;
+            width: 1000px;
+            color: white;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 130px;
+            gap: 70px;
+        }
+
+        .optionImage {
+            font-size: 42px;
         }
     </style>
 ";
@@ -281,7 +279,7 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
 
     }
 
-    // line 184
+    // line 186
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -291,13 +289,13 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 185
+        // line 187
         echo "    <body>
     <div id=\"headerContainer\">
         <div class=\"brandLogoWrapper\">
             <a class=\"logo\" href=\"/\" target=\"_parent\">
                 <img class=\"logo\" src=\"";
-        // line 189
+        // line 191
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/netflixLogo.svg.png"), "html", null, true);
         echo "\" alt=\"av1\"/>
             </a>
@@ -305,14 +303,14 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
         <h1>Panel Administratora</h1>
     </div>
     ";
-        // line 194
+        // line 196
         $this->displayBlock('navigation', $context, $blocks);
-        // line 216
+        // line 218
         echo "    <div class=\"main\">
         ";
-        // line 217
+        // line 219
         $this->displayBlock('content', $context, $blocks);
-        // line 220
+        // line 222
         echo "    </div>
 
     </body>
@@ -326,7 +324,7 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
 
     }
 
-    // line 194
+    // line 196
     public function block_navigation($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -336,7 +334,7 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navigation"));
 
-        // line 195
+        // line 197
         echo "
         <div class=\"wrapper\">
             <a href=\"admin/subusers\">
@@ -366,7 +364,7 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
 
     }
 
-    // line 217
+    // line 219
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -376,9 +374,9 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
 
-        // line 218
+        // line 220
         echo "            ";
-        // line 219
+        // line 221
         echo "        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -395,7 +393,7 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
 
     public function getDebugInfo()
     {
-        return array (  382 => 219,  380 => 218,  370 => 217,  340 => 195,  330 => 194,  316 => 220,  314 => 217,  311 => 216,  309 => 194,  301 => 189,  295 => 185,  285 => 184,  104 => 12,  94 => 11,  75 => 9,  65 => 184,  63 => 11,  58 => 9,  48 => 1,);
+        return array (  380 => 221,  378 => 220,  368 => 219,  338 => 197,  328 => 196,  314 => 222,  312 => 219,  309 => 218,  307 => 196,  299 => 191,  293 => 187,  283 => 186,  242 => 154,  174 => 85,  149 => 59,  108 => 17,  104 => 12,  94 => 11,  75 => 9,  65 => 186,  63 => 11,  58 => 9,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -412,41 +410,14 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
 </head>
 {% block stylesheets %}
     <style>
+
+        {#======================
+                 Global
+        ======================#}
+
         body {
             color: white;
             background-color: #141414;
-        }
-
-        .main {
-            margin-top: 150px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            align-content: center;
-            justify-content: center;
-            gap: 30px;
-        }
-
-        .profileButton {
-            color: gray;
-            padding: .5em 1.5em;
-            letter-spacing: 2px;
-            cursor: pointer;
-            background-color: transparent;
-            border: 1px solid grey;
-            text-decoration: none;
-
-        }
-
-        .table {
-            /*margin-top: 100px;*/
-            width: 1000px;
-            color: white;
-            flex-direction: column;
-        }
-
-        .tbody {
-            /*display: flex;*/
         }
 
         h1 {
@@ -462,6 +433,30 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
             padding: 20px;
         }
 
+        h1 {
+            font-weight: 10;
+            width: 100%;
+            justify-content: center;
+            vertical-align: center;
+            position: absolute;
+            top: 0;
+        }
+
+        h2 {
+            color: white;
+        }
+
+        ul {
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+            text-align: center;
+        }
+        {#======================
+                Navigation
+        ======================#}
+
         .logo {
             margin-left: 25px;
             margin-top: 10px;
@@ -470,14 +465,6 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
             display: inline-block;
             height: 60%;
             justify-content: center;
-
-        }
-
-        #buttonDiv {
-            align-items: center;
-            text-align: center;
-            width: 100%;
-            margin-top: 20px;
         }
 
         .brandLogoWrapper {
@@ -492,31 +479,25 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
             height: 5vh;
         }
 
-        h1 {
-            font-weight: 10;
+        {#======================
+                Buttons
+        ======================#}
+
+        .profileButton {
+            color: gray;
+            padding: .5em 1.5em;
+            letter-spacing: 2px;
+            cursor: pointer;
+            background-color: transparent;
+            border: 1px solid grey;
+            text-decoration: none;
+        }
+
+        #buttonDiv {
+            align-items: center;
+            text-align: center;
             width: 100%;
-            justify-content: center;
-            vertical-align: center;
-            position: absolute;
-            top: 0;
-            /*left:50%;*/
-        }
-
-        h2 {
-            color: white;
-        }
-
-        ul {
-            padding: 0;
-        }
-
-        .wrapper {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 130px;
-            gap: 70px;
+            margin-top: 20px;
         }
 
         .adminOption {
@@ -527,12 +508,10 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
             padding: 5em 1.5em;
             letter-spacing: 2px;
             cursor: pointer;
-            /*background-color: transparent;*/
             border-radius: 20px;
             border: 1px solid grey;
             text-decoration: none;
             position: relative;
-            /*box-shadow: 5px 2px 2px gray;*/
             background-color: #7f5a83;
             background-image: linear-gradient(315deg, black 0%, #141414 74%);
 
@@ -560,15 +539,6 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
             transition: all 0.4s ease-in-out;
         }
 
-        a {
-            text-decoration: none;
-            text-align: center;
-        }
-
-        .optionImage {
-            font-size: 42px;
-        }
-
         .deleteButton {
             color: red;
             padding: .5em 1.5em;
@@ -578,8 +548,38 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
             border: 1px solid red;
             text-decoration: none;
         }
+        {#======================
+                Content
+        ======================#}
+
+        .main {
+            margin-top: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            gap: 30px;
+        }
+
         .table {
-           margin: 0;
+            width: 1000px;
+            color: white;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 130px;
+            gap: 70px;
+        }
+
+        .optionImage {
+            font-size: 42px;
         }
     </style>
 {% endblock %}

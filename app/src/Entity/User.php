@@ -111,10 +111,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setRoles(array $roles): self
     {
         $roles = empty($roles) ? ['ROLE_USER'] : $roles;
-
-//        if (empty($roles)) {
-//            $roles = ['ROLE_USER'];
-//        }
         $this->roles = $roles;
 
         return $this;
@@ -152,31 +148,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
-
-//    /**
-//     * @return Collection|Movie[]
-//     */
-//    public function getLikes(): Collection
-//    {
-//        return $this->likes;
-//    }
-//
-//    public function addLike(Movie $like): self
-//    {
-//        if (!$this->likes->contains($like)) {
-//            $this->likes[] = $like;
-//        }
-//        return $this;
-//    }
-
-//    public function removeLike(Movie $like): self
-//    {
-//        if ($this->likes->contains($like)) {
-//            $this->likes->removeElement($like);
-//        }
-//
-//        return $this;
-//    }
 
     public function isVerified(): bool
     {
