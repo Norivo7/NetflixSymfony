@@ -119,13 +119,19 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
         echo "
     <nav>
         <div class=\"brandLogoWrapper\">
-            <a class=\"logo\" href=\"/\" target=\"_parent\">
+            <a class=\"logo\" href=\"";
+        // line 17
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
+        echo "\" target=\"_parent\">
                 <img class=\"logo\" src=\"";
         // line 18
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/netflixLogoSmall.svg.png"), "html", null, true);
         echo "\" alt=\"av1\"/>
             </a>
-            <a class=\"login\" href=\"/login\">Zaloguj się</a>
+            <a class=\"login\" href=\"";
+        // line 20
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+        echo "\">Zaloguj się</a>
         </div>
     </nav>
     <hr>
@@ -228,7 +234,7 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
     <hr>
     ";
         // line 51
-        $this->loadTemplate("registration/register.html.twig", "registration/register.html.twig", 51, "1863272051")->display($context);
+        $this->loadTemplate("registration/register.html.twig", "registration/register.html.twig", 51, "2124921133")->display($context);
         // line 52
         echo "</div>
 
@@ -332,7 +338,7 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
 
     public function getDebugInfo()
     {
-        return array (  273 => 77,  259 => 62,  255 => 57,  245 => 56,  233 => 52,  231 => 51,  226 => 48,  216 => 47,  202 => 42,  197 => 40,  193 => 39,  189 => 38,  185 => 37,  181 => 36,  177 => 35,  173 => 34,  170 => 33,  161 => 31,  157 => 30,  153 => 28,  143 => 27,  125 => 18,  119 => 14,  109 => 13,  91 => 3,  81 => 2,  71 => 56,  68 => 55,  66 => 47,  63 => 46,  61 => 27,  58 => 26,  56 => 13,  53 => 12,  51 => 2,  48 => 1,);
+        return array (  279 => 77,  265 => 62,  261 => 57,  251 => 56,  239 => 52,  237 => 51,  232 => 48,  222 => 47,  208 => 42,  203 => 40,  199 => 39,  195 => 38,  191 => 37,  187 => 36,  183 => 35,  179 => 34,  176 => 33,  167 => 31,  163 => 30,  159 => 28,  149 => 27,  133 => 20,  128 => 18,  124 => 17,  119 => 14,  109 => 13,  91 => 3,  81 => 2,  71 => 56,  68 => 55,  66 => 47,  63 => 46,  61 => 27,  58 => 26,  56 => 13,  53 => 12,  51 => 2,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -353,10 +359,10 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
 
     <nav>
         <div class=\"brandLogoWrapper\">
-            <a class=\"logo\" href=\"/\" target=\"_parent\">
+            <a class=\"logo\" href=\"{{ path('home') }}\" target=\"_parent\">
                 <img class=\"logo\" src=\"{{ asset('images/netflixLogoSmall.svg.png') }}\" alt=\"av1\"/>
             </a>
-            <a class=\"login\" href=\"/login\">Zaloguj się</a>
+            <a class=\"login\" href=\"{{ path('app_login') }}\">Zaloguj się</a>
         </div>
     </nav>
     <hr>
@@ -465,7 +471,7 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
 
 
 /* registration/register.html.twig */
-class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db93298___1863272051 extends Template
+class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db93298___2124921133 extends Template
 {
     private $source;
     private $macros = [];
@@ -517,7 +523,7 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
 
     public function getDebugInfo()
     {
-        return array (  486 => 51,  273 => 77,  259 => 62,  255 => 57,  245 => 56,  233 => 52,  231 => 51,  226 => 48,  216 => 47,  202 => 42,  197 => 40,  193 => 39,  189 => 38,  185 => 37,  181 => 36,  177 => 35,  173 => 34,  170 => 33,  161 => 31,  157 => 30,  153 => 28,  143 => 27,  125 => 18,  119 => 14,  109 => 13,  91 => 3,  81 => 2,  71 => 56,  68 => 55,  66 => 47,  63 => 46,  61 => 27,  58 => 26,  56 => 13,  53 => 12,  51 => 2,  48 => 1,);
+        return array (  492 => 51,  279 => 77,  265 => 62,  261 => 57,  251 => 56,  239 => 52,  237 => 51,  232 => 48,  222 => 47,  208 => 42,  203 => 40,  199 => 39,  195 => 38,  191 => 37,  187 => 36,  183 => 35,  179 => 34,  176 => 33,  167 => 31,  163 => 30,  159 => 28,  149 => 27,  133 => 20,  128 => 18,  124 => 17,  119 => 14,  109 => 13,  91 => 3,  81 => 2,  71 => 56,  68 => 55,  66 => 47,  63 => 46,  61 => 27,  58 => 26,  56 => 13,  53 => 12,  51 => 2,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -538,10 +544,10 @@ class __TwigTemplate_e858d50835e10fd9855101bbedb5294833b853c7e89d614c6254e4e24db
 
     <nav>
         <div class=\"brandLogoWrapper\">
-            <a class=\"logo\" href=\"/\" target=\"_parent\">
+            <a class=\"logo\" href=\"{{ path('home') }}\" target=\"_parent\">
                 <img class=\"logo\" src=\"{{ asset('images/netflixLogoSmall.svg.png') }}\" alt=\"av1\"/>
             </a>
-            <a class=\"login\" href=\"/login\">Zaloguj się</a>
+            <a class=\"login\" href=\"{{ path('app_login') }}\">Zaloguj się</a>
         </div>
     </nav>
     <hr>

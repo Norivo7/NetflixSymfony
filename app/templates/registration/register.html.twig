@@ -14,10 +14,10 @@
 
     <nav>
         <div class="brandLogoWrapper">
-            <a class="logo" href="/" target="_parent">
+            <a class="logo" href="{{ path('home') }}" target="_parent">
                 <img class="logo" src="{{ asset('images/netflixLogoSmall.svg.png') }}" alt="av1"/>
             </a>
-            <a class="login" href="/login">Zaloguj się</a>
+            <a class="login" href="{{ path('app_login') }}">Zaloguj się</a>
         </div>
     </nav>
     <hr>

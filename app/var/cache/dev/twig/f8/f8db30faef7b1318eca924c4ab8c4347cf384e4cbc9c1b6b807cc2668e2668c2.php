@@ -91,7 +91,10 @@ class __TwigTemplate_4c3429a81403940e7c5f59dc027eec62a8d487e507414cb9fc663d20c82
         // line 6
         echo "    <div class=\"navbar\">
         <div class=\"brandLogoWrapper\">
-            <a class=\"logo\" href=\"/browse\" target=\"_parent\">
+            <a class=\"logo\" href=\"";
+        // line 8
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("browse");
+        echo "\" target=\"_parent\">
                 <img class=\"logo\" src=\"";
         // line 9
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/netflixLogoSmall.svg.png"), "html", null, true);
@@ -284,7 +287,7 @@ class __TwigTemplate_4c3429a81403940e7c5f59dc027eec62a8d487e507414cb9fc663d20c82
 
     public function getDebugInfo()
     {
-        return array (  245 => 81,  233 => 68,  225 => 59,  218 => 53,  208 => 52,  194 => 47,  186 => 42,  181 => 41,  173 => 36,  168 => 35,  166 => 34,  161 => 31,  152 => 29,  148 => 28,  143 => 26,  139 => 25,  135 => 24,  128 => 20,  122 => 16,  112 => 15,  97 => 9,  92 => 6,  82 => 5,  61 => 3,  38 => 1,);
+        return array (  248 => 81,  236 => 68,  228 => 59,  221 => 53,  211 => 52,  197 => 47,  189 => 42,  184 => 41,  176 => 36,  171 => 35,  169 => 34,  164 => 31,  155 => 29,  151 => 28,  146 => 26,  142 => 25,  138 => 24,  131 => 20,  125 => 16,  115 => 15,  100 => 9,  96 => 8,  92 => 6,  82 => 5,  61 => 3,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -296,7 +299,7 @@ class __TwigTemplate_4c3429a81403940e7c5f59dc027eec62a8d487e507414cb9fc663d20c82
 {% block navigation %}
     <div class=\"navbar\">
         <div class=\"brandLogoWrapper\">
-            <a class=\"logo\" href=\"/browse\" target=\"_parent\">
+            <a class=\"logo\" href=\"{{ path('browse') }}\" target=\"_parent\">
                 <img class=\"logo\" src=\"{{ asset('images/netflixLogoSmall.svg.png') }}\" alt=\"av1\"/>
             </a>
         </div>

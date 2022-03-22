@@ -13,7 +13,7 @@
                      {% endif %}
 
                      {% for movie in movies %}
-                         <a class="movie-hero" href="/show/{{ movie.id }}">
+                         <a class="movie-hero" href="{{ path('show-one', {'id': movie.id}) }}">
                              <img class="movie-hero-image" src="{{ movie.img }}" alt="{{ movie.title }} jacket">
                          </a>
                      {% endfor %}

@@ -132,7 +132,10 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
         // line 13
         echo "    <div id=\"headerContainer\">
         <div class=\"brandLogoWrapper\">
-            <a class=\"logo\" href=\"/\" target=\"_parent\">
+            <a class=\"logo\" href=\"";
+        // line 15
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
+        echo "\" target=\"_parent\">
                 <img class=\"logo\" src=\"";
         // line 16
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/netflixLogo.svg.png"), "html", null, true);
@@ -236,12 +239,18 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
             </div>
             <div id=\"buttonDiv\">
                 <a>
-                    <a class=\"profileButton\" href=\"/manageUser\">Zarządzaj profilami</a>
+                    <a class=\"profileButton\" href=\"";
+        // line 69
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("manageUser");
+        echo "\">Zarządzaj profilami</a>
                 </a>
             </div>
             <div id=\"buttonDiv\">
                 <a>
-                    <a class=\"profileButton\" href=\"/\">Wróć</a>
+                    <a class=\"profileButton\" href=\"";
+        // line 74
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
+        echo "\">Wróć</a>
                 </a>
             </div>
         </div>
@@ -324,7 +333,7 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
 
     public function getDebugInfo()
     {
-        return array (  296 => 111,  275 => 89,  270 => 83,  260 => 82,  235 => 65,  229 => 64,  227 => 63,  220 => 59,  214 => 56,  203 => 48,  199 => 47,  188 => 39,  178 => 31,  173 => 30,  171 => 29,  163 => 23,  153 => 22,  138 => 16,  133 => 13,  123 => 12,  104 => 10,  88 => 2,  78 => 1,  68 => 82,  65 => 81,  63 => 22,  60 => 21,  58 => 12,  55 => 11,  53 => 10,  50 => 9,  48 => 1,);
+        return array (  305 => 111,  284 => 89,  279 => 83,  269 => 82,  252 => 74,  244 => 69,  238 => 65,  232 => 64,  230 => 63,  223 => 59,  217 => 56,  206 => 48,  202 => 47,  191 => 39,  181 => 31,  176 => 30,  174 => 29,  166 => 23,  156 => 22,  141 => 16,  137 => 15,  133 => 13,  123 => 12,  104 => 10,  88 => 2,  78 => 1,  68 => 82,  65 => 81,  63 => 22,  60 => 21,  58 => 12,  55 => 11,  53 => 10,  50 => 9,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -343,7 +352,7 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
 {% block header %}
     <div id=\"headerContainer\">
         <div class=\"brandLogoWrapper\">
-            <a class=\"logo\" href=\"/\" target=\"_parent\">
+            <a class=\"logo\" href=\"{{ path('home') }}\" target=\"_parent\">
                 <img class=\"logo\" src=\"{{ asset('images/netflixLogo.svg.png') }}\" alt=\"av1\"/>
             </a>
         </div>
@@ -397,12 +406,12 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
             </div>
             <div id=\"buttonDiv\">
                 <a>
-                    <a class=\"profileButton\" href=\"/manageUser\">Zarządzaj profilami</a>
+                    <a class=\"profileButton\" href=\"{{ path('manageUser') }}\">Zarządzaj profilami</a>
                 </a>
             </div>
             <div id=\"buttonDiv\">
                 <a>
-                    <a class=\"profileButton\" href=\"/\">Wróć</a>
+                    <a class=\"profileButton\" href=\"{{ path('home') }}\">Wróć</a>
                 </a>
             </div>
         </div>

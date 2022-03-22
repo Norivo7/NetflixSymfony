@@ -187,7 +187,7 @@
     <body>
     <div id="headerContainer">
         <div class="brandLogoWrapper">
-            <a class="logo" href="/" target="_parent">
+            <a class="logo" href="{{ path('home') }}" target="_parent">
                 <img class="logo" src="{{ asset('images/netflixLogo.svg.png') }}" alt="av1"/>
             </a>
         </div>
@@ -196,20 +196,20 @@
     {% block navigation %}
 
         <div class="wrapper">
-            <a href="admin/subusers">
+            <a href="{{ path('subuser_crud_index') }}">
                 <div class="adminOption"><i class="optionImage bi bi-person-lines-fill"></i>Profile Użytkowników</div>
             </a>
-            <a href="admin/movies">
+            <a href="{{ path('app_movie_crud_index') }}">
                 <div class="adminOption"><i class="optionImage bi bi-film"></i>Filmy</div>
             </a>
-            <a href="admin/users">
+            <a href="{{ path('app_user_crud_index') }}">
                 <div class="adminOption"><i class="optionImage bi bi-people-fill"></i>Użytkownicy</div>
             </a>
-            <a href="admin/subusers">
+            <a href="{{ path('subuser_crud_index') }}">
                 <div class="adminOption"><i class="optionImage bi bi-gear-fill"></i>Ustawienia</div>
             </a>
 
-            <a href="/">
+            <a href="{{ path('home') }}">
                 <div class="adminOption"><i class="optionImage bi bi-x-lg"></i>Wróć</div>
             </a>
         </div>

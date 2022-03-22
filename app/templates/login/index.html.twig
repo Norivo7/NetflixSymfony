@@ -1,7 +1,7 @@
 
 <head>
     {% block title %}<title> Zaloguj się - Netflix</title>{% endblock %}
-    <a class="logo" href="/" target="_parent">
+    <a class="logo" href="{{ path('home') }}" target="_parent">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png"
              style="vertical-align:middle;margin:20px 50px;width: 167px; height: 45px" alt="netflixLogo">
     </a>
@@ -35,7 +35,7 @@
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
             <button class="login__sign-in" type="submit">Zaloguj się</button>
             <div class="login__secondary-cta">
-                <a class="login__secondary-cta__text" href="/register">Zarejestruj się</a>
+                <a class="login__secondary-cta__text" href="{{ path('app_register') }}">Zarejestruj się</a>
                 <a class="login__secondary-cta__text login__secondary-cta__text--need-help" href="#">Potrzebujesz
                     pomocy?</a>
             </div>

@@ -12,7 +12,7 @@
 {% block header %}
     <div id="headerContainer">
         <div class="brandLogoWrapper">
-            <a class="logo" href="/" target="_parent">
+            <a class="logo" href="{{ path('home') }}" target="_parent">
                 <img class="logo" src="{{ asset('images/netflixLogo.svg.png') }}" alt="av1"/>
             </a>
         </div>
@@ -66,12 +66,12 @@
             </div>
             <div id="buttonDiv">
                 <a>
-                    <a class="profileButton" href="/manageUser">Zarządzaj profilami</a>
+                    <a class="profileButton" href="{{ path('manageUser') }}">Zarządzaj profilami</a>
                 </a>
             </div>
             <div id="buttonDiv">
                 <a>
-                    <a class="profileButton" href="/">Wróć</a>
+                    <a class="profileButton" href="{{ path('home') }}">Wróć</a>
                 </a>
             </div>
         </div>

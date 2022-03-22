@@ -105,7 +105,10 @@ class __TwigTemplate_3c6d76b427e1983ca08d9f501245772efa7823755347a0b63c98b631767
         // line 13
         echo "    <div id=\"headerContainer\">
         <div class=\"brandLogoWrapper\">
-            <a class=\"logo\" href=\"/\" target=\"_parent\">
+            <a class=\"logo\" href=\"";
+        // line 15
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
+        echo "\" target=\"_parent\">
                 <img class=\"logo\" src=\"";
         // line 16
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/netflixLogo.svg.png"), "html", null, true);
@@ -199,7 +202,10 @@ class __TwigTemplate_3c6d76b427e1983ca08d9f501245772efa7823755347a0b63c98b631767
             echo "                    </li>
 
                     <li class=\"profile\">
-                        <div class=\"add\"><a href=\"manageUser/add\" class=\"plus\">
+                        <div class=\"add\"><a href=\"";
+            // line 74
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_subuser");
+            echo "\" class=\"plus\">
                                 <i class=\"bi bi-plus-square\" style=\"font-size: 180px;\"></i></a>
                         </div>
                     </li>
@@ -210,7 +216,10 @@ class __TwigTemplate_3c6d76b427e1983ca08d9f501245772efa7823755347a0b63c98b631767
             </div>
             <div id=\"buttonDiv\">
                 <a>
-                    <a class=\"profileButton\" href=\"/chooseUser\">Gotowe</a>
+                    <a class=\"profileButton\" href=\"";
+        // line 83
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("chooseUser");
+        echo "\">Gotowe</a>
                 </a>
             </div>
         </div>
@@ -395,7 +404,7 @@ class __TwigTemplate_3c6d76b427e1983ca08d9f501245772efa7823755347a0b63c98b631767
 
     public function getDebugInfo()
     {
-        return array (  302 => 158,  285 => 140,  246 => 100,  241 => 94,  231 => 93,  209 => 79,  199 => 71,  196 => 70,  190 => 69,  188 => 68,  183 => 66,  169 => 55,  158 => 47,  154 => 46,  143 => 38,  132 => 29,  127 => 28,  125 => 27,  111 => 16,  106 => 13,  96 => 12,  77 => 10,  67 => 93,  64 => 92,  62 => 12,  59 => 11,  57 => 10,  46 => 1,);
+        return array (  311 => 158,  294 => 140,  255 => 100,  250 => 94,  240 => 93,  221 => 83,  215 => 79,  207 => 74,  202 => 71,  199 => 70,  193 => 69,  191 => 68,  186 => 66,  172 => 55,  161 => 47,  157 => 46,  146 => 38,  135 => 29,  130 => 28,  128 => 27,  114 => 16,  110 => 15,  106 => 13,  96 => 12,  77 => 10,  67 => 93,  64 => 92,  62 => 12,  59 => 11,  57 => 10,  46 => 1,);
     }
 
     public function getSourceContext()
@@ -414,7 +423,7 @@ class __TwigTemplate_3c6d76b427e1983ca08d9f501245772efa7823755347a0b63c98b631767
 {% block body %}
     <div id=\"headerContainer\">
         <div class=\"brandLogoWrapper\">
-            <a class=\"logo\" href=\"/\" target=\"_parent\">
+            <a class=\"logo\" href=\"{{ path('home') }}\" target=\"_parent\">
                 <img class=\"logo\" src=\"{{ asset('images/netflixLogo.svg.png') }}\" alt=\"av1\"/>
             </a>
         </div>
@@ -473,7 +482,7 @@ class __TwigTemplate_3c6d76b427e1983ca08d9f501245772efa7823755347a0b63c98b631767
                     </li>
 
                     <li class=\"profile\">
-                        <div class=\"add\"><a href=\"manageUser/add\" class=\"plus\">
+                        <div class=\"add\"><a href=\"{{ path('add_subuser') }}\" class=\"plus\">
                                 <i class=\"bi bi-plus-square\" style=\"font-size: 180px;\"></i></a>
                         </div>
                     </li>
@@ -482,7 +491,7 @@ class __TwigTemplate_3c6d76b427e1983ca08d9f501245772efa7823755347a0b63c98b631767
             </div>
             <div id=\"buttonDiv\">
                 <a>
-                    <a class=\"profileButton\" href=\"/chooseUser\">Gotowe</a>
+                    <a class=\"profileButton\" href=\"{{ path('chooseUser') }}\">Gotowe</a>
                 </a>
             </div>
         </div>

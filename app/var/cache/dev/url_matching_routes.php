@@ -38,7 +38,7 @@ return [
         '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
         '/verify/email' => [[['_route' => 'app_verify_email', '_controller' => 'App\\Controller\\RegistrationController::verifyUserEmail'], null, null, null, false, false, null]],
         '/chooseUser' => [[['_route' => 'chooseUser', '_controller' => 'App\\Controller\\SubuserController::chooseUser'], null, null, null, false, false, null]],
-        '/manageUser/add' => [[['_route' => 'app_subuser_addsubuser', '_controller' => 'App\\Controller\\SubuserController::addSubuser'], null, null, null, false, false, null]],
+        '/manageUser/add' => [[['_route' => 'add_subuser', '_controller' => 'App\\Controller\\SubuserController::addSubuser'], null, null, null, false, false, null]],
         '/manageUser/edit' => [[['_route' => 'edit', '_controller' => 'App\\Controller\\SubuserController::edit'], null, null, null, false, false, null]],
         '/manageUser' => [[['_route' => 'manageUser', '_controller' => 'App\\Controller\\SubuserController::manageUser'], null, null, null, false, false, null]],
         '/success' => [[['_route' => 'success', '_controller' => 'App\\Controller\\SubuserController::success'], null, null, null, false, false, null]],

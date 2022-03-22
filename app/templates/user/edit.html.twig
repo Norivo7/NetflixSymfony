@@ -72,14 +72,14 @@
                             <a class="profileButton" onclick="document.getElementById('myForm').submit()">Zapisz</a>
                         </div>
                         <div>
-                            <a href="/manageUser" class="profileButton">
+                            <a href="{{ path('manageUser') }}" class="profileButton">
                                 Anuluj
                             </a>
                         </div>
                         {% if id != 0 %}
                         <form method="post">
                             <div class="deleteBtnContainer">
-                                <a class="deleteButton" href="/manageUser/delete/{{ id }}">
+                                <a class="deleteButton" href="{{ path('deleteSubuser', {'id': id}) }}">
                                     Usuń
                                 </a>
                             </div>

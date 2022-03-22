@@ -14,11 +14,11 @@
 {% block navigation %}
     <div id="headerContainer">
         <div class="brandLogoWrapper">
-            <a class="logo" href="/" target="_parent">
+            <a class="logo" href="{{ path('home') }}" target="_parent">
                 <img class="logo" src="{{ asset('images/netflixLogo.svg.png') }}" alt="av1"/>
             </a>
         </div>
-        <a class="avatar" href="/browse">
+        <a class="avatar" href="{{ path('browse') }}">
             <img class="userAvatar" src="{{ userAvatar }}" alt="avatar"></a>
     </div>
 {% endblock %}

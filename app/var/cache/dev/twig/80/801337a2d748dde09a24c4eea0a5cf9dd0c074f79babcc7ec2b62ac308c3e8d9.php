@@ -90,8 +90,8 @@ class __TwigTemplate_7054c61692d20a322ddc13f19705773293abcc6b4d845a2be19c089e33e
             $context['_seq'] = twig_ensure_traversable((isset($context["movies"]) || array_key_exists("movies", $context) ? $context["movies"] : (function () { throw new RuntimeError('Variable "movies" does not exist.', 15, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["movie"]) {
                 // line 16
-                echo "                         <a class=\"movie-hero\" href=\"/show/";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 16), "html", null, true);
+                echo "                         <a class=\"movie-hero\" href=\"";
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show-one", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 16)]), "html", null, true);
                 echo "\">
                              <img class=\"movie-hero-image\" src=\"";
                 // line 17
@@ -160,7 +160,7 @@ class __TwigTemplate_7054c61692d20a322ddc13f19705773293abcc6b4d845a2be19c089e33e
                      {% endif %}
 
                      {% for movie in movies %}
-                         <a class=\"movie-hero\" href=\"/show/{{ movie.id }}\">
+                         <a class=\"movie-hero\" href=\"{{ path('show-one', {'id': movie.id}) }}\">
                              <img class=\"movie-hero-image\" src=\"{{ movie.img }}\" alt=\"{{ movie.title }} jacket\">
                          </a>
                      {% endfor %}

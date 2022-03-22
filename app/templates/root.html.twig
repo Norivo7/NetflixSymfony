@@ -25,7 +25,7 @@
     <div class="concord-img-wrapper">
         <nav class="navbar">
             <div class="brandLogoWrapper">
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="{{ path('home') }}">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png"
                          width="167" height="45" style="vertical-align:middle;margin:20px 50px" alt="netflixLogo"/>
                 </a>
@@ -39,7 +39,7 @@
                 </div>
 
                 {% if is_granted('ROLE_ADMIN') %}
-                    <a href="/admin">
+                    <a href="{{ path('admin_panel') }}">
                         <button type="button" class="buttonLogin">
                             <i class="bi bi-wrench-adjustable-circle"></i>
                             Panel Administratora
@@ -47,7 +47,7 @@
                     </a>
                 {% endif %}
 
-                <a href="/login">
+                <a href="{{ path('app_login') }}">
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         <button type="button" class="buttonLogin">
                             Przejdź dalej
@@ -76,7 +76,7 @@
                     <label for="fname">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
                         konto. </label>
                     <input class="emailInput" type="text" id="email" name="email">
-                    <button type="button" class="buttonSubmit"><a class="button" href="/register">Rozpocznij</a>
+                    <button type="button" class="buttonSubmit"><a class="button" href="{{ path('app_register') }}">Rozpocznij</a>
                     </button>
                 </form>
             </div>

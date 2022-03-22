@@ -50,7 +50,7 @@ return [
     'app_register' => [[], ['_controller' => 'App\\Controller\\RegistrationController::register'], [], [['text', '/register']], [], [], []],
     'app_verify_email' => [[], ['_controller' => 'App\\Controller\\RegistrationController::verifyUserEmail'], [], [['text', '/verify/email']], [], [], []],
     'chooseUser' => [[], ['_controller' => 'App\\Controller\\SubuserController::chooseUser'], [], [['text', '/chooseUser']], [], [], []],
-    'app_subuser_addsubuser' => [[], ['_controller' => 'App\\Controller\\SubuserController::addSubuser'], [], [['text', '/manageUser/add']], [], [], []],
+    'add_subuser' => [[], ['_controller' => 'App\\Controller\\SubuserController::addSubuser'], [], [['text', '/manageUser/add']], [], [], []],
     'edit' => [[], ['_controller' => 'App\\Controller\\SubuserController::edit'], [], [['text', '/manageUser/edit']], [], [], []],
     'deleteSubuser' => [['id'], ['_controller' => 'App\\Controller\\SubuserController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/manageUser/delete']], [], [], []],
     'update' => [['id'], ['_controller' => 'App\\Controller\\SubuserController::update'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/manageUser/update']], [], [], []],

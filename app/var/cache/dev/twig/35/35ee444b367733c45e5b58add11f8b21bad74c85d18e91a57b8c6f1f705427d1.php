@@ -196,7 +196,10 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
                             <a class=\"profileButton\" onclick=\"document.getElementById('myForm').submit()\">Zapisz</a>
                         </div>
                         <div>
-                            <a href=\"/manageUser\" class=\"profileButton\">
+                            <a href=\"";
+            // line 75
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("manageUser");
+            echo "\" class=\"profileButton\">
                                 Anuluj
                             </a>
                         </div>
@@ -206,9 +209,9 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
                 // line 80
                 echo "                        <form method=\"post\">
                             <div class=\"deleteBtnContainer\">
-                                <a class=\"deleteButton\" href=\"/manageUser/delete/";
+                                <a class=\"deleteButton\" href=\"";
                 // line 82
-                echo twig_escape_filter($this->env, (isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 82, $this->source); })()), "html", null, true);
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("deleteSubuser", ["id" => (isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 82, $this->source); })())]), "html", null, true);
                 echo "\">
                                     Usuń
                                 </a>
@@ -477,7 +480,7 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
 
     public function getDebugInfo()
     {
-        return array (  372 => 225,  347 => 199,  315 => 166,  252 => 102,  248 => 97,  238 => 96,  226 => 92,  220 => 88,  211 => 82,  207 => 80,  205 => 79,  166 => 42,  160 => 40,  158 => 39,  154 => 38,  144 => 31,  138 => 28,  128 => 20,  126 => 19,  122 => 17,  112 => 16,  93 => 6,  76 => 7,  74 => 6,  71 => 5,  61 => 4,  38 => 1,);
+        return array (  375 => 225,  350 => 199,  318 => 166,  255 => 102,  251 => 97,  241 => 96,  229 => 92,  223 => 88,  214 => 82,  210 => 80,  208 => 79,  201 => 75,  166 => 42,  160 => 40,  158 => 39,  154 => 38,  144 => 31,  138 => 28,  128 => 20,  126 => 19,  122 => 17,  112 => 16,  93 => 6,  76 => 7,  74 => 6,  71 => 5,  61 => 4,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -556,14 +559,14 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
                             <a class=\"profileButton\" onclick=\"document.getElementById('myForm').submit()\">Zapisz</a>
                         </div>
                         <div>
-                            <a href=\"/manageUser\" class=\"profileButton\">
+                            <a href=\"{{ path('manageUser') }}\" class=\"profileButton\">
                                 Anuluj
                             </a>
                         </div>
                         {% if id != 0 %}
                         <form method=\"post\">
                             <div class=\"deleteBtnContainer\">
-                                <a class=\"deleteButton\" href=\"/manageUser/delete/{{ id }}\">
+                                <a class=\"deleteButton\" href=\"{{ path('deleteSubuser', {'id': id}) }}\">
                                     Usuń
                                 </a>
                             </div>

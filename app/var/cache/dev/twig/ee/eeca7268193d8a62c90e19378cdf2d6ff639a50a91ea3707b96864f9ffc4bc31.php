@@ -66,7 +66,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
         echo "
 ";
         // line 284
-        $this->loadTemplate("root.html.twig", "root.html.twig", 284, "838344300")->display($context);
+        $this->loadTemplate("root.html.twig", "root.html.twig", 284, "624288646")->display($context);
         // line 285
         echo "</html>
 ";
@@ -172,7 +172,10 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
     <div class=\"concord-img-wrapper\">
         <nav class=\"navbar\">
             <div class=\"brandLogoWrapper\">
-                <a class=\"navbar-brand\" href=\"/\">
+                <a class=\"navbar-brand\" href=\"";
+        // line 28
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
+        echo "\">
                     <img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png\"
                          width=\"167\" height=\"45\" style=\"vertical-align:middle;margin:20px 50px\" alt=\"netflixLogo\"/>
                 </a>
@@ -189,7 +192,9 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
         // line 41
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
             // line 42
-            echo "                    <a href=\"/admin\">
+            echo "                    <a href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_panel");
+            echo "\">
                         <button type=\"button\" class=\"buttonLogin\">
                             <i class=\"bi bi-wrench-adjustable-circle\"></i>
                             Panel Administratora
@@ -199,7 +204,10 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
         }
         // line 49
         echo "
-                <a href=\"/login\">
+                <a href=\"";
+        // line 50
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+        echo "\">
                     ";
         // line 51
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
@@ -244,7 +252,10 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
                     <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
                         konto. </label>
                     <input class=\"emailInput\" type=\"text\" id=\"email\" name=\"email\">
-                    <button type=\"button\" class=\"buttonSubmit\"><a class=\"button\" href=\"/register\">Rozpocznij</a>
+                    <button type=\"button\" class=\"buttonSubmit\"><a class=\"button\" href=\"";
+        // line 79
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
+        echo "\">Rozpocznij</a>
                     </button>
                 </form>
             </div>
@@ -484,7 +495,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
     public function getDebugInfo()
     {
-        return array (  461 => 277,  449 => 264,  404 => 218,  397 => 212,  387 => 211,  239 => 71,  235 => 69,  229 => 67,  227 => 66,  219 => 60,  213 => 56,  207 => 52,  205 => 51,  201 => 49,  192 => 42,  190 => 41,  171 => 24,  161 => 23,  148 => 20,  138 => 19,  119 => 7,  101 => 8,  99 => 7,  92 => 2,  82 => 1,  71 => 285,  69 => 284,  66 => 283,  64 => 211,  61 => 210,  59 => 23,  56 => 22,  54 => 19,  50 => 17,  48 => 1,);
+        return array (  472 => 277,  460 => 264,  415 => 218,  408 => 212,  398 => 211,  257 => 79,  247 => 71,  243 => 69,  237 => 67,  235 => 66,  227 => 60,  221 => 56,  215 => 52,  213 => 51,  209 => 50,  206 => 49,  195 => 42,  193 => 41,  177 => 28,  171 => 24,  161 => 23,  148 => 20,  138 => 19,  119 => 7,  101 => 8,  99 => 7,  92 => 2,  82 => 1,  71 => 285,  69 => 284,  66 => 283,  64 => 211,  61 => 210,  59 => 23,  56 => 22,  54 => 19,  50 => 17,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -516,7 +527,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
     <div class=\"concord-img-wrapper\">
         <nav class=\"navbar\">
             <div class=\"brandLogoWrapper\">
-                <a class=\"navbar-brand\" href=\"/\">
+                <a class=\"navbar-brand\" href=\"{{ path('home') }}\">
                     <img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png\"
                          width=\"167\" height=\"45\" style=\"vertical-align:middle;margin:20px 50px\" alt=\"netflixLogo\"/>
                 </a>
@@ -530,7 +541,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
                 </div>
 
                 {% if is_granted('ROLE_ADMIN') %}
-                    <a href=\"/admin\">
+                    <a href=\"{{ path('admin_panel') }}\">
                         <button type=\"button\" class=\"buttonLogin\">
                             <i class=\"bi bi-wrench-adjustable-circle\"></i>
                             Panel Administratora
@@ -538,7 +549,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
                     </a>
                 {% endif %}
 
-                <a href=\"/login\">
+                <a href=\"{{ path('app_login') }}\">
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         <button type=\"button\" class=\"buttonLogin\">
                             Przejdź dalej
@@ -567,7 +578,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
                     <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
                         konto. </label>
                     <input class=\"emailInput\" type=\"text\" id=\"email\" name=\"email\">
-                    <button type=\"button\" class=\"buttonSubmit\"><a class=\"button\" href=\"/register\">Rozpocznij</a>
+                    <button type=\"button\" class=\"buttonSubmit\"><a class=\"button\" href=\"{{ path('app_register') }}\">Rozpocznij</a>
                     </button>
                 </form>
             </div>
@@ -780,7 +791,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
 
 /* root.html.twig */
-class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b722b0d___838344300 extends Template
+class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b722b0d___624288646 extends Template
 {
     private $source;
     private $macros = [];
@@ -832,7 +843,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
     public function getDebugInfo()
     {
-        return array (  801 => 284,  461 => 277,  449 => 264,  404 => 218,  397 => 212,  387 => 211,  239 => 71,  235 => 69,  229 => 67,  227 => 66,  219 => 60,  213 => 56,  207 => 52,  205 => 51,  201 => 49,  192 => 42,  190 => 41,  171 => 24,  161 => 23,  148 => 20,  138 => 19,  119 => 7,  101 => 8,  99 => 7,  92 => 2,  82 => 1,  71 => 285,  69 => 284,  66 => 283,  64 => 211,  61 => 210,  59 => 23,  56 => 22,  54 => 19,  50 => 17,  48 => 1,);
+        return array (  812 => 284,  472 => 277,  460 => 264,  415 => 218,  408 => 212,  398 => 211,  257 => 79,  247 => 71,  243 => 69,  237 => 67,  235 => 66,  227 => 60,  221 => 56,  215 => 52,  213 => 51,  209 => 50,  206 => 49,  195 => 42,  193 => 41,  177 => 28,  171 => 24,  161 => 23,  148 => 20,  138 => 19,  119 => 7,  101 => 8,  99 => 7,  92 => 2,  82 => 1,  71 => 285,  69 => 284,  66 => 283,  64 => 211,  61 => 210,  59 => 23,  56 => 22,  54 => 19,  50 => 17,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -864,7 +875,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
     <div class=\"concord-img-wrapper\">
         <nav class=\"navbar\">
             <div class=\"brandLogoWrapper\">
-                <a class=\"navbar-brand\" href=\"/\">
+                <a class=\"navbar-brand\" href=\"{{ path('home') }}\">
                     <img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png\"
                          width=\"167\" height=\"45\" style=\"vertical-align:middle;margin:20px 50px\" alt=\"netflixLogo\"/>
                 </a>
@@ -878,7 +889,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
                 </div>
 
                 {% if is_granted('ROLE_ADMIN') %}
-                    <a href=\"/admin\">
+                    <a href=\"{{ path('admin_panel') }}\">
                         <button type=\"button\" class=\"buttonLogin\">
                             <i class=\"bi bi-wrench-adjustable-circle\"></i>
                             Panel Administratora
@@ -886,7 +897,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
                     </a>
                 {% endif %}
 
-                <a href=\"/login\">
+                <a href=\"{{ path('app_login') }}\">
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         <button type=\"button\" class=\"buttonLogin\">
                             Przejdź dalej
@@ -915,7 +926,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
                     <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
                         konto. </label>
                     <input class=\"emailInput\" type=\"text\" id=\"email\" name=\"email\">
-                    <button type=\"button\" class=\"buttonSubmit\"><a class=\"button\" href=\"/register\">Rozpocznij</a>
+                    <button type=\"button\" class=\"buttonSubmit\"><a class=\"button\" href=\"{{ path('app_register') }}\">Rozpocznij</a>
                     </button>
                 </form>
             </div>

@@ -293,7 +293,10 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
         echo "    <body>
     <div id=\"headerContainer\">
         <div class=\"brandLogoWrapper\">
-            <a class=\"logo\" href=\"/\" target=\"_parent\">
+            <a class=\"logo\" href=\"";
+        // line 190
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
+        echo "\" target=\"_parent\">
                 <img class=\"logo\" src=\"";
         // line 191
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/netflixLogo.svg.png"), "html", null, true);
@@ -337,20 +340,35 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
         // line 197
         echo "
         <div class=\"wrapper\">
-            <a href=\"admin/subusers\">
+            <a href=\"";
+        // line 199
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("subuser_crud_index");
+        echo "\">
                 <div class=\"adminOption\"><i class=\"optionImage bi bi-person-lines-fill\"></i>Profile Użytkowników</div>
             </a>
-            <a href=\"admin/movies\">
+            <a href=\"";
+        // line 202
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_movie_crud_index");
+        echo "\">
                 <div class=\"adminOption\"><i class=\"optionImage bi bi-film\"></i>Filmy</div>
             </a>
-            <a href=\"admin/users\">
+            <a href=\"";
+        // line 205
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_user_crud_index");
+        echo "\">
                 <div class=\"adminOption\"><i class=\"optionImage bi bi-people-fill\"></i>Użytkownicy</div>
             </a>
-            <a href=\"admin/subusers\">
+            <a href=\"";
+        // line 208
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("subuser_crud_index");
+        echo "\">
                 <div class=\"adminOption\"><i class=\"optionImage bi bi-gear-fill\"></i>Ustawienia</div>
             </a>
 
-            <a href=\"/\">
+            <a href=\"";
+        // line 212
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
+        echo "\">
                 <div class=\"adminOption\"><i class=\"optionImage bi bi-x-lg\"></i>Wróć</div>
             </a>
         </div>
@@ -393,7 +411,7 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
 
     public function getDebugInfo()
     {
-        return array (  380 => 221,  378 => 220,  368 => 219,  338 => 197,  328 => 196,  314 => 222,  312 => 219,  309 => 218,  307 => 196,  299 => 191,  293 => 187,  283 => 186,  242 => 154,  174 => 85,  149 => 59,  108 => 17,  104 => 12,  94 => 11,  75 => 9,  65 => 186,  63 => 11,  58 => 9,  48 => 1,);
+        return array (  398 => 221,  396 => 220,  386 => 219,  370 => 212,  363 => 208,  357 => 205,  351 => 202,  345 => 199,  341 => 197,  331 => 196,  317 => 222,  315 => 219,  312 => 218,  310 => 196,  302 => 191,  298 => 190,  293 => 187,  283 => 186,  242 => 154,  174 => 85,  149 => 59,  108 => 17,  104 => 12,  94 => 11,  75 => 9,  65 => 186,  63 => 11,  58 => 9,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -587,7 +605,7 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
     <body>
     <div id=\"headerContainer\">
         <div class=\"brandLogoWrapper\">
-            <a class=\"logo\" href=\"/\" target=\"_parent\">
+            <a class=\"logo\" href=\"{{ path('home') }}\" target=\"_parent\">
                 <img class=\"logo\" src=\"{{ asset('images/netflixLogo.svg.png') }}\" alt=\"av1\"/>
             </a>
         </div>
@@ -596,20 +614,20 @@ class __TwigTemplate_0dc16f44026ad8e04d897b0c8b3725d6f544cac813bce0e1d360f39d053
     {% block navigation %}
 
         <div class=\"wrapper\">
-            <a href=\"admin/subusers\">
+            <a href=\"{{ path('subuser_crud_index') }}\">
                 <div class=\"adminOption\"><i class=\"optionImage bi bi-person-lines-fill\"></i>Profile Użytkowników</div>
             </a>
-            <a href=\"admin/movies\">
+            <a href=\"{{ path('app_movie_crud_index') }}\">
                 <div class=\"adminOption\"><i class=\"optionImage bi bi-film\"></i>Filmy</div>
             </a>
-            <a href=\"admin/users\">
+            <a href=\"{{ path('app_user_crud_index') }}\">
                 <div class=\"adminOption\"><i class=\"optionImage bi bi-people-fill\"></i>Użytkownicy</div>
             </a>
-            <a href=\"admin/subusers\">
+            <a href=\"{{ path('subuser_crud_index') }}\">
                 <div class=\"adminOption\"><i class=\"optionImage bi bi-gear-fill\"></i>Ustawienia</div>
             </a>
 
-            <a href=\"/\">
+            <a href=\"{{ path('home') }}\">
                 <div class=\"adminOption\"><i class=\"optionImage bi bi-x-lg\"></i>Wróć</div>
             </a>
         </div>

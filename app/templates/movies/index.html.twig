@@ -40,21 +40,21 @@
             </a>
             <a {% if app.request.attributes.get('_route') in
                 'browse' %} class="active" {% endif %}
-                    href="/browse">Strona główna</a>
+                    href="{{ path('browse') }}">Strona główna</a>
             <a {% if app.request.attributes.get('_route') in
                 'shows' %} class="active" {% endif %}
-                    href="/shows">Seriale i programy</a>
+                    href="{{ path('shows') }}">Seriale i programy</a>
             <a {% if app.request.attributes.get('_route') in
                 'movies' %} class="active" {% endif %}
-                    href="/movies">Filmy</a>
+                    href="{{ path('movies') }}">Filmy</a>
             <a {% if app.request.attributes.get('_route') in
                 'new' %} class="active" {% endif %}
-                    href="/new">Nowe i popularne</a>
+                    href="{{ path('new') }}">Nowe i popularne</a>
             <a {% if app.request.attributes.get('_route') in
                 'myList' %} class="active" {% endif %}
-                    href="/myList">Moja lista</a>
+                    href="{{ path('myList') }}">Moja lista</a>
             {% if is_granted('ROLE_ADMIN') %}
-                <a href="/admin" style="color: red">Przejdź do panelu administratora</a>
+                <a href="{{ path('admin_panel') }}" style="color: red">Przejdź do panelu administratora</a>
             {% endif %}
 
             <div class="navbar_end">
@@ -69,14 +69,14 @@
                         >
                     </form>
                 </div>
-                <a class="right" href="/notif">
+                <a class="right" href="{{ path('notif') }}">
                     <i style="padding: 1px;margin-left: 10px" class="bi bi-bell-fill"></i>
                 </a>
             </div>
 
         </div>
         <div class="dropdown">
-            <a class="right dropbtn" href="/profile">
+            <a class="right dropbtn" href="{{ path('profile') }}">
                 <img class="userAvatar" src="{{ userAvatar }}" alt="avatar">
                 <div class="dropdown-content">
                     {% set profile_id = 0 %}
@@ -106,13 +106,12 @@
                         </form>
                         {% set profile_id = profile_id + 1 %}
                     {% endfor %}
-                    <a href="/manageUser"> &#xF4CB; Zarządzaj profilami</a>
+                    <a href="{{ path('manageUser') }}"> &#xF4CB; Zarządzaj profilami</a>
                     <hr>
-                    <a style="margin-bottom: 15px" href="/profile">Konto</a>
+                    <a style="margin-bottom: 15px" href="{{ path('profile') }}">Konto</a>
                     <a href="#">Centrum Pomocy</a>
                     <hr>
-                    <a style="margin-bottom: 15px" href="/logout">Wyloguj się</a>
-
+                    <a style="margin-bottom: 15px" href="{{ path('app_logout') }}">Wyloguj się</a>
 
                 </div>
             </a>
@@ -134,7 +133,7 @@
                 <div id="{{ movie.id }}" class="modal">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <a class="modal-image" href="/show/{{ movie.id }}" style="text-decoration: none">
+                            <a class="modal-image" href="{{ path('show-one', {'id': movie.id}) }}" style="text-decoration: none">
                                 <img class="modal-image" src="{{ movie.img }}" alt="movie_image">
                             </a>
 
@@ -142,7 +141,7 @@
                         <div class="modal-desc">
                             <h2 class="modal-title">{{ movie.title }}</h2>
                             <p>{{ movie.description }}</p>
-                            <a class="profileButton" href="/show/{{ movie.id }}"> Oglądaj teraz </a>
+                            <a class="profileButton" href="{{ path('show-one', {'id': movie.id}) }}"> Oglądaj teraz </a>
                             {% for category in movie.categories %}
                                 {{ category }}
                             {% endfor %}
@@ -157,7 +156,7 @@
         <h1 id="shows" class="category_label">Seriale</h1>
         <div class="movie">
             {% for movie in shows %}
-                <a class="movie-hero" href="/show/{{ movie.id }}">
+                <a class="movie-hero" href="{{ path('show-one', {'id': movie.id}) }}">
                     <img class="movie-hero-image" src="{{ movie.img }}" alt="{{ movie.title }}">
                 </a>
             {% endfor %}
@@ -166,7 +165,7 @@
         <h1 id="movies" class="category_label">Tylko na Netflixie</h1>
         <div class="movie">
             {% for movie in originals %}
-                <a class="movie-hero" href="/show/{{ movie.id }}">
+                <a class="movie-hero" href="{{ path('show-one', {'id': movie.id}) }}">
                     <img class="movie-hero-image" src="{{ movie.img }}" alt="{{ movie.title }}">
                 </a>
             {% endfor %}

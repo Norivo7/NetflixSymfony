@@ -133,14 +133,20 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         // line 15
         echo "    <div id=\"headerContainer\">
         <div class=\"brandLogoWrapper\">
-            <a class=\"logo\" href=\"/\" target=\"_parent\">
+            <a class=\"logo\" href=\"";
+        // line 17
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
+        echo "\" target=\"_parent\">
                 <img class=\"logo\" src=\"";
         // line 18
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/netflixLogo.svg.png"), "html", null, true);
         echo "\" alt=\"av1\"/>
             </a>
         </div>
-        <a class=\"avatar\" href=\"/browse\">
+        <a class=\"avatar\" href=\"";
+        // line 21
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("browse");
+        echo "\">
             <img class=\"userAvatar\" src=\"";
         // line 22
         echo twig_escape_filter($this->env, (isset($context["userAvatar"]) || array_key_exists("userAvatar", $context) ? $context["userAvatar"] : (function () { throw new RuntimeError('Variable "userAvatar" does not exist.', 22, $this->source); })()), "html", null, true);
@@ -269,7 +275,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         <div class=\"footer\">
             ";
         // line 109
-        $this->loadTemplate("user/profile.html.twig", "user/profile.html.twig", 109, "1961392310")->display($context);
+        $this->loadTemplate("user/profile.html.twig", "user/profile.html.twig", 109, "62754945")->display($context);
         // line 110
         echo "        </div>
 
@@ -527,7 +533,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
     public function getDebugInfo()
     {
-        return array (  504 => 328,  395 => 218,  359 => 181,  346 => 167,  301 => 121,  297 => 116,  287 => 115,  274 => 110,  272 => 109,  254 => 93,  245 => 90,  241 => 89,  238 => 88,  234 => 87,  185 => 41,  169 => 27,  159 => 26,  146 => 22,  139 => 18,  134 => 15,  124 => 14,  105 => 4,  88 => 5,  86 => 4,  83 => 3,  73 => 2,  63 => 115,  60 => 114,  58 => 26,  55 => 25,  53 => 14,  50 => 13,  48 => 2,);
+        return array (  510 => 328,  401 => 218,  365 => 181,  352 => 167,  307 => 121,  303 => 116,  293 => 115,  280 => 110,  278 => 109,  260 => 93,  251 => 90,  247 => 89,  244 => 88,  240 => 87,  191 => 41,  175 => 27,  165 => 26,  152 => 22,  148 => 21,  142 => 18,  138 => 17,  134 => 15,  124 => 14,  105 => 4,  88 => 5,  86 => 4,  83 => 3,  73 => 2,  63 => 115,  60 => 114,  58 => 26,  55 => 25,  53 => 14,  50 => 13,  48 => 2,);
     }
 
     public function getSourceContext()
@@ -548,11 +554,11 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 {% block navigation %}
     <div id=\"headerContainer\">
         <div class=\"brandLogoWrapper\">
-            <a class=\"logo\" href=\"/\" target=\"_parent\">
+            <a class=\"logo\" href=\"{{ path('home') }}\" target=\"_parent\">
                 <img class=\"logo\" src=\"{{ asset('images/netflixLogo.svg.png') }}\" alt=\"av1\"/>
             </a>
         </div>
-        <a class=\"avatar\" href=\"/browse\">
+        <a class=\"avatar\" href=\"{{ path('browse') }}\">
             <img class=\"userAvatar\" src=\"{{ userAvatar }}\" alt=\"avatar\"></a>
     </div>
 {% endblock %}
@@ -875,7 +881,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
 
 /* user/profile.html.twig */
-class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b592268d28___1961392310 extends Template
+class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b592268d28___62754945 extends Template
 {
     private $source;
     private $macros = [];
@@ -927,7 +933,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
     public function getDebugInfo()
     {
-        return array (  896 => 109,  504 => 328,  395 => 218,  359 => 181,  346 => 167,  301 => 121,  297 => 116,  287 => 115,  274 => 110,  272 => 109,  254 => 93,  245 => 90,  241 => 89,  238 => 88,  234 => 87,  185 => 41,  169 => 27,  159 => 26,  146 => 22,  139 => 18,  134 => 15,  124 => 14,  105 => 4,  88 => 5,  86 => 4,  83 => 3,  73 => 2,  63 => 115,  60 => 114,  58 => 26,  55 => 25,  53 => 14,  50 => 13,  48 => 2,);
+        return array (  902 => 109,  510 => 328,  401 => 218,  365 => 181,  352 => 167,  307 => 121,  303 => 116,  293 => 115,  280 => 110,  278 => 109,  260 => 93,  251 => 90,  247 => 89,  244 => 88,  240 => 87,  191 => 41,  175 => 27,  165 => 26,  152 => 22,  148 => 21,  142 => 18,  138 => 17,  134 => 15,  124 => 14,  105 => 4,  88 => 5,  86 => 4,  83 => 3,  73 => 2,  63 => 115,  60 => 114,  58 => 26,  55 => 25,  53 => 14,  50 => 13,  48 => 2,);
     }
 
     public function getSourceContext()
@@ -948,11 +954,11 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 {% block navigation %}
     <div id=\"headerContainer\">
         <div class=\"brandLogoWrapper\">
-            <a class=\"logo\" href=\"/\" target=\"_parent\">
+            <a class=\"logo\" href=\"{{ path('home') }}\" target=\"_parent\">
                 <img class=\"logo\" src=\"{{ asset('images/netflixLogo.svg.png') }}\" alt=\"av1\"/>
             </a>
         </div>
-        <a class=\"avatar\" href=\"/browse\">
+        <a class=\"avatar\" href=\"{{ path('browse') }}\">
             <img class=\"userAvatar\" src=\"{{ userAvatar }}\" alt=\"avatar\"></a>
     </div>
 {% endblock %}

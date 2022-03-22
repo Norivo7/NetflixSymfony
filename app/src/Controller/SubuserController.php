@@ -113,7 +113,7 @@ class SubuserController extends AbstractController
 
 
     /**
-     * @Route ("manageUser/add")
+     * @Route ("manageUser/add", name="add_subuser")
      * @return Response
      */
     public function addSubuser(): Response
