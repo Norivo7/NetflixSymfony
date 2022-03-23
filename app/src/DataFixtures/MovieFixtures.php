@@ -131,6 +131,15 @@ class MovieFixtures extends Fixture
         $movie12->setLink("https://www.youtube.com/embed/watch?v=a_eM_80RveI");
         $movie12->setActive(true);
 
+        $movie13 = new Movie();
+        $movie13->addCategory($catSerials);
+        $movie13->addCategory($catExclusive);
+        $movie13->setTitle('Kikoriki');
+        $movie13->setDescription('Kikoriki, known in the United States as GoGoRiki or BalloonToons and in Russia as Smeshariki (Russian: Смешарики), is a Russian animated television series consisting of 209 episodes of 6 minutes and 30 seconds each, aimed at children of 3 to 8 years. This series uses flash animation.');
+        $movie13->setYear(2004);
+        $movie13->setImg('https://upload.wikimedia.org/wikipedia/ru/9/92/%D0%A1%D0%BC%D0%B5%D1%88%D0%B0%D1%80%D0%B8%D0%BA%D0%B8_%D0%BF%D0%B5%D1%80%D1%81%D0%BE%D0%BD%D0%B0%D0%B6%D0%B8.png');
+        $movie13->setLink('https://www.youtube.com/embed/watch?v=8Y2YUohY7cE');
+        $movie13->setActive(true);
 
         $manager->persist($catExclusive);
         $manager->persist($catSerials);
@@ -150,6 +159,7 @@ class MovieFixtures extends Fixture
         $manager->persist($movie10);
         $manager->persist($movie11);
         $manager->persist($movie12);
+        $manager->persist($movie13);
 
         $manager->flush();
 
