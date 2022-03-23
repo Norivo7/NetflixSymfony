@@ -100,20 +100,36 @@ class __TwigTemplate_7054c61692d20a322ddc13f19705773293abcc6b4d845a2be19c089e33e
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 17), "html", null, true);
                 echo " jacket\">
                          </a>
-                     ";
+                         ";
+                // line 19
+                if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
+                    // line 20
+                    echo "                             <a class=\"hide-button-wrapper\"
+                                href=\"";
+                    // line 21
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("hide", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 21)]), "html", null, true);
+                    echo "\">
+                                 <div class=\"hide-button\">
+                                     <i class=\"bi bi-arrow-bar-left\"></i>
+                                 </div>
+                             </a>
+                         ";
+                }
+                // line 27
+                echo "                     ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movie'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 20
+            // line 28
             echo "
                  ";
         } else {
-            // line 22
+            // line 30
             echo "                     Nie znaleziono filmów dla tej kategorii.
                  ";
         }
-        // line 24
+        // line 32
         echo "
              </div>
      </section>
@@ -140,7 +156,7 @@ class __TwigTemplate_7054c61692d20a322ddc13f19705773293abcc6b4d845a2be19c089e33e
 
     public function getDebugInfo()
     {
-        return array (  117 => 24,  113 => 22,  109 => 20,  98 => 17,  93 => 16,  89 => 15,  86 => 14,  82 => 12,  80 => 11,  77 => 10,  75 => 9,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  133 => 32,  129 => 30,  125 => 28,  119 => 27,  110 => 21,  107 => 20,  105 => 19,  98 => 17,  93 => 16,  89 => 15,  86 => 14,  82 => 12,  80 => 11,  77 => 10,  75 => 9,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -163,6 +179,14 @@ class __TwigTemplate_7054c61692d20a322ddc13f19705773293abcc6b4d845a2be19c089e33e
                          <a class=\"movie-hero\" href=\"{{ path('show-one', {'id': movie.id}) }}\">
                              <img class=\"movie-hero-image\" src=\"{{ movie.img }}\" alt=\"{{ movie.title }} jacket\">
                          </a>
+                         {% if is_granted('ROLE_ADMIN') %}
+                             <a class=\"hide-button-wrapper\"
+                                href=\"{{ path('hide', {'id': movie.id}) }}\">
+                                 <div class=\"hide-button\">
+                                     <i class=\"bi bi-arrow-bar-left\"></i>
+                                 </div>
+                             </a>
+                         {% endif %}
                      {% endfor %}
 
                  {% else %}

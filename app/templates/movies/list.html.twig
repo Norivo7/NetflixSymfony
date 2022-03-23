@@ -16,6 +16,14 @@
                          <a class="movie-hero" href="{{ path('show-one', {'id': movie.id}) }}">
                              <img class="movie-hero-image" src="{{ movie.img }}" alt="{{ movie.title }} jacket">
                          </a>
+                         {% if is_granted('ROLE_ADMIN') %}
+                             <a class="hide-button-wrapper"
+                                href="{{ path('hide', {'id': movie.id}) }}">
+                                 <div class="hide-button">
+                                     <i class="bi bi-arrow-bar-left"></i>
+                                 </div>
+                             </a>
+                         {% endif %}
                      {% endfor %}
 
                  {% else %}

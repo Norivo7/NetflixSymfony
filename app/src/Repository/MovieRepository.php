@@ -87,7 +87,9 @@ class MovieRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('movie')
             ->andWhere('movie.title like :val')
+            ->andWhere('movie.active like :enabled')
             ->setParameter('val', $value . '%')
+            ->setParameter('enabled', true )
             ->orderBy('movie.title', 'ASC')
             ->getQuery()
             ->getResult();
