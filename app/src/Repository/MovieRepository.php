@@ -29,8 +29,10 @@ class MovieRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('movies')
             ->select('movies', 'subuser')
             ->leftJoin('movies.likedBy', 'subuser')
-            ->where('subuser.id = :subuserId')
+            ->andWhere('subuser.id = :subuserId')
+            ->andWhere('movies.active = :enabled')
             ->setParameter('subuserId', $subuserId)
+            ->setParameter('enabled', true)
             ->getQuery()
             ->getArrayResult();
     }
@@ -65,6 +67,8 @@ class MovieRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('movie')
             ->orderBy('movie.id', 'ASC')
+            ->andWhere('movie.active like :enabled')
+            ->setParameter('enabled', true )
             ->setMaxResults(30)
             ->getQuery()
             ->getResult();
