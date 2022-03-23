@@ -67,35 +67,12 @@ class MoviesController extends AbstractController
     }
 
     /**
-     * @Route(methods={"POST, GET"})
-     */
-    public function hide(Request $request, Movie $movie, EntityManagerInterface $entityManager): Response
-    {
-        $form = $this->createForm(MovieType::class, $movie);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
-            return $this->redirectToRoute('browse', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('admin/movie_crud/edit.html.twig', [
-            'movie' => $movie,
-            'form' => $form,
-        ]);
-    }
-
-
-    /**
      * @Route("/browse", name="browse")
      * @param Request $request
      * @return Response
      */
     public function index(Request $request): Response
     {
-
-//        $form = $this->createForm(MovieType::class, $movie);
-            // if id has changed, change user
         if ($request->getMethod() == 'POST' && $request->request->get('id') != null) {
             $id = $request->request->get('id');
             return $this->redirectToRoute('changeProfile', [
@@ -167,6 +144,20 @@ class MoviesController extends AbstractController
             'email' => $currentUser->getUserIdentifier(),
             'profiles' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
         ]);
+    }
+
+    /**
+     * @Route("/browse/hide/{id}", name="hide")
+     */
+    public function hide(Movie $movie, ManagerRegistry $doctrine): Response
+    {
+        $entityManager =$doctrine->getManager();
+        $movie = $this->movieRepository->find($movie);
+        $movie->setActive(false);
+        $entityManager->persist($movie);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('browse');
     }
 
     /**

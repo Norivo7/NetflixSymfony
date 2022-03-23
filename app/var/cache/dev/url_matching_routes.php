@@ -24,10 +24,7 @@ return [
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\LoginController::index'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\LoginController::logout'], null, null, null, false, false, null]],
         '/email' => [[['_route' => 'app_mailer_sendemail', '_controller' => 'App\\Controller\\MailerController::sendEmail'], null, null, null, false, false, null]],
-        '/' => [
-            [['_route' => 'home', '_controller' => 'App\\Controller\\MoviesController::home'], null, null, null, false, false, null],
-            [['_route' => 'app_movies_hide', '_controller' => 'App\\Controller\\MoviesController::hide'], null, ['POST, GET' => 0], null, false, false, null],
-        ],
+        '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\MoviesController::home'], null, null, null, false, false, null]],
         '/browse' => [[['_route' => 'browse', '_controller' => 'App\\Controller\\MoviesController::index'], null, null, null, false, false, null]],
         '/shows' => [[['_route' => 'shows', '_controller' => 'App\\Controller\\MoviesController::shows'], null, null, null, false, false, null]],
         '/profile' => [[['_route' => 'profile', '_controller' => 'App\\Controller\\MoviesController::profile'], null, null, null, false, false, null]],
@@ -81,10 +78,11 @@ return [
                         .'|(*:315)'
                     .')'
                 .')'
-                .'|/show/([^/]++)(*:339)'
+                .'|/browse/hide/([^/]++)(*:346)'
+                .'|/show/([^/]++)(*:368)'
                 .'|/manageUser/(?'
-                    .'|delete/([^/]++)(*:377)'
-                    .'|update/([^/]++)(*:400)'
+                    .'|delete/([^/]++)(*:406)'
+                    .'|update/([^/]++)(*:429)'
                 .')'
             .')/?$}sDu',
     ],
@@ -105,9 +103,10 @@ return [
         294 => [[['_route' => 'app_user_crud_show', '_controller' => 'App\\Controller\\Admin\\UserCrudController::show'], ['id'], ['GET' => 0], null, false, true, null]],
         307 => [[['_route' => 'app_user_crud_edit', '_controller' => 'App\\Controller\\Admin\\UserCrudController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         315 => [[['_route' => 'app_user_crud_delete', '_controller' => 'App\\Controller\\Admin\\UserCrudController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        339 => [[['_route' => 'show-one', '_controller' => 'App\\Controller\\MoviesController::show'], ['id'], null, null, false, true, null]],
-        377 => [[['_route' => 'deleteSubuser', '_controller' => 'App\\Controller\\SubuserController::delete'], ['id'], null, null, false, true, null]],
-        400 => [
+        346 => [[['_route' => 'hide', '_controller' => 'App\\Controller\\MoviesController::hide'], ['id'], null, null, false, true, null]],
+        368 => [[['_route' => 'show-one', '_controller' => 'App\\Controller\\MoviesController::show'], ['id'], null, null, false, true, null]],
+        406 => [[['_route' => 'deleteSubuser', '_controller' => 'App\\Controller\\SubuserController::delete'], ['id'], null, null, false, true, null]],
+        429 => [
             [['_route' => 'update', '_controller' => 'App\\Controller\\SubuserController::update'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

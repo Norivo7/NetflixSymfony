@@ -150,21 +150,29 @@ class __TwigTemplate_fcd494e37dfd8d9e231cafa0654efa425a3fcedaebfeeef6dd003db79c7
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 34, $this->source); })()), "link", [], "any", false, false, false, 34), "html", null, true);
         echo "</td>
             </tr>
+
+            <tr>
+            <th>Active</th>
+            <td>";
+        // line 39
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 39, $this->source); })()), "active", [], "any", false, false, false, 39), "html", null, true);
+        echo "</td>
+            </tr>
         </tbody>
     </table>
 
     <a class=\"profileButton\" href=\"";
-        // line 39
+        // line 44
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_movie_crud_index");
         echo "\">Wróć</a>
 
     <a class=\"profileButton\" href=\"";
-        // line 41
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_movie_crud_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 41, $this->source); })()), "id", [], "any", false, false, false, 41)]), "html", null, true);
+        // line 46
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_movie_crud_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 46, $this->source); })()), "id", [], "any", false, false, false, 46)]), "html", null, true);
         echo "\">Edytuj</a>
 
     ";
-        // line 43
+        // line 48
         echo twig_include($this->env, $context, "admin/movie_crud/_delete_form.html.twig");
         echo "
 ";
@@ -188,7 +196,7 @@ class __TwigTemplate_fcd494e37dfd8d9e231cafa0654efa425a3fcedaebfeeef6dd003db79c7
 
     public function getDebugInfo()
     {
-        return array (  168 => 43,  163 => 41,  158 => 39,  150 => 34,  143 => 30,  136 => 26,  129 => 22,  122 => 18,  115 => 14,  107 => 8,  97 => 7,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  176 => 48,  171 => 46,  166 => 44,  158 => 39,  150 => 34,  143 => 30,  136 => 26,  129 => 22,  122 => 18,  115 => 14,  107 => 8,  97 => 7,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -227,6 +235,11 @@ class __TwigTemplate_fcd494e37dfd8d9e231cafa0654efa425a3fcedaebfeeef6dd003db79c7
             <tr>
                 <th>Link</th>
                 <td>{{ movie.link }}</td>
+            </tr>
+
+            <tr>
+            <th>Active</th>
+            <td>{{ movie.active }}</td>
             </tr>
         </tbody>
     </table>
