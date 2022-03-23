@@ -25,7 +25,7 @@ class MoviesController extends AbstractController
     public function __construct(MovieRepository    $movieRepository,
                                 CategoryRepository $categoryRepository,
                                 SubuserRepository  $subuserRepository,
-                                RequestStack $requestStack)
+                                RequestStack       $requestStack)
     {
         $this->subuserRepository = $subuserRepository;
         $this->movieRepository = $movieRepository;
@@ -76,8 +76,8 @@ class MoviesController extends AbstractController
         if ($request->getMethod() == 'POST' && $request->request->get('id') != null) {
             $id = $request->request->get('id');
             return $this->redirectToRoute('changeProfile', [
-                    'id' => $id,
-                ]);
+                'id' => $id,
+            ]);
         }
 
         $subuser = $this->requestStack->getSession()->get('filter');
@@ -121,13 +121,19 @@ class MoviesController extends AbstractController
                 ]
             );
         }
-        return $this->render(
-            'movies/list.html.twig', [
-                'profiles' => $this->getOtherSubusers(),
-                'movies' => $this->movieRepository->getMoviesByCategory('Seriale'),
-                'userAvatar' => $this->subuserRepository->find($this->getCurrentSubuserIdFromSession())->getAvatar()
-            ]
-        );
+
+        $subuserId = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
+        if ($subuserId != null) {
+            $userAvatar = $subuserId->getAvatar();
+            return $this->render(
+                'movies/list.html.twig', [
+                    'profiles' => $this->getOtherSubusers(),
+                    'movies' => $this->movieRepository->getMoviesByCategory('Seriale'),
+                    'userAvatar' => $userAvatar,
+                ]
+            );
+        }
+        return $this->redirectToRoute('chooseUser');
     }
 
     /**
@@ -136,14 +142,20 @@ class MoviesController extends AbstractController
      */
     public function profile(): Response
     {
-        $subuserId = $this->getCurrentSubuserIdFromSession();
         $currentUser = $this->getUser();
+        $subuserId = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
+        if ($subuserId != null) {
+            $userAvatar = $subuserId->getAvatar();
+            return $this->render(
+                'user/profile.html.twig', [
+                    'email' => $currentUser->getUserIdentifier(),
+                    'profiles' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser)),
+                    'userAvatar' => $userAvatar,
+                ]
+            );
+        }
+        return $this->redirectToRoute('chooseUser');
 
-        return $this->render('user/profile.html.twig', [
-            'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar(),
-            'email' => $currentUser->getUserIdentifier(),
-            'profiles' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
-        ]);
     }
 
     /**
@@ -151,7 +163,7 @@ class MoviesController extends AbstractController
      */
     public function hide(Movie $movie, ManagerRegistry $doctrine): Response
     {
-        $entityManager =$doctrine->getManager();
+        $entityManager = $doctrine->getManager();
         $movie = $this->movieRepository->find($movie);
         $movie->setActive(false);
         $entityManager->persist($movie);
@@ -208,15 +220,19 @@ class MoviesController extends AbstractController
                 ]
             );
         }
-        $currentSubuser = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
 
-        return $this->render(
-            'movies/list.html.twig', [
-                'profiles' => $this->getOtherSubusers(),
-                'userAvatar' => $currentSubuser->getAvatar(),
-                'movies' => $this->movieRepository->getLikedMoviesBySubuser(($currentSubuser->getId()))
-            ]
-        );
+        $subuserId = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
+        if ($subuserId != null) {
+            $userAvatar = $subuserId->getAvatar();
+            return $this->render(
+                'movies/list.html.twig', [
+                    'profiles' => $this->getOtherSubusers(),
+                    'movies' => $this->movieRepository->getLikedMoviesBySubuser(($subuserId->getId())),
+                    'userAvatar' => $userAvatar,
+                ]
+            );
+        }
+        return $this->redirectToRoute('chooseUser');
     }
 
     /**
@@ -233,14 +249,19 @@ class MoviesController extends AbstractController
                 ]
             );
         }
-        $subuserId = $this->getCurrentSubuserIdFromSession();
 
-        return $this->render(
-            'movies/list.html.twig', [
-                'profiles' => $this->getOtherSubusers(),
-                'movies' => $this->movieRepository->getMoviesByCategory('Filmy'),
-                'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()]
-        );
+        $subuserId = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
+        if ($subuserId != null) {
+            $userAvatar = $subuserId->getAvatar();
+            return $this->render(
+                'movies/list.html.twig', [
+                    'profiles' => $this->getOtherSubusers(),
+                    'movies' => $this->movieRepository->getMoviesByCategory('Filmy'),
+                    'userAvatar' => $userAvatar,
+                ]
+            );
+        }
+        return $this->redirectToRoute('chooseUser');
     }
 
     /**
@@ -257,14 +278,19 @@ class MoviesController extends AbstractController
                 ]
             );
         }
-        $subuserId = $this->getCurrentSubuserIdFromSession();
 
-        return $this->render(
-            'movies/list.html.twig', [
-                'profiles' => $this->getOtherSubusers(),
-                'movies' => $this->movieRepository->recentlyAdd(),
-                'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()]
-        );
+        $subuserId = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
+        if ($subuserId != null) {
+            $userAvatar = $subuserId->getAvatar();
+            return $this->render(
+                'movies/list.html.twig', [
+                    'profiles' => $this->getOtherSubusers(),
+                    'movies' => $this->movieRepository->recentlyAdd(),
+                    'userAvatar' => $userAvatar,
+                ]
+            );
+        }
+        return $this->redirectToRoute('chooseUser');
     }
 
     /**
@@ -346,16 +372,17 @@ class MoviesController extends AbstractController
                 ]
             );
         }
-        $subuserId = $this->getCurrentSubuserIdFromSession();
-        $currentSubuser = $this->subuserRepository->find($subuserId);
-
-        $movies = $movieRepository->search(
-            $request->query->get('v')
-        );
-        return $this->render('movies/list.html.twig', [
-            'profiles' => $this->getOtherSubusers(),
-            'movies' => $movies,
-            'userAvatar' => $currentSubuser->getAvatar()
-        ]);
+        $subuserId = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
+        if ($subuserId != null) {
+            $userAvatar = $subuserId->getAvatar();
+            return $this->render(
+                'movies/list.html.twig', [
+                    'profiles' => $this->getOtherSubusers(),
+                    'movies' => $movieRepository->search($request->query->get('v')),
+                    'userAvatar' => $userAvatar,
+                ]
+            );
+        }
+        return $this->redirectToRoute('chooseUser');
     }
 }
