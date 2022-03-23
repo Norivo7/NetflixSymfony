@@ -67,6 +67,16 @@ class MoviesController extends AbstractController
     }
 
     /**
+     * @Route("/test", name="test")
+     */
+    public function test(): Response
+    {
+        return $this->render(
+            'test.html.twig'
+        );
+    }
+
+    /**
      * @Route("/browse", name="browse")
      * @param Request $request
      * @return Response
@@ -85,6 +95,10 @@ class MoviesController extends AbstractController
         if ($subuser != null) {
             $subuserId = reset($subuser);
         } else return $this->redirectToRoute('chooseUser');
+
+
+
+
 
         $subuserFrontId = $request->get('id');
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $this->getUser()));
@@ -155,16 +169,15 @@ class MoviesController extends AbstractController
             );
         }
         return $this->redirectToRoute('chooseUser');
-
     }
 
     /**
      * @Route("/browse/hide/{id}", name="hide")
      */
-    public function hide(Movie $movie, ManagerRegistry $doctrine): Response
+    public function hide($id, ManagerRegistry $doctrine): Response
     {
         $entityManager = $doctrine->getManager();
-        $movie = $this->movieRepository->find($movie);
+        $movie = $this->movieRepository->find($id);
         $movie->setActive(false);
         $entityManager->persist($movie);
         $entityManager->flush();
@@ -175,12 +188,12 @@ class MoviesController extends AbstractController
     /**
      * @Route("/show/{id}", name="show-one")
      */
-    public function show(Movie $movie): Response
+    public function show($id): Response
     {
         $subuserId = $this->getCurrentSubuserIdFromSession();
 
         $liked = $this->movieRepository->getLikedMoviesBySubuser($subuserId);
-        $movie = $this->movieRepository->find($movie);
+        $movie = $this->movieRepository->find($id);
         $categories = $this->categoryRepository->getCategoryByMovie($movie->getTitle());
         $movieId = $movie->getId();
 

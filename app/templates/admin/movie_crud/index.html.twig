@@ -42,9 +42,16 @@
                 <td>{{ movie.title }}</td>
                 <td>{{ movie.description }}</td>
                 <td>{{ movie.year }}</td>
-                <td>{{ movie.img }}</td>
+                <td><img src="{{ movie.img }}" style="width: 150px"></td>
                 <td>{{ movie.link }}</td>
-                <td>{{ movie.active }}</td>
+                <td>
+                    {% if movie.active != null %}
+                      True
+                    {% else %}
+                      False
+                    {% endif %}
+
+                </td>
                 <td>
                     <div class="btnWrapper">
                         <a class="profileButton" href="{{ path('app_movie_crud_show', {'id': movie.id}) }}">wyświetl</a>

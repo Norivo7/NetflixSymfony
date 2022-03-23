@@ -49,6 +49,7 @@ class CategoryRepository extends ServiceEntityRepository
             ->getQuery()
             ->getArrayResult();
     }
+
     /**
      * @param $movieId
      * @return Category[] Returns an array of Movie objects

@@ -36,6 +36,7 @@ return [
     'app_logout' => [[], ['_controller' => 'App\\Controller\\LoginController::logout'], [], [['text', '/logout']], [], [], []],
     'app_mailer_sendemail' => [[], ['_controller' => 'App\\Controller\\MailerController::sendEmail'], [], [['text', '/email']], [], [], []],
     'home' => [[], ['_controller' => 'App\\Controller\\MoviesController::home'], [], [['text', '/']], [], [], []],
+    'test' => [[], ['_controller' => 'App\\Controller\\MoviesController::test'], [], [['text', '/test']], [], [], []],
     'browse' => [[], ['_controller' => 'App\\Controller\\MoviesController::index'], [], [['text', '/browse']], [], [], []],
     'shows' => [[], ['_controller' => 'App\\Controller\\MoviesController::shows'], [], [['text', '/shows']], [], [], []],
     'profile' => [[], ['_controller' => 'App\\Controller\\MoviesController::profile'], [], [['text', '/profile']], [], [], []],

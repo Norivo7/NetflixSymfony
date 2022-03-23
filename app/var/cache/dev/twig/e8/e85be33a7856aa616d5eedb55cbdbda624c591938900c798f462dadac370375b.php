@@ -179,27 +179,38 @@ class __TwigTemplate_ca0afc822ae91019fd16f67c00cbf05bc8363b0fe833af53d6518008206
             // line 44
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "year", [], "any", false, false, false, 44), "html", null, true);
             echo "</td>
-                <td>";
+                <td><img src=\"";
             // line 45
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 45), "html", null, true);
-            echo "</td>
+            echo "\" style=\"width: 150px\"></td>
                 <td>";
             // line 46
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "link", [], "any", false, false, false, 46), "html", null, true);
             echo "</td>
-                <td>";
-            // line 47
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "active", [], "any", false, false, false, 47), "html", null, true);
-            echo "</td>
+                <td>
+                    ";
+            // line 48
+            if ((twig_get_attribute($this->env, $this->source, $context["movie"], "active", [], "any", false, false, false, 48) != null)) {
+                // line 49
+                echo "                      True
+                    ";
+            } else {
+                // line 51
+                echo "                      False
+                    ";
+            }
+            // line 53
+            echo "
+                </td>
                 <td>
                     <div class=\"btnWrapper\">
                         <a class=\"profileButton\" href=\"";
-            // line 50
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_movie_crud_show", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 50)]), "html", null, true);
+            // line 57
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_movie_crud_show", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 57)]), "html", null, true);
             echo "\">wyświetl</a>
                         <a class=\"profileButton\" href=\"";
-            // line 51
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_movie_crud_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 51)]), "html", null, true);
+            // line 58
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_movie_crud_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 58)]), "html", null, true);
             echo "\">edytuj</a>
                     </div>
                 </td>
@@ -208,7 +219,7 @@ class __TwigTemplate_ca0afc822ae91019fd16f67c00cbf05bc8363b0fe833af53d6518008206
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 56
+            // line 63
             echo "            <tr>
                 <td colspan=\"7\">no records found</td>
             </tr>
@@ -217,16 +228,16 @@ class __TwigTemplate_ca0afc822ae91019fd16f67c00cbf05bc8363b0fe833af53d6518008206
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 60
+        // line 67
         echo "        </tbody>
     </table>
 
     <a class=\"profileButton\" href=\"";
-        // line 63
+        // line 70
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_movie_crud_new");
         echo "\">Dodaj</a>
     <a class=\"profileButton\" href=\"";
-        // line 64
+        // line 71
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_panel");
         echo "\">Wróć</a>
 ";
@@ -250,7 +261,7 @@ class __TwigTemplate_ca0afc822ae91019fd16f67c00cbf05bc8363b0fe833af53d6518008206
 
     public function getDebugInfo()
     {
-        return array (  230 => 64,  226 => 63,  221 => 60,  212 => 56,  202 => 51,  198 => 50,  192 => 47,  188 => 46,  184 => 45,  180 => 44,  176 => 43,  172 => 42,  168 => 41,  165 => 40,  160 => 39,  142 => 23,  132 => 22,  114 => 20,  90 => 6,  80 => 5,  61 => 3,  38 => 1,);
+        return array (  241 => 71,  237 => 70,  232 => 67,  223 => 63,  213 => 58,  209 => 57,  203 => 53,  199 => 51,  195 => 49,  193 => 48,  188 => 46,  184 => 45,  180 => 44,  176 => 43,  172 => 42,  168 => 41,  165 => 40,  160 => 39,  142 => 23,  132 => 22,  114 => 20,  90 => 6,  80 => 5,  61 => 3,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -299,9 +310,16 @@ class __TwigTemplate_ca0afc822ae91019fd16f67c00cbf05bc8363b0fe833af53d6518008206
                 <td>{{ movie.title }}</td>
                 <td>{{ movie.description }}</td>
                 <td>{{ movie.year }}</td>
-                <td>{{ movie.img }}</td>
+                <td><img src=\"{{ movie.img }}\" style=\"width: 150px\"></td>
                 <td>{{ movie.link }}</td>
-                <td>{{ movie.active }}</td>
+                <td>
+                    {% if movie.active != null %}
+                      True
+                    {% else %}
+                      False
+                    {% endif %}
+
+                </td>
                 <td>
                     <div class=\"btnWrapper\">
                         <a class=\"profileButton\" href=\"{{ path('app_movie_crud_show', {'id': movie.id}) }}\">wyświetl</a>
