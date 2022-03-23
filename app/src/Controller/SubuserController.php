@@ -96,9 +96,8 @@ class SubuserController extends AbstractController
     public function chooseUser(Request $request): Response
     {
         $currentUser = $this->getUser();
-
-        if ($request->getMethod() == 'POST') {
-            $id = $request->request->get('id');
+        $id = $request->request->get('id');
+        if ($request->getMethod() == 'POST' &&  $id != null ) {
             return $this->redirectToRoute('success', [
                     'id' => $id,
                 ]

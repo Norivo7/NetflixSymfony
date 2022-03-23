@@ -31,6 +31,7 @@
                 <th>Year</th>
                 <th>Img</th>
                 <th>Link</th>
+                <th>Active</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -43,6 +44,7 @@
                 <td>{{ movie.year }}</td>
                 <td>{{ movie.img }}</td>
                 <td>{{ movie.link }}</td>
+                <td>{{ movie.active }}</td>
                 <td>
                     <div class="btnWrapper">
                         <a class="profileButton" href="{{ path('app_movie_crud_show', {'id': movie.id}) }}">wyświetl</a>

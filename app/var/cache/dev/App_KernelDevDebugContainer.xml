@@ -5034,7 +5034,7 @@
         <argument key="userPasswordHasher" type="service_closure" id="security.user_password_hasher"/>
       </argument>
     </service>
-    <service id=".service_locator.gp3MIfT" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.F7YVhnE" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\Admin\MovieCrudController::delete" type="service_closure" id=".service_locator.IP.7k9m"/>
@@ -5054,6 +5054,7 @@
         <argument key="App\Controller\Admin\UserCrudController::show" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Controller\LoginController::index" type="service_closure" id=".service_locator.UDgw6Ol"/>
         <argument key="App\Controller\MoviesController::dislike" type="service_closure" id=".service_locator.T7xmfzk"/>
+        <argument key="App\Controller\MoviesController::hide" type="service_closure" id=".service_locator.IP.7k9m"/>
         <argument key="App\Controller\MoviesController::like" type="service_closure" id=".service_locator.T7xmfzk"/>
         <argument key="App\Controller\MoviesController::search" type="service_closure" id=".service_locator.eWsEuD9"/>
         <argument key="App\Controller\MoviesController::show" type="service_closure" id=".service_locator.V5oNiHc"/>
@@ -5083,6 +5084,7 @@
         <argument key="App\Controller\Admin\UserCrudController:show" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Controller\LoginController:index" type="service_closure" id=".service_locator.UDgw6Ol"/>
         <argument key="App\Controller\MoviesController:dislike" type="service_closure" id=".service_locator.T7xmfzk"/>
+        <argument key="App\Controller\MoviesController:hide" type="service_closure" id=".service_locator.IP.7k9m"/>
         <argument key="App\Controller\MoviesController:like" type="service_closure" id=".service_locator.T7xmfzk"/>
         <argument key="App\Controller\MoviesController:search" type="service_closure" id=".service_locator.eWsEuD9"/>
         <argument key="App\Controller\MoviesController:show" type="service_closure" id=".service_locator.V5oNiHc"/>
@@ -5424,12 +5426,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.gp3MIfT"/>
+      <argument type="service" id=".service_locator.F7YVhnE"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.gp3MIfT"/>
+      <argument type="service" id=".service_locator.F7YVhnE"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -6176,7 +6178,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.gp3MIfT"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.F7YVhnE"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface" alias="logger"/>
@@ -6186,7 +6188,7 @@
     <service id=".service_locator.EVwVc65" alias=".service_locator.8GnEEv."/>
     <service id=".service_locator.PaJQGxZ" alias=".service_locator.LruWq6u"/>
     <service id=".service_locator.P1mK_tE" alias=".service_locator.W1hlQDJ"/>
-    <service id=".service_locator.U68yryh" alias=".service_locator.gp3MIfT"/>
+    <service id=".service_locator.iyG9Byt" alias=".service_locator.F7YVhnE"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.J4Bvc2D" alias=".service_locator.LZ7NntJ"/>
     <service id=".service_locator.qBCHs1a" alias=".service_locator.QXcJQkF"/>

@@ -45,7 +45,9 @@ class MovieRepository extends ServiceEntityRepository
             ->select('movie', 'category')
             ->leftJoin('movie.categories', 'category')
             ->andWhere('category.name = :categoryName')
+            ->andWhere('movie.active = :enabled')
             ->setParameter('categoryName', $category)
+            ->setParameter('enabled', true)
             ->getQuery()
             ->getResult();
     }

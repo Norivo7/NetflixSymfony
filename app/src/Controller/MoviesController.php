@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Movie;
+use App\Form\MovieType;
 use App\Repository\CategoryRepository;
 use App\Repository\MovieRepository;
 use App\Repository\SubuserRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -65,12 +67,34 @@ class MoviesController extends AbstractController
     }
 
     /**
+     * @Route(methods={"POST, GET"})
+     */
+    public function hide(Request $request, Movie $movie, EntityManagerInterface $entityManager): Response
+    {
+        $form = $this->createForm(MovieType::class, $movie);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+            return $this->redirectToRoute('browse', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('admin/movie_crud/edit.html.twig', [
+            'movie' => $movie,
+            'form' => $form,
+        ]);
+    }
+
+
+    /**
      * @Route("/browse", name="browse")
      * @param Request $request
      * @return Response
      */
     public function index(Request $request): Response
     {
+
+//        $form = $this->createForm(MovieType::class, $movie);
             // if id has changed, change user
         if ($request->getMethod() == 'POST' && $request->request->get('id') != null) {
             $id = $request->request->get('id');

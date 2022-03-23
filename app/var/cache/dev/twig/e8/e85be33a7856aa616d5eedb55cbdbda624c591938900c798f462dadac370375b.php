@@ -150,51 +150,56 @@ class __TwigTemplate_ca0afc822ae91019fd16f67c00cbf05bc8363b0fe833af53d6518008206
                 <th>Year</th>
                 <th>Img</th>
                 <th>Link</th>
+                <th>Active</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         ";
-        // line 38
+        // line 39
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["movies"]) || array_key_exists("movies", $context) ? $context["movies"] : (function () { throw new RuntimeError('Variable "movies" does not exist.', 38, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["movies"]) || array_key_exists("movies", $context) ? $context["movies"] : (function () { throw new RuntimeError('Variable "movies" does not exist.', 39, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["movie"]) {
-            // line 39
+            // line 40
             echo "            <tr>
                 <td>";
-            // line 40
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 40), "html", null, true);
-            echo "</td>
-                <td>";
             // line 41
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 41), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 41), "html", null, true);
             echo "</td>
                 <td>";
             // line 42
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "description", [], "any", false, false, false, 42), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 42), "html", null, true);
             echo "</td>
                 <td>";
             // line 43
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "year", [], "any", false, false, false, 43), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "description", [], "any", false, false, false, 43), "html", null, true);
             echo "</td>
                 <td>";
             // line 44
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 44), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "year", [], "any", false, false, false, 44), "html", null, true);
             echo "</td>
                 <td>";
             // line 45
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "link", [], "any", false, false, false, 45), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 45), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 46
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "link", [], "any", false, false, false, 46), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 47
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "active", [], "any", false, false, false, 47), "html", null, true);
             echo "</td>
                 <td>
                     <div class=\"btnWrapper\">
                         <a class=\"profileButton\" href=\"";
-            // line 48
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_movie_crud_show", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 48)]), "html", null, true);
+            // line 50
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_movie_crud_show", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 50)]), "html", null, true);
             echo "\">wyświetl</a>
                         <a class=\"profileButton\" href=\"";
-            // line 49
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_movie_crud_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 49)]), "html", null, true);
+            // line 51
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_movie_crud_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 51)]), "html", null, true);
             echo "\">edytuj</a>
                     </div>
                 </td>
@@ -203,7 +208,7 @@ class __TwigTemplate_ca0afc822ae91019fd16f67c00cbf05bc8363b0fe833af53d6518008206
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 54
+            // line 56
             echo "            <tr>
                 <td colspan=\"7\">no records found</td>
             </tr>
@@ -212,16 +217,16 @@ class __TwigTemplate_ca0afc822ae91019fd16f67c00cbf05bc8363b0fe833af53d6518008206
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 58
+        // line 60
         echo "        </tbody>
     </table>
 
     <a class=\"profileButton\" href=\"";
-        // line 61
+        // line 63
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_movie_crud_new");
         echo "\">Dodaj</a>
     <a class=\"profileButton\" href=\"";
-        // line 62
+        // line 64
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_panel");
         echo "\">Wróć</a>
 ";
@@ -245,7 +250,7 @@ class __TwigTemplate_ca0afc822ae91019fd16f67c00cbf05bc8363b0fe833af53d6518008206
 
     public function getDebugInfo()
     {
-        return array (  225 => 62,  221 => 61,  216 => 58,  207 => 54,  197 => 49,  193 => 48,  187 => 45,  183 => 44,  179 => 43,  175 => 42,  171 => 41,  167 => 40,  164 => 39,  159 => 38,  142 => 23,  132 => 22,  114 => 20,  90 => 6,  80 => 5,  61 => 3,  38 => 1,);
+        return array (  230 => 64,  226 => 63,  221 => 60,  212 => 56,  202 => 51,  198 => 50,  192 => 47,  188 => 46,  184 => 45,  180 => 44,  176 => 43,  172 => 42,  168 => 41,  165 => 40,  160 => 39,  142 => 23,  132 => 22,  114 => 20,  90 => 6,  80 => 5,  61 => 3,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -283,6 +288,7 @@ class __TwigTemplate_ca0afc822ae91019fd16f67c00cbf05bc8363b0fe833af53d6518008206
                 <th>Year</th>
                 <th>Img</th>
                 <th>Link</th>
+                <th>Active</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -295,6 +301,7 @@ class __TwigTemplate_ca0afc822ae91019fd16f67c00cbf05bc8363b0fe833af53d6518008206
                 <td>{{ movie.year }}</td>
                 <td>{{ movie.img }}</td>
                 <td>{{ movie.link }}</td>
+                <td>{{ movie.active }}</td>
                 <td>
                     <div class=\"btnWrapper\">
                         <a class=\"profileButton\" href=\"{{ path('app_movie_crud_show', {'id': movie.id}) }}\">wyświetl</a>

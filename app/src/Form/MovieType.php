@@ -19,6 +19,7 @@ class MovieType extends AbstractType
             ->add('link')
             ->add('categories')
             ->add('likedBy')
+            ->add('active')
         ;
     }
 

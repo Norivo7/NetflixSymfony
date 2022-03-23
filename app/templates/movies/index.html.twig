@@ -145,6 +145,10 @@
                                 <div class="modal-movie-info-primary">
                                     <h2 class="modal-title">{{ movie.title }}</h2>
                                     <p class="modal-movie-description">{{ movie.description }}</p>
+{#                                    {% if is_granted('ROLE_ADMIN') %}#}
+{#                                                {{ form_label(form.active) }}#}
+{#                                                {{ form_widget(form.active) }}#}
+{#                                    {% endif %}#}
                                 </div>
                                 <div class="modal-movie-info-secondary">
                                     <a class="profile_button" href="{{ path('show-one', {'id': movie.id}) }}"> Oglądaj teraz </a>
@@ -155,6 +159,7 @@
                                         </div>
                                 </div>
                             </div>
+
                             <span onclick="document.getElementById('{{ movie.id }}').style.display='none'"
                                   class="bi bi-x-circle-fill modal-exit"></span>
                         </div>

@@ -55,9 +55,14 @@ class Movie
      */
     private $likedBy;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $active;
+
     public function __construct()
     {
-//        $this->categories = new ArrayCollection();
+        $this->categories = new ArrayCollection();
         $this->likedBy = new ArrayCollection();
     }
 
@@ -177,6 +182,18 @@ class Movie
     public function removeLikedBy(Subuser $likedBy): self
     {
         $this->likedBy->removeElement($likedBy);
+
+        return $this;
+    }
+
+    public function getActive(): ?bool
+    {
+        return $this->active;
+    }
+
+    public function setActive(bool $active): self
+    {
+        $this->active = $active;
 
         return $this;
     }
