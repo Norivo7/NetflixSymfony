@@ -45,6 +45,7 @@ security:
         - { path: ^/newuser, roles: ROLE_USER }
         - { path: ^/login, roles: ROLE_USER }
         - { path: ^/admin/*, roles: ROLE_USER }
+        - { path: ^/browse/hide/*, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 
 when@test:
