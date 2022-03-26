@@ -6,6 +6,11 @@
 @font-face {
     font-family: 'Netflix Sans Regular';
 }
+
+:root {
+    font-family: 'Netflix Sans Regular', "Helvetica Neue", "Helvetica", Arial, sans-serif;
+}
+
 html {
     margin-left: -8px;
     font-family: 'Netflix Sans Regular', "Helvetica Neue", "Helvetica", Arial, sans-serif;
@@ -22,23 +27,26 @@ h1 {
 
 ul{
     list-style-type: none;
+    padding: 0;
 }
+
 li {
     padding: 20px;
 
 }
-img.round {
+
+input.round {
     outline-offset: -4px;
     border: 0px solid;
     border-radius: 10px;
 }
-img.round:hover {
-    color:#000;
-    box-shadow: 0px 0px 0px 4px white;
-    background-color:#FFF;
-    background-image:none;
-}
 
+input.round:hover {
+    color: #000;
+    box-shadow: 0px 0px 0px 4px white;
+    background-color: #FFF;
+    background-image: none;
+}
 
 /*======================
        Navigation
@@ -111,4 +119,20 @@ img.round:hover {
     justify-content: space-between;
     flex: 1;
 }
-
+.subuser:hover {
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.main {
+    height: 90%;
+}
+.profileName{
+    padding-top:50px;
+}
+.form-control {
+    padding: 0;
+}
+.buttonDiv {
+    margin-top: 20px;
+}

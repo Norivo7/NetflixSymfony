@@ -126,40 +126,14 @@ class __TwigTemplate_4c3429a81403940e7c5f59dc027eec62a8d487e507414cb9fc663d20c82
     <div class=\"movie_container\">
         <div class=\"text-center\">
             <div>
-                <iframe width=\"720\" height=\"480\" src=\"";
+                <iframe width=\"1720\" height=\"800\" src=\"";
         // line 20
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 20, $this->source); })()), "link", [], "any", false, false, false, 20), "html", null, true);
         echo "\" frameborder=\"0\"
                         allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\"
                         allowfullscreen>
                 </iframe>
-                <h3>";
-        // line 24
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 24, $this->source); })()), "title", [], "any", false, false, false, 24), "html", null, true);
-        echo "</h3>
-                <p>Opis : <br>";
-        // line 25
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 25, $this->source); })()), "description", [], "any", false, false, false, 25), "html", null, true);
-        echo "</p>
-                <p>Rok : ";
-        // line 26
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 26, $this->source); })()), "year", [], "any", false, false, false, 26), "html", null, true);
-        echo " <br>
-                <p>Kategorie :</p>
-                ";
-        // line 28
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) || array_key_exists("categories", $context) ? $context["categories"] : (function () { throw new RuntimeError('Variable "categories" does not exist.', 28, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-            // line 29
-            echo "                    <li> ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 29), "html", null, true);
-            echo "</li>
-                ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
+";
         // line 31
         echo "            </div>
 
@@ -287,7 +261,7 @@ class __TwigTemplate_4c3429a81403940e7c5f59dc027eec62a8d487e507414cb9fc663d20c82
 
     public function getDebugInfo()
     {
-        return array (  248 => 81,  236 => 68,  228 => 59,  221 => 53,  211 => 52,  197 => 47,  189 => 42,  184 => 41,  176 => 36,  171 => 35,  169 => 34,  164 => 31,  155 => 29,  151 => 28,  146 => 26,  142 => 25,  138 => 24,  131 => 20,  125 => 16,  115 => 15,  100 => 9,  96 => 8,  92 => 6,  82 => 5,  61 => 3,  38 => 1,);
+        return array (  222 => 81,  210 => 68,  202 => 59,  195 => 53,  185 => 52,  171 => 47,  163 => 42,  158 => 41,  150 => 36,  145 => 35,  143 => 34,  138 => 31,  131 => 20,  125 => 16,  115 => 15,  100 => 9,  96 => 8,  92 => 6,  82 => 5,  61 => 3,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -311,17 +285,17 @@ class __TwigTemplate_4c3429a81403940e7c5f59dc027eec62a8d487e507414cb9fc663d20c82
     <div class=\"movie_container\">
         <div class=\"text-center\">
             <div>
-                <iframe width=\"720\" height=\"480\" src=\"{{ movie.link }}\" frameborder=\"0\"
+                <iframe width=\"1720\" height=\"800\" src=\"{{ movie.link }}\" frameborder=\"0\"
                         allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\"
                         allowfullscreen>
                 </iframe>
-                <h3>{{ movie.title }}</h3>
-                <p>Opis : <br>{{ movie.description }}</p>
-                <p>Rok : {{ movie.year }} <br>
-                <p>Kategorie :</p>
-                {% for category in categories %}
-                    <li> {{ category.name }}</li>
-                {% endfor %}
+{#                <h3>{{ movie.title }}</h3>#}
+{#                <p>Opis : <br>{{ movie.description }}</p>#}
+{#                <p>Rok : {{ movie.year }} <br>#}
+{#                <p>Kategorie :</p>#}
+{#                {% for category in categories %}#}
+{#                    <li> {{ category.name }}</li>#}
+{#                {% endfor %}#}
             </div>
 
             <div style=\"margin-top: 20px\">

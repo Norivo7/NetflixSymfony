@@ -31,7 +31,6 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
             'title' => [$this, 'block_title'],
             'javascripts' => [$this, 'block_javascripts'],
             'body' => [$this, 'block_body'],
-            'stylesheets' => [$this, 'block_stylesheets'],
         ];
     }
 
@@ -59,15 +58,11 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
         $this->displayBlock('body', $context, $blocks);
         // line 218
         echo "
+
 ";
-        // line 219
-        $this->displayBlock('stylesheets', $context, $blocks);
-        // line 315
-        echo "
-";
-        // line 316
-        $this->loadTemplate("root.html.twig", "root.html.twig", 316, "1504325360")->display($context);
-        // line 317
+        // line 220
+        $this->loadTemplate("root.html.twig", "root.html.twig", 220, "793049363")->display($context);
+        // line 221
         echo "</html>
 ";
         
@@ -404,119 +399,6 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
     }
 
-    // line 219
-    public function block_stylesheets($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
-
-        // line 220
-        echo "    ";
-        echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackLinkTags("app");
-        echo "
-    <style>
-
-        ";
-        // line 226
-        echo "
-        body {
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-        }
-
-        html {
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-            font-weight: normal;
-        }
-
-        h1 {
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-        }
-
-        h2 {
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-        }
-
-        a.button, a.button:hover, a.button:visited, a.button:active {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        a, a:visited, a:active {
-            color: #757575;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #757575;
-            text-decoration: underline;
-        }
-
-        select {
-            font-family: \"Netflix Sans Black\", bootstrap-icons, serif;
-            padding: 10px 10px 10px;
-
-        }
-
-        i {
-            vertical-align: -1px;
-        }
-
-        ";
-        // line 272
-        echo "
-
-        .buttonsWrapper {
-            gap: 20px;
-        }
-
-        .selectMedium {
-            margin-right: 0;
-        }
-
-        input[type=text] {
-             width: 1450px;
-            height: 60px;
-            padding: 12px 20px;
-            margin: 8px 0;
-            box-sizing: border-box;
-            border: 1px solid rgb(118, 118, 118);
-            /*border-radius: 4px;*/
-        }
-
-        .register-button {
-            background-color: red;
-            font-family: \"Netflix Sans Regular\", bootstrap-icons, serif;
-            line-height: 50px;
-            width: 100%;
-            height: 60px;
-            margin: 8px 0;
-            border-left: 1px solid #333;
-        }
-
-        .register-wrapper {
-            display: flex;
-        }
-
-        ";
-        // line 309
-        echo "
-        .concord-img-wrapper {
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-        }
-    </style>
-";
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-    }
-
     public function getTemplateName()
     {
         return "root.html.twig";
@@ -529,7 +411,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
     public function getDebugInfo()
     {
-        return array (  506 => 309,  470 => 272,  425 => 226,  418 => 220,  408 => 219,  390 => 209,  263 => 83,  251 => 72,  247 => 70,  241 => 68,  239 => 67,  231 => 61,  225 => 57,  219 => 53,  217 => 52,  213 => 51,  210 => 50,  199 => 43,  197 => 42,  181 => 29,  175 => 25,  165 => 24,  152 => 21,  142 => 20,  123 => 7,  110 => 15,  101 => 8,  99 => 7,  92 => 2,  82 => 1,  71 => 317,  69 => 316,  66 => 315,  64 => 219,  61 => 218,  59 => 24,  56 => 23,  54 => 20,  50 => 18,  48 => 1,);
+        return array (  385 => 209,  258 => 83,  246 => 72,  242 => 70,  236 => 68,  234 => 67,  226 => 61,  220 => 57,  214 => 53,  212 => 52,  208 => 51,  205 => 50,  194 => 43,  192 => 42,  176 => 29,  170 => 25,  160 => 24,  147 => 21,  137 => 20,  118 => 7,  105 => 15,  96 => 8,  94 => 7,  87 => 2,  77 => 1,  66 => 221,  64 => 220,  60 => 218,  58 => 24,  55 => 23,  53 => 20,  49 => 18,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -752,102 +634,6 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
     </body>
 {% endblock %}
 
-{% block stylesheets %}
-    {{ encore_entry_link_tags('app') }}
-    <style>
-
-        {#======================
-                Global
-        ======================#}
-
-        body {
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-        }
-
-        html {
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-            font-weight: normal;
-        }
-
-        h1 {
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-        }
-
-        h2 {
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-        }
-
-        a.button, a.button:hover, a.button:visited, a.button:active {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        a, a:visited, a:active {
-            color: #757575;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #757575;
-            text-decoration: underline;
-        }
-
-        select {
-            font-family: \"Netflix Sans Black\", bootstrap-icons, serif;
-            padding: 10px 10px 10px;
-
-        }
-
-        i {
-            vertical-align: -1px;
-        }
-
-        {#======================
-                Buttons
-        ======================#}
-
-
-        .buttonsWrapper {
-            gap: 20px;
-        }
-
-        .selectMedium {
-            margin-right: 0;
-        }
-
-        input[type=text] {
-             width: 1450px;
-            height: 60px;
-            padding: 12px 20px;
-            margin: 8px 0;
-            box-sizing: border-box;
-            border: 1px solid rgb(118, 118, 118);
-            /*border-radius: 4px;*/
-        }
-
-        .register-button {
-            background-color: red;
-            font-family: \"Netflix Sans Regular\", bootstrap-icons, serif;
-            line-height: 50px;
-            width: 100%;
-            height: 60px;
-            margin: 8px 0;
-            border-left: 1px solid #333;
-        }
-
-        .register-wrapper {
-            display: flex;
-        }
-
-        {#======================
-              Backgrounds
-        ======================#}
-
-        .concord-img-wrapper {
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-        }
-    </style>
-{% endblock %}
 
 {% embed 'reusable/footer.html.twig' %}{% endembed %}
 </html>
@@ -857,7 +643,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
 
 /* root.html.twig */
-class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b722b0d___1504325360 extends Template
+class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b722b0d___793049363 extends Template
 {
     private $source;
     private $macros = [];
@@ -874,7 +660,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
     protected function doGetParent(array $context)
     {
-        // line 316
+        // line 220
         return "reusable/footer.html.twig";
     }
 
@@ -887,7 +673,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "root.html.twig"));
 
-        $this->parent = $this->loadTemplate("reusable/footer.html.twig", "root.html.twig", 316);
+        $this->parent = $this->loadTemplate("reusable/footer.html.twig", "root.html.twig", 220);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -909,7 +695,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
     public function getDebugInfo()
     {
-        return array (  878 => 316,  506 => 309,  470 => 272,  425 => 226,  418 => 220,  408 => 219,  390 => 209,  263 => 83,  251 => 72,  247 => 70,  241 => 68,  239 => 67,  231 => 61,  225 => 57,  219 => 53,  217 => 52,  213 => 51,  210 => 50,  199 => 43,  197 => 42,  181 => 29,  175 => 25,  165 => 24,  152 => 21,  142 => 20,  123 => 7,  110 => 15,  101 => 8,  99 => 7,  92 => 2,  82 => 1,  71 => 317,  69 => 316,  66 => 315,  64 => 219,  61 => 218,  59 => 24,  56 => 23,  54 => 20,  50 => 18,  48 => 1,);
+        return array (  664 => 220,  385 => 209,  258 => 83,  246 => 72,  242 => 70,  236 => 68,  234 => 67,  226 => 61,  220 => 57,  214 => 53,  212 => 52,  208 => 51,  205 => 50,  194 => 43,  192 => 42,  176 => 29,  170 => 25,  160 => 24,  147 => 21,  137 => 20,  118 => 7,  105 => 15,  96 => 8,  94 => 7,  87 => 2,  77 => 1,  66 => 221,  64 => 220,  60 => 218,  58 => 24,  55 => 23,  53 => 20,  49 => 18,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -1132,102 +918,6 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
     </body>
 {% endblock %}
 
-{% block stylesheets %}
-    {{ encore_entry_link_tags('app') }}
-    <style>
-
-        {#======================
-                Global
-        ======================#}
-
-        body {
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-        }
-
-        html {
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-            font-weight: normal;
-        }
-
-        h1 {
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-        }
-
-        h2 {
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-        }
-
-        a.button, a.button:hover, a.button:visited, a.button:active {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        a, a:visited, a:active {
-            color: #757575;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #757575;
-            text-decoration: underline;
-        }
-
-        select {
-            font-family: \"Netflix Sans Black\", bootstrap-icons, serif;
-            padding: 10px 10px 10px;
-
-        }
-
-        i {
-            vertical-align: -1px;
-        }
-
-        {#======================
-                Buttons
-        ======================#}
-
-
-        .buttonsWrapper {
-            gap: 20px;
-        }
-
-        .selectMedium {
-            margin-right: 0;
-        }
-
-        input[type=text] {
-             width: 1450px;
-            height: 60px;
-            padding: 12px 20px;
-            margin: 8px 0;
-            box-sizing: border-box;
-            border: 1px solid rgb(118, 118, 118);
-            /*border-radius: 4px;*/
-        }
-
-        .register-button {
-            background-color: red;
-            font-family: \"Netflix Sans Regular\", bootstrap-icons, serif;
-            line-height: 50px;
-            width: 100%;
-            height: 60px;
-            margin: 8px 0;
-            border-left: 1px solid #333;
-        }
-
-        .register-wrapper {
-            display: flex;
-        }
-
-        {#======================
-              Backgrounds
-        ======================#}
-
-        .concord-img-wrapper {
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-        }
-    </style>
-{% endblock %}
 
 {% embed 'reusable/footer.html.twig' %}{% endembed %}
 </html>

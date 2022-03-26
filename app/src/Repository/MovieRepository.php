@@ -45,7 +45,7 @@ class MovieRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('movie')
             ->select('movie', 'category')
-            ->leftJoin('movie.categories', 'category')
+            ->innerJoin('movie.categories', 'category')
             ->andWhere('category.name = :categoryName')
             ->andWhere('movie.active = :enabled')
             ->setParameter('categoryName', $category)

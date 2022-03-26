@@ -123,8 +123,7 @@
 {% block body %}
     <body>
     <section class="movie_container">
-        <h1 id="movies" class="category_label">Filmy - Test Modalu</h1>
-
+        <h1 id="movies" class="category_label">Filmy</h1>
         <div class="movie">
             {% for movie in movies %}
                 <a class="movie-hero" onclick="showModal({{ movie.id }})
@@ -173,8 +172,9 @@
                                     </div>
                                 </div>
                             </div>
+
                             {% if is_granted('ROLE_ADMIN') %}
-                                <a href="{{ path('hide', {'id': movie.id}) }}">Schowaj film</a>
+                                <a href="{{ path('hide', {'id': movie.id}) }}">Ukryj film</a>
                             {% endif %}
                         </div>
                     </div>
@@ -186,7 +186,9 @@
         <h1 id="shows" class="category_label">Seriale</h1>
         <div class="movie">
             {% for movie in shows %}
-                <a class="movie-hero" href="{{ path('show-one', {'id': movie.id}) }}">
+                <a class="movie-hero" onclick="showModal({{ movie.id }})
+                        // document.getElementById('navbar').style.background='rgba(0, 0, 0, .7)'
+                        ">
                     <img class="movie-hero-image" src="{{ movie.img }}" alt="{{ movie.title }}">
                 </a>
                 {% if is_granted('ROLE_ADMIN') %}
@@ -197,13 +199,56 @@
                         </div>
                     </a>
                 {% endif %}
+                <div id="{{ movie.id }}" class="modal" onclick="hideModal({{ movie.id }})">
+                    <div class="modal-background">
+                    </div>
+                    <div class="modal-sizing">
+                        <div class="modal-content">
+                            <div class="modal-header"
+                                    {#                                 style="background-image: url({{ movie.img }})" #}
+                            >
+                                <a class="modal-image" href="{{ path('show-one', {'id': movie.id}) }}"
+                                   style="text-decoration: none">
+                                    <img class="modal-image" src="{{ movie.img }}" alt="movie_image">
+                                </a>
+
+                                <div class="exit-button">
+                                    <span onclick="hideModal({{ movie.id }})"
+                                          class="bi bi-x-circle-fill modal-exit"></span>
+                                </div>
+                            </div>
+                            <div class="modal-desc">
+                                <div class="modal-movie-info-primary">
+                                    <h2 class="modal-title">{{ movie.title }}</h2>
+                                    <p class="modal-movie-description">{{ movie.description }}</p>
+                                </div>
+                                <div class="modal-movie-info-secondary">
+                                    <a class="profile_button" href="{{ path('show-one', {'id': movie.id}) }}"> Oglądaj
+                                        teraz </a>
+                                    <div class="modal-movie-info-secondary-categories">
+                                        {% for category in movie.categories %}
+                                            {{ category.name|join(' ') }}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a href="{{ path('hide', {'id': movie.id}) }}">Ukryj film</a>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </div>
             {% endfor %}
         </div>
 
         <h1 id="movies" class="category_label">Tylko na Netflixie</h1>
         <div class="movie">
             {% for movie in originals %}
-                <a class="movie-hero" href="{{ path('show-one', {'id': movie.id}) }}">
+                <a class="movie-hero" onclick="showModal({{ movie.id }})
+                        // document.getElementById('navbar').style.background='rgba(0, 0, 0, .7)'
+                        ">
                     <img class="movie-hero-image" src="{{ movie.img }}" alt="{{ movie.title }}">
                 </a>
                 {% if is_granted('ROLE_ADMIN') %}
@@ -214,6 +259,47 @@
                         </div>
                     </a>
                 {% endif %}
+                <div id="{{ movie.id }}" class="modal" onclick="hideModal({{ movie.id }})">
+                    <div class="modal-background">
+                    </div>
+                    <div class="modal-sizing">
+                        <div class="modal-content">
+                            <div class="modal-header"
+                                    {#                                 style="background-image: url({{ movie.img }})" #}
+                            >
+                                <a class="modal-image" href="{{ path('show-one', {'id': movie.id}) }}"
+                                   style="text-decoration: none">
+                                    <img class="modal-image" src="{{ movie.img }}" alt="movie_image">
+                                </a>
+
+                                <div class="exit-button">
+                                    <span onclick="hideModal({{ movie.id }})"
+                                          class="bi bi-x-circle-fill modal-exit"></span>
+                                </div>
+                            </div>
+                            <div class="modal-desc">
+                                <div class="modal-movie-info-primary">
+                                    <h2 class="modal-title">{{ movie.title }}</h2>
+                                    <p class="modal-movie-description">{{ movie.description }}</p>
+                                </div>
+                                <div class="modal-movie-info-secondary">
+                                    <a class="profile_button" href="{{ path('show-one', {'id': movie.id}) }}"> Oglądaj
+                                        teraz </a>
+                                    <div class="modal-movie-info-secondary-categories">
+                                        {% for category in movie.categories %}
+                                            {{ category.name|join(' ') }}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a href="{{ path('hide', {'id': movie.id}) }}">Ukryj film</a>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </div>
             {% endfor %}
         </div>
 

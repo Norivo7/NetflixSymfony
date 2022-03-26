@@ -73,16 +73,21 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
         // line 6
         $this->displayBlock('title', $context, $blocks);
         // line 7
-        echo "    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\"
+        echo "    <link rel=\"stylesheet\" href=\"";
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/userEdit.css"), "html", null, true);
+        echo "\">
+    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\"
           rel=\"stylesheet\"
           integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
           crossorigin=\"anonymous\">
     <link rel=\"stylesheet\"
           href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css\">
     <link rel=\"icon\" type=\"image/x-icon\" href=\"";
-        // line 13
+        // line 14
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/favicon.ico"), "html", null, true);
         echo "\">
+
+
 </head>
 ";
         
@@ -112,7 +117,7 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
 
     }
 
-    // line 17
+    // line 20
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -122,13 +127,13 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 18
+        // line 21
         echo "    <body>
     <form id=\"myForm\" method=\"post\">
         ";
-        // line 20
+        // line 23
         if (array_key_exists("subuser", $context)) {
-            // line 21
+            // line 24
             echo "            <div class=\"parent\">
                 <div class=\"div1\"><p class=\"heading\">Edytuj profil</p>
                     <hr>
@@ -138,14 +143,14 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
                            type=\"hidden\"
                            name=\"avatar\"
                            value=\"";
-            // line 29
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 29, $this->source); })()), "avatar", [], "any", false, false, false, 29), "html", null, true);
+            // line 32
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 32, $this->source); })()), "avatar", [], "any", false, false, false, 32), "html", null, true);
             echo "\"/>
 
                     <img class=\"avatar\"
                          src=\"";
-            // line 32
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 32, $this->source); })()), "avatar", [], "any", false, false, false, 32), "html", null, true);
+            // line 35
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 35, $this->source); })()), "avatar", [], "any", false, false, false, 35), "html", null, true);
             echo "\"
                          alt=\"avatar\">
                 </div>
@@ -154,19 +159,19 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
                            type=\"text\"
                            name=\"name\"
                            placeholder=\"";
-            // line 39
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 39, $this->source); })()), "name", [], "any", false, false, false, 39), "html", null, true);
+            // line 42
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subuser"]) || array_key_exists("subuser", $context) ? $context["subuser"] : (function () { throw new RuntimeError('Variable "subuser" does not exist.', 42, $this->source); })()), "name", [], "any", false, false, false, 42), "html", null, true);
             echo "\"/>
                     ";
-            // line 40
+            // line 43
             if (array_key_exists("errorRegex", $context)) {
-                // line 41
+                // line 44
                 echo "                        ";
-                echo twig_escape_filter($this->env, (isset($context["errorRegex"]) || array_key_exists("errorRegex", $context) ? $context["errorRegex"] : (function () { throw new RuntimeError('Variable "errorRegex" does not exist.', 41, $this->source); })()), "html", null, true);
+                echo twig_escape_filter($this->env, (isset($context["errorRegex"]) || array_key_exists("errorRegex", $context) ? $context["errorRegex"] : (function () { throw new RuntimeError('Variable "errorRegex" does not exist.', 44, $this->source); })()), "html", null, true);
                 echo "
                     ";
             }
-            // line 43
+            // line 46
             echo "                    <div class=\"selectMedium\">
                         <select>
                             <option value=\"0\">Polski</option>
@@ -201,21 +206,21 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
                         </div>
                         <div>
                             <a href=\"";
-            // line 76
+            // line 79
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("manageUser");
             echo "\" class=\"profileButton\">
                                 Anuluj
                             </a>
                         </div>
                         ";
-            // line 80
-            if (((isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 80, $this->source); })()) != 0)) {
-                // line 81
+            // line 83
+            if (((isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 83, $this->source); })()) != 0)) {
+                // line 84
                 echo "                        <form method=\"post\">
                             <div class=\"deleteBtnContainer\">
                                 <a class=\"deleteButton\" href=\"";
-                // line 83
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("deleteSubuser", ["id" => (isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 83, $this->source); })())]), "html", null, true);
+                // line 86
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("deleteSubuser", ["id" => (isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 86, $this->source); })())]), "html", null, true);
                 echo "\">
                                     Usuń
                                 </a>
@@ -223,13 +228,13 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
                         </form>
                         ";
             }
-            // line 89
+            // line 92
             echo "                    </div>
                 </div>
             </div>
         ";
         }
-        // line 93
+        // line 96
         echo "    </form>
     </body>
 ";
@@ -241,7 +246,7 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
 
     }
 
-    // line 97
+    // line 100
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -251,218 +256,12 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 98
-        echo "    <style>
-
-        ";
-        // line 103
-        echo "
-        select {
-            font-family: \"Netflix Sans Black\", serif;
-            text-align-last: left;
-            align-content: center;
-            margin-top: 15px;
-            padding: 5px 30px 5px;
-            border-radius: 4px;
-            background-color: #222222;
-            color: #FFF;
-        }
-
-        hr {
-            border-bottom: 4px solid rgb(118, 118, 118);
-        }
-
-        @font-face {
-            font-family: 'Netflix Sans Regular';
-        }
-
-        html {
-            margin-left: -8px;
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-        }
-
-        body {
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-            background-color: #141414;
-        }
-        h1 {
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-            color: white;
-            text-align: center;
-        }
-        ul {
-            list-style-type: none;
-        }
-
-        li {
-            background-color: #333;
-            width: 40%;
-            height: 30%;
-            padding: 7px 0;
-            text-align: center;
-            border-radius: 10px;
-            color: white;
-        }
-
-        img.round {
-            outline-offset: -4px;
-            border: 0px solid;
-            border-radius: 10px;
-        }
-
-        img.round:hover {
-            color: #000;
-            box-shadow: 0px 0px 0px 4px white;
-            background-color: #FFF;
-            background-image: none;
-        }
-
-        ";
-        // line 167
-        echo "
-        .deleteBtnContainer {
-            text-align: center;
-            padding-bottom: 10px;
-        }
-
-        .profileButton {
-            color: gray;
-            padding: .5em 1.5em;
-            letter-spacing: 2px;
-            cursor: pointer;
-            background-color: transparent;
-            border: 1px solid grey;
-            text-decoration: none;
-        }
-
-        .deleteButton {
-            color: red;
-            padding: .5em 1.5em;
-            letter-spacing: 2px;
-            cursor: pointer;
-            background-color: transparent;
-            border: 1px solid red;
-            text-decoration: none;
-        }
-
-        .deleteButton:hover {
-            color: red;
-        }
-
-        ";
-        // line 200
-        echo "
-        .logo {
-            margin-left: 25px;
-            margin-top: 10px;
-            align-items: center;
-            vertical-align: middle;
-            display: inline-block;
-            height: 60%;
-            justify-content: center;
-
-        }
-
-        .brandLogoWrapper {
-            height: 68px;
-            background-image: linear-gradient(to bottom, rgba(0, 0, 0, .7) 10%, rgba(0, 0, 0, 0));
-        }
-
-        #headerContainer {
-            vertical-align: top;
-            margin: -0.4em auto 2em auto;
-            width: 100vw;
-            height: 5vh;
-        }
-        ";
-        // line 226
-        echo "
-        .parent {
-            margin: auto;
-            align-content: center;
-            color: white;
-            width: 60%;
-            justify-items: center;
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            grid-template-rows: repeat(5, 1fr);
-            grid-column-gap: 0px;
-            grid-row-gap: 0px;
-        }
-
-        .div1 {
-            margin-top: auto;
-            height: 130px;
-            text-align: left;
-            width: 100%;
-            grid-area: 1 / 1 / 2 / 6;
-        }
-
-        .div2 {
-            display: flex;
-            justify-content: center;
-            grid-area: 2 / 1 / 5 / 2;
-        }
-
-        .div3 {
-            height: 100px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            float: left;
-            margin-right: auto;
-            align-content: flex-start;
-            grid-area: 2 / 2 / 3 / 6;
-        }
-
-        .div4 {
-            height: 140px;
-            width: 100%;
-            grid-area: 3 / 2 / 4 / 6;
-        }
-
-        .div5 {
-            margin-top: 55px;
-            text-align: left;
-            width: 100%;
-            grid-area: 4 / 2 / 5 / 6;
-        }
-
-        .div6 {
-            display: flex;
-            flex-direction: column;
-            height: 100px;
-            width: 100%;
-            flex-shrink: 1;
-            grid-area: 5 / 1 / 6 / 6;
-        }
-
-        .div7 {
-            display: flex;
-            gap: 20px;
-        }
-
-        .heading {
-            font-size: 50px;
-        }
-
-        .name {
-            color: white;
-            background-color: #666;
-            width: 40%;
-        }
-
-        .name::placeholder {
-            color: white;
-            opacity: 0.5;
-        }
-
-        .avatar {
-            border-radius: 10px;
-            height: 100px;
-            width: 100px;
-        }
-    </style>
+        // line 101
+        echo "<style>
+    body {
+        background-color: #141414;
+    }
+</style>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -484,7 +283,7 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
 
     public function getDebugInfo()
     {
-        return array (  379 => 226,  354 => 200,  322 => 167,  259 => 103,  255 => 98,  245 => 97,  233 => 93,  227 => 89,  218 => 83,  214 => 81,  212 => 80,  205 => 76,  170 => 43,  164 => 41,  162 => 40,  158 => 39,  148 => 32,  142 => 29,  132 => 21,  130 => 20,  126 => 18,  116 => 17,  97 => 6,  84 => 13,  76 => 7,  74 => 6,  71 => 5,  61 => 4,  38 => 1,);
+        return array (  260 => 101,  250 => 100,  238 => 96,  232 => 92,  223 => 86,  219 => 84,  217 => 83,  210 => 79,  175 => 46,  169 => 44,  167 => 43,  163 => 42,  153 => 35,  147 => 32,  137 => 24,  135 => 23,  131 => 21,  121 => 20,  102 => 6,  87 => 14,  76 => 7,  74 => 6,  71 => 5,  61 => 4,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -495,6 +294,7 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
 {% block head %}
 <head>
     {% block title %}<title> Edytuj profil - Netflix</title>{% endblock %}
+    <link rel=\"stylesheet\" href=\"{{ asset('assets/userEdit.css') }}\">
     <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\"
           rel=\"stylesheet\"
           integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
@@ -502,6 +302,8 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
     <link rel=\"stylesheet\"
           href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css\">
     <link rel=\"icon\" type=\"image/x-icon\" href=\"{{ asset('images/favicon.ico') }}\">
+
+
 </head>
 {% endblock %}
 
@@ -586,221 +388,11 @@ class __TwigTemplate_2300598c86d4470f7df27a53d295274ac605d777ebedd2549b7f7a11099
 {% endblock %}
 
 {% block stylesheets %}
-    <style>
-
-        {#======================
-                Global
-        ======================#}
-
-        select {
-            font-family: \"Netflix Sans Black\", serif;
-            text-align-last: left;
-            align-content: center;
-            margin-top: 15px;
-            padding: 5px 30px 5px;
-            border-radius: 4px;
-            background-color: #222222;
-            color: #FFF;
-        }
-
-        hr {
-            border-bottom: 4px solid rgb(118, 118, 118);
-        }
-
-        @font-face {
-            font-family: 'Netflix Sans Regular';
-        }
-
-        html {
-            margin-left: -8px;
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-        }
-
-        body {
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-            background-color: #141414;
-        }
-        h1 {
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-            color: white;
-            text-align: center;
-        }
-        ul {
-            list-style-type: none;
-        }
-
-        li {
-            background-color: #333;
-            width: 40%;
-            height: 30%;
-            padding: 7px 0;
-            text-align: center;
-            border-radius: 10px;
-            color: white;
-        }
-
-        img.round {
-            outline-offset: -4px;
-            border: 0px solid;
-            border-radius: 10px;
-        }
-
-        img.round:hover {
-            color: #000;
-            box-shadow: 0px 0px 0px 4px white;
-            background-color: #FFF;
-            background-image: none;
-        }
-
-        {#======================
-                Buttons
-        ======================#}
-
-        .deleteBtnContainer {
-            text-align: center;
-            padding-bottom: 10px;
-        }
-
-        .profileButton {
-            color: gray;
-            padding: .5em 1.5em;
-            letter-spacing: 2px;
-            cursor: pointer;
-            background-color: transparent;
-            border: 1px solid grey;
-            text-decoration: none;
-        }
-
-        .deleteButton {
-            color: red;
-            padding: .5em 1.5em;
-            letter-spacing: 2px;
-            cursor: pointer;
-            background-color: transparent;
-            border: 1px solid red;
-            text-decoration: none;
-        }
-
-        .deleteButton:hover {
-            color: red;
-        }
-
-        {#======================
-                Header
-        ======================#}
-
-        .logo {
-            margin-left: 25px;
-            margin-top: 10px;
-            align-items: center;
-            vertical-align: middle;
-            display: inline-block;
-            height: 60%;
-            justify-content: center;
-
-        }
-
-        .brandLogoWrapper {
-            height: 68px;
-            background-image: linear-gradient(to bottom, rgba(0, 0, 0, .7) 10%, rgba(0, 0, 0, 0));
-        }
-
-        #headerContainer {
-            vertical-align: top;
-            margin: -0.4em auto 2em auto;
-            width: 100vw;
-            height: 5vh;
-        }
-        {#======================
-                Content
-        ======================#}
-
-        .parent {
-            margin: auto;
-            align-content: center;
-            color: white;
-            width: 60%;
-            justify-items: center;
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            grid-template-rows: repeat(5, 1fr);
-            grid-column-gap: 0px;
-            grid-row-gap: 0px;
-        }
-
-        .div1 {
-            margin-top: auto;
-            height: 130px;
-            text-align: left;
-            width: 100%;
-            grid-area: 1 / 1 / 2 / 6;
-        }
-
-        .div2 {
-            display: flex;
-            justify-content: center;
-            grid-area: 2 / 1 / 5 / 2;
-        }
-
-        .div3 {
-            height: 100px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            float: left;
-            margin-right: auto;
-            align-content: flex-start;
-            grid-area: 2 / 2 / 3 / 6;
-        }
-
-        .div4 {
-            height: 140px;
-            width: 100%;
-            grid-area: 3 / 2 / 4 / 6;
-        }
-
-        .div5 {
-            margin-top: 55px;
-            text-align: left;
-            width: 100%;
-            grid-area: 4 / 2 / 5 / 6;
-        }
-
-        .div6 {
-            display: flex;
-            flex-direction: column;
-            height: 100px;
-            width: 100%;
-            flex-shrink: 1;
-            grid-area: 5 / 1 / 6 / 6;
-        }
-
-        .div7 {
-            display: flex;
-            gap: 20px;
-        }
-
-        .heading {
-            font-size: 50px;
-        }
-
-        .name {
-            color: white;
-            background-color: #666;
-            width: 40%;
-        }
-
-        .name::placeholder {
-            color: white;
-            opacity: 0.5;
-        }
-
-        .avatar {
-            border-radius: 10px;
-            height: 100px;
-            width: 100px;
-        }
-    </style>
+<style>
+    body {
+        background-color: #141414;
+    }
+</style>
 {% endblock %}
 
 ", "user/edit.html.twig", "/var/www/symfony_docker/templates/user/edit.html.twig");

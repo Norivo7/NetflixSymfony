@@ -5,6 +5,8 @@
               integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
               crossorigin="anonymous">
         <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}">
+        <link rel="stylesheet" href="assets/user.css">
+
     </head>
 
 {% endblock %}
@@ -34,16 +36,13 @@
                             <form method="POST">
                                 <div class="subuser">
                                     <input
-                                            class="form-control"
                                             id="text"
                                             type="hidden"
                                             name="id"
                                             value="{{ subuser_id }}"
                                     >
                                     <input
-                                            class="form-control"
-                                            class="subuser__input"
-                                            id="round"
+                                            class="form-control round"
                                             type="image"
                                             name="avatar"
                                             value="{{ subuser.avatar }} "
@@ -57,12 +56,12 @@
                     {% endfor %}
                 </ul>
             </div>
-            <div id="buttonDiv">
+            <div class="buttonDiv">
                 <a>
                     <a class="profileButton" href="{{ path('manageUser') }}">Zarządzaj profilami</a>
                 </a>
             </div>
-            <div id="buttonDiv">
+            <div class="buttonDiv">
                 <a>
                     <a class="profileButton" href="{{ path('home') }}">Wróć</a>
                 </a>
@@ -73,56 +72,5 @@
 {% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="assets/user.css">
-    <style>
-
-        {#======================
-                Global
-        ======================#}
-        body {
-            font-family: 'Netflix Sans Regular', "Helvetica Neue", "Helvetica", Arial, sans-serif;
-        }
-        ul {
-            padding: 0;
-        }
-        input#round {
-            outline-offset: -4px;
-            border: 0px solid;
-            border-radius: 10px;
-        }
-
-        input#round:hover {
-            color: #000;
-            box-shadow: 0px 0px 0px 4px white;
-            background-color: #FFF;
-            background-image: none;
-        }
-
-        {#======================
-                Content
-        ======================#}
-
-
-        .subuser:hover {
-            color: white;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .main {
-            height: 90%;
-        }
-        .profileName{
-            padding-top:50px;
-        }
-
-        .form-control {
-            padding: 0;
-        }
-
-        #buttonDiv {
-            margin-top: 20px;
-        }
-
-    </style>
 
 {% endblock %}

@@ -46,25 +46,25 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
 
         // line 1
         $this->displayBlock('head', $context, $blocks);
-        // line 11
-        echo "
-";
-        // line 12
-        $this->displayBlock('title', $context, $blocks);
         // line 13
         echo "
 ";
         // line 14
+        $this->displayBlock('title', $context, $blocks);
+        // line 15
+        echo "
+";
+        // line 16
         $this->displayBlock('header', $context, $blocks);
-        // line 23
+        // line 25
         echo "
 ";
-        // line 24
+        // line 26
         $this->displayBlock('body', $context, $blocks);
-        // line 74
+        // line 73
         echo "
 ";
-        // line 75
+        // line 74
         $this->displayBlock('stylesheets', $context, $blocks);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -94,6 +94,8 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
         // line 7
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/favicon.ico"), "html", null, true);
         echo "\">
+        <link rel=\"stylesheet\" href=\"assets/user.css\">
+
     </head>
 
 ";
@@ -105,7 +107,7 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
 
     }
 
-    // line 12
+    // line 14
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -124,7 +126,7 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
 
     }
 
-    // line 14
+    // line 16
     public function block_header($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -134,15 +136,15 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "header"));
 
-        // line 15
+        // line 17
         echo "    <div id=\"headerContainer\">
         <div class=\"brandLogoWrapper\">
             <a class=\"logo\" href=\"";
-        // line 17
+        // line 19
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
         echo "\" target=\"_parent\">
                 <img class=\"logo\" src=\"";
-        // line 18
+        // line 20
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/netflixLogo.svg.png"), "html", null, true);
         echo "\" alt=\"av1\"/>
             </a>
@@ -157,7 +159,7 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
 
     }
 
-    // line 24
+    // line 26
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -167,7 +169,7 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 25
+        // line 27
         echo "<body>
     <div class=\"main\">
         <div class=\"profilesContainer\">
@@ -175,73 +177,70 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
                 <h1 class=\"profilesLabel\"> Kto ogląda?</h1>
                 <ul class=\"chooseProfile\">
                     ";
-        // line 31
+        // line 33
         $context["subuser_id"] = 0;
-        // line 32
+        // line 34
         echo "                    ";
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["subUsers"]) || array_key_exists("subUsers", $context) ? $context["subUsers"] : (function () { throw new RuntimeError('Variable "subUsers" does not exist.', 32, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["subUsers"]) || array_key_exists("subUsers", $context) ? $context["subUsers"] : (function () { throw new RuntimeError('Variable "subUsers" does not exist.', 34, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["subuser"]) {
-            // line 33
+            // line 35
             echo "                        <li class=\"profile\">
                             <form method=\"POST\">
                                 <div class=\"subuser\">
                                     <input
-                                            class=\"form-control\"
                                             id=\"text\"
                                             type=\"hidden\"
                                             name=\"id\"
                                             value=\"";
-            // line 41
-            echo twig_escape_filter($this->env, (isset($context["subuser_id"]) || array_key_exists("subuser_id", $context) ? $context["subuser_id"] : (function () { throw new RuntimeError('Variable "subuser_id" does not exist.', 41, $this->source); })()), "html", null, true);
+            // line 42
+            echo twig_escape_filter($this->env, (isset($context["subuser_id"]) || array_key_exists("subuser_id", $context) ? $context["subuser_id"] : (function () { throw new RuntimeError('Variable "subuser_id" does not exist.', 42, $this->source); })()), "html", null, true);
             echo "\"
                                     >
                                     <input
-                                            class=\"form-control\"
-                                            class=\"subuser__input\"
-                                            id=\"round\"
+                                            class=\"form-control round\"
                                             type=\"image\"
                                             name=\"avatar\"
                                             value=\"";
-            // line 49
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "avatar", [], "any", false, false, false, 49), "html", null, true);
+            // line 48
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "avatar", [], "any", false, false, false, 48), "html", null, true);
             echo " \"
                                             src=\"";
-            // line 50
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "avatar", [], "any", false, false, false, 50), "html", null, true);
+            // line 49
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "avatar", [], "any", false, false, false, 49), "html", null, true);
             echo "\"
                                     >
                                     <span class=\"profileName\">";
-            // line 52
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "name", [], "any", false, false, false, 52), "html", null, true);
+            // line 51
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subuser"], "name", [], "any", false, false, false, 51), "html", null, true);
             echo "</span>
                                 </div>
                             </form>
                         </li>
                         ";
+            // line 55
+            $context["subuser_id"] = ((isset($context["subuser_id"]) || array_key_exists("subuser_id", $context) ? $context["subuser_id"] : (function () { throw new RuntimeError('Variable "subuser_id" does not exist.', 55, $this->source); })()) + 1);
             // line 56
-            $context["subuser_id"] = ((isset($context["subuser_id"]) || array_key_exists("subuser_id", $context) ? $context["subuser_id"] : (function () { throw new RuntimeError('Variable "subuser_id" does not exist.', 56, $this->source); })()) + 1);
-            // line 57
             echo "                    ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['subuser'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 58
+        // line 57
         echo "                </ul>
             </div>
-            <div id=\"buttonDiv\">
+            <div class=\"buttonDiv\">
                 <a>
                     <a class=\"profileButton\" href=\"";
-        // line 62
+        // line 61
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("manageUser");
         echo "\">Zarządzaj profilami</a>
                 </a>
             </div>
-            <div id=\"buttonDiv\">
+            <div class=\"buttonDiv\">
                 <a>
                     <a class=\"profileButton\" href=\"";
-        // line 67
+        // line 66
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
         echo "\">Wróć</a>
                 </a>
@@ -258,7 +257,7 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
 
     }
 
-    // line 75
+    // line 74
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -268,57 +267,8 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 76
-        echo "    <link rel=\"stylesheet\" href=\"assets/user.css\">
-    <style>
-
-        ";
-        // line 82
-        echo "        body {
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-        }
-        ul {
-            padding: 0;
-        }
-        input#round {
-            outline-offset: -4px;
-            border: 0px solid;
-            border-radius: 10px;
-        }
-
-        input#round:hover {
-            color: #000;
-            box-shadow: 0px 0px 0px 4px white;
-            background-color: #FFF;
-            background-image: none;
-        }
-
-        ";
-        // line 104
+        // line 75
         echo "
-
-        .subuser:hover {
-            color: white;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .main {
-            height: 90%;
-        }
-        .profileName{
-            padding-top:50px;
-        }
-
-        .form-control {
-            padding: 0;
-        }
-
-        #buttonDiv {
-            margin-top: 20px;
-        }
-
-    </style>
-
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -335,7 +285,7 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
 
     public function getDebugInfo()
     {
-        return array (  298 => 104,  277 => 82,  272 => 76,  262 => 75,  245 => 67,  237 => 62,  231 => 58,  225 => 57,  223 => 56,  216 => 52,  211 => 50,  207 => 49,  196 => 41,  186 => 33,  181 => 32,  179 => 31,  171 => 25,  161 => 24,  146 => 18,  142 => 17,  138 => 15,  128 => 14,  109 => 12,  95 => 7,  88 => 2,  78 => 1,  68 => 75,  65 => 74,  63 => 24,  60 => 23,  58 => 14,  55 => 13,  53 => 12,  50 => 11,  48 => 1,);
+        return array (  271 => 75,  261 => 74,  244 => 66,  236 => 61,  230 => 57,  224 => 56,  222 => 55,  215 => 51,  210 => 49,  206 => 48,  197 => 42,  188 => 35,  183 => 34,  181 => 33,  173 => 27,  163 => 26,  148 => 20,  144 => 19,  140 => 17,  130 => 16,  111 => 14,  95 => 7,  88 => 2,  78 => 1,  68 => 74,  65 => 73,  63 => 26,  60 => 25,  58 => 16,  55 => 15,  53 => 14,  50 => 13,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -347,6 +297,8 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
               integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
               crossorigin=\"anonymous\">
         <link rel=\"icon\" type=\"image/x-icon\" href=\"{{ asset('images/favicon.ico') }}\">
+        <link rel=\"stylesheet\" href=\"assets/user.css\">
+
     </head>
 
 {% endblock %}
@@ -376,16 +328,13 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
                             <form method=\"POST\">
                                 <div class=\"subuser\">
                                     <input
-                                            class=\"form-control\"
                                             id=\"text\"
                                             type=\"hidden\"
                                             name=\"id\"
                                             value=\"{{ subuser_id }}\"
                                     >
                                     <input
-                                            class=\"form-control\"
-                                            class=\"subuser__input\"
-                                            id=\"round\"
+                                            class=\"form-control round\"
                                             type=\"image\"
                                             name=\"avatar\"
                                             value=\"{{ subuser.avatar }} \"
@@ -399,12 +348,12 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
                     {% endfor %}
                 </ul>
             </div>
-            <div id=\"buttonDiv\">
+            <div class=\"buttonDiv\">
                 <a>
                     <a class=\"profileButton\" href=\"{{ path('manageUser') }}\">Zarządzaj profilami</a>
                 </a>
             </div>
-            <div id=\"buttonDiv\">
+            <div class=\"buttonDiv\">
                 <a>
                     <a class=\"profileButton\" href=\"{{ path('home') }}\">Wróć</a>
                 </a>
@@ -415,57 +364,6 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
 {% endblock %}
 
 {% block stylesheets %}
-    <link rel=\"stylesheet\" href=\"assets/user.css\">
-    <style>
-
-        {#======================
-                Global
-        ======================#}
-        body {
-            font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
-        }
-        ul {
-            padding: 0;
-        }
-        input#round {
-            outline-offset: -4px;
-            border: 0px solid;
-            border-radius: 10px;
-        }
-
-        input#round:hover {
-            color: #000;
-            box-shadow: 0px 0px 0px 4px white;
-            background-color: #FFF;
-            background-image: none;
-        }
-
-        {#======================
-                Content
-        ======================#}
-
-
-        .subuser:hover {
-            color: white;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .main {
-            height: 90%;
-        }
-        .profileName{
-            padding-top:50px;
-        }
-
-        .form-control {
-            padding: 0;
-        }
-
-        #buttonDiv {
-            margin-top: 20px;
-        }
-
-    </style>
 
 {% endblock %}
 ", "user/user.html.twig", "/var/www/symfony_docker/templates/user/user.html.twig");
