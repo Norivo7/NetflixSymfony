@@ -27,7 +27,7 @@
             </tr>
             <tr>
                 <th>Img</th>
-                <td>{{ movie.img }}</td>
+                <td><img src="{{ movie.img }}" style="width: 300px"></td>
             </tr>
             <tr>
                 <th>Link</th>
@@ -36,7 +36,13 @@
 
             <tr>
             <th>Active</th>
-            <td>{{ movie.active }}</td>
+            <td>
+                {% if movie.active != null %}
+                    True
+                {% else %}
+                    False
+                {% endif %}
+            </td>
             </tr>
         </tbody>
     </table>

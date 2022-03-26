@@ -138,10 +138,10 @@ class __TwigTemplate_fcd494e37dfd8d9e231cafa0654efa425a3fcedaebfeeef6dd003db79c7
             </tr>
             <tr>
                 <th>Img</th>
-                <td>";
+                <td><img src=\"";
         // line 30
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 30, $this->source); })()), "img", [], "any", false, false, false, 30), "html", null, true);
-        echo "</td>
+        echo "\" style=\"width: 300px\"></td>
             </tr>
             <tr>
                 <th>Link</th>
@@ -153,26 +153,36 @@ class __TwigTemplate_fcd494e37dfd8d9e231cafa0654efa425a3fcedaebfeeef6dd003db79c7
 
             <tr>
             <th>Active</th>
-            <td>";
-        // line 39
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 39, $this->source); })()), "active", [], "any", false, false, false, 39), "html", null, true);
-        echo "</td>
+            <td>
+                ";
+        // line 40
+        if ((twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 40, $this->source); })()), "active", [], "any", false, false, false, 40) != null)) {
+            // line 41
+            echo "                    True
+                ";
+        } else {
+            // line 43
+            echo "                    False
+                ";
+        }
+        // line 45
+        echo "            </td>
             </tr>
         </tbody>
     </table>
 
     <a class=\"profileButton\" href=\"";
-        // line 44
+        // line 50
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_movie_crud_index");
         echo "\">Wróć</a>
 
     <a class=\"profileButton\" href=\"";
-        // line 46
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_movie_crud_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 46, $this->source); })()), "id", [], "any", false, false, false, 46)]), "html", null, true);
+        // line 52
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_movie_crud_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["movie"]) || array_key_exists("movie", $context) ? $context["movie"] : (function () { throw new RuntimeError('Variable "movie" does not exist.', 52, $this->source); })()), "id", [], "any", false, false, false, 52)]), "html", null, true);
         echo "\">Edytuj</a>
 
     ";
-        // line 48
+        // line 54
         echo twig_include($this->env, $context, "admin/movie_crud/_delete_form.html.twig");
         echo "
 ";
@@ -196,7 +206,7 @@ class __TwigTemplate_fcd494e37dfd8d9e231cafa0654efa425a3fcedaebfeeef6dd003db79c7
 
     public function getDebugInfo()
     {
-        return array (  176 => 48,  171 => 46,  166 => 44,  158 => 39,  150 => 34,  143 => 30,  136 => 26,  129 => 22,  122 => 18,  115 => 14,  107 => 8,  97 => 7,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  186 => 54,  181 => 52,  176 => 50,  169 => 45,  165 => 43,  161 => 41,  159 => 40,  150 => 34,  143 => 30,  136 => 26,  129 => 22,  122 => 18,  115 => 14,  107 => 8,  97 => 7,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -230,7 +240,7 @@ class __TwigTemplate_fcd494e37dfd8d9e231cafa0654efa425a3fcedaebfeeef6dd003db79c7
             </tr>
             <tr>
                 <th>Img</th>
-                <td>{{ movie.img }}</td>
+                <td><img src=\"{{ movie.img }}\" style=\"width: 300px\"></td>
             </tr>
             <tr>
                 <th>Link</th>
@@ -239,7 +249,13 @@ class __TwigTemplate_fcd494e37dfd8d9e231cafa0654efa425a3fcedaebfeeef6dd003db79c7
 
             <tr>
             <th>Active</th>
-            <td>{{ movie.active }}</td>
+            <td>
+                {% if movie.active != null %}
+                    True
+                {% else %}
+                    False
+                {% endif %}
+            </td>
             </tr>
         </tbody>
     </table>

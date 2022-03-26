@@ -46,20 +46,20 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
         // line 1
         $this->displayBlock('head', $context, $blocks);
-        // line 34
-        echo "
-";
         // line 35
+        echo "
+";
+        // line 36
         $this->displayBlock('navigation', $context, $blocks);
-        // line 121
-        echo "
-";
         // line 122
-        $this->displayBlock('body', $context, $blocks);
-        // line 217
         echo "
 ";
+        // line 123
+        $this->displayBlock('body', $context, $blocks);
         // line 218
+        echo "
+";
+        // line 219
         $this->displayBlock('stylesheets', $context, $blocks);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -97,6 +97,10 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
               crossorigin=\"anonymous\">
         <link rel=\"stylesheet\"
               href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css\">
+        <link rel=\"icon\" type=\"image/x-icon\" href=\"";
+        // line 32
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/favicon.ico"), "html", null, true);
+        echo "\">
     </head>
 ";
         
@@ -162,7 +166,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
     }
 
-    // line 35
+    // line 36
     public function block_navigation($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -172,80 +176,80 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navigation"));
 
-        // line 36
+        // line 37
         echo "    <div class=\"navbar_wrapper\">
         <div class=\"navbar\">
             <a href=\"/\" target=\"_parent\">
                 <img class=\"navbar_logo\" src=\"";
-        // line 39
+        // line 40
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/netflixLogoSmall.svg.png"), "html", null, true);
         echo "\" alt=\"netflix_logo\"/>
             </a>
             <a ";
-        // line 41
-        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 41, $this->source); })()), "request", [], "any", false, false, false, 41), "attributes", [], "any", false, false, false, 41), "get", [0 => "_route"], "method", false, false, false, 41), "browse")) {
-            // line 42
+        // line 42
+        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 42, $this->source); })()), "request", [], "any", false, false, false, 42), "attributes", [], "any", false, false, false, 42), "get", [0 => "_route"], "method", false, false, false, 42), "browse")) {
+            // line 43
             echo " class=\"active\" ";
         }
-        // line 43
+        // line 44
         echo "                    href=\"";
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("browse");
         echo "\">Strona główna</a>
             <a ";
-        // line 44
-        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 44, $this->source); })()), "request", [], "any", false, false, false, 44), "attributes", [], "any", false, false, false, 44), "get", [0 => "_route"], "method", false, false, false, 44), "shows")) {
-            // line 45
+        // line 45
+        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 45, $this->source); })()), "request", [], "any", false, false, false, 45), "attributes", [], "any", false, false, false, 45), "get", [0 => "_route"], "method", false, false, false, 45), "shows")) {
+            // line 46
             echo " class=\"active\" ";
         }
-        // line 46
+        // line 47
         echo "                    href=\"";
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("shows");
         echo "\">Seriale i programy</a>
             <a ";
-        // line 47
-        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 47, $this->source); })()), "request", [], "any", false, false, false, 47), "attributes", [], "any", false, false, false, 47), "get", [0 => "_route"], "method", false, false, false, 47), "movies")) {
-            // line 48
+        // line 48
+        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 48, $this->source); })()), "request", [], "any", false, false, false, 48), "attributes", [], "any", false, false, false, 48), "get", [0 => "_route"], "method", false, false, false, 48), "movies")) {
+            // line 49
             echo " class=\"active\" ";
         }
-        // line 49
+        // line 50
         echo "                    href=\"";
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("movies");
         echo "\">Filmy</a>
             <a ";
-        // line 50
-        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 50, $this->source); })()), "request", [], "any", false, false, false, 50), "attributes", [], "any", false, false, false, 50), "get", [0 => "_route"], "method", false, false, false, 50), "new")) {
-            // line 51
+        // line 51
+        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 51, $this->source); })()), "request", [], "any", false, false, false, 51), "attributes", [], "any", false, false, false, 51), "get", [0 => "_route"], "method", false, false, false, 51), "new")) {
+            // line 52
             echo " class=\"active\" ";
         }
-        // line 52
+        // line 53
         echo "                    href=\"";
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("new");
         echo "\">Nowe i popularne</a>
             <a ";
-        // line 53
-        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 53, $this->source); })()), "request", [], "any", false, false, false, 53), "attributes", [], "any", false, false, false, 53), "get", [0 => "_route"], "method", false, false, false, 53), "myList")) {
-            // line 54
+        // line 54
+        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 54, $this->source); })()), "request", [], "any", false, false, false, 54), "attributes", [], "any", false, false, false, 54), "get", [0 => "_route"], "method", false, false, false, 54), "myList")) {
+            // line 55
             echo " class=\"active\" ";
         }
-        // line 55
+        // line 56
         echo "                    href=\"";
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("myList");
         echo "\">Moja lista</a>
             ";
-        // line 56
+        // line 57
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-            // line 57
+            // line 58
             echo "                <a href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_panel");
             echo "\" style=\"color: red\">Przejdź do panelu administratora</a>
             ";
         }
-        // line 59
+        // line 60
         echo "
             <div class=\"navbar_end\">
                 <div id=\"search\">
                     <form method=\"GET\" action=\"";
-        // line 62
+        // line 63
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("search");
         echo "\">
                         <input
@@ -258,7 +262,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
                     </form>
                 </div>
                 <a class=\"right\" href=\"";
-        // line 72
+        // line 73
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("notif");
         echo "\">
                     <i style=\"padding: 1px;margin-left: 10px\" class=\"bi bi-bell-fill\"></i>
@@ -268,25 +272,25 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         </div>
         <div class=\"dropdown\">
             <a class=\"right dropbtn\" href=\"";
-        // line 79
+        // line 80
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("profile");
         echo "\">
                 <img class=\"userAvatar\" src=\"";
-        // line 80
-        echo twig_escape_filter($this->env, (isset($context["userAvatar"]) || array_key_exists("userAvatar", $context) ? $context["userAvatar"] : (function () { throw new RuntimeError('Variable "userAvatar" does not exist.', 80, $this->source); })()), "html", null, true);
+        // line 81
+        echo twig_escape_filter($this->env, (isset($context["userAvatar"]) || array_key_exists("userAvatar", $context) ? $context["userAvatar"] : (function () { throw new RuntimeError('Variable "userAvatar" does not exist.', 81, $this->source); })()), "html", null, true);
         echo "\" alt=\"avatar\">
                 <div class=\"dropdown-content\">
                     ";
-        // line 82
-        $context["profile_id"] = 0;
         // line 83
+        $context["profile_id"] = 0;
+        // line 84
         echo "
                     ";
-        // line 84
+        // line 85
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["profiles"]) || array_key_exists("profiles", $context) ? $context["profiles"] : (function () { throw new RuntimeError('Variable "profiles" does not exist.', 84, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["profiles"]) || array_key_exists("profiles", $context) ? $context["profiles"] : (function () { throw new RuntimeError('Variable "profiles" does not exist.', 85, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["profile"]) {
-            // line 85
+            // line 86
             echo "                        <form id=\"changeProfile\" method=\"POST\">
                             <div class=\"dropdown-profile\">
                                 <a class=\"profile_wrapper\">
@@ -296,8 +300,8 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
                                             type=\"hidden\"
                                             name=\"id\"
                                             value=\"";
-            // line 93
-            echo twig_escape_filter($this->env, (isset($context["profile_id"]) || array_key_exists("profile_id", $context) ? $context["profile_id"] : (function () { throw new RuntimeError('Variable "profile_id" does not exist.', 93, $this->source); })()), "html", null, true);
+            // line 94
+            echo twig_escape_filter($this->env, (isset($context["profile_id"]) || array_key_exists("profile_id", $context) ? $context["profile_id"] : (function () { throw new RuntimeError('Variable "profile_id" does not exist.', 94, $this->source); })()), "html", null, true);
             echo "\"
                                     >
                                     <input
@@ -306,43 +310,43 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
                                             type=\"image\"
                                             name=\"id\"
                                             value=\"";
-            // line 100
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["profile"], "avatar", [], "any", false, false, false, 100), "html", null, true);
-            echo "\"
-                                            src=\"";
             // line 101
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["profile"], "avatar", [], "any", false, false, false, 101), "html", null, true);
             echo "\"
+                                            src=\"";
+            // line 102
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["profile"], "avatar", [], "any", false, false, false, 102), "html", null, true);
+            echo "\"
                                     >
                                     <button class=\"dropdown_submit\">";
-            // line 103
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["profile"], "name", [], "any", false, false, false, 103), "html", null, true);
+            // line 104
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["profile"], "name", [], "any", false, false, false, 104), "html", null, true);
             echo "</button>
                                 </a>
                             </div>
                         </form>
                         ";
-            // line 107
-            $context["profile_id"] = ((isset($context["profile_id"]) || array_key_exists("profile_id", $context) ? $context["profile_id"] : (function () { throw new RuntimeError('Variable "profile_id" does not exist.', 107, $this->source); })()) + 1);
             // line 108
+            $context["profile_id"] = ((isset($context["profile_id"]) || array_key_exists("profile_id", $context) ? $context["profile_id"] : (function () { throw new RuntimeError('Variable "profile_id" does not exist.', 108, $this->source); })()) + 1);
+            // line 109
             echo "                    ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['profile'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 109
+        // line 110
         echo "                    <a href=\"";
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("manageUser");
         echo "\"> &#xF4CB; Zarządzaj profilami</a>
                     <hr>
                     <a style=\"margin-bottom: 15px\" href=\"";
-        // line 111
+        // line 112
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("profile");
         echo "\">Konto</a>
                     <a href=\"#\">Centrum Pomocy</a>
                     <hr>
                     <a style=\"margin-bottom: 15px\" href=\"";
-        // line 114
+        // line 115
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
         echo "\">Wyloguj się</a>
 
@@ -359,7 +363,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
     }
 
-    // line 122
+    // line 123
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -369,38 +373,38 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 123
+        // line 124
         echo "    <body>
     <section class=\"movie_container\">
         <h1 id=\"movies\" class=\"category_label\">Filmy - Test Modalu</h1>
 
         <div class=\"movie\">
             ";
-        // line 128
+        // line 129
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["movies"]) || array_key_exists("movies", $context) ? $context["movies"] : (function () { throw new RuntimeError('Variable "movies" does not exist.', 128, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["movies"]) || array_key_exists("movies", $context) ? $context["movies"] : (function () { throw new RuntimeError('Variable "movies" does not exist.', 129, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["movie"]) {
-            // line 129
+            // line 130
             echo "                <a class=\"movie-hero\" onclick=\"document.getElementById('";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 129), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 130), "html", null, true);
             echo "').style.display='block';
                     // document.getElementById('navbar').style.background='rgba(0, 0, 0, .7)'
                         \">
                     <img class=\"movie-hero-image\" src=\"";
-            // line 132
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 132), "html", null, true);
+            // line 133
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 133), "html", null, true);
             echo "\" alt=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 132), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 133), "html", null, true);
             echo "\">
                 </a>
                 ";
-            // line 134
+            // line 135
             if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-                // line 135
+                // line 136
                 echo "                    <a class=\"hide-button-wrapper\"
                         href=\"";
-                // line 136
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("hide", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 136)]), "html", null, true);
+                // line 137
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("hide", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 137)]), "html", null, true);
                 echo "\">
                         <div class=\"hide-button\">
                             <i class=\"bi bi-arrow-bar-left\"></i>
@@ -408,29 +412,29 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
                     </a>
                 ";
             }
-            // line 142
+            // line 143
             echo "                <div id=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 142), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 143), "html", null, true);
             echo "\" class=\"modal\">
                     <div class=\"modal-background\">
                         <div class=\"modal-content\">
                             <div class=\"modal-header\"
 ";
-            // line 147
+            // line 148
             echo "                            >
                                 <a class=\"modal-image\" href=\"";
-            // line 148
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show-one", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 148)]), "html", null, true);
+            // line 149
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show-one", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 149)]), "html", null, true);
             echo "\" style=\"text-decoration: none\">
                                     <img class=\"modal-image\" src=\"";
-            // line 149
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 149), "html", null, true);
+            // line 150
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 150), "html", null, true);
             echo "\" alt=\"movie_image\">
                                 </a>
                                 <div class=\"exit-button\">
                                     <span onclick=\"document.getElementById('";
-            // line 152
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 152), "html", null, true);
+            // line 153
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 153), "html", null, true);
             echo "').style.display='none'\"
                                           class=\"bi bi-x-circle-fill modal-exit\"></span>
                                 </div>
@@ -438,26 +442,26 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
                             <div class=\"modal-desc\">
                                 <div class=\"modal-movie-info-primary\">
                                     <h2 class=\"modal-title\">";
-            // line 158
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 158), "html", null, true);
+            // line 159
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 159), "html", null, true);
             echo "</h2>
                                     <p class=\"modal-movie-description\">";
-            // line 159
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "description", [], "any", false, false, false, 159), "html", null, true);
+            // line 160
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "description", [], "any", false, false, false, 160), "html", null, true);
             echo "</p>
                                 </div>
                                 <div class=\"modal-movie-info-secondary\">
                                     <a class=\"profile_button\" href=\"";
-            // line 162
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show-one", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 162)]), "html", null, true);
+            // line 163
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show-one", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 163)]), "html", null, true);
             echo "\"> Oglądaj teraz </a>
                                         <div class=\"modal-movie-info-secondary-categories\">
                                             ";
-            // line 164
+            // line 165
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["movie"], "categories", [], "any", false, false, false, 164));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["movie"], "categories", [], "any", false, false, false, 165));
             foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-                // line 165
+                // line 166
                 echo "                                                ";
                 echo twig_escape_filter($this->env, $context["category"], "html", null, true);
                 echo "
@@ -466,7 +470,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 167
+            // line 168
             echo "                                        </div>
                                 </div>
                             </div>
@@ -480,35 +484,35 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 176
+        // line 177
         echo "        </div>
 
         <h1 id=\"shows\" class=\"category_label\">Seriale</h1>
         <div class=\"movie\">
             ";
-        // line 180
+        // line 181
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["shows"]) || array_key_exists("shows", $context) ? $context["shows"] : (function () { throw new RuntimeError('Variable "shows" does not exist.', 180, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["shows"]) || array_key_exists("shows", $context) ? $context["shows"] : (function () { throw new RuntimeError('Variable "shows" does not exist.', 181, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["movie"]) {
-            // line 181
+            // line 182
             echo "                <a class=\"movie-hero\" href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show-one", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 181)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show-one", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 182)]), "html", null, true);
             echo "\">
                     <img class=\"movie-hero-image\" src=\"";
-            // line 182
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 182), "html", null, true);
+            // line 183
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 183), "html", null, true);
             echo "\" alt=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 182), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 183), "html", null, true);
             echo "\">
                 </a>
                 ";
-            // line 184
+            // line 185
             if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-                // line 185
+                // line 186
                 echo "                    <a class=\"hide-button-wrapper\"
                        href=\"";
-                // line 186
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("hide", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 186)]), "html", null, true);
+                // line 187
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("hide", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 187)]), "html", null, true);
                 echo "\">
                         <div class=\"hide-button\">
                             <i class=\"bi bi-arrow-bar-left\"></i>
@@ -516,41 +520,41 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
                     </a>
                 ";
             }
-            // line 192
+            // line 193
             echo "            ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 193
+        // line 194
         echo "        </div>
 
         <h1 id=\"movies\" class=\"category_label\">Tylko na Netflixie</h1>
         <div class=\"movie\">
             ";
-        // line 197
+        // line 198
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["originals"]) || array_key_exists("originals", $context) ? $context["originals"] : (function () { throw new RuntimeError('Variable "originals" does not exist.', 197, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["originals"]) || array_key_exists("originals", $context) ? $context["originals"] : (function () { throw new RuntimeError('Variable "originals" does not exist.', 198, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["movie"]) {
-            // line 198
+            // line 199
             echo "                <a class=\"movie-hero\" href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show-one", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 198)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show-one", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 199)]), "html", null, true);
             echo "\">
                     <img class=\"movie-hero-image\" src=\"";
-            // line 199
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 199), "html", null, true);
+            // line 200
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 200), "html", null, true);
             echo "\" alt=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 199), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 200), "html", null, true);
             echo "\">
                 </a>
                 ";
-            // line 201
+            // line 202
             if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-                // line 202
+                // line 203
                 echo "                    <a class=\"hide-button-wrapper\"
                        href=\"";
-                // line 203
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("hide", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 203)]), "html", null, true);
+                // line 204
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("hide", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 204)]), "html", null, true);
                 echo "\">
                         <div class=\"hide-button\">
                             <i class=\"bi bi-arrow-bar-left\"></i>
@@ -558,13 +562,13 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
                     </a>
                 ";
             }
-            // line 209
+            // line 210
             echo "            ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 210
+        // line 211
         echo "        </div>
 
     </section>
@@ -580,7 +584,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
     }
 
-    // line 218
+    // line 219
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -590,12 +594,12 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 219
+        // line 220
         echo "
     <style>
 
         ";
-        // line 225
+        // line 226
         echo "
         body {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
@@ -629,10 +633,12 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         }
 
         ";
-        // line 260
+        // line 261
         echo "
         .modal-background {
             background: rgba(0, 0, 0, .7);
+            /*background-color: red;*/
+            /*width: 2000px;*/
         }
 
         .modal {
@@ -653,7 +659,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
             /*top: 10px;*/
             /*left: 0;*/
             /*height: 100%;*/
-            height: 470px;
+            /*height: 470px;*/
             /*width: 100%;*/
             overflow: hidden;
             padding: 0;
@@ -722,12 +728,12 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
         .exit-button {
             position: absolute;
-            bottom: 400px;
+            bottom: 15em;
             right: 25px;
         }
         
         ";
-        // line 359
+        // line 362
         echo "
         .profile_button {
             color: gray;
@@ -774,12 +780,12 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         }
 
         ";
-        // line 407
+        // line 410
         echo "
         .navbar_wrapper {
             display: flex;
-            background: rgb(0, 0, 0);
-            background: linear-gradient(360deg, rgba(0, 0, 0, 1) 0%, rgba(22, 15, 15, 1) 35%, rgba(45, 48, 50, 1) 100%);
+            /*background: rgb(0, 0, 0);*/
+            background: linear-gradient(360deg, rgba(0, 0, 0, 1) 0%, rgba(1, 1, 1, 1) 35%, rgba(40, 40, 40, 1) 100%);
         }
 
         .navbar {
@@ -841,7 +847,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         }
 
         ";
-        // line 475
+        // line 478
         echo "
         .movie_container {
             margin-left: 30px;
@@ -880,7 +886,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         }
 
         ";
-        // line 515
+        // line 518
         echo "
         .dropdown {
             width: 8%;
@@ -1015,7 +1021,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
     public function getDebugInfo()
     {
-        return array (  884 => 515,  845 => 475,  778 => 407,  731 => 359,  633 => 260,  599 => 225,  594 => 219,  584 => 218,  568 => 210,  562 => 209,  553 => 203,  550 => 202,  548 => 201,  541 => 199,  536 => 198,  532 => 197,  526 => 193,  520 => 192,  511 => 186,  508 => 185,  506 => 184,  499 => 182,  494 => 181,  490 => 180,  484 => 176,  470 => 167,  461 => 165,  457 => 164,  452 => 162,  446 => 159,  442 => 158,  433 => 152,  427 => 149,  423 => 148,  420 => 147,  412 => 142,  403 => 136,  400 => 135,  398 => 134,  391 => 132,  384 => 129,  380 => 128,  373 => 123,  363 => 122,  346 => 114,  340 => 111,  334 => 109,  328 => 108,  326 => 107,  319 => 103,  314 => 101,  310 => 100,  300 => 93,  290 => 85,  286 => 84,  283 => 83,  281 => 82,  276 => 80,  272 => 79,  262 => 72,  249 => 62,  244 => 59,  238 => 57,  236 => 56,  231 => 55,  228 => 54,  226 => 53,  221 => 52,  218 => 51,  216 => 50,  211 => 49,  208 => 48,  206 => 47,  201 => 46,  198 => 45,  196 => 44,  191 => 43,  188 => 42,  186 => 41,  181 => 39,  176 => 36,  166 => 35,  156 => 19,  152 => 17,  149 => 16,  145 => 14,  142 => 13,  138 => 11,  135 => 10,  131 => 8,  128 => 7,  124 => 5,  121 => 4,  111 => 3,  88 => 20,  86 => 3,  83 => 2,  73 => 1,  63 => 218,  60 => 217,  58 => 122,  55 => 121,  53 => 35,  50 => 34,  48 => 1,);
+        return array (  890 => 518,  851 => 478,  784 => 410,  737 => 362,  637 => 261,  603 => 226,  598 => 220,  588 => 219,  572 => 211,  566 => 210,  557 => 204,  554 => 203,  552 => 202,  545 => 200,  540 => 199,  536 => 198,  530 => 194,  524 => 193,  515 => 187,  512 => 186,  510 => 185,  503 => 183,  498 => 182,  494 => 181,  488 => 177,  474 => 168,  465 => 166,  461 => 165,  456 => 163,  450 => 160,  446 => 159,  437 => 153,  431 => 150,  427 => 149,  424 => 148,  416 => 143,  407 => 137,  404 => 136,  402 => 135,  395 => 133,  388 => 130,  384 => 129,  377 => 124,  367 => 123,  350 => 115,  344 => 112,  338 => 110,  332 => 109,  330 => 108,  323 => 104,  318 => 102,  314 => 101,  304 => 94,  294 => 86,  290 => 85,  287 => 84,  285 => 83,  280 => 81,  276 => 80,  266 => 73,  253 => 63,  248 => 60,  242 => 58,  240 => 57,  235 => 56,  232 => 55,  230 => 54,  225 => 53,  222 => 52,  220 => 51,  215 => 50,  212 => 49,  210 => 48,  205 => 47,  202 => 46,  200 => 45,  195 => 44,  192 => 43,  190 => 42,  185 => 40,  180 => 37,  170 => 36,  160 => 19,  156 => 17,  153 => 16,  149 => 14,  146 => 13,  142 => 11,  139 => 10,  135 => 8,  132 => 7,  128 => 5,  125 => 4,  115 => 3,  102 => 32,  88 => 20,  86 => 3,  83 => 2,  73 => 1,  63 => 219,  60 => 218,  58 => 123,  55 => 122,  53 => 36,  50 => 35,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -1051,6 +1057,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
               crossorigin=\"anonymous\">
         <link rel=\"stylesheet\"
               href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css\">
+        <link rel=\"icon\" type=\"image/x-icon\" href=\"{{ asset('images/favicon.ico') }}\">
     </head>
 {% endblock %}
 
@@ -1282,6 +1289,8 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
         .modal-background {
             background: rgba(0, 0, 0, .7);
+            /*background-color: red;*/
+            /*width: 2000px;*/
         }
 
         .modal {
@@ -1302,7 +1311,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
             /*top: 10px;*/
             /*left: 0;*/
             /*height: 100%;*/
-            height: 470px;
+            /*height: 470px;*/
             /*width: 100%;*/
             overflow: hidden;
             padding: 0;
@@ -1371,7 +1380,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
         .exit-button {
             position: absolute;
-            bottom: 400px;
+            bottom: 15em;
             right: 25px;
         }
         
@@ -1429,8 +1438,8 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
         .navbar_wrapper {
             display: flex;
-            background: rgb(0, 0, 0);
-            background: linear-gradient(360deg, rgba(0, 0, 0, 1) 0%, rgba(22, 15, 15, 1) 35%, rgba(45, 48, 50, 1) 100%);
+            /*background: rgb(0, 0, 0);*/
+            background: linear-gradient(360deg, rgba(0, 0, 0, 1) 0%, rgba(1, 1, 1, 1) 35%, rgba(40, 40, 40, 1) 100%);
         }
 
         .navbar {
