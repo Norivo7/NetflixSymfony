@@ -59,8 +59,16 @@ class MoviesController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function home(): Response
+    public function home(Request $request): Response
     {
+        if ($request->getMethod() == 'POST' && $request->request->get('email') != null) {
+            $email = $request->request->get('email');
+            return $this->redirectToRoute('app_register', [
+                'email' => $email,
+            ]);
+
+        }
+
         return $this->render(
             'base.html.twig'
         );
@@ -102,7 +110,7 @@ class MoviesController extends AbstractController
 
         $subuserFrontId = $request->get('id');
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $this->getUser()));
-
+//        dump($this->movieRepository->getMoviesByCategory('Filmy'));
         if ($subuserId != null && $subuserFrontId < count($allSubusers)) {
             return $this->render('movies/index.html.twig', [
                 'controller_name' => 'MovieController',

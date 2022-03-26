@@ -57,17 +57,17 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 ";
         // line 24
         $this->displayBlock('body', $context, $blocks);
-        // line 211
+        // line 218
         echo "
 ";
-        // line 212
+        // line 219
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 284
+        // line 315
         echo "
 ";
-        // line 285
-        $this->loadTemplate("root.html.twig", "root.html.twig", 285, "1667361152")->display($context);
-        // line 286
+        // line 316
+        $this->loadTemplate("root.html.twig", "root.html.twig", 316, "1504325360")->display($context);
+        // line 317
         echo "</html>
 ";
         
@@ -252,15 +252,17 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
                 <h2> Oglądaj wszędzie. Anuluj w każdej chwili. </h2>
                 <h3></h3>
 
-                <form action=\"/register.php\">
+                <form id=\"register\" method=\"POST\">
                     <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
                         konto. </label>
-                    <input class=\"emailInput\" type=\"text\" id=\"email\" name=\"email\">
-                    <button type=\"button\" class=\"buttonSubmit\"><a class=\"button\" href=\"";
-        // line 80
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
-        echo "\">Rozpocznij</a>
-                    </button>
+                    <div class=\"register-wrapper\">
+                        <input class=\"emailInput\" type=\"text\" id=\"email\" name=\"email\">
+                            <a class=\"register-button\" style=\"cursor: pointer;color: white;font-size: 27px\"
+";
+        // line 83
+        echo "                               onclick=\"document.getElementById('register').submit()\"
+                            >Rozpocznij<i class=\"bi bi-chevron-right\"></i></a>
+                    </div>
                 </form>
             </div>
         </div>
@@ -377,14 +379,18 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
                 </div>
                 <br>
             </div>
-            <div class=\"block\">
-                <form action=\"/action_page.php\">
-                    <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
-                        konto. </label>
-                    <input class=\"emailInput\" type=\"text\" id=\"fname\" name=\"fname\">
-                    <button type=\"button\" class=\"buttonSubmit\">Rozpocznij</button>
-                </form>
-            </div>
+            <form id=\"register\" method=\"POST\">
+                <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
+                    konto. </label>
+                <div class=\"register-wrapper\">
+                    <input class=\"emailInput\" type=\"text\" id=\"email\" name=\"email\">
+                    <a class=\"register-button\" style=\"cursor: pointer;color: white;font-size: 27px\"
+                            ";
+        // line 209
+        echo "                       onclick=\"document.getElementById('register').submit()\"
+                    >Rozpocznij<i class=\"bi bi-chevron-right\"></i></a>
+                </div>
+            </form>
         </div>
         <hr>
     </div>
@@ -398,7 +404,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
     }
 
-    // line 212
+    // line 219
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -408,14 +414,14 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 213
+        // line 220
         echo "    ";
         echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackLinkTags("app");
         echo "
     <style>
 
         ";
-        // line 219
+        // line 226
         echo "
         body {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
@@ -460,7 +466,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
         }
 
         ";
-        // line 265
+        // line 272
         echo "
 
         .buttonsWrapper {
@@ -471,8 +477,32 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
             margin-right: 0;
         }
 
+        input[type=text] {
+             width: 1450px;
+            height: 60px;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid rgb(118, 118, 118);
+            /*border-radius: 4px;*/
+        }
+
+        .register-button {
+            background-color: red;
+            font-family: \"Netflix Sans Regular\", bootstrap-icons, serif;
+            line-height: 50px;
+            width: 100%;
+            height: 60px;
+            margin: 8px 0;
+            border-left: 1px solid #333;
+        }
+
+        .register-wrapper {
+            display: flex;
+        }
+
         ";
-        // line 278
+        // line 309
         echo "
         .concord-img-wrapper {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
@@ -499,7 +529,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
     public function getDebugInfo()
     {
-        return array (  476 => 278,  464 => 265,  419 => 219,  412 => 213,  402 => 212,  261 => 80,  251 => 72,  247 => 70,  241 => 68,  239 => 67,  231 => 61,  225 => 57,  219 => 53,  217 => 52,  213 => 51,  210 => 50,  199 => 43,  197 => 42,  181 => 29,  175 => 25,  165 => 24,  152 => 21,  142 => 20,  123 => 7,  110 => 15,  101 => 8,  99 => 7,  92 => 2,  82 => 1,  71 => 286,  69 => 285,  66 => 284,  64 => 212,  61 => 211,  59 => 24,  56 => 23,  54 => 20,  50 => 18,  48 => 1,);
+        return array (  506 => 309,  470 => 272,  425 => 226,  418 => 220,  408 => 219,  390 => 209,  263 => 83,  251 => 72,  247 => 70,  241 => 68,  239 => 67,  231 => 61,  225 => 57,  219 => 53,  217 => 52,  213 => 51,  210 => 50,  199 => 43,  197 => 42,  181 => 29,  175 => 25,  165 => 24,  152 => 21,  142 => 20,  123 => 7,  110 => 15,  101 => 8,  99 => 7,  92 => 2,  82 => 1,  71 => 317,  69 => 316,  66 => 315,  64 => 219,  61 => 218,  59 => 24,  56 => 23,  54 => 20,  50 => 18,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -579,12 +609,16 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
                 <h2> Oglądaj wszędzie. Anuluj w każdej chwili. </h2>
                 <h3></h3>
 
-                <form action=\"/register.php\">
+                <form id=\"register\" method=\"POST\">
                     <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
                         konto. </label>
-                    <input class=\"emailInput\" type=\"text\" id=\"email\" name=\"email\">
-                    <button type=\"button\" class=\"buttonSubmit\"><a class=\"button\" href=\"{{ path('app_register') }}\">Rozpocznij</a>
-                    </button>
+                    <div class=\"register-wrapper\">
+                        <input class=\"emailInput\" type=\"text\" id=\"email\" name=\"email\">
+                            <a class=\"register-button\" style=\"cursor: pointer;color: white;font-size: 27px\"
+{#                               href=\"{{ path('app_register') }}\"#}
+                               onclick=\"document.getElementById('register').submit()\"
+                            >Rozpocznij<i class=\"bi bi-chevron-right\"></i></a>
+                    </div>
                 </form>
             </div>
         </div>
@@ -701,14 +735,17 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
                 </div>
                 <br>
             </div>
-            <div class=\"block\">
-                <form action=\"/action_page.php\">
-                    <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
-                        konto. </label>
-                    <input class=\"emailInput\" type=\"text\" id=\"fname\" name=\"fname\">
-                    <button type=\"button\" class=\"buttonSubmit\">Rozpocznij</button>
-                </form>
-            </div>
+            <form id=\"register\" method=\"POST\">
+                <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
+                    konto. </label>
+                <div class=\"register-wrapper\">
+                    <input class=\"emailInput\" type=\"text\" id=\"email\" name=\"email\">
+                    <a class=\"register-button\" style=\"cursor: pointer;color: white;font-size: 27px\"
+                            {#                               href=\"{{ path('app_register') }}\"#}
+                       onclick=\"document.getElementById('register').submit()\"
+                    >Rozpocznij<i class=\"bi bi-chevron-right\"></i></a>
+                </div>
+            </form>
         </div>
         <hr>
     </div>
@@ -778,6 +815,30 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
             margin-right: 0;
         }
 
+        input[type=text] {
+             width: 1450px;
+            height: 60px;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid rgb(118, 118, 118);
+            /*border-radius: 4px;*/
+        }
+
+        .register-button {
+            background-color: red;
+            font-family: \"Netflix Sans Regular\", bootstrap-icons, serif;
+            line-height: 50px;
+            width: 100%;
+            height: 60px;
+            margin: 8px 0;
+            border-left: 1px solid #333;
+        }
+
+        .register-wrapper {
+            display: flex;
+        }
+
         {#======================
               Backgrounds
         ======================#}
@@ -796,7 +857,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
 
 /* root.html.twig */
-class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b722b0d___1667361152 extends Template
+class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b722b0d___1504325360 extends Template
 {
     private $source;
     private $macros = [];
@@ -813,7 +874,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
     protected function doGetParent(array $context)
     {
-        // line 285
+        // line 316
         return "reusable/footer.html.twig";
     }
 
@@ -826,7 +887,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "root.html.twig"));
 
-        $this->parent = $this->loadTemplate("reusable/footer.html.twig", "root.html.twig", 285);
+        $this->parent = $this->loadTemplate("reusable/footer.html.twig", "root.html.twig", 316);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -848,7 +909,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
     public function getDebugInfo()
     {
-        return array (  817 => 285,  476 => 278,  464 => 265,  419 => 219,  412 => 213,  402 => 212,  261 => 80,  251 => 72,  247 => 70,  241 => 68,  239 => 67,  231 => 61,  225 => 57,  219 => 53,  217 => 52,  213 => 51,  210 => 50,  199 => 43,  197 => 42,  181 => 29,  175 => 25,  165 => 24,  152 => 21,  142 => 20,  123 => 7,  110 => 15,  101 => 8,  99 => 7,  92 => 2,  82 => 1,  71 => 286,  69 => 285,  66 => 284,  64 => 212,  61 => 211,  59 => 24,  56 => 23,  54 => 20,  50 => 18,  48 => 1,);
+        return array (  878 => 316,  506 => 309,  470 => 272,  425 => 226,  418 => 220,  408 => 219,  390 => 209,  263 => 83,  251 => 72,  247 => 70,  241 => 68,  239 => 67,  231 => 61,  225 => 57,  219 => 53,  217 => 52,  213 => 51,  210 => 50,  199 => 43,  197 => 42,  181 => 29,  175 => 25,  165 => 24,  152 => 21,  142 => 20,  123 => 7,  110 => 15,  101 => 8,  99 => 7,  92 => 2,  82 => 1,  71 => 317,  69 => 316,  66 => 315,  64 => 219,  61 => 218,  59 => 24,  56 => 23,  54 => 20,  50 => 18,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -928,12 +989,16 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
                 <h2> Oglądaj wszędzie. Anuluj w każdej chwili. </h2>
                 <h3></h3>
 
-                <form action=\"/register.php\">
+                <form id=\"register\" method=\"POST\">
                     <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
                         konto. </label>
-                    <input class=\"emailInput\" type=\"text\" id=\"email\" name=\"email\">
-                    <button type=\"button\" class=\"buttonSubmit\"><a class=\"button\" href=\"{{ path('app_register') }}\">Rozpocznij</a>
-                    </button>
+                    <div class=\"register-wrapper\">
+                        <input class=\"emailInput\" type=\"text\" id=\"email\" name=\"email\">
+                            <a class=\"register-button\" style=\"cursor: pointer;color: white;font-size: 27px\"
+{#                               href=\"{{ path('app_register') }}\"#}
+                               onclick=\"document.getElementById('register').submit()\"
+                            >Rozpocznij<i class=\"bi bi-chevron-right\"></i></a>
+                    </div>
                 </form>
             </div>
         </div>
@@ -1050,14 +1115,17 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
                 </div>
                 <br>
             </div>
-            <div class=\"block\">
-                <form action=\"/action_page.php\">
-                    <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
-                        konto. </label>
-                    <input class=\"emailInput\" type=\"text\" id=\"fname\" name=\"fname\">
-                    <button type=\"button\" class=\"buttonSubmit\">Rozpocznij</button>
-                </form>
-            </div>
+            <form id=\"register\" method=\"POST\">
+                <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
+                    konto. </label>
+                <div class=\"register-wrapper\">
+                    <input class=\"emailInput\" type=\"text\" id=\"email\" name=\"email\">
+                    <a class=\"register-button\" style=\"cursor: pointer;color: white;font-size: 27px\"
+                            {#                               href=\"{{ path('app_register') }}\"#}
+                       onclick=\"document.getElementById('register').submit()\"
+                    >Rozpocznij<i class=\"bi bi-chevron-right\"></i></a>
+                </div>
+            </form>
         </div>
         <hr>
     </div>
@@ -1125,6 +1193,30 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
         .selectMedium {
             margin-right: 0;
+        }
+
+        input[type=text] {
+             width: 1450px;
+            height: 60px;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid rgb(118, 118, 118);
+            /*border-radius: 4px;*/
+        }
+
+        .register-button {
+            background-color: red;
+            font-family: \"Netflix Sans Regular\", bootstrap-icons, serif;
+            line-height: 50px;
+            width: 100%;
+            height: 60px;
+            margin: 8px 0;
+            border-left: 1px solid #333;
+        }
+
+        .register-wrapper {
+            display: flex;
         }
 
         {#======================

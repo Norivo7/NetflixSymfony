@@ -73,12 +73,16 @@
                 <h2> Oglądaj wszędzie. Anuluj w każdej chwili. </h2>
                 <h3></h3>
 
-                <form action="/register.php">
+                <form id="register" method="POST">
                     <label for="fname">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
                         konto. </label>
-                    <input class="emailInput" type="text" id="email" name="email">
-                    <button type="button" class="buttonSubmit"><a class="button" href="{{ path('app_register') }}">Rozpocznij</a>
-                    </button>
+                    <div class="register-wrapper">
+                        <input class="emailInput" type="text" id="email" name="email">
+                            <a class="register-button" style="cursor: pointer;color: white;font-size: 27px"
+{#                               href="{{ path('app_register') }}"#}
+                               onclick="document.getElementById('register').submit()"
+                            >Rozpocznij<i class="bi bi-chevron-right"></i></a>
+                    </div>
                 </form>
             </div>
         </div>
@@ -195,14 +199,17 @@
                 </div>
                 <br>
             </div>
-            <div class="block">
-                <form action="/action_page.php">
-                    <label for="fname">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
-                        konto. </label>
-                    <input class="emailInput" type="text" id="fname" name="fname">
-                    <button type="button" class="buttonSubmit">Rozpocznij</button>
-                </form>
-            </div>
+            <form id="register" method="POST">
+                <label for="fname">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
+                    konto. </label>
+                <div class="register-wrapper">
+                    <input class="emailInput" type="text" id="email" name="email">
+                    <a class="register-button" style="cursor: pointer;color: white;font-size: 27px"
+                            {#                               href="{{ path('app_register') }}"#}
+                       onclick="document.getElementById('register').submit()"
+                    >Rozpocznij<i class="bi bi-chevron-right"></i></a>
+                </div>
+            </form>
         </div>
         <hr>
     </div>
@@ -270,6 +277,30 @@
 
         .selectMedium {
             margin-right: 0;
+        }
+
+        input[type=text] {
+             width: 1450px;
+            height: 60px;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid rgb(118, 118, 118);
+            /*border-radius: 4px;*/
+        }
+
+        .register-button {
+            background-color: red;
+            font-family: "Netflix Sans Regular", bootstrap-icons, serif;
+            line-height: 50px;
+            width: 100%;
+            height: 60px;
+            margin: 8px 0;
+            border-left: 1px solid #333;
+        }
+
+        .register-wrapper {
+            display: flex;
         }
 
         {#======================

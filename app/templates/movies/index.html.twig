@@ -127,30 +127,34 @@
 
         <div class="movie">
             {% for movie in movies %}
-                <a class="movie-hero" onclick="document.getElementById('{{ movie.id }}').style.display='block';
-                    // document.getElementById('navbar').style.background='rgba(0, 0, 0, .7)'
+                <a class="movie-hero" onclick="showModal({{ movie.id }})
+                        // document.getElementById('navbar').style.background='rgba(0, 0, 0, .7)'
                         ">
                     <img class="movie-hero-image" src="{{ movie.img }}" alt="{{ movie.title }}">
                 </a>
                 {% if is_granted('ROLE_ADMIN') %}
                     <a class="hide-button-wrapper"
-                        href="{{ path('hide', {'id': movie.id}) }}">
+                       href="{{ path('hide', {'id': movie.id}) }}">
                         <div class="hide-button">
                             <i class="bi bi-arrow-bar-left"></i>
                         </div>
                     </a>
                 {% endif %}
-                <div id="{{ movie.id }}" class="modal">
+                <div id="{{ movie.id }}" class="modal" onclick="hideModal({{ movie.id }})">
                     <div class="modal-background">
+                    </div>
+                    <div class="modal-sizing">
                         <div class="modal-content">
                             <div class="modal-header"
-{#                                 style="background-image: url({{ movie.img }})"#}
+                                    {#                                 style="background-image: url({{ movie.img }})" #}
                             >
-                                <a class="modal-image" href="{{ path('show-one', {'id': movie.id}) }}" style="text-decoration: none">
+                                <a class="modal-image" href="{{ path('show-one', {'id': movie.id}) }}"
+                                   style="text-decoration: none">
                                     <img class="modal-image" src="{{ movie.img }}" alt="movie_image">
                                 </a>
+
                                 <div class="exit-button">
-                                    <span onclick="document.getElementById('{{ movie.id }}').style.display='none'"
+                                    <span onclick="hideModal({{ movie.id }})"
                                           class="bi bi-x-circle-fill modal-exit"></span>
                                 </div>
                             </div>
@@ -160,18 +164,21 @@
                                     <p class="modal-movie-description">{{ movie.description }}</p>
                                 </div>
                                 <div class="modal-movie-info-secondary">
-                                    <a class="profile_button" href="{{ path('show-one', {'id': movie.id}) }}"> Oglądaj teraz </a>
-                                        <div class="modal-movie-info-secondary-categories">
-                                            {% for category in movie.categories %}
-                                                {{ category }}
-                                            {% endfor %}
-                                        </div>
+                                    <a class="profile_button" href="{{ path('show-one', {'id': movie.id}) }}"> Oglądaj
+                                        teraz </a>
+                                    <div class="modal-movie-info-secondary-categories">
+                                        {% for category in movie.categories %}
+                                            {{ category.name|join(' ') }}
+                                        {% endfor %}
+                                    </div>
                                 </div>
                             </div>
-
-
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a href="{{ path('hide', {'id': movie.id}) }}">Schowaj film</a>
+                            {% endif %}
                         </div>
                     </div>
+
                 </div>
             {% endfor %}
         </div>
@@ -215,6 +222,19 @@
     </body>
 
 {% endblock %}
+
+{% block javascript %}
+<script>
+    function hideModal(modalId) {
+        document.getElementById(modalId).style.display='none'
+    }
+
+    function showModal(modalId) {
+        document.getElementById(modalId).style.display='block'
+    }
+</script>
+{% endblock %}
+
 
 {% block stylesheets %}
 
@@ -260,15 +280,19 @@
          ======================#}
 
         .modal-background {
-            background: rgba(0, 0, 0, .7);
+            position: absolute;
+            background: rgba(0, 0, 0, 0.77);
             /*background-color: red;*/
-            /*width: 2000px;*/
+            width: 100%;
+            height: 150vh;
+            border-radius: .3rem;
         }
 
-        .modal {
+        .modal-sizing {
+            position: relative;
             animation: blowUpModal .3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-            top: 2%;
-            left: 30%;
+            top: 100px;
+            /*left: 30%;*/
             text-align: center;
             height: 120%;
             width: 45%;
@@ -276,6 +300,7 @@
             align-self: center;
             margin: 0 auto;
             align-content: center;
+            border: 1px solid gray;
         }
 
         .modal-header {
@@ -293,8 +318,8 @@
 
         .modal-desc {
             width: 100%;
-            display:flex;
-            flex-direction:row ;
+            display: flex;
+            flex-direction: row;
         }
 
         .modal-movie-info-primary {
@@ -355,7 +380,7 @@
             bottom: 15em;
             right: 25px;
         }
-        
+
         {#======================
                 Buttons
         ======================#}
@@ -387,14 +412,14 @@
             text-decoration: underline;
         }
 
-        .hide-button-wrapper
-        {
+        .hide-button-wrapper {
             margin-left: -25px;
             writing-mode: vertical-rl;
             text-orientation: upright;
             text-decoration: none;
             text-align: center;
         }
+
         .hide-button {
             border-bottom-right-radius: 10px;
             border-top-right-radius: 10px;
@@ -567,10 +592,10 @@
 
         @keyframes blowUpModal {
             0% {
-                transform:scale(0);
+                transform: scale(0);
             }
             100% {
-                transform:scale(1);
+                transform: scale(1);
             }
         }
 

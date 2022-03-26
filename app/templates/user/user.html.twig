@@ -49,15 +49,6 @@
                                             value="{{ subuser.avatar }} "
                                             src="{{ subuser.avatar }}"
                                     >
-                                    <span class="profileName">
-                                        <input
-                                                class="form-control"
-                                                class="subuser__input"
-                                                type="hidden"
-                                                name="subuser_name"
-                                                value="{{ subuser.name }}">
-
-                                    </span>
                                     <span class="profileName">{{ subuser.name }}</span>
                                 </div>
                             </form>
@@ -111,8 +102,17 @@
                 Content
         ======================#}
 
+
+        .subuser:hover {
+            color: white;
+            font-weight: bold;
+            transition: 0.3s;
+        }
         .main {
             height: 90%;
+        }
+        .profileName{
+            padding-top:50px;
         }
 
         .form-control {

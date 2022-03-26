@@ -29,6 +29,7 @@
                     {% for subuser in subUsers %}
                     <li class="profile">
                         <form method="POST">
+                            <div class="subuser-wrapper">
                             <div class="subuser">
                                 <div class="content-overlay"></div>
                                 <input
@@ -65,6 +66,7 @@
                                 </div>
                             </div>
                             <span class="profileName">{{ subuser.name }}</span>
+                            </div>
                         </form>
                         {% set subuser_id = subuser_id + 1 %}
                         {% endfor %}
@@ -169,6 +171,11 @@
             overflow: hidden;
         }
 
+        .subuser-wrapper:hover {
+            color: white;
+            font-weight: bold;
+            transition: 0.4s;
+        }
         .subuser .content-overlay {
 
             border-radius: 8px;

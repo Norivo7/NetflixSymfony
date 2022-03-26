@@ -26,14 +26,14 @@
 {% endblock %}
 
 {% block body %}
-
+    <body>
     <div class="main">
         {% for flashError in app.flashes('verify_email_error') %}
             <div class="alert alert-danger" role="alert">{{ flashError }}</div>
         {% endfor %}
         <h1>Rejestracja</h1>
         {{ form_start(registrationForm) }}
-        <div class="input">Email: {{ form_widget(registrationForm.email) }}</div>
+        <div class="input">Email: {{ form_widget(registrationForm.email, {attr: {value : email}}) }}</div>
         <div class="error">{{ form_errors(registrationForm.email) }}</div>
         <div class="input">Hasło: {{ form_widget(registrationForm.plainPassword) }}</div>
         <div class="error">{{ form_errors(registrationForm.plainPassword) }}</div>
@@ -42,7 +42,7 @@
         <button type="submit" class="btn">Zarejestruj</button>
         {{ form_end(registrationForm) }}
     </div>
-
+    </body>
 {% endblock %}
 
 {% block footer %}
