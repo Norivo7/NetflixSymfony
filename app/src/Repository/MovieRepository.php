@@ -47,14 +47,15 @@ class MovieRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('movie')
             ->select('movie')
-            ->addSelect('category')
+            ->addSelect('categories')
+            ->innerJoin('movie.categories', 'categories')
             ->leftJoin('movie.categories', 'category')
             ->andWhere('category.name = :categoryName')
             ->andWhere('movie.active = :enabled')
             ->setParameter('categoryName', $category)
             ->setParameter('enabled', true)
             ->getQuery()
-            ->getResult();
+            ->getArrayResult();
     }
 
 //        public function getLikedMoviesByCurrentUser()

@@ -286,6 +286,7 @@ class MoviesController extends AbstractController
         $subuserId = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
         if ($subuserId != null) {
             $userAvatar = $subuserId->getAvatar();
+//            dump($this->movieRepository->getMoviesByCategory('Filmy'));
             return $this->render(
                 'movies/list.html.twig', [
                     'profiles' => $this->getOtherSubusers(),
