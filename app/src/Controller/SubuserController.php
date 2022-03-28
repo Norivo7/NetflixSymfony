@@ -53,6 +53,8 @@ class SubuserController extends AbstractController
 //      }
 
 
+
+
     private function getOtherSubusers(): array
     {
         if (!empty($this->requestStack)) {
@@ -97,7 +99,7 @@ class SubuserController extends AbstractController
     {
         $currentUser = $this->getUser();
         $id = $request->request->get('id');
-        if ($request->getMethod() == 'POST' &&  $id != null ) {
+        if ($request->getMethod() === 'POST' &&  $id !== null ) {
             return $this->redirectToRoute('success', [
                     'id' => $id,
                 ]
@@ -142,7 +144,7 @@ class SubuserController extends AbstractController
         $errorRegex = "Profil musi mieć od 3 do 15 liter, żadnych znaków specjalnych i cyfr.";
         $user = $this->getUser();
 
-        if ($request->getMethod() == 'POST') {
+        if ($request->getMethod() === 'POST') {
             $name = $request->request->get('name');
             return $this->redirectToRoute('update', [
                     'id' => $subuserFrontId,
@@ -153,7 +155,7 @@ class SubuserController extends AbstractController
         }
 
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $user));
-        if (isset($subuserFrontId) && $allSubusers[$subuserFrontId] != null) {
+        if (isset($subuserFrontId) && $allSubusers[$subuserFrontId] !== null) {
             $currentSubuser = $allSubusers[$subuserFrontId];
             return $this->render('user/edit.html.twig', [
                 'subuser' => $currentSubuser,
@@ -232,7 +234,7 @@ class SubuserController extends AbstractController
     public function manageUser(Request $request): Response
     {
 
-        if ($request->getMethod() == 'POST') {
+        if ($request->getMethod() === 'POST') {
             $id = $request->request->get('id');
             return $this->redirectToRoute('edit', [
                     'id' => $id,

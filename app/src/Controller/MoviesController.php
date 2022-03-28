@@ -39,10 +39,11 @@ class MoviesController extends AbstractController
         return in_array($movieId, array_column($liked, 'id'));
     }
 
-    private function getCurrentSubuserIdFromSession(): int
+    private function getCurrentSubuserIdFromSession()
     {
         $subuser = $this->requestStack->getSession()->get('filter');
-        return reset($subuser);
+        if ($subuser !== null) return reset($subuser);
+            return 'subUser not found';
     }
 
     private function getOtherSubusers(): array
@@ -61,7 +62,7 @@ class MoviesController extends AbstractController
      */
     public function home(Request $request): Response
     {
-        if ($request->getMethod() === 'POST' && $request->request->get('email') != null) {
+        if ($request->getMethod() === 'POST' && $request->request->get('email') !== null) {
             $email = $request->request->get('email');
             return $this->redirectToRoute('app_register', [
                 'email' => $email,
@@ -101,7 +102,7 @@ class MoviesController extends AbstractController
      */
     public function index(Request $request): Response
     {
-        if ($request->getMethod() === 'POST' && $request->request->get('id') != null) {
+        if ($request->getMethod() === 'POST' && $request->request->get('id') !== null) {
             $id = $request->request->get('id');
             return $this->redirectToRoute('changeProfile', [
                 'id' => $id,
@@ -110,7 +111,7 @@ class MoviesController extends AbstractController
 
         $subuser = $this->requestStack->getSession()->get('filter');
 
-        if ($subuser != null) {
+        if ($subuser !== null) {
             $subuserId = reset($subuser);
         } else return $this->redirectToRoute('chooseUser');
 
@@ -121,7 +122,7 @@ class MoviesController extends AbstractController
         $subuserFrontId = $request->get('id');
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $this->getUser()));
 //        dump($this->movieRepository->getMoviesByCategory('Filmy'));
-        if ($subuserId != null && $subuserFrontId < count($allSubusers)) {
+        if ($subuserId !== null && $subuserFrontId < count($allSubusers)) {
             return $this->render('movies/index.html.twig', [
                 'controller_name' => 'MovieController',
                 'profiles' => $this->getOtherSubusers(),
@@ -155,7 +156,7 @@ class MoviesController extends AbstractController
         }
 
         $subuserId = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
-        if ($subuserId != null) {
+        if ($subuserId !== null) {
             $userAvatar = $subuserId->getAvatar();
             return $this->render(
                 'movies/list.html.twig', [
@@ -176,7 +177,7 @@ class MoviesController extends AbstractController
     {
         $currentUser = $this->getUser();
         $subuserId = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
-        if ($subuserId != null) {
+        if ($subuserId !== null) {
             $userAvatar = $subuserId->getAvatar();
             return $this->render(
                 'user/profile.html.twig', [
@@ -254,7 +255,7 @@ class MoviesController extends AbstractController
             );
         }
         $subuserId = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
-        if ($subuserId != null) {
+        if ($subuserId !== null) {
             $userAvatar = $subuserId->getAvatar();
 //            dump($this->movieRepository->getLikedMoviesBySubuser(($subuserId->getId())));
             return $this->render(
@@ -275,7 +276,7 @@ class MoviesController extends AbstractController
      */
     public function movies(Request $request): Response
     {
-        if ($request->getMethod() == 'POST') {
+        if ($request->getMethod() === 'POST') {
             $id = $request->request->get('id');
             return $this->redirectToRoute('changeProfile', [
                     'id' => $id,
@@ -284,7 +285,7 @@ class MoviesController extends AbstractController
         }
 
         $subuserId = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
-        if ($subuserId != null) {
+        if ($subuserId !== null) {
             $userAvatar = $subuserId->getAvatar();
 //            dump($this->movieRepository->getMoviesByCategory('Filmy'));
             return $this->render(
@@ -305,7 +306,7 @@ class MoviesController extends AbstractController
      */
     public function new(Request $request): Response
     {
-        if ($request->getMethod() == 'POST') {
+        if ($request->getMethod() === 'POST') {
             $id = $request->request->get('id');
             return $this->redirectToRoute('changeProfile', [
                     'id' => $id,
@@ -314,7 +315,7 @@ class MoviesController extends AbstractController
         }
 
         $subuserId = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
-        if ($subuserId != null) {
+        if ($subuserId !== null) {
             $userAvatar = $subuserId->getAvatar();
             return $this->render(
                 'movies/list.html.twig', [
@@ -399,7 +400,7 @@ class MoviesController extends AbstractController
      */
     public function search(MovieRepository $movieRepository, Request $request): Response
     {
-        if ($request->getMethod() == 'POST') {
+        if ($request->getMethod() === 'POST') {
             $id = $request->request->get('id');
             return $this->redirectToRoute('changeProfile', [
                     'id' => $id,
@@ -407,7 +408,7 @@ class MoviesController extends AbstractController
             );
         }
         $subuserId = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
-        if ($subuserId != null) {
+        if ($subuserId !== null) {
             $userAvatar = $subuserId->getAvatar();
             return $this->render(
                 'movies/list.html.twig', [

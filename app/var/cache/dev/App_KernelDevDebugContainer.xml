@@ -3939,6 +3939,20 @@
         </argument>
         <argument>null</argument>
       </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.EW9Tek."/>
+        <argument type="collection">
+          <argument>ROLE_USER</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.z5p9Ddv"/>
+        <argument type="collection">
+          <argument>ROLE_USER</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
     </service>
     <service id="security.context_listener" class="Symfony\Component\Security\Http\Firewall\ContextListener">
       <tag name="monolog.logger" channel="security"/>
@@ -4494,6 +4508,12 @@
     </service>
     <service id=".security.request_matcher.ppJwVbl" class="Symfony\Component\HttpFoundation\RequestMatcher">
       <argument>^/browse/hide/*</argument>
+    </service>
+    <service id=".security.request_matcher.EW9Tek." class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/manageUser</argument>
+    </service>
+    <service id=".security.request_matcher.z5p9Ddv" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/success</argument>
     </service>
     <service id="security.command.user_password_hash" class="Symfony\Component\PasswordHasher\Command\UserPasswordHashCommand">
       <tag name="console.command"/>

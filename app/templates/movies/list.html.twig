@@ -55,7 +55,7 @@
                                                      teraz </a>
                                                  <div class="modal-movie-info-secondary-categories">
                                                      {% for category in movie.categories %}
-                                                         {{ category.name }}
+                                                         <li>{{ category.name }}</li>
                                                      {% endfor %}
                                                  </div>
                                              </div>
@@ -64,6 +64,21 @@
                                          {% if is_granted('ROLE_ADMIN') %}
                                              <a href="{{ path('hide', {'id': movie.id}) }}">Ukryj film</a>
                                          {% endif %}
+                                         <div style="margin-top: 20px">
+                                             {% if liked is defined %}
+                                                 <form id="dislike" method="POST" action="{{ path('dislike') }}">
+                                                     <input type="text" name="id" value="{{ movie.id }}" style="display: none">
+                                                     <a class="my-list-button"
+                                                        onclick="document.getElementById('dislike').submit()">Usuń z mojej listy</a>
+                                                 </form>
+                                             {% else %}
+                                                 <form id="like" method="POST" action="{{ path('like') }}">
+                                                     <input type="text" name="id" value="{{ movie.id }}" style="display: none">
+                                                     <a class="my-list-button"
+                                                        onclick="document.getElementById('like').submit()">Dodaj do mojej listy</a>
+                                                 </form>
+                                             {% endif %}
+                                         </div>
                                      </div>
                                  </div>
 

@@ -94,7 +94,10 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
         // line 7
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/favicon.ico"), "html", null, true);
         echo "\">
-        <link rel=\"stylesheet\" href=\"assets/user.css\">
+        <link rel=\"stylesheet\" href=\"";
+        // line 8
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/user.css"), "html", null, true);
+        echo "\">
 
     </head>
 
@@ -285,7 +288,7 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
 
     public function getDebugInfo()
     {
-        return array (  271 => 75,  261 => 74,  244 => 66,  236 => 61,  230 => 57,  224 => 56,  222 => 55,  215 => 51,  210 => 49,  206 => 48,  197 => 42,  188 => 35,  183 => 34,  181 => 33,  173 => 27,  163 => 26,  148 => 20,  144 => 19,  140 => 17,  130 => 16,  111 => 14,  95 => 7,  88 => 2,  78 => 1,  68 => 74,  65 => 73,  63 => 26,  60 => 25,  58 => 16,  55 => 15,  53 => 14,  50 => 13,  48 => 1,);
+        return array (  274 => 75,  264 => 74,  247 => 66,  239 => 61,  233 => 57,  227 => 56,  225 => 55,  218 => 51,  213 => 49,  209 => 48,  200 => 42,  191 => 35,  186 => 34,  184 => 33,  176 => 27,  166 => 26,  151 => 20,  147 => 19,  143 => 17,  133 => 16,  114 => 14,  99 => 8,  95 => 7,  88 => 2,  78 => 1,  68 => 74,  65 => 73,  63 => 26,  60 => 25,  58 => 16,  55 => 15,  53 => 14,  50 => 13,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -297,7 +300,7 @@ class __TwigTemplate_32a5fb09bcb2aaded3d798ec155701bd6068510161161e34c49a33979f5
               integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
               crossorigin=\"anonymous\">
         <link rel=\"icon\" type=\"image/x-icon\" href=\"{{ asset('images/favicon.ico') }}\">
-        <link rel=\"stylesheet\" href=\"assets/user.css\">
+        <link rel=\"stylesheet\" href=\"{{ asset('assets/user.css') }}\">
 
     </head>
 

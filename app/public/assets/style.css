@@ -132,7 +132,7 @@ select {
 }
 
 .register-button {
-    background-color: red;
+    background-color: #e50914;
     font-family: "Netflix Sans Regular", bootstrap-icons, serif;
     line-height: 50px;
     width: 100%;

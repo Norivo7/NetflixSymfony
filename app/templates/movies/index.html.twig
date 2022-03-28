@@ -167,7 +167,7 @@
                                         teraz </a>
                                     <div class="modal-movie-info-secondary-categories">
                                         {% for category in movie.categories %}
-                                            {{ category.name|join(' ') }}
+                                            <li>{{ category.name }}</li>
                                         {% endfor %}
                                     </div>
                                 </div>
@@ -176,6 +176,8 @@
                             {% if is_granted('ROLE_ADMIN') %}
                                 <a href="{{ path('hide', {'id': movie.id}) }}">Ukryj film</a>
                             {% endif %}
+
+
                         </div>
                     </div>
 
@@ -227,7 +229,7 @@
                                         teraz </a>
                                     <div class="modal-movie-info-secondary-categories">
                                         {% for category in movie.categories %}
-                                            {{ category.name|join(' ') }}
+                                            <li>{{ category.name }}</li>
                                         {% endfor %}
                                     </div>
                                 </div>
@@ -235,6 +237,10 @@
 
                             {% if is_granted('ROLE_ADMIN') %}
                                 <a href="{{ path('hide', {'id': movie.id}) }}">Ukryj film</a>
+                            {% endif %}
+
+                            {% if movie.likedBy is defined %}
+
                             {% endif %}
                         </div>
                     </div>

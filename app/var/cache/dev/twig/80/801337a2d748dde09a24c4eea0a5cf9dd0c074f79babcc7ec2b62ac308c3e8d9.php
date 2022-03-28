@@ -175,9 +175,9 @@ class __TwigTemplate_7054c61692d20a322ddc13f19705773293abcc6b4d845a2be19c089e33e
                 $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["movie"], "categories", [], "any", false, false, false, 57));
                 foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
                     // line 58
-                    echo "                                                         ";
+                    echo "                                                         <li>";
                     echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 58), "html", null, true);
-                    echo "
+                    echo "</li>
                                                      ";
                 }
                 $_parent = $context['_parent'];
@@ -198,7 +198,39 @@ class __TwigTemplate_7054c61692d20a322ddc13f19705773293abcc6b4d845a2be19c089e33e
                                          ";
                 }
                 // line 67
-                echo "                                     </div>
+                echo "                                         <div style=\"margin-top: 20px\">
+                                             ";
+                // line 68
+                if (array_key_exists("liked", $context)) {
+                    // line 69
+                    echo "                                                 <form id=\"dislike\" method=\"POST\" action=\"";
+                    echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("dislike");
+                    echo "\">
+                                                     <input type=\"text\" name=\"id\" value=\"";
+                    // line 70
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 70), "html", null, true);
+                    echo "\" style=\"display: none\">
+                                                     <a class=\"my-list-button\"
+                                                        onclick=\"document.getElementById('dislike').submit()\">Usuń z mojej listy</a>
+                                                 </form>
+                                             ";
+                } else {
+                    // line 75
+                    echo "                                                 <form id=\"like\" method=\"POST\" action=\"";
+                    echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("like");
+                    echo "\">
+                                                     <input type=\"text\" name=\"id\" value=\"";
+                    // line 76
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 76), "html", null, true);
+                    echo "\" style=\"display: none\">
+                                                     <a class=\"my-list-button\"
+                                                        onclick=\"document.getElementById('like').submit()\">Dodaj do mojej listy</a>
+                                                 </form>
+                                             ";
+                }
+                // line 81
+                echo "                                         </div>
+                                     </div>
                                  </div>
 
                              </div>
@@ -207,16 +239,16 @@ class __TwigTemplate_7054c61692d20a322ddc13f19705773293abcc6b4d845a2be19c089e33e
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movie'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 72
+            // line 87
             echo "                     </div>
 
                  ";
         } else {
-            // line 75
+            // line 90
             echo "                     Nie znaleziono filmów dla tej kategorii.
                  ";
         }
-        // line 77
+        // line 92
         echo "
              </div>
      </section>
@@ -243,7 +275,7 @@ class __TwigTemplate_7054c61692d20a322ddc13f19705773293abcc6b4d845a2be19c089e33e
 
     public function getDebugInfo()
     {
-        return array (  220 => 77,  216 => 75,  211 => 72,  201 => 67,  195 => 65,  193 => 64,  187 => 60,  178 => 58,  174 => 57,  168 => 54,  162 => 51,  158 => 50,  149 => 44,  142 => 40,  137 => 38,  134 => 37,  122 => 30,  113 => 24,  110 => 23,  108 => 22,  101 => 20,  94 => 17,  90 => 16,  86 => 14,  82 => 12,  80 => 11,  77 => 10,  75 => 9,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  252 => 92,  248 => 90,  243 => 87,  232 => 81,  224 => 76,  219 => 75,  211 => 70,  206 => 69,  204 => 68,  201 => 67,  195 => 65,  193 => 64,  187 => 60,  178 => 58,  174 => 57,  168 => 54,  162 => 51,  158 => 50,  149 => 44,  142 => 40,  137 => 38,  134 => 37,  122 => 30,  113 => 24,  110 => 23,  108 => 22,  101 => 20,  94 => 17,  90 => 16,  86 => 14,  82 => 12,  80 => 11,  77 => 10,  75 => 9,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -305,7 +337,7 @@ class __TwigTemplate_7054c61692d20a322ddc13f19705773293abcc6b4d845a2be19c089e33e
                                                      teraz </a>
                                                  <div class=\"modal-movie-info-secondary-categories\">
                                                      {% for category in movie.categories %}
-                                                         {{ category.name }}
+                                                         <li>{{ category.name }}</li>
                                                      {% endfor %}
                                                  </div>
                                              </div>
@@ -314,6 +346,21 @@ class __TwigTemplate_7054c61692d20a322ddc13f19705773293abcc6b4d845a2be19c089e33e
                                          {% if is_granted('ROLE_ADMIN') %}
                                              <a href=\"{{ path('hide', {'id': movie.id}) }}\">Ukryj film</a>
                                          {% endif %}
+                                         <div style=\"margin-top: 20px\">
+                                             {% if liked is defined %}
+                                                 <form id=\"dislike\" method=\"POST\" action=\"{{ path('dislike') }}\">
+                                                     <input type=\"text\" name=\"id\" value=\"{{ movie.id }}\" style=\"display: none\">
+                                                     <a class=\"my-list-button\"
+                                                        onclick=\"document.getElementById('dislike').submit()\">Usuń z mojej listy</a>
+                                                 </form>
+                                             {% else %}
+                                                 <form id=\"like\" method=\"POST\" action=\"{{ path('like') }}\">
+                                                     <input type=\"text\" name=\"id\" value=\"{{ movie.id }}\" style=\"display: none\">
+                                                     <a class=\"my-list-button\"
+                                                        onclick=\"document.getElementById('like').submit()\">Dodaj do mojej listy</a>
+                                                 </form>
+                                             {% endif %}
+                                         </div>
                                      </div>
                                  </div>
 

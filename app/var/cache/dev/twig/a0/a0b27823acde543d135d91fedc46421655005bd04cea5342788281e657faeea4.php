@@ -72,7 +72,12 @@ class __TwigTemplate_c4bfaeb849be185e743aca22b10d8e5bca9af1bdde595f369771a8f0e26
               rel=\"stylesheet\"
               integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
               crossorigin=\"anonymous\">
+        <link rel=\"stylesheet\" href=\"";
+        // line 8
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/user.css"), "html", null, true);
+        echo "\">
     </head>
+
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -82,7 +87,7 @@ class __TwigTemplate_c4bfaeb849be185e743aca22b10d8e5bca9af1bdde595f369771a8f0e26
 
     }
 
-    // line 11
+    // line 13
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -92,39 +97,39 @@ class __TwigTemplate_c4bfaeb849be185e743aca22b10d8e5bca9af1bdde595f369771a8f0e26
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 12
+        // line 14
         echo "    <body>
     <div class=\"error_wrapper\">
         ";
-        // line 14
+        // line 16
         if (array_key_exists("error", $context)) {
-            // line 15
+            // line 17
             echo "            <h1>";
-            echo twig_escape_filter($this->env, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 15, $this->source); })()), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 17, $this->source); })()), "html", null, true);
             echo "</h1>
         ";
         } else {
-            // line 17
+            // line 19
             echo "            <h1> 520: Nieznany błąd.</h1>
         ";
         }
-        // line 19
+        // line 21
         echo "        <img class=\"error_image\" src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/error.png"), "html", null, true);
         echo "\" alt=\"404\"/>
 
         ";
-        // line 21
-        $context["referer"] = ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["app"] ?? null), "request", [], "any", false, true, false, 21), "server", [], "any", false, true, false, 21), "get", [0 => "http-referer"], "method", true, true, false, 21)) ? (_twig_default_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["app"] ?? null), "request", [], "any", false, true, false, 21), "server", [], "any", false, true, false, 21), "get", [0 => "http-referer"], "method", false, false, false, 21), "/")) : ("/"));
-        // line 22
+        // line 23
+        $context["referer"] = ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["app"] ?? null), "request", [], "any", false, true, false, 23), "server", [], "any", false, true, false, 23), "get", [0 => "http-referer"], "method", true, true, false, 23)) ? (_twig_default_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["app"] ?? null), "request", [], "any", false, true, false, 23), "server", [], "any", false, true, false, 23), "get", [0 => "http-referer"], "method", false, false, false, 23), "/")) : ("/"));
+        // line 24
         echo "        <input type=\"hidden\" name=\"_target_path\" value=\"";
-        echo twig_escape_filter($this->env, (isset($context["referer"]) || array_key_exists("referer", $context) ? $context["referer"] : (function () { throw new RuntimeError('Variable "referer" does not exist.', 22, $this->source); })()), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["referer"]) || array_key_exists("referer", $context) ? $context["referer"] : (function () { throw new RuntimeError('Variable "referer" does not exist.', 24, $this->source); })()), "html", null, true);
         echo "\"/>
         <div id=\"buttonDiv\">
             <a>
                 <a class=\"profileButton\" href=\"";
-        // line 25
-        echo twig_escape_filter($this->env, (isset($context["referer"]) || array_key_exists("referer", $context) ? $context["referer"] : (function () { throw new RuntimeError('Variable "referer" does not exist.', 25, $this->source); })()), "html", null, true);
+        // line 27
+        echo twig_escape_filter($this->env, (isset($context["referer"]) || array_key_exists("referer", $context) ? $context["referer"] : (function () { throw new RuntimeError('Variable "referer" does not exist.', 27, $this->source); })()), "html", null, true);
         echo "\">Spróbuj ponownie</a>
             </a>
         </div>
@@ -140,7 +145,7 @@ class __TwigTemplate_c4bfaeb849be185e743aca22b10d8e5bca9af1bdde595f369771a8f0e26
 
     }
 
-    // line 33
+    // line 35
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -150,7 +155,7 @@ class __TwigTemplate_c4bfaeb849be185e743aca22b10d8e5bca9af1bdde595f369771a8f0e26
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 34
+        // line 36
         echo "    ";
         $this->displayParentBlock("stylesheets", $context, $blocks);
         echo "
@@ -193,7 +198,7 @@ class __TwigTemplate_c4bfaeb849be185e743aca22b10d8e5bca9af1bdde595f369771a8f0e26
 
     public function getDebugInfo()
     {
-        return array (  154 => 34,  144 => 33,  127 => 25,  120 => 22,  118 => 21,  112 => 19,  108 => 17,  102 => 15,  100 => 14,  96 => 12,  86 => 11,  70 => 3,  60 => 2,  37 => 1,);
+        return array (  159 => 36,  149 => 35,  132 => 27,  125 => 24,  123 => 23,  117 => 21,  113 => 19,  107 => 17,  105 => 16,  101 => 14,  91 => 13,  77 => 8,  70 => 3,  60 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -205,7 +210,9 @@ class __TwigTemplate_c4bfaeb849be185e743aca22b10d8e5bca9af1bdde595f369771a8f0e26
               rel=\"stylesheet\"
               integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
               crossorigin=\"anonymous\">
+        <link rel=\"stylesheet\" href=\"{{ asset('assets/user.css') }}\">
     </head>
+
 {% endblock %}
 
 {% block body %}
