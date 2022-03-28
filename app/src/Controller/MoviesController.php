@@ -61,7 +61,7 @@ class MoviesController extends AbstractController
      */
     public function home(Request $request): Response
     {
-        if ($request->getMethod() == 'POST' && $request->request->get('email') != null) {
+        if ($request->getMethod() === 'POST' && $request->request->get('email') != null) {
             $email = $request->request->get('email');
             return $this->redirectToRoute('app_register', [
                 'email' => $email,
@@ -101,7 +101,7 @@ class MoviesController extends AbstractController
      */
     public function index(Request $request): Response
     {
-        if ($request->getMethod() == 'POST' && $request->request->get('id') != null) {
+        if ($request->getMethod() === 'POST' && $request->request->get('id') != null) {
             $id = $request->request->get('id');
             return $this->redirectToRoute('changeProfile', [
                 'id' => $id,
@@ -146,7 +146,7 @@ class MoviesController extends AbstractController
      */
     public function shows(Request $request): Response
     {
-        if ($request->getMethod() == 'POST') {
+        if ($request->getMethod() === 'POST') {
             $id = $request->request->get('id');
             return $this->redirectToRoute('changeProfile', [
                     'id' => $id,
@@ -215,6 +215,8 @@ class MoviesController extends AbstractController
         $categories = $this->categoryRepository->getCategoryByMovie($movie->getTitle());
         $movieId = $movie->getId();
 
+
+
         if ($this->isMovieLikedByCurrentUser($movieId, $liked)) {
             return $this->render('movies/show.html.twig', [
                 'liked' => 'yes',
@@ -244,17 +246,17 @@ class MoviesController extends AbstractController
      */
     public function myList(Request $request): Response
     {
-        if ($request->getMethod() == 'POST') {
+        if ($request->getMethod() === 'POST') {
             $id = $request->request->get('id');
             return $this->redirectToRoute('changeProfile', [
                     'id' => $id,
                 ]
             );
         }
-
         $subuserId = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
         if ($subuserId != null) {
             $userAvatar = $subuserId->getAvatar();
+//            dump($this->movieRepository->getLikedMoviesBySubuser(($subuserId->getId())));
             return $this->render(
                 'movies/list.html.twig', [
                     'profiles' => $this->getOtherSubusers(),

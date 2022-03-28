@@ -61,7 +61,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
 ";
         // line 202
-        $this->loadTemplate("root.html.twig", "root.html.twig", 202, "1829377886")->display($context);
+        $this->loadTemplate("root.html.twig", "root.html.twig", 202, "1569976595")->display($context);
         // line 203
         echo "</html>
 ";
@@ -99,7 +99,10 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
           rel=\"stylesheet\"
           integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
           crossorigin=\"anonymous\">
-    <link rel=\"stylesheet\" href=\"assets/style.css\">
+    <link rel=\"stylesheet\" href=\"";
+        // line 14
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/style.css"), "html", null, true);
+        echo "\">
     <link rel=\"icon\" type=\"image/x-icon\" href=\"";
         // line 15
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/favicon.ico"), "html", null, true);
@@ -415,7 +418,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
     public function getDebugInfo()
     {
-        return array (  372 => 175,  362 => 174,  344 => 164,  336 => 157,  322 => 149,  315 => 147,  310 => 146,  306 => 145,  229 => 70,  225 => 68,  219 => 66,  217 => 65,  209 => 59,  203 => 55,  197 => 51,  195 => 50,  191 => 49,  188 => 48,  177 => 41,  175 => 40,  157 => 25,  153 => 24,  147 => 20,  137 => 19,  118 => 7,  105 => 15,  96 => 8,  94 => 7,  87 => 2,  77 => 1,  66 => 203,  64 => 202,  59 => 199,  57 => 174,  54 => 173,  52 => 19,  49 => 18,  47 => 1,);
+        return array (  375 => 175,  365 => 174,  347 => 164,  339 => 157,  325 => 149,  318 => 147,  313 => 146,  309 => 145,  232 => 70,  228 => 68,  222 => 66,  220 => 65,  212 => 59,  206 => 55,  200 => 51,  198 => 50,  194 => 49,  191 => 48,  180 => 41,  178 => 40,  160 => 25,  156 => 24,  150 => 20,  140 => 19,  121 => 7,  108 => 15,  104 => 14,  96 => 8,  94 => 7,  87 => 2,  77 => 1,  66 => 203,  64 => 202,  59 => 199,  57 => 174,  54 => 173,  52 => 19,  49 => 18,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -433,7 +436,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
           rel=\"stylesheet\"
           integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
           crossorigin=\"anonymous\">
-    <link rel=\"stylesheet\" href=\"assets/style.css\">
+    <link rel=\"stylesheet\" href=\"{{ asset('assets/style.css') }}\">
     <link rel=\"icon\" type=\"image/x-icon\" href=\"{{ asset('images/favicon.ico') }}\">
 </head>
 {% endblock %}
@@ -629,7 +632,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
 
 /* root.html.twig */
-class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b722b0d___1829377886 extends Template
+class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b722b0d___1569976595 extends Template
 {
     private $source;
     private $macros = [];
@@ -681,7 +684,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
     public function getDebugInfo()
     {
-        return array (  650 => 202,  372 => 175,  362 => 174,  344 => 164,  336 => 157,  322 => 149,  315 => 147,  310 => 146,  306 => 145,  229 => 70,  225 => 68,  219 => 66,  217 => 65,  209 => 59,  203 => 55,  197 => 51,  195 => 50,  191 => 49,  188 => 48,  177 => 41,  175 => 40,  157 => 25,  153 => 24,  147 => 20,  137 => 19,  118 => 7,  105 => 15,  96 => 8,  94 => 7,  87 => 2,  77 => 1,  66 => 203,  64 => 202,  59 => 199,  57 => 174,  54 => 173,  52 => 19,  49 => 18,  47 => 1,);
+        return array (  653 => 202,  375 => 175,  365 => 174,  347 => 164,  339 => 157,  325 => 149,  318 => 147,  313 => 146,  309 => 145,  232 => 70,  228 => 68,  222 => 66,  220 => 65,  212 => 59,  206 => 55,  200 => 51,  198 => 50,  194 => 49,  191 => 48,  180 => 41,  178 => 40,  160 => 25,  156 => 24,  150 => 20,  140 => 19,  121 => 7,  108 => 15,  104 => 14,  96 => 8,  94 => 7,  87 => 2,  77 => 1,  66 => 203,  64 => 202,  59 => 199,  57 => 174,  54 => 173,  52 => 19,  49 => 18,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -699,7 +702,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
           rel=\"stylesheet\"
           integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\"
           crossorigin=\"anonymous\">
-    <link rel=\"stylesheet\" href=\"assets/style.css\">
+    <link rel=\"stylesheet\" href=\"{{ asset('assets/style.css') }}\">
     <link rel=\"icon\" type=\"image/x-icon\" href=\"{{ asset('images/favicon.ico') }}\">
 </head>
 {% endblock %}

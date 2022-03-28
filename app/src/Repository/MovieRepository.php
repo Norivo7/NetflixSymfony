@@ -28,6 +28,8 @@ class MovieRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('movies')
             ->select('movies', 'subuser')
+            ->addSelect('categories')
+            ->innerJoin('movies.categories', 'categories')
             ->leftJoin('movies.likedBy', 'subuser')
             ->andWhere('subuser.id = :subuserId')
             ->andWhere('movies.active = :enabled')

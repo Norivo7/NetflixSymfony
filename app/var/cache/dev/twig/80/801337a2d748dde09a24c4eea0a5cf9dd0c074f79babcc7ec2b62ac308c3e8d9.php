@@ -176,7 +176,7 @@ class __TwigTemplate_7054c61692d20a322ddc13f19705773293abcc6b4d845a2be19c089e33e
                 foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
                     // line 58
                     echo "                                                         ";
-                    echo twig_escape_filter($this->env, twig_join_filter(twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 58), " "), "html", null, true);
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 58), "html", null, true);
                     echo "
                                                      ";
                 }
@@ -305,7 +305,7 @@ class __TwigTemplate_7054c61692d20a322ddc13f19705773293abcc6b4d845a2be19c089e33e
                                                      teraz </a>
                                                  <div class=\"modal-movie-info-secondary-categories\">
                                                      {% for category in movie.categories %}
-                                                         {{ category.name|join(' ') }}
+                                                         {{ category.name }}
                                                      {% endfor %}
                                                  </div>
                                              </div>
