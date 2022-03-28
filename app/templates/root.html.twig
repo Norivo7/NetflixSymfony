@@ -16,27 +16,25 @@
 </head>
 {% endblock %}
 
-
-{% block javascripts %}
-    {{ encore_entry_script_tags('app') }}
-{% endblock %}
-
 {% block body %}
     <body>
     <div class="concord-img-wrapper">
         <nav class="navbar">
             <div class="brandLogoWrapper">
                 <a class="navbar-brand" href="{{ path('home') }}">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png"
-                         width="167" height="45" style="vertical-align:middle;margin:20px 50px" alt="netflixLogo"/>
+                    <img src="{{ asset('images/netflixLogo.svg.png') }}"
+                         width="167" height="45" style="vertical-align:middle;margin:20px 50px" alt="netflixLogo"
+                    />
                 </a>
             </div>
             <div class="buttonsWrapper">
                 <div class="selectMedium">
-                    <select>
-                        <option value="0">&#xF3EE; Polski</option>
-                        <option value="1">&#xF3EE; English</option>
-                    </select>
+                    <label>
+                        <select>
+                            <option value="0">&#xF3EE; Polski</option>
+                            <option value="1">&#xF3EE; English</option>
+                        </select>
+                    </label>
                 </div>
 
                 {% if is_granted('ROLE_ADMIN') %}
@@ -74,14 +72,12 @@
                 <h3></h3>
 
                 <form id="register" method="POST">
-                    <label for="fname">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
+                    <label for="email">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
                         konto. </label>
                     <div class="register-wrapper">
                         <input class="emailInput" type="text" id="email" name="email">
                             <a class="register-button" style="cursor: pointer;color: white;font-size: 27px"
-{#                               href="{{ path('app_register') }}"#}
-                               onclick="document.getElementById('register').submit()"
-                            >Rozpocznij<i class="bi bi-chevron-right"></i></a>
+                               onclick="document.getElementById('register').submit()">Rozpocznij<i class="bi bi-chevron-right"></i></a>
                     </div>
                 </form>
             </div>
@@ -144,61 +140,20 @@
             </div>
         </div>
         <hr>
+
         <div class="block">
-            <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">Czym jest Netflix?</button>
-                <div id="myDropdown" class="dropdown-content">
+            {% for key, dropdownTitle in dropdownTitles %}
+            <div class="dropdown{{ key }}">
+                <button onclick="openDropdown({{ key }})" class="dropbtn">{{ dropdownTitle }}
+                </button>
+                <div id="myDropdown{{ key }}" class="dropdown-content">
                     <a href="#">Link 1</a>
                     <a href="#">Link 2</a>
                     <a href="#">Link 3</a>
                 </div>
             </div>
             <br>
-            <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">Ile kosztuje korzystanie z serwisu Netflix?</button>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-            </div>
-            <br>
-            <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">Gdzie mogę oglądać?</button>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-            </div>
-            <br>
-            <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">Jak zrezygnować z członkostwa?</button>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-                <br>
-            </div>
-            <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">Jakie materiały mogę oglądać w serwisie Netflix?</button>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-                <br>
-            </div>
-            <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">Czy Netflix jest odpowiedni dla dzieci?</button>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-                <br>
-            </div>
+        {% endfor %}
             <form id="register" method="POST">
                 <label for="fname">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
                     konto. </label>
@@ -215,6 +170,33 @@
     </div>
     </body>
 {% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    <script>
+
+        // toggle hide/show onclick
+        function openDropdown(e) {
+            document.getElementById('myDropdown' + e).classList.toggle("show");
+        }
+
+        // close dropdown if clicked outside
+        window.onclick = function (event) {
+            if(!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length;i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+    </script>
+{% endblock %}
+
 
 
 {% embed 'reusable/footer.html.twig' %}{% endembed %}

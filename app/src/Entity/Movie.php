@@ -47,6 +47,7 @@ class Movie
 
     /**
      * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="movies")
+     * @ORM\JoinTable(name="movie_category")
      */
     private $categories;
 
@@ -131,7 +132,6 @@ class Movie
 
         return $this;
     }
-
 
     public function getCategories()
     {

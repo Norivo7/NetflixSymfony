@@ -29,8 +29,8 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
         $this->blocks = [
             'head' => [$this, 'block_head'],
             'title' => [$this, 'block_title'],
-            'javascripts' => [$this, 'block_javascripts'],
             'body' => [$this, 'block_body'],
+            'javascripts' => [$this, 'block_javascripts'],
         ];
     }
 
@@ -47,22 +47,22 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
         $this->displayBlock('head', $context, $blocks);
         // line 18
         echo "
-
 ";
-        // line 20
-        $this->displayBlock('javascripts', $context, $blocks);
-        // line 23
-        echo "
-";
-        // line 24
+        // line 19
         $this->displayBlock('body', $context, $blocks);
-        // line 218
+        // line 173
+        echo "
+";
+        // line 174
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 199
         echo "
 
+
 ";
-        // line 220
-        $this->loadTemplate("root.html.twig", "root.html.twig", 220, "793049363")->display($context);
-        // line 221
+        // line 202
+        $this->loadTemplate("root.html.twig", "root.html.twig", 202, "1829377886")->display($context);
+        // line 203
         echo "</html>
 ";
         
@@ -133,30 +133,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
     }
 
-    // line 20
-    public function block_javascripts($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
-
-        // line 21
-        echo "    ";
-        echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackScriptTags("app");
-        echo "
-";
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-    }
-
-    // line 24
+    // line 19
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -166,31 +143,37 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 25
+        // line 20
         echo "    <body>
     <div class=\"concord-img-wrapper\">
         <nav class=\"navbar\">
             <div class=\"brandLogoWrapper\">
                 <a class=\"navbar-brand\" href=\"";
-        // line 29
+        // line 24
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
         echo "\">
-                    <img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png\"
-                         width=\"167\" height=\"45\" style=\"vertical-align:middle;margin:20px 50px\" alt=\"netflixLogo\"/>
+                    <img src=\"";
+        // line 25
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/netflixLogo.svg.png"), "html", null, true);
+        echo "\"
+                         width=\"167\" height=\"45\" style=\"vertical-align:middle;margin:20px 50px\" alt=\"netflixLogo\"
+                    />
                 </a>
             </div>
             <div class=\"buttonsWrapper\">
                 <div class=\"selectMedium\">
-                    <select>
-                        <option value=\"0\">&#xF3EE; Polski</option>
-                        <option value=\"1\">&#xF3EE; English</option>
-                    </select>
+                    <label>
+                        <select>
+                            <option value=\"0\">&#xF3EE; Polski</option>
+                            <option value=\"1\">&#xF3EE; English</option>
+                        </select>
+                    </label>
                 </div>
 
                 ";
-        // line 42
+        // line 40
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-            // line 43
+            // line 41
             echo "                    <a href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_panel");
             echo "\">
@@ -201,28 +184,28 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
                     </a>
                 ";
         }
-        // line 50
+        // line 48
         echo "
                 <a href=\"";
-        // line 51
+        // line 49
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
         echo "\">
                     ";
-        // line 52
+        // line 50
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
-            // line 53
+            // line 51
             echo "                        <button type=\"button\" class=\"buttonLogin\">
                             Przejdź dalej
                         </button>
                     ";
         } else {
-            // line 57
+            // line 55
             echo "                        <button type=\"button\" class=\"buttonLogin\">
                             Zaloguj się
                         </button>
                     ";
         }
-        // line 61
+        // line 59
         echo "                </a>
             </div>
         </nav>
@@ -230,33 +213,30 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
         <div class=\"blockColumn\">
             <div class=\"blockIntro\">
                 ";
-        // line 67
+        // line 65
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
-            // line 68
+            // line 66
             echo "                    <p>Debug: zalogowany użytkownik: ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 68, $this->source); })()), "user", [], "any", false, false, false, 68), "email", [], "any", false, false, false, 68), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 66, $this->source); })()), "user", [], "any", false, false, false, 66), "email", [], "any", false, false, false, 66), "html", null, true);
             echo "</p>
                 ";
         } else {
-            // line 70
+            // line 68
             echo "                    <p>Debug: nie jesteś zalogowany.</p>
                 ";
         }
-        // line 72
+        // line 70
         echo "                <h1> Nieograniczona oferta filmów, seriali, programów <br> i nie tylko. </h1>
                 <h2> Oglądaj wszędzie. Anuluj w każdej chwili. </h2>
                 <h3></h3>
 
                 <form id=\"register\" method=\"POST\">
-                    <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
+                    <label for=\"email\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
                         konto. </label>
                     <div class=\"register-wrapper\">
                         <input class=\"emailInput\" type=\"text\" id=\"email\" name=\"email\">
                             <a class=\"register-button\" style=\"cursor: pointer;color: white;font-size: 27px\"
-";
-        // line 83
-        echo "                               onclick=\"document.getElementById('register').submit()\"
-                            >Rozpocznij<i class=\"bi bi-chevron-right\"></i></a>
+                               onclick=\"document.getElementById('register').submit()\">Rozpocznij<i class=\"bi bi-chevron-right\"></i></a>
                     </div>
                 </form>
             </div>
@@ -319,69 +299,48 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
             </div>
         </div>
         <hr>
+
         <div class=\"block\">
-            <div class=\"dropdown\">
-                <button onclick=\"myFunction()\" class=\"dropbtn\">Czym jest Netflix?</button>
-                <div id=\"myDropdown\" class=\"dropdown-content\">
+            ";
+        // line 145
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["dropdownTitles"]) || array_key_exists("dropdownTitles", $context) ? $context["dropdownTitles"] : (function () { throw new RuntimeError('Variable "dropdownTitles" does not exist.', 145, $this->source); })()));
+        foreach ($context['_seq'] as $context["key"] => $context["dropdownTitle"]) {
+            // line 146
+            echo "            <div class=\"dropdown";
+            echo twig_escape_filter($this->env, $context["key"], "html", null, true);
+            echo "\">
+                <button onclick=\"openDropdown(";
+            // line 147
+            echo twig_escape_filter($this->env, $context["key"], "html", null, true);
+            echo ")\" class=\"dropbtn\">";
+            echo twig_escape_filter($this->env, $context["dropdownTitle"], "html", null, true);
+            echo "
+                </button>
+                <div id=\"myDropdown";
+            // line 149
+            echo twig_escape_filter($this->env, $context["key"], "html", null, true);
+            echo "\" class=\"dropdown-content\">
                     <a href=\"#\">Link 1</a>
                     <a href=\"#\">Link 2</a>
                     <a href=\"#\">Link 3</a>
                 </div>
             </div>
             <br>
-            <div class=\"dropdown\">
-                <button onclick=\"myFunction()\" class=\"dropbtn\">Ile kosztuje korzystanie z serwisu Netflix?</button>
-                <div id=\"myDropdown\" class=\"dropdown-content\">
-                    <a href=\"#\">Link 1</a>
-                    <a href=\"#\">Link 2</a>
-                    <a href=\"#\">Link 3</a>
-                </div>
-            </div>
-            <br>
-            <div class=\"dropdown\">
-                <button onclick=\"myFunction()\" class=\"dropbtn\">Gdzie mogę oglądać?</button>
-                <div id=\"myDropdown\" class=\"dropdown-content\">
-                    <a href=\"#\">Link 1</a>
-                    <a href=\"#\">Link 2</a>
-                    <a href=\"#\">Link 3</a>
-                </div>
-            </div>
-            <br>
-            <div class=\"dropdown\">
-                <button onclick=\"myFunction()\" class=\"dropbtn\">Jak zrezygnować z członkostwa?</button>
-                <div id=\"myDropdown\" class=\"dropdown-content\">
-                    <a href=\"#\">Link 1</a>
-                    <a href=\"#\">Link 2</a>
-                    <a href=\"#\">Link 3</a>
-                </div>
-                <br>
-            </div>
-            <div class=\"dropdown\">
-                <button onclick=\"myFunction()\" class=\"dropbtn\">Jakie materiały mogę oglądać w serwisie Netflix?</button>
-                <div id=\"myDropdown\" class=\"dropdown-content\">
-                    <a href=\"#\">Link 1</a>
-                    <a href=\"#\">Link 2</a>
-                    <a href=\"#\">Link 3</a>
-                </div>
-                <br>
-            </div>
-            <div class=\"dropdown\">
-                <button onclick=\"myFunction()\" class=\"dropbtn\">Czy Netflix jest odpowiedni dla dzieci?</button>
-                <div id=\"myDropdown\" class=\"dropdown-content\">
-                    <a href=\"#\">Link 1</a>
-                    <a href=\"#\">Link 2</a>
-                    <a href=\"#\">Link 3</a>
-                </div>
-                <br>
-            </div>
-            <form id=\"register\" method=\"POST\">
+        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['key'], $context['dropdownTitle'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 157
+        echo "            <form id=\"register\" method=\"POST\">
                 <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
                     konto. </label>
                 <div class=\"register-wrapper\">
                     <input class=\"emailInput\" type=\"text\" id=\"email\" name=\"email\">
                     <a class=\"register-button\" style=\"cursor: pointer;color: white;font-size: 27px\"
                             ";
-        // line 209
+        // line 164
         echo "                       onclick=\"document.getElementById('register').submit()\"
                     >Rozpocznij<i class=\"bi bi-chevron-right\"></i></a>
                 </div>
@@ -390,6 +349,51 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
         <hr>
     </div>
     </body>
+";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 174
+    public function block_javascripts($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
+
+        // line 175
+        echo "    ";
+        echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackScriptTags("app");
+        echo "
+    <script>
+
+        // toggle hide/show onclick
+        function openDropdown(e) {
+            document.getElementById('myDropdown' + e).classList.toggle(\"show\");
+        }
+
+        // close dropdown if clicked outside
+        window.onclick = function (event) {
+            if(!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName(\"dropdown-content\");
+                var i;
+                for (i = 0; i < dropdowns.length;i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+    </script>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -411,7 +415,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
     public function getDebugInfo()
     {
-        return array (  385 => 209,  258 => 83,  246 => 72,  242 => 70,  236 => 68,  234 => 67,  226 => 61,  220 => 57,  214 => 53,  212 => 52,  208 => 51,  205 => 50,  194 => 43,  192 => 42,  176 => 29,  170 => 25,  160 => 24,  147 => 21,  137 => 20,  118 => 7,  105 => 15,  96 => 8,  94 => 7,  87 => 2,  77 => 1,  66 => 221,  64 => 220,  60 => 218,  58 => 24,  55 => 23,  53 => 20,  49 => 18,  47 => 1,);
+        return array (  372 => 175,  362 => 174,  344 => 164,  336 => 157,  322 => 149,  315 => 147,  310 => 146,  306 => 145,  229 => 70,  225 => 68,  219 => 66,  217 => 65,  209 => 59,  203 => 55,  197 => 51,  195 => 50,  191 => 49,  188 => 48,  177 => 41,  175 => 40,  157 => 25,  153 => 24,  147 => 20,  137 => 19,  118 => 7,  105 => 15,  96 => 8,  94 => 7,  87 => 2,  77 => 1,  66 => 203,  64 => 202,  59 => 199,  57 => 174,  54 => 173,  52 => 19,  49 => 18,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -434,27 +438,25 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 </head>
 {% endblock %}
 
-
-{% block javascripts %}
-    {{ encore_entry_script_tags('app') }}
-{% endblock %}
-
 {% block body %}
     <body>
     <div class=\"concord-img-wrapper\">
         <nav class=\"navbar\">
             <div class=\"brandLogoWrapper\">
                 <a class=\"navbar-brand\" href=\"{{ path('home') }}\">
-                    <img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png\"
-                         width=\"167\" height=\"45\" style=\"vertical-align:middle;margin:20px 50px\" alt=\"netflixLogo\"/>
+                    <img src=\"{{ asset('images/netflixLogo.svg.png') }}\"
+                         width=\"167\" height=\"45\" style=\"vertical-align:middle;margin:20px 50px\" alt=\"netflixLogo\"
+                    />
                 </a>
             </div>
             <div class=\"buttonsWrapper\">
                 <div class=\"selectMedium\">
-                    <select>
-                        <option value=\"0\">&#xF3EE; Polski</option>
-                        <option value=\"1\">&#xF3EE; English</option>
-                    </select>
+                    <label>
+                        <select>
+                            <option value=\"0\">&#xF3EE; Polski</option>
+                            <option value=\"1\">&#xF3EE; English</option>
+                        </select>
+                    </label>
                 </div>
 
                 {% if is_granted('ROLE_ADMIN') %}
@@ -492,14 +494,12 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
                 <h3></h3>
 
                 <form id=\"register\" method=\"POST\">
-                    <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
+                    <label for=\"email\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
                         konto. </label>
                     <div class=\"register-wrapper\">
                         <input class=\"emailInput\" type=\"text\" id=\"email\" name=\"email\">
                             <a class=\"register-button\" style=\"cursor: pointer;color: white;font-size: 27px\"
-{#                               href=\"{{ path('app_register') }}\"#}
-                               onclick=\"document.getElementById('register').submit()\"
-                            >Rozpocznij<i class=\"bi bi-chevron-right\"></i></a>
+                               onclick=\"document.getElementById('register').submit()\">Rozpocznij<i class=\"bi bi-chevron-right\"></i></a>
                     </div>
                 </form>
             </div>
@@ -562,61 +562,20 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
             </div>
         </div>
         <hr>
+
         <div class=\"block\">
-            <div class=\"dropdown\">
-                <button onclick=\"myFunction()\" class=\"dropbtn\">Czym jest Netflix?</button>
-                <div id=\"myDropdown\" class=\"dropdown-content\">
+            {% for key, dropdownTitle in dropdownTitles %}
+            <div class=\"dropdown{{ key }}\">
+                <button onclick=\"openDropdown({{ key }})\" class=\"dropbtn\">{{ dropdownTitle }}
+                </button>
+                <div id=\"myDropdown{{ key }}\" class=\"dropdown-content\">
                     <a href=\"#\">Link 1</a>
                     <a href=\"#\">Link 2</a>
                     <a href=\"#\">Link 3</a>
                 </div>
             </div>
             <br>
-            <div class=\"dropdown\">
-                <button onclick=\"myFunction()\" class=\"dropbtn\">Ile kosztuje korzystanie z serwisu Netflix?</button>
-                <div id=\"myDropdown\" class=\"dropdown-content\">
-                    <a href=\"#\">Link 1</a>
-                    <a href=\"#\">Link 2</a>
-                    <a href=\"#\">Link 3</a>
-                </div>
-            </div>
-            <br>
-            <div class=\"dropdown\">
-                <button onclick=\"myFunction()\" class=\"dropbtn\">Gdzie mogę oglądać?</button>
-                <div id=\"myDropdown\" class=\"dropdown-content\">
-                    <a href=\"#\">Link 1</a>
-                    <a href=\"#\">Link 2</a>
-                    <a href=\"#\">Link 3</a>
-                </div>
-            </div>
-            <br>
-            <div class=\"dropdown\">
-                <button onclick=\"myFunction()\" class=\"dropbtn\">Jak zrezygnować z członkostwa?</button>
-                <div id=\"myDropdown\" class=\"dropdown-content\">
-                    <a href=\"#\">Link 1</a>
-                    <a href=\"#\">Link 2</a>
-                    <a href=\"#\">Link 3</a>
-                </div>
-                <br>
-            </div>
-            <div class=\"dropdown\">
-                <button onclick=\"myFunction()\" class=\"dropbtn\">Jakie materiały mogę oglądać w serwisie Netflix?</button>
-                <div id=\"myDropdown\" class=\"dropdown-content\">
-                    <a href=\"#\">Link 1</a>
-                    <a href=\"#\">Link 2</a>
-                    <a href=\"#\">Link 3</a>
-                </div>
-                <br>
-            </div>
-            <div class=\"dropdown\">
-                <button onclick=\"myFunction()\" class=\"dropbtn\">Czy Netflix jest odpowiedni dla dzieci?</button>
-                <div id=\"myDropdown\" class=\"dropdown-content\">
-                    <a href=\"#\">Link 1</a>
-                    <a href=\"#\">Link 2</a>
-                    <a href=\"#\">Link 3</a>
-                </div>
-                <br>
-            </div>
+        {% endfor %}
             <form id=\"register\" method=\"POST\">
                 <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
                     konto. </label>
@@ -634,6 +593,33 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
     </body>
 {% endblock %}
 
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    <script>
+
+        // toggle hide/show onclick
+        function openDropdown(e) {
+            document.getElementById('myDropdown' + e).classList.toggle(\"show\");
+        }
+
+        // close dropdown if clicked outside
+        window.onclick = function (event) {
+            if(!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName(\"dropdown-content\");
+                var i;
+                for (i = 0; i < dropdowns.length;i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+    </script>
+{% endblock %}
+
+
 
 {% embed 'reusable/footer.html.twig' %}{% endembed %}
 </html>
@@ -643,7 +629,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
 
 /* root.html.twig */
-class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b722b0d___793049363 extends Template
+class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b722b0d___1829377886 extends Template
 {
     private $source;
     private $macros = [];
@@ -660,7 +646,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
     protected function doGetParent(array $context)
     {
-        // line 220
+        // line 202
         return "reusable/footer.html.twig";
     }
 
@@ -673,7 +659,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "root.html.twig"));
 
-        $this->parent = $this->loadTemplate("reusable/footer.html.twig", "root.html.twig", 220);
+        $this->parent = $this->loadTemplate("reusable/footer.html.twig", "root.html.twig", 202);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -695,7 +681,7 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 
     public function getDebugInfo()
     {
-        return array (  664 => 220,  385 => 209,  258 => 83,  246 => 72,  242 => 70,  236 => 68,  234 => 67,  226 => 61,  220 => 57,  214 => 53,  212 => 52,  208 => 51,  205 => 50,  194 => 43,  192 => 42,  176 => 29,  170 => 25,  160 => 24,  147 => 21,  137 => 20,  118 => 7,  105 => 15,  96 => 8,  94 => 7,  87 => 2,  77 => 1,  66 => 221,  64 => 220,  60 => 218,  58 => 24,  55 => 23,  53 => 20,  49 => 18,  47 => 1,);
+        return array (  650 => 202,  372 => 175,  362 => 174,  344 => 164,  336 => 157,  322 => 149,  315 => 147,  310 => 146,  306 => 145,  229 => 70,  225 => 68,  219 => 66,  217 => 65,  209 => 59,  203 => 55,  197 => 51,  195 => 50,  191 => 49,  188 => 48,  177 => 41,  175 => 40,  157 => 25,  153 => 24,  147 => 20,  137 => 19,  118 => 7,  105 => 15,  96 => 8,  94 => 7,  87 => 2,  77 => 1,  66 => 203,  64 => 202,  59 => 199,  57 => 174,  54 => 173,  52 => 19,  49 => 18,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -718,27 +704,25 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
 </head>
 {% endblock %}
 
-
-{% block javascripts %}
-    {{ encore_entry_script_tags('app') }}
-{% endblock %}
-
 {% block body %}
     <body>
     <div class=\"concord-img-wrapper\">
         <nav class=\"navbar\">
             <div class=\"brandLogoWrapper\">
                 <a class=\"navbar-brand\" href=\"{{ path('home') }}\">
-                    <img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png\"
-                         width=\"167\" height=\"45\" style=\"vertical-align:middle;margin:20px 50px\" alt=\"netflixLogo\"/>
+                    <img src=\"{{ asset('images/netflixLogo.svg.png') }}\"
+                         width=\"167\" height=\"45\" style=\"vertical-align:middle;margin:20px 50px\" alt=\"netflixLogo\"
+                    />
                 </a>
             </div>
             <div class=\"buttonsWrapper\">
                 <div class=\"selectMedium\">
-                    <select>
-                        <option value=\"0\">&#xF3EE; Polski</option>
-                        <option value=\"1\">&#xF3EE; English</option>
-                    </select>
+                    <label>
+                        <select>
+                            <option value=\"0\">&#xF3EE; Polski</option>
+                            <option value=\"1\">&#xF3EE; English</option>
+                        </select>
+                    </label>
                 </div>
 
                 {% if is_granted('ROLE_ADMIN') %}
@@ -776,14 +760,12 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
                 <h3></h3>
 
                 <form id=\"register\" method=\"POST\">
-                    <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
+                    <label for=\"email\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
                         konto. </label>
                     <div class=\"register-wrapper\">
                         <input class=\"emailInput\" type=\"text\" id=\"email\" name=\"email\">
                             <a class=\"register-button\" style=\"cursor: pointer;color: white;font-size: 27px\"
-{#                               href=\"{{ path('app_register') }}\"#}
-                               onclick=\"document.getElementById('register').submit()\"
-                            >Rozpocznij<i class=\"bi bi-chevron-right\"></i></a>
+                               onclick=\"document.getElementById('register').submit()\">Rozpocznij<i class=\"bi bi-chevron-right\"></i></a>
                     </div>
                 </form>
             </div>
@@ -846,61 +828,20 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
             </div>
         </div>
         <hr>
+
         <div class=\"block\">
-            <div class=\"dropdown\">
-                <button onclick=\"myFunction()\" class=\"dropbtn\">Czym jest Netflix?</button>
-                <div id=\"myDropdown\" class=\"dropdown-content\">
+            {% for key, dropdownTitle in dropdownTitles %}
+            <div class=\"dropdown{{ key }}\">
+                <button onclick=\"openDropdown({{ key }})\" class=\"dropbtn\">{{ dropdownTitle }}
+                </button>
+                <div id=\"myDropdown{{ key }}\" class=\"dropdown-content\">
                     <a href=\"#\">Link 1</a>
                     <a href=\"#\">Link 2</a>
                     <a href=\"#\">Link 3</a>
                 </div>
             </div>
             <br>
-            <div class=\"dropdown\">
-                <button onclick=\"myFunction()\" class=\"dropbtn\">Ile kosztuje korzystanie z serwisu Netflix?</button>
-                <div id=\"myDropdown\" class=\"dropdown-content\">
-                    <a href=\"#\">Link 1</a>
-                    <a href=\"#\">Link 2</a>
-                    <a href=\"#\">Link 3</a>
-                </div>
-            </div>
-            <br>
-            <div class=\"dropdown\">
-                <button onclick=\"myFunction()\" class=\"dropbtn\">Gdzie mogę oglądać?</button>
-                <div id=\"myDropdown\" class=\"dropdown-content\">
-                    <a href=\"#\">Link 1</a>
-                    <a href=\"#\">Link 2</a>
-                    <a href=\"#\">Link 3</a>
-                </div>
-            </div>
-            <br>
-            <div class=\"dropdown\">
-                <button onclick=\"myFunction()\" class=\"dropbtn\">Jak zrezygnować z członkostwa?</button>
-                <div id=\"myDropdown\" class=\"dropdown-content\">
-                    <a href=\"#\">Link 1</a>
-                    <a href=\"#\">Link 2</a>
-                    <a href=\"#\">Link 3</a>
-                </div>
-                <br>
-            </div>
-            <div class=\"dropdown\">
-                <button onclick=\"myFunction()\" class=\"dropbtn\">Jakie materiały mogę oglądać w serwisie Netflix?</button>
-                <div id=\"myDropdown\" class=\"dropdown-content\">
-                    <a href=\"#\">Link 1</a>
-                    <a href=\"#\">Link 2</a>
-                    <a href=\"#\">Link 3</a>
-                </div>
-                <br>
-            </div>
-            <div class=\"dropdown\">
-                <button onclick=\"myFunction()\" class=\"dropbtn\">Czy Netflix jest odpowiedni dla dzieci?</button>
-                <div id=\"myDropdown\" class=\"dropdown-content\">
-                    <a href=\"#\">Link 1</a>
-                    <a href=\"#\">Link 2</a>
-                    <a href=\"#\">Link 3</a>
-                </div>
-                <br>
-            </div>
+        {% endfor %}
             <form id=\"register\" method=\"POST\">
                 <label for=\"fname\">Zaczynamy oglądać? Wprowadź adres e‑mail, aby utworzyć lub odnowić
                     konto. </label>
@@ -917,6 +858,33 @@ class __TwigTemplate_55afb03bcebf7eb421e22d41f0b2c8e2952a40745c70e2a041b4fe7a4b7
     </div>
     </body>
 {% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    <script>
+
+        // toggle hide/show onclick
+        function openDropdown(e) {
+            document.getElementById('myDropdown' + e).classList.toggle(\"show\");
+        }
+
+        // close dropdown if clicked outside
+        window.onclick = function (event) {
+            if(!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName(\"dropdown-content\");
+                var i;
+                for (i = 0; i < dropdowns.length;i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+    </script>
+{% endblock %}
+
 
 
 {% embed 'reusable/footer.html.twig' %}{% endembed %}

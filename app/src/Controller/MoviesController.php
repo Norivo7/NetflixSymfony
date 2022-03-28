@@ -69,8 +69,18 @@ class MoviesController extends AbstractController
 
         }
 
+        $dropdownTitles = array(
+            "Czym jest Netflix?",
+            "Ile kosztuje korzystanie z serwisu Netflix?",
+            "Gdzie mogę oglądać?",
+            "Jak zrezygnować z członkostwa?",
+            "Jakie materiały mogę oglądać w serwisie Netflix?",
+            "Czy Netflix jest odpowiedni dla dzieci?"
+        );
         return $this->render(
-            'base.html.twig'
+            'base.html.twig', [
+                'dropdownTitles' => $dropdownTitles,
+            ]
         );
     }
 

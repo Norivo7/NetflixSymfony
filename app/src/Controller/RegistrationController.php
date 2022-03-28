@@ -28,7 +28,6 @@ class RegistrationController extends AbstractController
         $this->emailVerifier = $emailVerifier;
     }
 
-
     private function getRandomAvatarUrl()
     {
         $images = array('https://i.imgur.com/zBr1CQ3.png', 'https://i.imgur.com/ih6xvXa.png', 'https://i.imgur.com/6ZIfuJG.png', 'https://i.imgur.com/QhKoEyB.png',
@@ -67,13 +66,13 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
 
             // generate a signed url and email it to the user
-            $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
-                (new TemplatedEmail())
-                    ->from(new Address('netflix@symfony.com', 'Netflix Symfony Bot'))
-                    ->to($user->getEmail())
-                    ->subject('Please Confirm your Email')
-                    ->htmlTemplate('registration/confirmation_email.html.twig')
-            );
+//            $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
+//                (new TemplatedEmail())
+//                    ->from(new Address('netflix@symfony.com', 'Netflix Symfony Bot'))
+//                    ->to($user->getEmail())
+//                    ->subject('Please Confirm your Email')
+//                    ->htmlTemplate('registration/confirmation_email.html.twig')
+//            );
             // do anything else you need here, like send an email
 
             return $userAuthenticator->authenticateUser(
