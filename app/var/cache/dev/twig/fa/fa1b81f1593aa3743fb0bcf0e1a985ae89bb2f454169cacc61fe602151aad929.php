@@ -57,16 +57,16 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 ";
         // line 123
         $this->displayBlock('body', $context, $blocks);
-        // line 317
+        // line 350
         echo "
 ";
-        // line 318
+        // line 351
         $this->displayBlock('javascript', $context, $blocks);
-        // line 329
+        // line 362
         echo "
 
 ";
-        // line 331
+        // line 364
         $this->displayBlock('stylesheets', $context, $blocks);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -556,7 +556,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
                     <div class=\"modal-background\">
                     </div>
                     <div class=\"modal-sizing\">
-                        <div class=\"modal-content\">
+                        <div class=\"modal-content\" id=\"modal-content\">
                             <div class=\"modal-header\"
                                     ";
             // line 211
@@ -614,28 +614,87 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
             $context = array_intersect_key($context, $_parent) + $_parent;
             // line 234
             echo "                                    </div>
+
                                 </div>
                             </div>
 
                             ";
-            // line 238
+            // line 239
             if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-                // line 239
-                echo "                                <a href=\"";
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("hide", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 239)]), "html", null, true);
+                // line 240
+                echo "                                <a style=\"color:red;\" href=\"";
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("hide", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 240)]), "html", null, true);
                 echo "\">Ukryj film</a>
                             ";
             }
-            // line 241
+            // line 242
             echo "
                             ";
-            // line 242
-            if (twig_get_attribute($this->env, $this->source, $context["movie"], "likedBy", [], "any", true, true, false, 242)) {
-                // line 243
+            // line 243
+            if (twig_get_attribute($this->env, $this->source, $context["movie"], "likedBy", [], "any", true, true, false, 243)) {
+                // line 244
                 echo "
                             ";
             }
-            // line 245
+            // line 246
+            echo "
+                            ";
+            // line 247
+            if ((twig_get_attribute($this->env, $this->source, $context["movie"], "episodes", [], "any", false, false, false, 247) != null)) {
+                // line 248
+                echo "                                <div class=\"modal-movie-episodes\">
+                                    <div class=\"modal-movie-episodes-header\">
+                                        <p>Odcinki</p>
+                                        <p>Sezon x</p>
+                                    </div>
+
+                                    ";
+                // line 254
+                $context['_parent'] = $context;
+                $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["movie"], "episodes", [], "any", false, false, false, 254));
+                foreach ($context['_seq'] as $context["key"] => $context["episode"]) {
+                    // line 255
+                    echo "                                        <div class=\"episode\">
+                                            <div class=\"episode-image\">
+                                                <div class=\"episode-number-wrapper\">
+                                                    <div class=\"episode-number\">";
+                    // line 258
+                    echo twig_escape_filter($this->env, $context["key"], "html", null, true);
+                    echo "</div>
+                                                </div>
+                                                <img style=\"height: 100px;margin-right: 20px;border-radius: 4px\"
+                                                     src=\"";
+                    // line 261
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/episode.jpg"), "html", null, true);
+                    echo "\"
+                                                     alt=\"episode_image\"/>
+                                            </div>
+                                            <div class=\"episode-content\">
+                                                <div class=\"episode-title\">
+                                                    ";
+                    // line 266
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["episode"], "name", [], "any", false, false, false, 266), "html", null, true);
+                    echo "
+                                                </div>
+                                                <div class=\"episode-description\">
+                                                    ";
+                    // line 269
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["episode"], "description", [], "any", false, false, false, 269), "html", null, true);
+                    echo "
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ";
+                }
+                $_parent = $context['_parent'];
+                unset($context['_seq'], $context['_iterated'], $context['key'], $context['episode'], $context['_parent'], $context['loop']);
+                $context = array_intersect_key($context, $_parent) + $_parent;
+                // line 274
+                echo "
+                                </div>
+                            ";
+            }
+            // line 277
             echo "                        </div>
                     </div>
 
@@ -645,37 +704,37 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 250
+        // line 282
         echo "        </div>
 
         <h1 id=\"movies\" class=\"category_label\">Tylko na Netflixie</h1>
         <div class=\"movie\">
             ";
-        // line 254
+        // line 286
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["originals"]) || array_key_exists("originals", $context) ? $context["originals"] : (function () { throw new RuntimeError('Variable "originals" does not exist.', 254, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["originals"]) || array_key_exists("originals", $context) ? $context["originals"] : (function () { throw new RuntimeError('Variable "originals" does not exist.', 286, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["movie"]) {
-            // line 255
+            // line 287
             echo "                <a class=\"movie-hero\" onclick=\"showModal(";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 255), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 287), "html", null, true);
             echo ")
                         // document.getElementById('navbar').style.background='rgba(0, 0, 0, .7)'
                         \">
                     <img class=\"movie-hero-image\" src=\"";
-            // line 258
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 258), "html", null, true);
+            // line 290
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 290), "html", null, true);
             echo "\" alt=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 258), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 290), "html", null, true);
             echo "\">
                 </a>
                 ";
-            // line 260
+            // line 292
             if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-                // line 261
+                // line 293
                 echo "                    <a class=\"hide-button-wrapper\"
                        href=\"";
-                // line 262
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("hide", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 262)]), "html", null, true);
+                // line 294
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("hide", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 294)]), "html", null, true);
                 echo "\">
                         <div class=\"hide-button\">
                             <i class=\"bi bi-arrow-bar-left\"></i>
@@ -683,11 +742,11 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
                     </a>
                 ";
             }
-            // line 268
+            // line 300
             echo "                <div id=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 268), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 300), "html", null, true);
             echo "\" class=\"modal\" onclick=\"hideModal(";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 268), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 300), "html", null, true);
             echo ")\">
                     <div class=\"modal-background\">
                     </div>
@@ -695,23 +754,23 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
                         <div class=\"modal-content\">
                             <div class=\"modal-header\"
                                     ";
-            // line 275
+            // line 307
             echo "                            >
                                 <a class=\"modal-image\" href=\"";
-            // line 276
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show-one", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 276)]), "html", null, true);
+            // line 308
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show-one", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 308)]), "html", null, true);
             echo "\"
                                    style=\"text-decoration: none\">
                                     <img class=\"modal-image\" src=\"";
-            // line 278
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 278), "html", null, true);
+            // line 310
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "img", [], "any", false, false, false, 310), "html", null, true);
             echo "\" alt=\"movie_image\">
                                 </a>
 
                                 <div class=\"exit-button\">
                                     <span onclick=\"hideModal(";
-            // line 282
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 282), "html", null, true);
+            // line 314
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 314), "html", null, true);
             echo ")\"
                                           class=\"bi bi-x-circle-fill modal-exit\"></span>
                                 </div>
@@ -719,50 +778,51 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
                             <div class=\"modal-desc\">
                                 <div class=\"modal-movie-info-primary\">
                                     <h2 class=\"modal-title\">";
-            // line 288
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 288), "html", null, true);
+            // line 320
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "title", [], "any", false, false, false, 320), "html", null, true);
             echo "</h2>
                                     <p class=\"modal-movie-description\">";
-            // line 289
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "description", [], "any", false, false, false, 289), "html", null, true);
+            // line 321
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "description", [], "any", false, false, false, 321), "html", null, true);
             echo "</p>
                                 </div>
                                 <div class=\"modal-movie-info-secondary\">
                                     <a class=\"profile_button\" href=\"";
-            // line 292
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show-one", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 292)]), "html", null, true);
+            // line 324
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show-one", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 324)]), "html", null, true);
             echo "\"> Oglądaj
                                         teraz </a>
                                     <div class=\"modal-movie-info-secondary-categories\">
                                         ";
-            // line 295
+            // line 327
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["movie"], "categories", [], "any", false, false, false, 295));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["movie"], "categories", [], "any", false, false, false, 327));
             foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-                // line 296
+                // line 328
                 echo "                                            ";
-                echo twig_escape_filter($this->env, twig_join_filter(twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 296), " "), "html", null, true);
+                echo twig_escape_filter($this->env, twig_join_filter(twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 328), " "), "html", null, true);
                 echo "
                                         ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 298
+            // line 330
             echo "                                    </div>
+
                                 </div>
                             </div>
 
                             ";
-            // line 302
+            // line 335
             if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-                // line 303
+                // line 336
                 echo "                                <a href=\"";
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("hide", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 303)]), "html", null, true);
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("hide", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 336)]), "html", null, true);
                 echo "\">Ukryj film</a>
                             ";
             }
-            // line 305
+            // line 338
             echo "                        </div>
                     </div>
 
@@ -772,7 +832,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 310
+        // line 343
         echo "        </div>
 
     </section>
@@ -788,7 +848,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
     }
 
-    // line 318
+    // line 351
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -798,15 +858,15 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascript"));
 
-        // line 319
+        // line 352
         echo "<script>
     function hideModal(modalId) {
-        document.getElementById(modalId).style.display='none'
-    }
+            document.getElementById(modalId).style.display = 'none'
+}
 
     function showModal(modalId) {
-        document.getElementById(modalId).style.display='block'
-    }
+    document.getElementById(modalId).style.display = 'block'
+}
 </script>
 ";
         
@@ -817,7 +877,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
     }
 
-    // line 331
+    // line 364
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -827,12 +887,12 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 332
+        // line 365
         echo "
     <style>
 
         ";
-        // line 338
+        // line 371
         echo "
         body {
             font-family: 'Netflix Sans Regular', \"Helvetica Neue\", \"Helvetica\", Arial, sans-serif;
@@ -866,8 +926,12 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         }
 
         ";
-        // line 373
+        // line 406
         echo "
+        .modal {
+            overflow: hidden;
+        }
+
         .modal-background {
             position: absolute;
             background: rgba(0, 0, 0, 0.55);
@@ -880,17 +944,33 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         .modal-sizing {
             position: relative;
             animation: blowUpModal .3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-            top: 100px;
+            top: 50px;
             /*left: 30%;*/
             text-align: center;
-            height: 120%;
+            height: 90%;
             width: 45%;
             justify-content: center;
             align-self: center;
             margin: 0 auto;
             align-content: center;
             /*border: 1px solid gray;*/
+            pointer-events: none;
         }
+
+        #modal-content::-webkit-scrollbar {
+            width: 8px;
+            background-color: rgba(33, 32, 32, 0.85);
+        }
+
+        #modal-content::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(91, 91, 91, 0.49);
+        }
+
+        #modal-content::-webkit-scrollbar-thumb {
+            background-color: rgba(142, 15, 15, 0.85);
+            outline: 1px solid slategrey;
+        }
+
 
         .modal-header {
             position: relative;
@@ -907,6 +987,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
         .modal-desc {
             width: 100%;
+            height: 500px;
             display: flex;
             flex-direction: row;
         }
@@ -927,7 +1008,6 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
         .modal-movie-info-secondary-categories {
             margin-top: 20px;
-
         }
 
         .modal-image {
@@ -952,6 +1032,71 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
             margin: 0 auto;
         }
 
+        .modal-movie-episodes {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 50px;
+        }
+
+        .modal-movie-episodes-header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 50px;
+            font-size: 24px;
+            margin-left: 50px;
+            margin-top: 80px;
+            width: 85%;
+        }
+
+        .episode {
+            cursor: pointer;
+            margin-right: 50px;
+            margin-left: 50px;
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            height: 150px;
+            border-bottom: 1px solid #404040;
+        }
+
+        .episode:hover {
+            background: linear-gradient(30deg, rgba(0, 0, 0, 1) 0%, rgba(22, 15, 15, 1) 35%, rgba(45, 48, 50, 1) 100%);
+        }
+
+        .episode-image {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .episode-number-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .episode-number {
+            height: 100%;
+            width: 50px;
+            font-size: 26px;
+            color: gray;
+        }
+
+        .episode-title {
+            text-align: left;
+            width: 100%;
+        }
+
+        .episode-description {
+            overflow: hidden;
+            height: 76px;
+            color: gray;
+            font-size: 14px;
+            margin-right: 30px;
+        }
+
         .modal-exit {
             font-size: 40px;
             /*bottom: 72%;*/
@@ -971,7 +1116,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         }
 
         ";
-        // line 479
+        // line 597
         echo "
         .profile_button {
             color: gray;
@@ -1018,7 +1163,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         }
 
         ";
-        // line 527
+        // line 645
         echo "
         .navbar_wrapper {
             display: flex;
@@ -1085,7 +1230,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         }
 
         ";
-        // line 595
+        // line 713
         echo "
         .movie_container {
             margin-left: 30px;
@@ -1124,7 +1269,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         }
 
         ";
-        // line 635
+        // line 753
         echo "
         .dropdown {
             width: 8%;
@@ -1259,7 +1404,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
     public function getDebugInfo()
     {
-        return array (  1128 => 635,  1089 => 595,  1022 => 527,  975 => 479,  870 => 373,  836 => 338,  831 => 332,  821 => 331,  802 => 319,  792 => 318,  776 => 310,  766 => 305,  760 => 303,  758 => 302,  752 => 298,  743 => 296,  739 => 295,  733 => 292,  727 => 289,  723 => 288,  714 => 282,  707 => 278,  702 => 276,  699 => 275,  687 => 268,  678 => 262,  675 => 261,  673 => 260,  666 => 258,  659 => 255,  655 => 254,  649 => 250,  639 => 245,  635 => 243,  633 => 242,  630 => 241,  624 => 239,  622 => 238,  616 => 234,  607 => 232,  603 => 231,  597 => 228,  591 => 225,  587 => 224,  578 => 218,  571 => 214,  566 => 212,  563 => 211,  551 => 204,  542 => 198,  539 => 197,  537 => 196,  530 => 194,  523 => 191,  519 => 190,  513 => 186,  501 => 179,  495 => 177,  493 => 176,  487 => 172,  478 => 170,  474 => 169,  468 => 166,  462 => 163,  458 => 162,  449 => 156,  442 => 152,  437 => 150,  434 => 149,  422 => 142,  413 => 136,  410 => 135,  408 => 134,  401 => 132,  394 => 129,  390 => 128,  384 => 124,  374 => 123,  357 => 115,  351 => 112,  345 => 110,  339 => 109,  337 => 108,  330 => 104,  325 => 102,  321 => 101,  311 => 94,  301 => 86,  297 => 85,  294 => 84,  292 => 83,  287 => 81,  283 => 80,  273 => 73,  260 => 63,  255 => 60,  249 => 58,  247 => 57,  242 => 56,  239 => 55,  237 => 54,  232 => 53,  229 => 52,  227 => 51,  222 => 50,  219 => 49,  217 => 48,  212 => 47,  209 => 46,  207 => 45,  202 => 44,  199 => 43,  197 => 42,  192 => 40,  187 => 37,  177 => 36,  167 => 19,  163 => 17,  160 => 16,  156 => 14,  153 => 13,  149 => 11,  146 => 10,  142 => 8,  139 => 7,  135 => 5,  132 => 4,  122 => 3,  109 => 32,  95 => 20,  93 => 3,  90 => 2,  80 => 1,  70 => 331,  66 => 329,  64 => 318,  61 => 317,  59 => 123,  56 => 122,  54 => 36,  51 => 35,  49 => 1,);
+        return array (  1273 => 753,  1234 => 713,  1167 => 645,  1120 => 597,  930 => 406,  896 => 371,  891 => 365,  881 => 364,  862 => 352,  852 => 351,  836 => 343,  826 => 338,  820 => 336,  818 => 335,  811 => 330,  802 => 328,  798 => 327,  792 => 324,  786 => 321,  782 => 320,  773 => 314,  766 => 310,  761 => 308,  758 => 307,  746 => 300,  737 => 294,  734 => 293,  732 => 292,  725 => 290,  718 => 287,  714 => 286,  708 => 282,  698 => 277,  693 => 274,  682 => 269,  676 => 266,  668 => 261,  662 => 258,  657 => 255,  653 => 254,  645 => 248,  643 => 247,  640 => 246,  636 => 244,  634 => 243,  631 => 242,  625 => 240,  623 => 239,  616 => 234,  607 => 232,  603 => 231,  597 => 228,  591 => 225,  587 => 224,  578 => 218,  571 => 214,  566 => 212,  563 => 211,  551 => 204,  542 => 198,  539 => 197,  537 => 196,  530 => 194,  523 => 191,  519 => 190,  513 => 186,  501 => 179,  495 => 177,  493 => 176,  487 => 172,  478 => 170,  474 => 169,  468 => 166,  462 => 163,  458 => 162,  449 => 156,  442 => 152,  437 => 150,  434 => 149,  422 => 142,  413 => 136,  410 => 135,  408 => 134,  401 => 132,  394 => 129,  390 => 128,  384 => 124,  374 => 123,  357 => 115,  351 => 112,  345 => 110,  339 => 109,  337 => 108,  330 => 104,  325 => 102,  321 => 101,  311 => 94,  301 => 86,  297 => 85,  294 => 84,  292 => 83,  287 => 81,  283 => 80,  273 => 73,  260 => 63,  255 => 60,  249 => 58,  247 => 57,  242 => 56,  239 => 55,  237 => 54,  232 => 53,  229 => 52,  227 => 51,  222 => 50,  219 => 49,  217 => 48,  212 => 47,  209 => 46,  207 => 45,  202 => 44,  199 => 43,  197 => 42,  192 => 40,  187 => 37,  177 => 36,  167 => 19,  163 => 17,  160 => 16,  156 => 14,  153 => 13,  149 => 11,  146 => 10,  142 => 8,  139 => 7,  135 => 5,  132 => 4,  122 => 3,  109 => 32,  95 => 20,  93 => 3,  90 => 2,  80 => 1,  70 => 364,  66 => 362,  64 => 351,  61 => 350,  59 => 123,  56 => 122,  54 => 36,  51 => 35,  49 => 1,);
     }
 
     public function getSourceContext()
@@ -1471,7 +1616,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
                     <div class=\"modal-background\">
                     </div>
                     <div class=\"modal-sizing\">
-                        <div class=\"modal-content\">
+                        <div class=\"modal-content\" id=\"modal-content\">
                             <div class=\"modal-header\"
                                     {#                                 style=\"background-image: url({{ movie.img }})\" #}
                             >
@@ -1498,15 +1643,47 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
                                             <li>{{ category.name }}</li>
                                         {% endfor %}
                                     </div>
+
                                 </div>
                             </div>
 
                             {% if is_granted('ROLE_ADMIN') %}
-                                <a href=\"{{ path('hide', {'id': movie.id}) }}\">Ukryj film</a>
+                                <a style=\"color:red;\" href=\"{{ path('hide', {'id': movie.id}) }}\">Ukryj film</a>
                             {% endif %}
 
                             {% if movie.likedBy is defined %}
 
+                            {% endif %}
+
+                            {% if movie.episodes != null %}
+                                <div class=\"modal-movie-episodes\">
+                                    <div class=\"modal-movie-episodes-header\">
+                                        <p>Odcinki</p>
+                                        <p>Sezon x</p>
+                                    </div>
+
+                                    {% for key, episode in movie.episodes %}
+                                        <div class=\"episode\">
+                                            <div class=\"episode-image\">
+                                                <div class=\"episode-number-wrapper\">
+                                                    <div class=\"episode-number\">{{ key }}</div>
+                                                </div>
+                                                <img style=\"height: 100px;margin-right: 20px;border-radius: 4px\"
+                                                     src=\"{{ asset('images/episode.jpg') }}\"
+                                                     alt=\"episode_image\"/>
+                                            </div>
+                                            <div class=\"episode-content\">
+                                                <div class=\"episode-title\">
+                                                    {{ episode.name }}
+                                                </div>
+                                                <div class=\"episode-description\">
+                                                    {{ episode.description }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+
+                                </div>
                             {% endif %}
                         </div>
                     </div>
@@ -1562,6 +1739,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
                                             {{ category.name|join(' ') }}
                                         {% endfor %}
                                     </div>
+
                                 </div>
                             </div>
 
@@ -1584,12 +1762,12 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 {% block javascript %}
 <script>
     function hideModal(modalId) {
-        document.getElementById(modalId).style.display='none'
-    }
+            document.getElementById(modalId).style.display = 'none'
+}
 
     function showModal(modalId) {
-        document.getElementById(modalId).style.display='block'
-    }
+    document.getElementById(modalId).style.display = 'block'
+}
 </script>
 {% endblock %}
 
@@ -1637,6 +1815,10 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
            Modal - Movie Card
          ======================#}
 
+        .modal {
+            overflow: hidden;
+        }
+
         .modal-background {
             position: absolute;
             background: rgba(0, 0, 0, 0.55);
@@ -1649,17 +1831,33 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         .modal-sizing {
             position: relative;
             animation: blowUpModal .3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-            top: 100px;
+            top: 50px;
             /*left: 30%;*/
             text-align: center;
-            height: 120%;
+            height: 90%;
             width: 45%;
             justify-content: center;
             align-self: center;
             margin: 0 auto;
             align-content: center;
             /*border: 1px solid gray;*/
+            pointer-events: none;
         }
+
+        #modal-content::-webkit-scrollbar {
+            width: 8px;
+            background-color: rgba(33, 32, 32, 0.85);
+        }
+
+        #modal-content::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(91, 91, 91, 0.49);
+        }
+
+        #modal-content::-webkit-scrollbar-thumb {
+            background-color: rgba(142, 15, 15, 0.85);
+            outline: 1px solid slategrey;
+        }
+
 
         .modal-header {
             position: relative;
@@ -1676,6 +1874,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
         .modal-desc {
             width: 100%;
+            height: 500px;
             display: flex;
             flex-direction: row;
         }
@@ -1696,7 +1895,6 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
         .modal-movie-info-secondary-categories {
             margin-top: 20px;
-
         }
 
         .modal-image {
@@ -1719,6 +1917,71 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
             height: 100%;
             width: 100%;
             margin: 0 auto;
+        }
+
+        .modal-movie-episodes {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 50px;
+        }
+
+        .modal-movie-episodes-header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 50px;
+            font-size: 24px;
+            margin-left: 50px;
+            margin-top: 80px;
+            width: 85%;
+        }
+
+        .episode {
+            cursor: pointer;
+            margin-right: 50px;
+            margin-left: 50px;
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            height: 150px;
+            border-bottom: 1px solid #404040;
+        }
+
+        .episode:hover {
+            background: linear-gradient(30deg, rgba(0, 0, 0, 1) 0%, rgba(22, 15, 15, 1) 35%, rgba(45, 48, 50, 1) 100%);
+        }
+
+        .episode-image {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .episode-number-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .episode-number {
+            height: 100%;
+            width: 50px;
+            font-size: 26px;
+            color: gray;
+        }
+
+        .episode-title {
+            text-align: left;
+            width: 100%;
+        }
+
+        .episode-description {
+            overflow: hidden;
+            height: 76px;
+            color: gray;
+            font-size: 14px;
+            margin-right: 30px;
         }
 
         .modal-exit {

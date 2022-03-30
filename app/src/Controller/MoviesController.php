@@ -115,13 +115,9 @@ class MoviesController extends AbstractController
             $subuserId = reset($subuser);
         } else return $this->redirectToRoute('chooseUser');
 
-
-
-
-
         $subuserFrontId = $request->get('id');
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $this->getUser()));
-//        dump($this->movieRepository->getMoviesByCategory('Filmy'));
+//        dump($this->movieRepository->getMoviesByCategory('Seriale'));
         if ($subuserId !== null && $subuserFrontId < count($allSubusers)) {
             return $this->render('movies/index.html.twig', [
                 'controller_name' => 'MovieController',

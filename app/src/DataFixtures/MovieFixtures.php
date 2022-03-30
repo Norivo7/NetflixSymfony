@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Movie;
 use App\Entity\Category;
+use App\Entity\Video;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -20,6 +21,8 @@ class MovieFixtures extends Fixture
         $catExclusive = new Category();
         $catExclusive->setName('Eksluzywne');
 
+        //movie
+
         $movie1 = new Movie();
         $movie1->addCategory($catSerials);
         $movie1->addCategory($catExclusive);
@@ -29,6 +32,37 @@ class MovieFixtures extends Fixture
         $movie1->setImg('https://occ-0-2507-1433.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABQoAToTA6f9ubdOWjtbqo5hD0KqxCqiqbX2ZpwCoyy7z7W_BhQJlJHBoJ0geQN-UK12Opdmmu1qFyS9z8np5gFxKoz1Foj_nfNu2v4kJAh8X9pFHmD1qyXi_59yv.jpg?r=cc1');
         $movie1->setLink("https://www.youtube.com/embed/ndl1W4ltcmg");
         $movie1->setActive(true);
+
+        //  episodes
+
+        $episodeWitcherS1E1 = new Video();
+        $episodeWitcherS1E1->setName("The End's Beginning");
+        $episodeWitcherS1E1->setDescription("Following Geralt of Rivia's battle with a kikimora in 1231, he enters the town of Blaviken and meets Renfri, a cursed princess-turned-bandit. She is hunted by the wizard Stregobor, who believes her evil for being born during an eclipse. Stregobor lures Geralt to his hideout, seeking to hire him to kill Renfri, but Geralt refuses. Renfri later offers Geralt a counter-proposal, but he refuses with an ultimatum: leave or die. In 1263, Nilfgaard conquers the northern kingdom of Cintra. Princess Cirilla, also known as Ciri, is sent away by her grandmother, Queen Calanthe, to escape and find Geralt. A Nilfgaardian officer Cahir captures Cirilla, but seeing the burning city and castle triggers her powers, allowing her to escape. Renfri feigns agreement, but upon waking up the next morning, Geralt realizes Renfri will not stop until Stregobor is dead, and he rushes to stop her. After killing her men, he fights and fatally wounds Renfri, whose dying words tell of a girl in the forest who is his eternal destiny. Stregobor arrives to take Renfri's body for autopsy. When Geralt opposes, the townsfolk force him to leave, urged on by Stregobor.");
+        $episodeWitcherS1E1->setSeason(1);
+        $episodeWitcherS1E1->setMovie($movie1);
+        $episodeWitcherS1E1->setSource('https://www.youtube.com/embed/E5-fu6ijD8w');
+
+        $episodeWitcherS1E2 = new Video();
+        $episodeWitcherS1E2->setName("Four Marks");
+        $episodeWitcherS1E2->setDescription("In 1206, hunchback Yennefer from Vengerberg of Aedirn is sold to Tissaia de Vries by her father. She is taken to Aretuza for training in magic, but finds the practice difficult. She forms a friendship with Istredd, even revealing her quarter-elf heritage, which caused her deformity. Unbeknownst to either, Tissaia and Stregobor were using Yennefer and Istredd respectively to spy on each other. Later, Yennefer witnesses Tissaia turning three students into eels to act as conduits powering Aretuza with magic. In 1240, Geralt is hired to investigate grain thefts in Posada and is followed by Jaskier the bard. They encounter a Sylvan named Torque, who knocks them unconscious and takes them to his mountain cave. There, Geralt meets Filavandrel, the elven king, and urges he lead his people to better lands after being banished by the humans. Instead of killing them, Filavandrel frees Geralt and Jaskier, taking the witcher's words to heart. In 1263, Cirilla encounters Dara, a boy in the woods, who guides her to a refugee camp. Dara returns to save her when the camp is attacked by Cahir's forces; she later realizes Dara is an elf.");
+        $episodeWitcherS1E2->setSeason(1);
+        $episodeWitcherS1E2->setMovie($movie1);
+        $episodeWitcherS1E2->setSource('https://www.youtube.com/embed/McBr9-w2ZKQ');
+
+        $episodeWitcherS2E1 = new Video();
+        $episodeWitcherS2E1->setName("A Grain of Truth");
+        $episodeWitcherS2E1->setDescription("On the battlefield after the victory of the Northern Kingdoms, Geralt and Ciri encounter Tissaia who tells them that Yenn is dead. Traveling with Ciri, Geralt stops to visit his friend Nivellen and discover he has been cursed into a beast. Geralt investigates the nearby village and determines that a Bruxa, a vampire, caused the villagers to flee. He returns and sees the Bruxa drinking Nivellen's blood. Geralt fights and kills it, which lifts Nivellen's curse. Nivellen reveals he loved the Bruxa and did nothing to stop her from attacking the village. Nivellen begs Geralt to kill him, but Geralt refuses. In Aretuza, Tissaia tortures Cahir for information on Nilfgaard. Fringilla has taken Yennefer captive and is heading towards Cintra, but their party is ambushed on the road. Based on A Grain of Truth from The Last Wish");
+        $episodeWitcherS2E1->setSeason(2);
+        $episodeWitcherS2E1->setMovie($movie1);
+        $episodeWitcherS2E1->setSource('https://www.youtube.com/embed/x4osGy35QYg');
+
+        $episodeWitcherS2E2 = new Video();
+        $episodeWitcherS2E2->setName("Kaer Morhen");
+        $episodeWitcherS2E2->setDescription("Yennefer and Fringilla are captured by Filavandrel, who takes them to elven sorceress Francesca Findabair. Francesca wants them killed but Filavandrel argues they are useful in these woods, which are human. The elves are digging near a ruined monolith under the order of Francesca, who is having visions of a white-robed figure she believes is the elven prophet Ithlinne. Yennefer and Fringilla also dream of robed figures, red and black, respectively. They tell Filavandrel their dreams and suggest they might be able to help the elves; Filavandrel is considering this when the elves find something. A tunnel leads to an altar inscribed with an incantation. Yennefer recites the incantation and the altar opens to reveal a passage leading to a magic hut in a forest. The three sorceresses are visited by the Deathless Mother, a mysterious being who takes on a different form for each -- Yennefer sees a younger Tissaia, Fringilla sees Emperor Emhyr, and Francesca sees Ithlinne -- and reveals the path each must take to achieve their greatest desire. The sorceresses are released. Fringilla joins Francesca to form an elven-Nilfgaardian alliance; Yennefer calls them fools and attempts to open a portal only to discover she has lost her magic. Geralt and Ciri join the remaining witchers at Kaer Morhen. Eskel arrives late, carrying the severed hand of a leshy. The witchers are partying when their medallions start vibrating, indicating a monster is near. Geralt discovers Eskel was infected by the leshy and has been transformed into one, which should be impossible. Eskel says he returned seeking help, but he is unable to control the leshy side and attacks Vesemir, forcing Geralt to kill him. Realizing Kaer Morhen is not safe, Geralt agrees to train Ciri in combat.");
+        $episodeWitcherS2E2->setSeason(2);
+        $episodeWitcherS2E2->setMovie($movie1);
+        $episodeWitcherS2E2->setSource('https://www.youtube.com/embed/kTVgjtKc414');
+
 
         $movie2 = new Movie();
         $movie2->addCategory($catMovies);
@@ -147,6 +181,7 @@ class MovieFixtures extends Fixture
         $manager->persist($catNew);
         $manager->flush();
 
+
         $manager->persist($movie1);
         $manager->persist($movie2);
         $manager->persist($movie3);
@@ -160,6 +195,11 @@ class MovieFixtures extends Fixture
         $manager->persist($movie11);
         $manager->persist($movie12);
         $manager->persist($movie13);
+
+        $manager->persist($episodeWitcherS1E1);
+        $manager->persist($episodeWitcherS1E2);
+        $manager->persist($episodeWitcherS2E1);
+        $manager->persist($episodeWitcherS2E2);
 
         $manager->flush();
 

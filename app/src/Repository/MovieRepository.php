@@ -49,9 +49,11 @@ class MovieRepository extends ServiceEntityRepository
             ->select('movie')
             ->addSelect('categories')
             ->addSelect('subusers')
+            ->addSelect('episodes')                      // select what you want
             ->innerJoin('movie.categories', 'categories')
             ->leftJoin('movie.likedBy', 'subusers')
             ->leftJoin('movie.categories', 'category')
+            ->leftJoin('movie.episodes', 'episodes')   // join the selected table
             ->andWhere('category.name = :categoryName')
             ->andWhere('movie.active = :enabled')
             ->setParameter('categoryName', $category)

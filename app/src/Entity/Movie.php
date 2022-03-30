@@ -61,10 +61,16 @@ class Movie
      */
     private $active;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Video::class, mappedBy="movie")
+     */
+    private $episodes;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
         $this->likedBy = new ArrayCollection();
+        $this->episodes = new ArrayCollection();
     }
 
 
@@ -194,6 +200,36 @@ class Movie
     public function setActive(bool $active): self
     {
         $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Video>
+     */
+    public function getEpisodes(): Collection
+    {
+        return $this->episodes;
+    }
+
+    public function addEpisode(Video $episode): self
+    {
+        if (!$this->episodes->contains($episode)) {
+            $this->episodes[] = $episode;
+            $episode->setMovie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEpisode(Video $episode): self
+    {
+        if ($this->episodes->removeElement($episode)) {
+            // set the owning side to null (unless already changed)
+            if ($episode->getMovie() === $this) {
+                $episode->setMovie(null);
+            }
+        }
 
         return $this;
     }
