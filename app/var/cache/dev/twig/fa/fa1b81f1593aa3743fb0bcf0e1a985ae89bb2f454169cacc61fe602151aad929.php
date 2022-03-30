@@ -632,7 +632,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
             // line 242
             if (twig_get_attribute($this->env, $this->source, $context["movie"], "likedBy", [], "any", true, true, false, 242)) {
                 // line 243
-                echo "                                    123
+                echo "
                             ";
             }
             // line 245
@@ -870,7 +870,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
         echo "
         .modal-background {
             position: absolute;
-            background: rgba(0, 0, 0, 0.77);
+            background: rgba(0, 0, 0, 0.55);
             /*background-color: red;*/
             width: 100%;
             height: 150vh;
@@ -889,7 +889,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
             align-self: center;
             margin: 0 auto;
             align-content: center;
-            border: 1px solid gray;
+            /*border: 1px solid gray;*/
         }
 
         .modal-header {
@@ -1506,7 +1506,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
                             {% endif %}
 
                             {% if movie.likedBy is defined %}
-                                    123
+
                             {% endif %}
                         </div>
                     </div>
@@ -1639,7 +1639,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
 
         .modal-background {
             position: absolute;
-            background: rgba(0, 0, 0, 0.77);
+            background: rgba(0, 0, 0, 0.55);
             /*background-color: red;*/
             width: 100%;
             height: 150vh;
@@ -1658,7 +1658,7 @@ class __TwigTemplate_ff93b75198efdb255c8fe90b52793747cd0a8e9fed8b252489bfc12fa3b
             align-self: center;
             margin: 0 auto;
             align-content: center;
-            border: 1px solid gray;
+            /*border: 1px solid gray;*/
         }
 
         .modal-header {
