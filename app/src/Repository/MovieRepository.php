@@ -107,16 +107,24 @@ class MovieRepository extends ServiceEntityRepository
     }
 
 
-    public function search($value)
+    public function search($value): array|float|int|string
     {
         return $this->createQueryBuilder('movie')
+            ->select('movie')
+            ->addSelect('categories')
+            ->addSelect('subusers')
+            ->addSelect('episodes')
+            ->innerJoin('movie.categories', 'categories')
+            ->leftJoin('movie.likedBy', 'subusers')
+            ->leftJoin('movie.categories', 'category')
+            ->leftJoin('movie.episodes', 'episodes')
             ->andWhere('movie.title like :val')
             ->andWhere('movie.active like :enabled')
             ->setParameter('val', $value . '%')
             ->setParameter('enabled', true )
             ->orderBy('movie.title', 'ASC')
             ->getQuery()
-            ->getResult();
+            ->getArrayResult();
     }
     public function findMovieById($id)
     {

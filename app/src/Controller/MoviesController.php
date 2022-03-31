@@ -445,13 +445,14 @@ class MoviesController extends AbstractController
                 ]
             );
         }
-        $subuserId = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
-        if ($subuserId !== null) {
-            $userAvatar = $subuserId->getAvatar();
+        $subuser = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
+        if ($subuser !== null) {
+            $userAvatar = $subuser->getAvatar();
+            $subuserId = $subuser->getId();
             return $this->render(
                 'movies/list.html.twig', [
                     'profiles' => $this->getOtherSubusers(),
-                    'movies' => $movieRepository->search($request->query->get('v')),
+                    'movies' => $this->transformArrayForModal( $movieRepository->search($request->query->get('v')),$subuserId),
                     'userAvatar' => $userAvatar,
                 ]
             );

@@ -27,9 +27,8 @@
                                      </div>
                                  </a>
                              {% endif %}
-                             <div id="{{ movie.id }}" class="modal" onclick="hideModal({{ movie.id }})">
-                                 <div class="modal-background">
-                                 </div>
+                             <div id="{{ movie.id }}" class="modal" >
+                                 <div class="modal-background" onclick="hideModal({{ movie.id }})"></div>
                                  <div class="modal-sizing">
                                      <div class="modal-content" id="modal-content">
                                          <div class="modal-header"
