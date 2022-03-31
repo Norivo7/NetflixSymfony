@@ -3,24 +3,27 @@
 {% block title %}<title>{{ movie.title }} - Netflix</title>{% endblock %}
 
 {% block navigation %}
-    <div class="navbar">
-        <div class="brandLogoWrapper">
-            <a class="logo" href="{{ path('browse') }}" target="_parent">
-                <img class="logo" src="{{ asset('images/netflixLogoSmall.svg.png') }}" alt="av1"/>
-            </a>
-        </div>
-    </div>
+{#    <div class="navbar">#}
+{#        <div class="brandLogoWrapper">#}
+{#            <a class="logo" href="{{ path('browse') }}" target="_parent">#}
+{#                <img class="logo" src="{{ asset('images/netflixLogoSmall.svg.png') }}" alt="av1"/>#}
+{#            </a>#}
+{#        </div>#}
+{#    </div>#}
 {% endblock %}
 
 {% block body %}
-    <body>
+{#    <body>#}
     <div class="movie_container">
         <div class="text-center">
             <div>
-                <iframe width="1720" height="800" src="{{ movie.link }}" frameborder="0"
+                <iframe id="asd" style="border: 0;" width="100%" height="100%" src="{{ movie.link }}?autoplay=1"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
                 </iframe>
+                <a href="{{ path('browse') }}" target="_parent">
+                <img class="logo" src="{{ asset('images/netflixLogoSmall.svg.png') }}" alt="av1"/>
+                </a>
 {#                <h3>{{ movie.title }}</h3>#}
 {#                <p>Opis : <br>{{ movie.description }}</p>#}
 {#                <p>Rok : {{ movie.year }} <br>#}
@@ -30,24 +33,9 @@
 {#                {% endfor %}#}
             </div>
 
-            <div style="margin-top: 20px">
-                {% if liked is defined %}
-                    <form id="dislike" method="POST" action="{{ path('dislike') }}">
-                        <input type="text" name="id" value="{{ movie.id }}" style="display: none">
-                        <a class="my-list-button"
-                           onclick="document.getElementById('dislike').submit()">Usuń z mojej listy</a>
-                    </form>
-                {% else %}
-                    <form id="like" method="POST" action="{{ path('like') }}">
-                        <input type="text" name="id" value="{{ movie.id }}" style="display: none">
-                        <a class="my-list-button"
-                           onclick="document.getElementById('like').submit()">Dodaj do mojej listy</a>
-                    </form>
-                {% endif %}
-            </div>
         </div>
     </div>
-    </body>
+{#    </body>#}
 {% endblock %}
 {% block stylesheets %}
     {{ parent() }}
@@ -61,7 +49,11 @@
             font-family: 'Netflix Sans Regular', "Helvetica Neue", "Helvetica", Arial, sans-serif;
             font-weight: normal;
         }
-
+        iframe {
+            position: relative;
+            /*bottom: 50px;*/
+            /*z-index: -1;*/
+        }
         {#======================
                  Buttons
         ======================#}
@@ -95,9 +87,19 @@
         }
 
         .logo {
+            position: absolute;
             height: 31px;
-            margin-right: 15px;
+            right: 1760px;
+            top: 30px;
+            z-index: 2;
+        }
+        .movie_container {
+             margin-left: 0px;
         }
     </style>
+
+{% endblock %}
+{% block javascript %}
+
 
 {% endblock %}
