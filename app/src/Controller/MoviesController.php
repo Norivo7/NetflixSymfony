@@ -342,9 +342,12 @@ class MoviesController extends AbstractController
 
         $subuser = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
         if ($subuser !== null) {
+
             $subuserId = $subuser->getId();
             $userAvatar = $subuser->getAvatar();
+//            dump($this->transformArrayForModal($this->movieRepository->recentlyAdd(),$subuserId));
             return $this->render(
+
                 'movies/list.html.twig', [
                     'profiles' => $this->getOtherSubusers(),
                     'movies' => $this->transformArrayForModal($this->movieRepository->recentlyAdd(),$subuserId),

@@ -263,6 +263,7 @@ class SubuserController extends AbstractController
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUserId));
         $currentSubuserId = $allSubusers[$subuserId]->getId();
 
+
         $this->requestStack->getSession()->set('filter', array(
             'subuserId' => $currentSubuserId
         ));
@@ -285,7 +286,8 @@ class SubuserController extends AbstractController
             'subuserId' => $currentSubuserId
         ));
 
-        return $this->redirectToRoute('browse', [
-        ]);
+        $route = $request->headers->get('referer');
+        return $this->redirect($route);
+
     }
 }

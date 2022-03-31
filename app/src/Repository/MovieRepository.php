@@ -31,7 +31,7 @@ class MovieRepository extends ServiceEntityRepository
             ->addSelect('categories')
             ->addSelect('subuser')
             ->addSelect('episodes')
-            ->innerJoin('movie.categories', 'categories')
+            ->leftJoin('movie.categories', 'categories')
             ->leftJoin('movie.likedBy', 'subuser')
             ->leftJoin('movie.categories', 'category')
             ->leftJoin('movie.episodes', 'episodes')
@@ -54,7 +54,7 @@ class MovieRepository extends ServiceEntityRepository
             ->addSelect('categories')
             ->addSelect('subusers')
             ->addSelect('episodes')                      // select what you want
-            ->innerJoin('movie.categories', 'categories')
+            ->leftJoin('movie.categories', 'categories')
             ->leftJoin('movie.likedBy', 'subusers')
             ->leftJoin('movie.categories', 'category')
             ->leftJoin('movie.episodes', 'episodes')   // join the selected table
@@ -82,14 +82,13 @@ class MovieRepository extends ServiceEntityRepository
             ->addSelect('categories')
             ->addSelect('subusers')
             ->addSelect('episodes')
-            ->innerJoin('movie.categories', 'categories')
+            ->leftJoin('movie.categories', 'categories')
             ->leftJoin('movie.likedBy', 'subusers')
-            ->leftJoin('movie.categories', 'category')
             ->leftJoin('movie.episodes', 'episodes')
             ->orderBy('movie.id', 'ASC')
             ->andWhere('movie.active like :enabled')
             ->setParameter('enabled', true )
-            ->setMaxResults(30)
+            ->setMaxResults(100)
             ->getQuery()
             ->getArrayResult();
     }
@@ -114,7 +113,7 @@ class MovieRepository extends ServiceEntityRepository
             ->addSelect('categories')
             ->addSelect('subusers')
             ->addSelect('episodes')
-            ->innerJoin('movie.categories', 'categories')
+            ->leftJoin('movie.categories', 'categories')
             ->leftJoin('movie.likedBy', 'subusers')
             ->leftJoin('movie.categories', 'category')
             ->leftJoin('movie.episodes', 'episodes')
