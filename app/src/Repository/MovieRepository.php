@@ -26,13 +26,17 @@ class MovieRepository extends ServiceEntityRepository
      */
     public function getLikedMoviesBySubuser($subuserId): array
     {
-        return $this->createQueryBuilder('movies')
-            ->select('movies', 'subuser')
+        return $this->createQueryBuilder('movie')
+            ->select('movie')
             ->addSelect('categories')
-            ->innerJoin('movies.categories', 'categories')
-            ->leftJoin('movies.likedBy', 'subuser')
+            ->addSelect('subuser')
+            ->addSelect('episodes')
+            ->innerJoin('movie.categories', 'categories')
+            ->leftJoin('movie.likedBy', 'subuser')
+            ->leftJoin('movie.categories', 'category')
+            ->leftJoin('movie.episodes', 'episodes')
             ->andWhere('subuser.id = :subuserId')
-            ->andWhere('movies.active = :enabled')
+            ->andWhere('movie.active = :enabled')
             ->setParameter('subuserId', $subuserId)
             ->setParameter('enabled', true)
             ->getQuery()
@@ -71,15 +75,23 @@ class MovieRepository extends ServiceEntityRepository
 //    }
 
 
-    public function recentlyAdd()
+    public function recentlyAdd(): array|float|int|string
     {
         return $this->createQueryBuilder('movie')
+            ->select('movie')
+            ->addSelect('categories')
+            ->addSelect('subusers')
+            ->addSelect('episodes')
+            ->innerJoin('movie.categories', 'categories')
+            ->leftJoin('movie.likedBy', 'subusers')
+            ->leftJoin('movie.categories', 'category')
+            ->leftJoin('movie.episodes', 'episodes')
             ->orderBy('movie.id', 'ASC')
             ->andWhere('movie.active like :enabled')
             ->setParameter('enabled', true )
             ->setMaxResults(30)
             ->getQuery()
-            ->getResult();
+            ->getArrayResult();
     }
 
 

@@ -217,8 +217,9 @@ class __TwigTemplate_4c3429a81403940e7c5f59dc027eec62a8d487e507414cb9fc663d20c82
             border: 1px solid grey;
             text-decoration: none;
         }
+
         ";
-        // line 81
+        // line 82
         echo "
         .navbar a:hover {
             opacity: 0.8;
@@ -261,7 +262,7 @@ class __TwigTemplate_4c3429a81403940e7c5f59dc027eec62a8d487e507414cb9fc663d20c82
 
     public function getDebugInfo()
     {
-        return array (  222 => 81,  210 => 68,  202 => 59,  195 => 53,  185 => 52,  171 => 47,  163 => 42,  158 => 41,  150 => 36,  145 => 35,  143 => 34,  138 => 31,  131 => 20,  125 => 16,  115 => 15,  100 => 9,  96 => 8,  92 => 6,  82 => 5,  61 => 3,  38 => 1,);
+        return array (  223 => 82,  210 => 68,  202 => 59,  195 => 53,  185 => 52,  171 => 47,  163 => 42,  158 => 41,  150 => 36,  145 => 35,  143 => 34,  138 => 31,  131 => 20,  125 => 16,  115 => 15,  100 => 9,  96 => 8,  92 => 6,  82 => 5,  61 => 3,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -343,6 +344,7 @@ class __TwigTemplate_4c3429a81403940e7c5f59dc027eec62a8d487e507414cb9fc663d20c82
             border: 1px solid grey;
             text-decoration: none;
         }
+
         {#======================
                Navigation
         ======================#}

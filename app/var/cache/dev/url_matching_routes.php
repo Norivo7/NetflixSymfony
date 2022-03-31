@@ -32,8 +32,6 @@ return [
         '/myList' => [[['_route' => 'myList', '_controller' => 'App\\Controller\\MoviesController::myList'], null, null, null, false, false, null]],
         '/movies' => [[['_route' => 'movies', '_controller' => 'App\\Controller\\MoviesController::movies'], null, null, null, false, false, null]],
         '/new' => [[['_route' => 'new', '_controller' => 'App\\Controller\\MoviesController::new'], null, null, null, false, false, null]],
-        '/like' => [[['_route' => 'like', '_controller' => 'App\\Controller\\MoviesController::like'], null, ['POST' => 0], null, false, false, null]],
-        '/dislike' => [[['_route' => 'dislike', '_controller' => 'App\\Controller\\MoviesController::dislike'], null, ['POST' => 0], null, false, false, null]],
         '/notif' => [[['_route' => 'notif', '_controller' => 'App\\Controller\\MoviesController::notif'], null, null, null, false, false, null]],
         '/search' => [[['_route' => 'search', '_controller' => 'App\\Controller\\MoviesController::search'], null, ['GET' => 0], null, false, false, null]],
         '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
@@ -82,9 +80,11 @@ return [
                 .'|/browse/hide/([^/]++)(*:346)'
                 .'|/show/([^/]++)(*:368)'
                 .'|/watch/([^/]++)(*:391)'
+                .'|/like/([^/]++)(*:413)'
+                .'|/dislike/([^/]++)(*:438)'
                 .'|/manageUser/(?'
-                    .'|delete/([^/]++)(*:429)'
-                    .'|update/([^/]++)(*:452)'
+                    .'|delete/([^/]++)(*:476)'
+                    .'|update/([^/]++)(*:499)'
                 .')'
             .')/?$}sDu',
     ],
@@ -108,8 +108,10 @@ return [
         346 => [[['_route' => 'hide', '_controller' => 'App\\Controller\\MoviesController::hide'], ['id'], null, null, false, true, null]],
         368 => [[['_route' => 'show-one', '_controller' => 'App\\Controller\\MoviesController::show'], ['id'], null, null, false, true, null]],
         391 => [[['_route' => 'watch-one', '_controller' => 'App\\Controller\\MoviesController::watch'], ['id'], null, null, false, true, null]],
-        429 => [[['_route' => 'deleteSubuser', '_controller' => 'App\\Controller\\SubuserController::delete'], ['id'], null, null, false, true, null]],
-        452 => [
+        413 => [[['_route' => 'like', '_controller' => 'App\\Controller\\MoviesController::like'], ['id'], null, null, false, true, null]],
+        438 => [[['_route' => 'dislike', '_controller' => 'App\\Controller\\MoviesController::dislike'], ['id'], null, null, false, true, null]],
+        476 => [[['_route' => 'deleteSubuser', '_controller' => 'App\\Controller\\SubuserController::delete'], ['id'], null, null, false, true, null]],
+        499 => [
             [['_route' => 'update', '_controller' => 'App\\Controller\\SubuserController::update'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

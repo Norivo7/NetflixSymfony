@@ -127,7 +127,7 @@ class __TwigTemplate_7054c61692d20a322ddc13f19705773293abcc6b4d845a2be19c089e33e
                                  <div class=\"modal-background\">
                                  </div>
                                  <div class=\"modal-sizing\">
-                                     <div class=\"modal-content\">
+                                     <div class=\"modal-content\" id=\"modal-content\">
                                          <div class=\"modal-header\"
                                                  ";
                 // line 37
@@ -163,92 +163,160 @@ class __TwigTemplate_7054c61692d20a322ddc13f19705773293abcc6b4d845a2be19c089e33e
                 echo "</p>
                                              </div>
                                              <div class=\"modal-movie-info-secondary\">
-                                                 <a class=\"profile_button\" href=\"";
+                                                 ";
                 // line 54
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show-one", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 54)]), "html", null, true);
-                echo "\"> Oglądaj
-                                                     teraz </a>
-                                                 <div class=\"modal-movie-info-secondary-categories\">
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "year", [], "any", false, false, false, 54), "html", null, true);
+                echo "
+                                                 ";
+                // line 56
+                echo "                                                 <div class=\"modal-movie-info-secondary-categories\">
+                                                     <p style=\"color: gray;display: inline-block\">Kategorie:</p>
                                                      ";
-                // line 57
+                // line 58
+                $context["categoryArray"] = [];
+                echo "  ";
+                // line 59
+                echo "                                                     ";
                 $context['_parent'] = $context;
-                $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["movie"], "categories", [], "any", false, false, false, 57));
-                foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-                    // line 58
-                    echo "                                                         <li>";
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 58), "html", null, true);
-                    echo "</li>
-                                                     ";
+                $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["movie"], "categories", [], "any", false, false, false, 59));
+                foreach ($context['_seq'] as $context["key"] => $context["category"]) {
+                    // line 60
+                    echo "                                                         ";
+                    $context["categoryArray"] = twig_array_merge((isset($context["categoryArray"]) || array_key_exists("categoryArray", $context) ? $context["categoryArray"] : (function () { throw new RuntimeError('Variable "categoryArray" does not exist.', 60, $this->source); })()), [($context["key"] . "_") => twig_get_attribute($this->env, $this->source, $context["category"], "name", [], "any", false, false, false, 60)]);
+                    echo " ";
+                    // line 61
+                    echo "                                                     ";
                 }
                 $_parent = $context['_parent'];
-                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
+                unset($context['_seq'], $context['_iterated'], $context['key'], $context['category'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 60
+                // line 62
+                echo "                                                     ";
+                echo twig_escape_filter($this->env, twig_join_filter((isset($context["categoryArray"]) || array_key_exists("categoryArray", $context) ? $context["categoryArray"] : (function () { throw new RuntimeError('Variable "categoryArray" does not exist.', 62, $this->source); })()), ", "), "html", null, true);
+                echo "  ";
+                // line 63
                 echo "                                                 </div>
                                              </div>
                                          </div>
-
-                                         ";
-                // line 64
-                if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-                    // line 65
-                    echo "                                             <a href=\"";
-                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("hide", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 65)]), "html", null, true);
-                    echo "\">Ukryj film</a>
-                                         ";
-                }
-                // line 67
-                echo "                                         <div style=\"margin-top: 20px\">
+                                         <div>
                                              ";
-                // line 68
-                if (array_key_exists("liked", $context)) {
-                    // line 69
-                    echo "                                                 <form id=\"dislike\" method=\"POST\" action=\"";
-                    echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("dislike");
-                    echo "\">
-                                                     <input type=\"text\" name=\"id\" value=\"";
-                    // line 70
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 70), "html", null, true);
-                    echo "\" style=\"display: none\">
-                                                     <a class=\"my-list-button\"
-                                                        onclick=\"document.getElementById('dislike').submit()\">Usuń z mojej listy</a>
-                                                 </form>
+                // line 67
+                if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
+                    // line 68
+                    echo "                                                 <a class=\"my-list-button\" style=\"color:red;border: 1px solid red\" href=\"";
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("hide", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 68)]), "html", null, true);
+                    echo "\">Ukryj film</a>
+                                             ";
+                }
+                // line 70
+                echo "                                         </div>
+                                         <div style=\"margin-top: 20px\">
+                                             ";
+                // line 72
+                if ((twig_get_attribute($this->env, $this->source, $context["movie"], "isLiked", [], "any", false, false, false, 72) == true)) {
+                    // line 73
+                    echo "                                                 <a class=\"my-list-button\" href=\"";
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("dislike", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 73)]), "html", null, true);
+                    echo "\"> Usuń z mojej listy</a>
                                              ";
                 } else {
                     // line 75
-                    echo "                                                 <form id=\"like\" method=\"POST\" action=\"";
-                    echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("like");
-                    echo "\">
-                                                     <input type=\"text\" name=\"id\" value=\"";
-                    // line 76
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 76), "html", null, true);
-                    echo "\" style=\"display: none\">
-                                                     <a class=\"my-list-button\"
-                                                        onclick=\"document.getElementById('like').submit()\">Dodaj do mojej listy</a>
-                                                 </form>
+                    echo "                                                 <a class=\"my-list-button\" href=\"";
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("like", ["id" => twig_get_attribute($this->env, $this->source, $context["movie"], "id", [], "any", false, false, false, 75)]), "html", null, true);
+                    echo "\"> Dodaj do mojej listy</a>
                                              ";
                 }
-                // line 81
+                // line 77
                 echo "                                         </div>
-                                     </div>
+                                         ";
+                // line 78
+                if ((twig_get_attribute($this->env, $this->source, $context["movie"], "episodes", [], "any", false, false, false, 78) != null)) {
+                    // line 79
+                    echo "                                             <div class=\"modal-movie-episodes\">
+                                                 <div class=\"modal-movie-episodes-header\">
+                                                     <p>Odcinki</p>
+                                                     <label>
+                                                         <select>
+                                                             <option>Sezon 1</option>
+                                                             <option>Sezon 2</option>
+                                                         </select>
+                                                     </label>
+                                                 </div>
+                                                 <div class=\"episode-wrapper\">
+                                                     ";
+                    // line 90
+                    $context['_parent'] = $context;
+                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["movie"], "episodes", [], "any", false, false, false, 90));
+                    foreach ($context['_seq'] as $context["key"] => $context["episode"]) {
+                        // line 91
+                        echo "                                                         <div class=\"season";
+                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["episode"], "season", [], "any", false, false, false, 91), "html", null, true);
+                        echo "\">
+                                                             <a href=\"";
+                        // line 92
+                        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("watch-one", ["id" => twig_get_attribute($this->env, $this->source, $context["episode"], "id", [], "any", false, false, false, 92)]), "html", null, true);
+                        echo "\">
+                                                                 <div class=\"episode\">
+                                                                     <div class=\"episode-image\">
+                                                                         <div class=\"episode-number-wrapper\">
+                                                                             <div class=\"episode-number\">";
+                        // line 96
+                        echo twig_escape_filter($this->env, $context["key"], "html", null, true);
+                        echo "</div>
+                                                                         </div>
+                                                                         <img style=\"height: 100px;margin-right: 20px;border-radius: 4px\"
+                                                                              src=\"";
+                        // line 99
+                        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/episode.jpg"), "html", null, true);
+                        echo "\"
+                                                                              alt=\"episode_image\"/>
+                                                                     </div>
+                                                                     <div class=\"episode-content\">
+                                                                         <div class=\"episode-title\">
+                                                                             ";
+                        // line 104
+                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["episode"], "name", [], "any", false, false, false, 104), "html", null, true);
+                        echo "
+                                                                         </div>
+                                                                         <div class=\"episode-description\">
+                                                                             ";
+                        // line 107
+                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["episode"], "description", [], "any", false, false, false, 107), "html", null, true);
+                        echo "
+                                                                         </div>
+                                                                     </div>
+                                                                 </div>
+                                                             </a>
+                                                         </div>
+                                                     ";
+                    }
+                    $_parent = $context['_parent'];
+                    unset($context['_seq'], $context['_iterated'], $context['key'], $context['episode'], $context['_parent'], $context['loop']);
+                    $context = array_intersect_key($context, $_parent) + $_parent;
+                    // line 114
+                    echo "                                                 </div>
+                                             </div>
+                                         ";
+                }
+                // line 117
+                echo "                                     </div>
                                  </div>
-
                              </div>
                          ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['movie'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 87
+            // line 121
             echo "                     </div>
 
                  ";
         } else {
-            // line 90
+            // line 124
             echo "                     Nie znaleziono filmów dla tej kategorii.
                  ";
         }
-        // line 92
+        // line 126
         echo "
              </div>
      </section>
@@ -275,7 +343,7 @@ class __TwigTemplate_7054c61692d20a322ddc13f19705773293abcc6b4d845a2be19c089e33e
 
     public function getDebugInfo()
     {
-        return array (  252 => 92,  248 => 90,  243 => 87,  232 => 81,  224 => 76,  219 => 75,  211 => 70,  206 => 69,  204 => 68,  201 => 67,  195 => 65,  193 => 64,  187 => 60,  178 => 58,  174 => 57,  168 => 54,  162 => 51,  158 => 50,  149 => 44,  142 => 40,  137 => 38,  134 => 37,  122 => 30,  113 => 24,  110 => 23,  108 => 22,  101 => 20,  94 => 17,  90 => 16,  86 => 14,  82 => 12,  80 => 11,  77 => 10,  75 => 9,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  320 => 126,  316 => 124,  311 => 121,  302 => 117,  297 => 114,  284 => 107,  278 => 104,  270 => 99,  264 => 96,  257 => 92,  252 => 91,  248 => 90,  235 => 79,  233 => 78,  230 => 77,  224 => 75,  218 => 73,  216 => 72,  212 => 70,  206 => 68,  204 => 67,  198 => 63,  194 => 62,  188 => 61,  184 => 60,  179 => 59,  176 => 58,  172 => 56,  168 => 54,  162 => 51,  158 => 50,  149 => 44,  142 => 40,  137 => 38,  134 => 37,  122 => 30,  113 => 24,  110 => 23,  108 => 22,  101 => 20,  94 => 17,  90 => 16,  86 => 14,  82 => 12,  80 => 11,  77 => 10,  75 => 9,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -313,7 +381,7 @@ class __TwigTemplate_7054c61692d20a322ddc13f19705773293abcc6b4d845a2be19c089e33e
                                  <div class=\"modal-background\">
                                  </div>
                                  <div class=\"modal-sizing\">
-                                     <div class=\"modal-content\">
+                                     <div class=\"modal-content\" id=\"modal-content\">
                                          <div class=\"modal-header\"
                                                  {#                                 style=\"background-image: url({{ movie.img }})\" #}
                                          >
@@ -333,37 +401,71 @@ class __TwigTemplate_7054c61692d20a322ddc13f19705773293abcc6b4d845a2be19c089e33e
                                                  <p class=\"modal-movie-description\">{{ movie.description }}</p>
                                              </div>
                                              <div class=\"modal-movie-info-secondary\">
-                                                 <a class=\"profile_button\" href=\"{{ path('show-one', {'id': movie.id}) }}\"> Oglądaj
-                                                     teraz </a>
+                                                 {{ movie.year }}
+                                                 {#                                    <a class=\"profile_button\" href=\"{{ path('show-one', {'id': movie.id}) }}\"> Oglądaj teraz </a>#}
                                                  <div class=\"modal-movie-info-secondary-categories\">
-                                                     {% for category in movie.categories %}
-                                                         <li>{{ category.name }}</li>
+                                                     <p style=\"color: gray;display: inline-block\">Kategorie:</p>
+                                                     {% set categoryArray = { } %}  {# initialize category array #}
+                                                     {% for key, category in movie.categories %}
+                                                         {% set categoryArray = categoryArray|merge({(key~'_'): category.name}) %} {# merge to the array, convert key to string, int doesnt work #}
                                                      {% endfor %}
+                                                     {{ categoryArray|join(', ') }}  {# implode array #}
                                                  </div>
                                              </div>
                                          </div>
-
-                                         {% if is_granted('ROLE_ADMIN') %}
-                                             <a href=\"{{ path('hide', {'id': movie.id}) }}\">Ukryj film</a>
-                                         {% endif %}
-                                         <div style=\"margin-top: 20px\">
-                                             {% if liked is defined %}
-                                                 <form id=\"dislike\" method=\"POST\" action=\"{{ path('dislike') }}\">
-                                                     <input type=\"text\" name=\"id\" value=\"{{ movie.id }}\" style=\"display: none\">
-                                                     <a class=\"my-list-button\"
-                                                        onclick=\"document.getElementById('dislike').submit()\">Usuń z mojej listy</a>
-                                                 </form>
-                                             {% else %}
-                                                 <form id=\"like\" method=\"POST\" action=\"{{ path('like') }}\">
-                                                     <input type=\"text\" name=\"id\" value=\"{{ movie.id }}\" style=\"display: none\">
-                                                     <a class=\"my-list-button\"
-                                                        onclick=\"document.getElementById('like').submit()\">Dodaj do mojej listy</a>
-                                                 </form>
+                                         <div>
+                                             {% if is_granted('ROLE_ADMIN') %}
+                                                 <a class=\"my-list-button\" style=\"color:red;border: 1px solid red\" href=\"{{ path('hide', {'id': movie.id}) }}\">Ukryj film</a>
                                              {% endif %}
                                          </div>
+                                         <div style=\"margin-top: 20px\">
+                                             {% if movie.isLiked == true %}
+                                                 <a class=\"my-list-button\" href=\"{{ path('dislike', {'id': movie.id}) }}\"> Usuń z mojej listy</a>
+                                             {% else %}
+                                                 <a class=\"my-list-button\" href=\"{{ path('like', {'id': movie.id}) }}\"> Dodaj do mojej listy</a>
+                                             {% endif %}
+                                         </div>
+                                         {% if movie.episodes != null %}
+                                             <div class=\"modal-movie-episodes\">
+                                                 <div class=\"modal-movie-episodes-header\">
+                                                     <p>Odcinki</p>
+                                                     <label>
+                                                         <select>
+                                                             <option>Sezon 1</option>
+                                                             <option>Sezon 2</option>
+                                                         </select>
+                                                     </label>
+                                                 </div>
+                                                 <div class=\"episode-wrapper\">
+                                                     {% for key, episode in movie.episodes %}
+                                                         <div class=\"season{{ episode.season }}\">
+                                                             <a href=\"{{ path('watch-one', {'id': episode.id}) }}\">
+                                                                 <div class=\"episode\">
+                                                                     <div class=\"episode-image\">
+                                                                         <div class=\"episode-number-wrapper\">
+                                                                             <div class=\"episode-number\">{{ key }}</div>
+                                                                         </div>
+                                                                         <img style=\"height: 100px;margin-right: 20px;border-radius: 4px\"
+                                                                              src=\"{{ asset('images/episode.jpg') }}\"
+                                                                              alt=\"episode_image\"/>
+                                                                     </div>
+                                                                     <div class=\"episode-content\">
+                                                                         <div class=\"episode-title\">
+                                                                             {{ episode.name }}
+                                                                         </div>
+                                                                         <div class=\"episode-description\">
+                                                                             {{ episode.description }}
+                                                                         </div>
+                                                                     </div>
+                                                                 </div>
+                                                             </a>
+                                                         </div>
+                                                     {% endfor %}
+                                                 </div>
+                                             </div>
+                                         {% endif %}
                                      </div>
                                  </div>
-
                              </div>
                          {% endfor %}
                      </div>
