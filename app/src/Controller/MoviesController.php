@@ -7,6 +7,7 @@ use App\Form\MovieType;
 use App\Repository\CategoryRepository;
 use App\Repository\MovieRepository;
 use App\Repository\SubuserRepository;
+use App\Repository\VideoRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,16 +22,19 @@ class MoviesController extends AbstractController
     private CategoryRepository $categoryRepository;
     private SubuserRepository $subuserRepository;
     private RequestStack $requestStack;
+    private VideoRepository $videoRepository;
 
     public function __construct(MovieRepository    $movieRepository,
                                 CategoryRepository $categoryRepository,
                                 SubuserRepository  $subuserRepository,
-                                RequestStack       $requestStack)
+                                RequestStack       $requestStack,
+                                VideoRepository    $videoRepository)
     {
         $this->subuserRepository = $subuserRepository;
         $this->movieRepository = $movieRepository;
         $this->categoryRepository = $categoryRepository;
         $this->requestStack = $requestStack;
+        $this->videoRepository = $videoRepository;
     }
 
     // helper functions
@@ -117,14 +121,45 @@ class MoviesController extends AbstractController
 
         $subuserFrontId = $request->get('id');
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $this->getUser()));
-//        dump($this->movieRepository->getMoviesByCategory('Seriale'));
+
+                                  // TRANSFORMING ARRAYS ( MY HEAD HURTS )
+                                               // FOR LOOP
+                    // for every movie element in movies, check if current subuser liked the movie, then
+                    // transform movies -> add isLiked value to the array, push "true" or "false" accordingly
+
+        $shows = $this->movieRepository->getMoviesByCategory('Seriale');
+//        dump($movies);
+        $showsCount = count($shows);
+//        if($likedBy !== null) {
+            for ($show=0 ;$show < $showsCount; $show++){
+//                dump($movies);
+                if ($shows[$show] !== null && $shows[$show]['likedBy'] !== null ) {
+//                $movies = array_merge_recursive($movies, $movies[$movie]['likedBy']);
+//                dump($movies);
+//                dump($movies[$movie]['likedBy']);
+//                dump(in_array($subuserId, array_column($movies[$movie]['likedBy'], 'id')));
+                $isShowLikedByCurrentProfile = in_array($subuserId, array_column($shows[$show]['likedBy'], 'id'));
+                    $shows[$show]['isLiked'] = $isShowLikedByCurrentProfile;
+//                    dump($movies[$movie]);
+                }
+            }
+//            dump($isMovieLikedByCurrentProfile);
+//        dump($movies);
+//        }
+//        $movies = $movies[0]['likedBy'];
+//        dump(array_column($movies, 'id'));
+//        dump(in_array($subuserId, array_column($movies, 'id')));
+
+//        dump($isMovieLikedByCurrentProfile)
+
         if ($subuserId !== null && $subuserFrontId < count($allSubusers)) {
+//            dump($shows);
             return $this->render('movies/index.html.twig', [
                 'controller_name' => 'MovieController',
                 'profiles' => $this->getOtherSubusers(),
                 'movies' => $this->movieRepository->getMoviesByCategory('Filmy'),
                 'originals' => $this->movieRepository->getMoviesByCategory('Eksluzywne'),
-                'shows' => $this->movieRepository->getMoviesByCategory('Seriale'),
+                'shows' => $shows,
                 'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()
             ]);
         }
@@ -227,6 +262,19 @@ class MoviesController extends AbstractController
         ]);
 
     }
+
+    /**
+     * @Route("/watch/{id}", name="watch-one")
+     */
+    public function watch($id): Response
+    {
+        $episode = $this->videoRepository->find($id);
+            return $this->render('movies/watch.html.twig', [
+                'movie' => $episode,
+            ]);
+    }
+
+
 
     public function exclusive(): Response
     {

@@ -42,6 +42,7 @@ return [
     'profile' => [[], ['_controller' => 'App\\Controller\\MoviesController::profile'], [], [['text', '/profile']], [], [], []],
     'hide' => [['id'], ['_controller' => 'App\\Controller\\MoviesController::hide'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/browse/hide']], [], [], []],
     'show-one' => [['id'], ['_controller' => 'App\\Controller\\MoviesController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/show']], [], [], []],
+    'watch-one' => [['id'], ['_controller' => 'App\\Controller\\MoviesController::watch'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/watch']], [], [], []],
     'myList' => [[], ['_controller' => 'App\\Controller\\MoviesController::myList'], [], [['text', '/myList']], [], [], []],
     'movies' => [[], ['_controller' => 'App\\Controller\\MoviesController::movies'], [], [['text', '/movies']], [], [], []],
     'new' => [[], ['_controller' => 'App\\Controller\\MoviesController::new'], [], [['text', '/new']], [], [], []],

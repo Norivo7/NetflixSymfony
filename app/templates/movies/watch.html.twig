@@ -1,0 +1,102 @@
+{% extends 'movies/index.html.twig' %}
+
+{% block title %}<title>{{ movie.name }} - Netflix</title>{% endblock %}
+
+{% block navigation %}
+    <div class="navbar">
+        <div class="brandLogoWrapper">
+            <a class="logo" href="{{ path('browse') }}" target="_parent">
+                <img class="logo" src="{{ asset('images/netflixLogoSmall.svg.png') }}" alt="av1"/>
+            </a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <body>
+    <div class="movie_container">
+        <div class="text-center">
+            <div>
+                <iframe width="1720" height="800" src="{{ movie.source }}" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+{#                <h3>{{ movie.title }}</h3>#}
+{#                <p>Opis : <br>{{ movie.description }}</p>#}
+{#                <p>Rok : {{ movie.year }} <br>#}
+{#                <p>Kategorie :</p>#}
+{#                {% for category in categories %}#}
+{#                    <li> {{ category.name }}</li>#}
+{#                {% endfor %}#}
+            </div>
+
+{#            <div style="margin-top: 20px">#}
+{#                {% if liked is defined %}#}
+{#                    <form id="dislike" method="POST" action="{{ path('dislike') }}">#}
+{#                        <input type="text" name="id" value="{{ movie.id }}" style="display: none">#}
+{#                        <a class="my-list-button"#}
+{#                           onclick="document.getElementById('dislike').submit()">Usuń z mojej listy</a>#}
+{#                    </form>#}
+{#                {% else %}#}
+{#                    <form id="like" method="POST" action="{{ path('like') }}">#}
+{#                        <input type="text" name="id" value="{{ movie.id }}" style="display: none">#}
+{#                        <a class="my-list-button"#}
+{#                           onclick="document.getElementById('like').submit()">Dodaj do mojej listy</a>#}
+{#                    </form>#}
+{#                {% endif %}#}
+{#            </div>#}
+        </div>
+    </div>
+    </body>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+
+        {#======================
+                 Global
+        ======================#}
+
+        html {
+            font-family: 'Netflix Sans Regular', "Helvetica Neue", "Helvetica", Arial, sans-serif;
+            font-weight: normal;
+        }
+
+        {#======================
+                 Buttons
+        ======================#}
+
+        .my-list-button {
+            color: gray;
+            padding: .5em 1.5em;
+            letter-spacing: 2px;
+            cursor: pointer;
+            background-color: transparent;
+            border: 1px solid grey;
+            text-decoration: none;
+        }
+        {#======================
+               Navigation
+        ======================#}
+
+        .navbar a:hover {
+            opacity: 0.8;
+        }
+
+        .navbar {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .brandLogoWrapper {
+            margin-left: 30px;
+            margin-top: 18px;
+        }
+
+        .logo {
+            height: 31px;
+            margin-right: 15px;
+        }
+    </style>
+
+{% endblock %}

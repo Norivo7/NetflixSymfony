@@ -172,12 +172,9 @@
                                     </div>
                                 </div>
                             </div>
-
                             {% if is_granted('ROLE_ADMIN') %}
                                 <a href="{{ path('hide', {'id': movie.id}) }}">Ukryj film</a>
                             {% endif %}
-
-
                         </div>
                     </div>
 
@@ -225,62 +222,65 @@
                                     <p class="modal-movie-description">{{ movie.description }}</p>
                                 </div>
                                 <div class="modal-movie-info-secondary">
-                                    <a class="profile_button" href="{{ path('show-one', {'id': movie.id}) }}"> Oglądaj
-                                        teraz </a>
+                                    {{ movie.year }}
+{#                                    <a class="profile_button" href="{{ path('show-one', {'id': movie.id}) }}"> Oglądaj teraz </a>#}
                                     <div class="modal-movie-info-secondary-categories">
-                                        {% for category in movie.categories %}
-                                            <li>{{ category.name }}</li>
+                                        <p style="color: gray;display: inline-block">Kategorie:</p>
+                                        {% set categoryArray = { } %}  {# initialize category array #}
+                                        {% for key, category in movie.categories %}
+                                            {% set categoryArray = categoryArray|merge({(key~'_'): category.name}) %} {# merge to the array, convert key to string, int doesnt work #}
                                         {% endfor %}
+                                        {{ categoryArray|join(', ') }}  {# implode array #}
                                     </div>
-
                                 </div>
                             </div>
-
                             {% if is_granted('ROLE_ADMIN') %}
                                 <a style="color:red;" href="{{ path('hide', {'id': movie.id}) }}">Ukryj film</a>
                             {% endif %}
-
                             {% if movie.likedBy is defined %}
-
                             {% endif %}
-
                             {% if movie.episodes != null %}
                                 <div class="modal-movie-episodes">
                                     <div class="modal-movie-episodes-header">
                                         <p>Odcinki</p>
-                                        <p>Sezon x</p>
+                                        <label>
+                                            <select>
+                                                <option>Sezon 1</option>
+                                                <option>Sezon 2</option>
+                                            </select>
+                                        </label>
                                     </div>
-
                                     {% for key, episode in movie.episodes %}
-                                        <div class="episode">
-                                            <div class="episode-image">
-                                                <div class="episode-number-wrapper">
-                                                    <div class="episode-number">{{ key }}</div>
+                                        <div class="season{{ episode.season }}">
+                                            <a href="{{ path('watch-one', {'id': episode.id}) }}">
+                                            <div class="episode">
+                                                <div class="episode-image">
+                                                    <div class="episode-number-wrapper">
+                                                        <div class="episode-number">{{ key }}</div>
+                                                    </div>
+                                                    <img style="height: 100px;margin-right: 20px;border-radius: 4px"
+                                                         src="{{ asset('images/episode.jpg') }}"
+                                                         alt="episode_image"/>
                                                 </div>
-                                                <img style="height: 100px;margin-right: 20px;border-radius: 4px"
-                                                     src="{{ asset('images/episode.jpg') }}"
-                                                     alt="episode_image"/>
+                                                <div class="episode-content">
+                                                    <div class="episode-title">
+                                                        {{ episode.name }}
+                                                    </div>
+                                                    <div class="episode-description">
+                                                        {{ episode.description }}
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="episode-content">
-                                                <div class="episode-title">
-                                                    {{ episode.name }}
-                                                </div>
-                                                <div class="episode-description">
-                                                    {{ episode.description }}
-                                                </div>
-                                            </div>
+                                            </a>
                                         </div>
                                     {% endfor %}
-
                                 </div>
                             {% endif %}
                         </div>
                     </div>
-
                 </div>
             {% endfor %}
         </div>
-
         <h1 id="movies" class="category_label">Tylko na Netflixie</h1>
         <div class="movie">
             {% for movie in originals %}
@@ -301,7 +301,7 @@
                     <div class="modal-background">
                     </div>
                     <div class="modal-sizing">
-                        <div class="modal-content">
+                        <div class="modal-content" id="modal-content">
                             <div class="modal-header"
                                     {#                                 style="background-image: url({{ movie.img }})" #}
                             >
@@ -321,19 +321,49 @@
                                     <p class="modal-movie-description">{{ movie.description }}</p>
                                 </div>
                                 <div class="modal-movie-info-secondary">
-                                    <a class="profile_button" href="{{ path('show-one', {'id': movie.id}) }}"> Oglądaj
-                                        teraz </a>
+                                    <a class="profile_button" href="{{ path('show-one', {'id': movie.id}) }}"> Oglądaj teraz </a>
                                     <div class="modal-movie-info-secondary-categories">
                                         {% for category in movie.categories %}
-                                            {{ category.name|join(' ') }}
+                                            <li>{{ category.name }}</li>
                                         {% endfor %}
                                     </div>
 
                                 </div>
                             </div>
-
                             {% if is_granted('ROLE_ADMIN') %}
-                                <a href="{{ path('hide', {'id': movie.id}) }}">Ukryj film</a>
+                                <a style="color:red;" href="{{ path('hide', {'id': movie.id}) }}">Ukryj film</a>
+                            {% endif %}
+                            {% if movie.likedBy is defined %}
+                            {% endif %}
+                            {% if movie.episodes != null %}
+                                <div class="modal-movie-episodes">
+                                    <div class="modal-movie-episodes-header">
+                                        <p>Odcinki</p>
+                                        <p>Sezon x</p>
+                                    </div>
+                                    {% for key, episode in movie.episodes %}
+                                            <a href="{{ path('watch-one', {'id': episode.id}) }}">
+                                                <div class="episode">
+                                                    <div class="episode-image">
+                                                        <div class="episode-number-wrapper">
+                                                            <div class="episode-number">{{ key }}</div>
+                                                        </div>
+                                                        <img style="height: 100px;margin-right: 20px;border-radius: 4px"
+                                                             src="{{ asset('images/episode.jpg') }}"
+                                                             alt="episode_image"/>
+                                                    </div>
+                                                    <div class="episode-content">
+                                                        <div class="episode-title">
+                                                            {{ episode.name }}
+                                                        </div>
+                                                        <div class="episode-description">
+                                                            {{ episode.description }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                    {% endfor %}
+                                </div>
                             {% endif %}
                         </div>
                     </div>
@@ -349,14 +379,17 @@
 {% endblock %}
 
 {% block javascript %}
+{{ encore_entry_script_tags('app') }}
 <script>
-    function hideModal(modalId) {
-            document.getElementById(modalId).style.display = 'none'
+
+function hideModal(modalId) {
+    document.getElementById(modalId).style.display = 'none'
 }
 
-    function showModal(modalId) {
+function showModal(modalId) {
     document.getElementById(modalId).style.display = 'block'
 }
+
 </script>
 {% endblock %}
 
@@ -365,14 +398,29 @@
 
     <style>
 
+
         {#======================
                 Global
         ======================#}
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: 'Netflix Sans Regular', "Helvetica Neue", "Helvetica", Arial, sans-serif;
             background-color: black;
             color: white;
+        }
+
+        select {
+            background-color: #181818;
+            color: white;
+            border: 0 solid red ;
+        }
+
+        a {
+            text-decoration: none;
         }
 
         a.right {
@@ -535,6 +583,7 @@
             flex-direction: row;
             height: 150px;
             border-bottom: 1px solid #404040;
+            border-radius: 8px;
         }
 
         .episode:hover {
@@ -561,15 +610,18 @@
         }
 
         .episode-title {
+            color: white;
             text-align: left;
             width: 100%;
         }
 
         .episode-description {
+            line-height: 19px;
             overflow: hidden;
             height: 76px;
             color: gray;
             font-size: 14px;
+            text-align: left;
             margin-right: 30px;
         }
 
@@ -603,6 +655,7 @@
             background-color: transparent;
             border: 1px solid grey;
             text-decoration: none;
+            flex-wrap: nowrap;
         }
 
         .dropdown_submit {

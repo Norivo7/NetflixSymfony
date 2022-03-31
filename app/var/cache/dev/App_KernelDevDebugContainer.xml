@@ -347,6 +347,7 @@
       <argument type="service" id="App\Repository\CategoryRepository"/>
       <argument type="service" id="App\Repository\SubuserRepository"/>
       <argument type="service" id="request_stack"/>
+      <argument type="service" id="App\Repository\VideoRepository"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.l1ae.Qz.App\Controller\MoviesController"/>
       </call>
