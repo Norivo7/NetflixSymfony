@@ -35,11 +35,18 @@
                 <hr>
                 <br>
                 <p class="gray">Członkostwo i rozliczenia</p>
-                <button class="btnAccount">Anuluj członkostwo</button>
+
+                {% if user.subscription != null %}
+                    <button class="btnAccount" onclick="window.location.href='/subscription'">Anuluj członkostwo</button>
+                    {% else %}
+                    <button class="btnAccount" onclick="window.location.href='/subscription'">Dodaj członkostwo</button>
+                {% endif %}
+
+
             </div>
             <div class="div3">
                 <hr>
-                {{ email }}<br>
+                {{ user.email }}<br>
                 hasło: ******<br>
                 telefon:
             </div>
@@ -88,8 +95,12 @@
                 {% for profile in profiles %}
                     <div class="row">
                         <img class="profile" src="{{ profile.avatar }}" alt="profile avatar">
-                        {{ profile.name }}
+                        <div style="display: inline-block;width: 30%;justify-content: center">
+                        <p style="line-height: 70px">{{ profile.name }}</p>
+                        </div>
                     </div>
+
+                    <hr>
                 {% endfor %}
             </div>
             <div class="div13">
@@ -106,6 +117,7 @@
                 <a href="#">Pobierz swoje dane osobowe</a>
             </div>
         </div>
+
         <div class="footer">
             {% embed 'reusable/footer.html.twig' %} {% endembed %}
         </div>
@@ -304,6 +316,7 @@
         .profile {
             width: 100px;
             padding: 10px;
+            border-radius: 5px;
         }
 
         .div13 {
@@ -321,6 +334,7 @@
 
         .row {
             flex-direction: row;
+width: 20%;
         }
 
         {#======================

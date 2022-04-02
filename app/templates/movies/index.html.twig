@@ -260,6 +260,8 @@
                             >
                                 <a class="modal-image" href="{{ path('show-one', {'id': movie.id}) }}"
                                    style="text-decoration: none">
+{#                                    <iframe class="modal-image" src="{{movie.link}}?autoplay=1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture">#}
+{#                                    </iframe>#}
                                     <img class="modal-image" src="{{ movie.img }}" alt="movie_image">
                                 </a>
 
@@ -304,8 +306,9 @@
                                         <p>Odcinki</p>
                                         <label>
                                             <select>
-                                                <option>Sezon 1</option>
-                                                <option>Sezon 2</option>
+                                                    {% for episode in movie.episodes %}
+                                                                <option value="{{ episode.season }}">{{ episode.season }}</option>
+                                                    {% endfor %}
                                             </select>
                                         </label>
                                     </div>
@@ -411,8 +414,27 @@
                                         <p>Odcinki</p>
                                         <label>
                                             <select>
-                                                <option>Sezon 1</option>
-                                                <option>Sezon 2</option>
+
+{#                                                {% set unique = seasonArray|unique %}#}
+
+                                                {% set seasonArray = {} %}
+                                                    {% for key, episode in movie.episodes %}
+                                                        {% if episode not in seasonArray %}
+                                                        {% set seasonArray = seasonArray|merge({(key~'_'): episode}) %}
+                                                            {% for season in seasonArray %}
+                                                            <option value="{{ season.season }}">{{ season.season }}</option>
+                                                            {% endfor %}
+                                                        {% endif %}
+                                                {% endfor %}
+
+
+{#                                                {% set seasonArray = [] %}#}
+{#                                                    {% for key, episode in movie.episodes %}#}
+{#                                                        {% if episode not in seasonArray %}#}
+{#                                                            <option value="{{ episode.season }}">{{ episode.season }}</option>#}
+{#                                                        {% set seasonArray = seasonArray|merge([episode]) %}#}
+{#                                                        {% endif %}#}
+{#                                                {% endfor %}#}
                                             </select>
                                         </label>
                                     </div>
@@ -467,6 +489,17 @@ function hideModal(modalId) {
 function showModal(modalId) {
     document.getElementById(modalId).style.display = 'block'
 }
+
+function selectSeason(seasonId) {
+var select = document.getElementById('language');
+    $('#language').val();
+                    // TODO: select list of seasons
+
+                   // if a season is picked, hide other seasons, show only one
+}
+
+
+
 
 </script>
 {% endblock %}

@@ -29,6 +29,7 @@ return [
         '/browse' => [[['_route' => 'browse', '_controller' => 'App\\Controller\\MoviesController::index'], null, null, null, false, false, null]],
         '/shows' => [[['_route' => 'shows', '_controller' => 'App\\Controller\\MoviesController::shows'], null, null, null, false, false, null]],
         '/profile' => [[['_route' => 'profile', '_controller' => 'App\\Controller\\MoviesController::profile'], null, null, null, false, false, null]],
+        '/subscription' => [[['_route' => 'subscription', '_controller' => 'App\\Controller\\MoviesController::subscription'], null, null, null, false, false, null]],
         '/myList' => [[['_route' => 'myList', '_controller' => 'App\\Controller\\MoviesController::myList'], null, null, null, false, false, null]],
         '/movies' => [[['_route' => 'movies', '_controller' => 'App\\Controller\\MoviesController::movies'], null, null, null, false, false, null]],
         '/new' => [[['_route' => 'new', '_controller' => 'App\\Controller\\MoviesController::new'], null, null, null, false, false, null]],

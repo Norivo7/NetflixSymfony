@@ -2,13 +2,12 @@
 
 namespace App\Controller;
 
-use App\Entity\Movie;
-use App\Form\MovieType;
+
 use App\Repository\CategoryRepository;
 use App\Repository\MovieRepository;
 use App\Repository\SubuserRepository;
 use App\Repository\VideoRepository;
-use Doctrine\ORM\EntityManagerInterface;
+
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -94,6 +93,19 @@ class MoviesController extends AbstractController
             ]);
 
         }
+
+//        $values = [192,20,43,53,12,53,32];
+//        $valueCount = count($values);
+////        dump($valueCount);
+//        $valueArray = array();
+////        dump($valueArray);
+//        for($value=0;$value < $valueCount;$value++) {
+//            $valueArray[] = $values[$value];
+//        }
+//        dump(array_sum($valueArray));
+
+
+
 
         $dropdownTitles = array(
             "Czym jest Netflix?",
@@ -201,11 +213,28 @@ class MoviesController extends AbstractController
             $userAvatar = $subuserId->getAvatar();
             return $this->render(
                 'user/profile.html.twig', [
-                    'email' => $currentUser->getUserIdentifier(),
+                    'user' => $currentUser,
                     'profiles' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser)),
                     'userAvatar' => $userAvatar,
-                ]
-            );
+                ]);
+        }
+        return $this->redirectToRoute('chooseUser');
+    }
+
+    /**
+     * @Route("/subscription", name="subscription")
+     * @return Response
+     */
+    public function subscription(): Response
+    {
+        $currentUser = $this->getUser();
+        $subuserId = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
+        if ($subuserId !== null) {
+            $userAvatar = $subuserId->getAvatar();
+            return $this->render('user/subscription.html.twig', [
+                'user' => $currentUser,
+                'userAvatar' => $userAvatar,
+            ]);
         }
         return $this->redirectToRoute('chooseUser');
     }

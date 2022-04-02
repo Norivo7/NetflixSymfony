@@ -55,6 +55,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $subusers;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $subscription;
+
     public function __construct()
     {
         $this->subusers = new ArrayCollection();
@@ -187,6 +192,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $subuser->setSubaccountOf(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSubscription(): ?string
+    {
+        return $this->subscription;
+    }
+
+    public function setSubscription(?string $subscription): self
+    {
+        $this->subscription = $subscription;
 
         return $this;
     }

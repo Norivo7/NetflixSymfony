@@ -56,10 +56,10 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 ";
         // line 27
         $this->displayBlock('body', $context, $blocks);
-        // line 115
+        // line 127
         echo "
 ";
-        // line 116
+        // line 128
         $this->displayBlock('stylesheets', $context, $blocks);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -186,13 +186,27 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
                 <hr>
                 <br>
                 <p class=\"gray\">Członkostwo i rozliczenia</p>
-                <button class=\"btnAccount\">Anuluj członkostwo</button>
+
+                ";
+        // line 39
+        if ((twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 39, $this->source); })()), "subscription", [], "any", false, false, false, 39) != null)) {
+            // line 40
+            echo "                    <button class=\"btnAccount\" onclick=\"window.location.href='/subscription'\">Anuluj członkostwo</button>
+                    ";
+        } else {
+            // line 42
+            echo "                    <button class=\"btnAccount\" onclick=\"window.location.href='/subscription'\">Dodaj członkostwo</button>
+                ";
+        }
+        // line 44
+        echo "
+
             </div>
             <div class=\"div3\">
                 <hr>
                 ";
-        // line 42
-        echo twig_escape_filter($this->env, (isset($context["email"]) || array_key_exists("email", $context) ? $context["email"] : (function () { throw new RuntimeError('Variable "email" does not exist.', 42, $this->source); })()), "html", null, true);
+        // line 49
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 49, $this->source); })()), "email", [], "any", false, false, false, 49), "html", null, true);
         echo "<br>
                 hasło: ******<br>
                 telefon:
@@ -240,27 +254,31 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
             <div class=\"div12\">
                 <hr>
                 ";
-        // line 88
+        // line 95
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["profiles"]) || array_key_exists("profiles", $context) ? $context["profiles"] : (function () { throw new RuntimeError('Variable "profiles" does not exist.', 88, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["profiles"]) || array_key_exists("profiles", $context) ? $context["profiles"] : (function () { throw new RuntimeError('Variable "profiles" does not exist.', 95, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["profile"]) {
-            // line 89
+            // line 96
             echo "                    <div class=\"row\">
                         <img class=\"profile\" src=\"";
-            // line 90
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["profile"], "avatar", [], "any", false, false, false, 90), "html", null, true);
+            // line 97
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["profile"], "avatar", [], "any", false, false, false, 97), "html", null, true);
             echo "\" alt=\"profile avatar\">
-                        ";
-            // line 91
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["profile"], "name", [], "any", false, false, false, 91), "html", null, true);
-            echo "
+                        <div style=\"display: inline-block;width: 30%;justify-content: center\">
+                        <p style=\"line-height: 70px\">";
+            // line 99
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["profile"], "name", [], "any", false, false, false, 99), "html", null, true);
+            echo "</p>
+                        </div>
                     </div>
+
+                    <hr>
                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['profile'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 94
+        // line 105
         echo "            </div>
             <div class=\"div13\">
                 <hr>
@@ -276,11 +294,12 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
                 <a href=\"#\">Pobierz swoje dane osobowe</a>
             </div>
         </div>
+
         <div class=\"footer\">
             ";
-        // line 110
-        $this->loadTemplate("user/profile.html.twig", "user/profile.html.twig", 110, "1964967780")->display($context);
-        // line 111
+        // line 122
+        $this->loadTemplate("user/profile.html.twig", "user/profile.html.twig", 122, "1883889162")->display($context);
+        // line 123
         echo "        </div>
 
     </div>
@@ -293,7 +312,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
     }
 
-    // line 116
+    // line 128
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -303,11 +322,11 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 117
+        // line 129
         echo "    <style>
 
         ";
-        // line 122
+        // line 134
         echo "
         li {
             list-style-type: none;
@@ -352,7 +371,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         }
 
         ";
-        // line 168
+        // line 180
         echo "
         .btnAccount {
             font-size: 14px;
@@ -365,7 +384,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         }
 
         ";
-        // line 182
+        // line 194
         echo "
         #headerContainer {
             display: flex;
@@ -401,7 +420,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         }
 
         ";
-        // line 219
+        // line 231
         echo "
         .mainWrapper {
             width: 100%;
@@ -490,6 +509,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         .profile {
             width: 100px;
             padding: 10px;
+            border-radius: 5px;
         }
 
         .div13 {
@@ -507,10 +527,11 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
         .row {
             flex-direction: row;
+width: 20%;
         }
 
         ";
-        // line 329
+        // line 343
         echo "
         .footer {
             color: gray;
@@ -537,7 +558,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
     public function getDebugInfo()
     {
-        return array (  514 => 329,  405 => 219,  369 => 182,  356 => 168,  311 => 122,  307 => 117,  297 => 116,  284 => 111,  282 => 110,  264 => 94,  255 => 91,  251 => 90,  248 => 89,  244 => 88,  195 => 42,  179 => 28,  169 => 27,  156 => 23,  152 => 22,  146 => 19,  142 => 18,  138 => 16,  128 => 15,  109 => 4,  96 => 11,  88 => 5,  86 => 4,  83 => 3,  73 => 2,  63 => 116,  60 => 115,  58 => 27,  55 => 26,  53 => 15,  50 => 14,  48 => 2,);
+        return array (  535 => 343,  424 => 231,  388 => 194,  375 => 180,  330 => 134,  326 => 129,  316 => 128,  303 => 123,  301 => 122,  282 => 105,  270 => 99,  265 => 97,  262 => 96,  258 => 95,  209 => 49,  202 => 44,  198 => 42,  194 => 40,  192 => 39,  179 => 28,  169 => 27,  156 => 23,  152 => 22,  146 => 19,  142 => 18,  138 => 16,  128 => 15,  109 => 4,  96 => 11,  88 => 5,  86 => 4,  83 => 3,  73 => 2,  63 => 128,  60 => 127,  58 => 27,  55 => 26,  53 => 15,  50 => 14,  48 => 2,);
     }
 
     public function getSourceContext()
@@ -579,11 +600,18 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
                 <hr>
                 <br>
                 <p class=\"gray\">Członkostwo i rozliczenia</p>
-                <button class=\"btnAccount\">Anuluj członkostwo</button>
+
+                {% if user.subscription != null %}
+                    <button class=\"btnAccount\" onclick=\"window.location.href='/subscription'\">Anuluj członkostwo</button>
+                    {% else %}
+                    <button class=\"btnAccount\" onclick=\"window.location.href='/subscription'\">Dodaj członkostwo</button>
+                {% endif %}
+
+
             </div>
             <div class=\"div3\">
                 <hr>
-                {{ email }}<br>
+                {{ user.email }}<br>
                 hasło: ******<br>
                 telefon:
             </div>
@@ -632,8 +660,12 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
                 {% for profile in profiles %}
                     <div class=\"row\">
                         <img class=\"profile\" src=\"{{ profile.avatar }}\" alt=\"profile avatar\">
-                        {{ profile.name }}
+                        <div style=\"display: inline-block;width: 30%;justify-content: center\">
+                        <p style=\"line-height: 70px\">{{ profile.name }}</p>
+                        </div>
                     </div>
+
+                    <hr>
                 {% endfor %}
             </div>
             <div class=\"div13\">
@@ -650,6 +682,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
                 <a href=\"#\">Pobierz swoje dane osobowe</a>
             </div>
         </div>
+
         <div class=\"footer\">
             {% embed 'reusable/footer.html.twig' %} {% endembed %}
         </div>
@@ -848,6 +881,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         .profile {
             width: 100px;
             padding: 10px;
+            border-radius: 5px;
         }
 
         .div13 {
@@ -865,6 +899,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
         .row {
             flex-direction: row;
+width: 20%;
         }
 
         {#======================
@@ -886,7 +921,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
 
 /* user/profile.html.twig */
-class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b592268d28___1964967780 extends Template
+class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b592268d28___1883889162 extends Template
 {
     private $source;
     private $macros = [];
@@ -903,7 +938,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
     protected function doGetParent(array $context)
     {
-        // line 110
+        // line 122
         return "reusable/footer.html.twig";
     }
 
@@ -916,7 +951,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "user/profile.html.twig"));
 
-        $this->parent = $this->loadTemplate("reusable/footer.html.twig", "user/profile.html.twig", 110);
+        $this->parent = $this->loadTemplate("reusable/footer.html.twig", "user/profile.html.twig", 122);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -938,7 +973,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
     public function getDebugInfo()
     {
-        return array (  907 => 110,  514 => 329,  405 => 219,  369 => 182,  356 => 168,  311 => 122,  307 => 117,  297 => 116,  284 => 111,  282 => 110,  264 => 94,  255 => 91,  251 => 90,  248 => 89,  244 => 88,  195 => 42,  179 => 28,  169 => 27,  156 => 23,  152 => 22,  146 => 19,  142 => 18,  138 => 16,  128 => 15,  109 => 4,  96 => 11,  88 => 5,  86 => 4,  83 => 3,  73 => 2,  63 => 116,  60 => 115,  58 => 27,  55 => 26,  53 => 15,  50 => 14,  48 => 2,);
+        return array (  942 => 122,  535 => 343,  424 => 231,  388 => 194,  375 => 180,  330 => 134,  326 => 129,  316 => 128,  303 => 123,  301 => 122,  282 => 105,  270 => 99,  265 => 97,  262 => 96,  258 => 95,  209 => 49,  202 => 44,  198 => 42,  194 => 40,  192 => 39,  179 => 28,  169 => 27,  156 => 23,  152 => 22,  146 => 19,  142 => 18,  138 => 16,  128 => 15,  109 => 4,  96 => 11,  88 => 5,  86 => 4,  83 => 3,  73 => 2,  63 => 128,  60 => 127,  58 => 27,  55 => 26,  53 => 15,  50 => 14,  48 => 2,);
     }
 
     public function getSourceContext()
@@ -980,11 +1015,18 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
                 <hr>
                 <br>
                 <p class=\"gray\">Członkostwo i rozliczenia</p>
-                <button class=\"btnAccount\">Anuluj członkostwo</button>
+
+                {% if user.subscription != null %}
+                    <button class=\"btnAccount\" onclick=\"window.location.href='/subscription'\">Anuluj członkostwo</button>
+                    {% else %}
+                    <button class=\"btnAccount\" onclick=\"window.location.href='/subscription'\">Dodaj członkostwo</button>
+                {% endif %}
+
+
             </div>
             <div class=\"div3\">
                 <hr>
-                {{ email }}<br>
+                {{ user.email }}<br>
                 hasło: ******<br>
                 telefon:
             </div>
@@ -1033,8 +1075,12 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
                 {% for profile in profiles %}
                     <div class=\"row\">
                         <img class=\"profile\" src=\"{{ profile.avatar }}\" alt=\"profile avatar\">
-                        {{ profile.name }}
+                        <div style=\"display: inline-block;width: 30%;justify-content: center\">
+                        <p style=\"line-height: 70px\">{{ profile.name }}</p>
+                        </div>
                     </div>
+
+                    <hr>
                 {% endfor %}
             </div>
             <div class=\"div13\">
@@ -1051,6 +1097,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
                 <a href=\"#\">Pobierz swoje dane osobowe</a>
             </div>
         </div>
+
         <div class=\"footer\">
             {% embed 'reusable/footer.html.twig' %} {% endembed %}
         </div>
@@ -1249,6 +1296,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
         .profile {
             width: 100px;
             padding: 10px;
+            border-radius: 5px;
         }
 
         .div13 {
@@ -1266,6 +1314,7 @@ class __TwigTemplate_8f06adf4fe64d001261d40bf4c6987642e67fcebc4e29dbc2599a5b5922
 
         .row {
             flex-direction: row;
+width: 20%;
         }
 
         {#======================

@@ -1,0 +1,46 @@
+ {% extends 'user/profile.html.twig' %}
+
+ {% block title %}<title> Plany - Netflix</title>{% endblock %}
+
+{% block body %}
+    <div class="mainWrapper">
+        <div class="parent">
+
+
+                <div class="options">
+                    <h2>Wybierz Plan:</h2>
+            <button class="btnAccount"> Normalny </button>
+            <button class="btnAccount"> Student </button>
+            <button class="btnAccount"> Rodzinny </button>
+                </div>
+
+
+        </div>
+        <div class="footer">
+{#            {% embed 'reusable/footer.html.twig' %} {% endembed %}#}
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        h2{
+            width:100px;
+        }
+        .options {
+            width: 50%;
+            height: 20%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .parent {
+            margin: auto;
+            width: 70%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+{% endblock %}
