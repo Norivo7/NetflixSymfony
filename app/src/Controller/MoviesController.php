@@ -2,12 +2,10 @@
 
 namespace App\Controller;
 
-
 use App\Repository\CategoryRepository;
 use App\Repository\MovieRepository;
 use App\Repository\SubuserRepository;
 use App\Repository\VideoRepository;
-
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,21 +22,23 @@ class MoviesController extends AbstractController
     private VideoRepository $videoRepository;
     private ManagerRegistry $doctrine;
 
-    public function __construct(MovieRepository    $movieRepository,
-                                CategoryRepository $categoryRepository,
-                                SubuserRepository  $subuserRepository,
-                                RequestStack       $requestStack,
-                                VideoRepository    $videoRepository,
-                                ManagerRegistry    $doctrine)
+    public function __construct
+    (
+        MovieRepository $movieRepository,
+        CategoryRepository $categoryRepository,
+        SubuserRepository $subuserRepository,
+        RequestStack $requestStack,
+        VideoRepository $videoRepository,
+        ManagerRegistry $doctrine
+    )
     {
-        $this->subuserRepository = $subuserRepository;
         $this->movieRepository = $movieRepository;
         $this->categoryRepository = $categoryRepository;
+        $this->subuserRepository = $subuserRepository;
         $this->requestStack = $requestStack;
         $this->videoRepository = $videoRepository;
         $this->doctrine = $doctrine;
     }
-
     // helper functions
 
     private function isMovieLikedByCurrentUser(int $movieId, ?array $liked): bool
@@ -94,19 +94,6 @@ class MoviesController extends AbstractController
 
         }
 
-//        $values = [192,20,43,53,12,53,32];
-//        $valueCount = count($values);
-////        dump($valueCount);
-//        $valueArray = array();
-////        dump($valueArray);
-//        for($value=0;$value < $valueCount;$value++) {
-//            $valueArray[] = $values[$value];
-//        }
-//        dump(array_sum($valueArray));
-
-
-
-
         $dropdownTitles = array(
             "Czym jest Netflix?",
             "Ile kosztuje korzystanie z serwisu Netflix?",
@@ -115,6 +102,7 @@ class MoviesController extends AbstractController
             "Jakie materiały mogę oglądać w serwisie Netflix?",
             "Czy Netflix jest odpowiedni dla dzieci?"
         );
+
         return $this->render(
             'base.html.twig', [
                 'dropdownTitles' => $dropdownTitles,
@@ -292,7 +280,6 @@ class MoviesController extends AbstractController
             ]);
     }
 
-
     /**
      * @Route("/myList", name="myList")
      * @param Request $request
@@ -374,7 +361,6 @@ class MoviesController extends AbstractController
 
             $subuserId = $subuser->getId();
             $userAvatar = $subuser->getAvatar();
-//            dump($this->transformArrayForModal($this->movieRepository->recentlyAdd(),$subuserId));
             return $this->render(
 
                 'movies/list.html.twig', [
@@ -395,25 +381,6 @@ class MoviesController extends AbstractController
      */
     public function like($id, Request $request): Response
     {
-        // get movie
-//        $id = $request->request->all();
-//        $movie = $this->movieRepository->find($id['id']);
-
-        // get subuser
-//        $subuserId = $this->getCurrentSubuserIdFromSession();
-//        $currentSubuser = $this->subuserRepository->find($subuserId);
-
-//        $movie->addLikedBy($currentSubuser);
-
-        // make changes in database
-//        $entityManager = $doctrine->getManager();
-//        $entityManager->persist($movie);
-//        $entityManager->persist($currentSubuser);
-//        $entityManager->flush();
-        // get movie
-
-
-        // better code
         $movie = $this->movieRepository->find($id);
         $currentSubuser = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
 
