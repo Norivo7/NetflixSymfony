@@ -8,6 +8,7 @@ node_modules/
 dist/
 app/vendor/
 mysql/performance_schema/
+mysql/
 
 # Compiled Java class files
 *.class
