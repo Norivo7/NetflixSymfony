@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Helpers\LogicHelper;
 use App\Repository\CategoryRepository;
 use App\Repository\MovieRepository;
 use App\Repository\SubuserRepository;
@@ -21,6 +22,7 @@ class MoviesController extends AbstractController
     private RequestStack $requestStack;
     private VideoRepository $videoRepository;
     private ManagerRegistry $doctrine;
+    private LogicHelper $logicHelper;
 
     public function __construct
     (
@@ -29,7 +31,8 @@ class MoviesController extends AbstractController
         SubuserRepository $subuserRepository,
         RequestStack $requestStack,
         VideoRepository $videoRepository,
-        ManagerRegistry $doctrine
+        ManagerRegistry $doctrine,
+        LogicHelper $logicHelper
     )
     {
         $this->movieRepository = $movieRepository;
@@ -38,47 +41,7 @@ class MoviesController extends AbstractController
         $this->requestStack = $requestStack;
         $this->videoRepository = $videoRepository;
         $this->doctrine = $doctrine;
-    }
-    // helper functions
-
-    private function isMovieLikedByCurrentUser(int $movieId, ?array $liked): bool
-    {
-        return in_array($movieId, array_column($liked, 'id'));
-    }
-
-    private function getCurrentSubuserIdFromSession()
-    {
-        $subuser = $this->requestStack->getSession()->get('filter');
-        if ($subuser !== null) return reset($subuser);
-            return 'subUser not found';
-    }
-
-    private function getOtherSubusers(): array
-    {
-        $subuser = $this->requestStack->getSession()->get('filter');
-        $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $this->getUser()));
-        $subuserId = reset($subuser);
-        $currentSubuser = $this->subuserRepository->find($subuserId);
-        $subuserPosition = array_keys($allSubusers, $currentSubuser);
-        unset($allSubusers[reset($subuserPosition)]);
-        return array_values($allSubusers);
-    }
-
-    //                  TRANSFORMING ARRAYS ( MY HEAD HURTS )
-    //                               FOR LOOP
-    // for every movie element in movies, check if current subuser liked the movie, then
-    // transform movies -> add isLiked value to the array, push "true" or "false" accordingly
-    // mandatory for my modal rendering
-
-    private function transformArrayForModal($videos, $currentProfileId){
-        $videoCount = count($videos);
-        for ($video=0 ;$video < $videoCount; $video++){
-            if ($videos[$video] !== null && $videos[$video]['likedBy'] !== null ) {
-                $isVideoLikedByCurrentProfile = in_array($currentProfileId, array_column($videos[$video]['likedBy'], 'id'));
-                $videos[$video]['isLiked'] = $isVideoLikedByCurrentProfile;
-            }
-        }
-        return $videos;
+        $this->logicHelper = $logicHelper;
     }
 
     /**
@@ -93,7 +56,6 @@ class MoviesController extends AbstractController
             ]);
 
         }
-
         $dropdownTitles = array(
             "Czym jest Netflix?",
             "Ile kosztuje korzystanie z serwisu Netflix?",
@@ -143,13 +105,12 @@ class MoviesController extends AbstractController
         $subuserFrontId = $request->get('id');
         $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $this->getUser()));
         if ($subuserId !== null && $subuserFrontId < count($allSubusers)) {
-//            dump($this->transformArrayForModal($this->movieRepository->getMoviesByCategory('Seriale'),$subuserId));
             return $this->render('movies/index.html.twig', [
                 'controller_name' => 'MovieController',
-                'profiles' => $this->getOtherSubusers(),
-                'movies' => $this->transformArrayForModal($this->movieRepository->getMoviesByCategory('Filmy'),$subuserId),
-                'originals' => $this->transformArrayForModal($this->movieRepository->getMoviesByCategory('Eksluzywne'),$subuserId),
-                'shows' => $this->transformArrayForModal($this->movieRepository->getMoviesByCategory('Seriale'),$subuserId),
+                'profiles' => $this->logicHelper->getOtherSubusers($this->getUser()),
+                'movies' => $this->logicHelper->transformArrayForModal($this->movieRepository->getMoviesByCategory('Filmy'),$subuserId),
+                'originals' => $this->logicHelper->transformArrayForModal($this->movieRepository->getMoviesByCategory('Eksluzywne'),$subuserId),
+                'shows' => $this->logicHelper->transformArrayForModal($this->movieRepository->getMoviesByCategory('Seriale'),$subuserId),
                 'userAvatar' => $this->subuserRepository->find($subuserId)->getAvatar()
             ]);
         }
@@ -174,14 +135,14 @@ class MoviesController extends AbstractController
             );
         }
 
-        $subuserId = $this->getCurrentSubuserIdFromSession();
+        $subuserId = $this->logicHelper->getCurrentSubuserIdFromSession();
         $currentSubuser = $this->subuserRepository->find($subuserId);
         if ($subuserId !== null) {
             $userAvatar = $currentSubuser->getAvatar();
             return $this->render(
                 'movies/list.html.twig', [
-                    'profiles' => $this->getOtherSubusers(),
-                    'movies' => $this->transformArrayForModal($this->movieRepository->getMoviesByCategory('Seriale'),$subuserId),
+                    'profiles' => $this->logicHelper->getOtherSubusers($this->getUser()),
+                    'movies' => $this->logicHelper->transformArrayForModal($this->movieRepository->getMoviesByCategory('Seriale'),$subuserId),
                     'userAvatar' => $userAvatar,
                 ]
             );
@@ -196,7 +157,7 @@ class MoviesController extends AbstractController
     public function profile(): Response
     {
         $currentUser = $this->getUser();
-        $subuserId = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
+        $subuserId = $this->subuserRepository->find($this->logicHelper->getCurrentSubuserIdFromSession());
         if ($subuserId !== null) {
             $userAvatar = $subuserId->getAvatar();
             return $this->render(
@@ -216,7 +177,7 @@ class MoviesController extends AbstractController
     public function subscription(): Response
     {
         $currentUser = $this->getUser();
-        $subuserId = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
+        $subuserId = $this->subuserRepository->find($this->logicHelper->getCurrentSubuserIdFromSession());
         if ($subuserId !== null) {
             $userAvatar = $subuserId->getAvatar();
             return $this->render('user/subscription.html.twig', [
@@ -246,7 +207,7 @@ class MoviesController extends AbstractController
      */
     public function show($id): Response
     {
-        $subuserId = $this->getCurrentSubuserIdFromSession();
+        $subuserId = $this->logicHelper->getCurrentSubuserIdFromSession();
 
         $liked = $this->movieRepository->getLikedMoviesBySubuser($subuserId);
         $movie = $this->movieRepository->find($id);
@@ -255,7 +216,7 @@ class MoviesController extends AbstractController
 
 
 
-        if ($this->isMovieLikedByCurrentUser($movieId, $liked)) {
+        if ($this->logicHelper->isMovieLikedByCurrentUser($movieId, $liked)) {
             return $this->render('movies/show.html.twig', [
                 'liked' => 'yes',
                 'movie' => $movie,
@@ -294,14 +255,13 @@ class MoviesController extends AbstractController
                 ]
             );
         }
-        $subuser = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
+        $subuser = $this->subuserRepository->find($this->logicHelper->getCurrentSubuserIdFromSession());
         if ($subuser !== null) {
             $subuserId = $subuser->getId();
-//            dump($this->movieRepository->getLikedMoviesBySubuser(($subuserId)));
             return $this->render(
                 'movies/list.html.twig', [
-                    'profiles' => $this->getOtherSubusers(),
-                    'movies' => $this->transformArrayForModal($this->movieRepository->getLikedMoviesBySubuser(($subuserId)),$subuserId),
+                    'profiles' => $this->logicHelper->getOtherSubusers($this->getUser()),
+                    'movies' => $this->logicHelper->transformArrayForModal($this->movieRepository->getLikedMoviesBySubuser(($subuserId)),$subuserId),
                     'userAvatar' => $subuser->getAvatar(),
                 ]
             );
@@ -324,16 +284,15 @@ class MoviesController extends AbstractController
             );
         }
 
-        $subuser = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
+        $subuser = $this->subuserRepository->find($this->logicHelper->getCurrentSubuserIdFromSession());
 
         if ($subuser !== null) {
             $subuserId = $subuser->getId();
             $userAvatar = $subuser->getAvatar();
-//            dump($this->movieRepository->getMoviesByCategory('Filmy'));
             return $this->render(
                 'movies/list.html.twig', [
-                    'profiles' => $this->getOtherSubusers(),
-                    'movies' => $this->transformArrayForModal($this->movieRepository->getMoviesByCategory('Filmy'),$subuserId),
+                    'profiles' => $this->logicHelper->getOtherSubusers($this->getUser()),
+                    'movies' => $this->logicHelper->transformArrayForModal($this->movieRepository->getMoviesByCategory('Filmy'),$subuserId),
                     'userAvatar' => $userAvatar,
                 ]
             );
@@ -356,7 +315,7 @@ class MoviesController extends AbstractController
             );
         }
 
-        $subuser = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
+        $subuser = $this->subuserRepository->find($this->logicHelper->getCurrentSubuserIdFromSession());
         if ($subuser !== null) {
 
             $subuserId = $subuser->getId();
@@ -364,8 +323,8 @@ class MoviesController extends AbstractController
             return $this->render(
 
                 'movies/list.html.twig', [
-                    'profiles' => $this->getOtherSubusers(),
-                    'movies' => $this->transformArrayForModal($this->movieRepository->recentlyAdd(),$subuserId),
+                    'profiles' => $this->logicHelper->getOtherSubusers($this->getUser()),
+                    'movies' => $this->logicHelper->transformArrayForModal($this->movieRepository->recentlyAdd(),$subuserId),
                     'userAvatar' => $userAvatar,
                 ]
             );
@@ -382,7 +341,7 @@ class MoviesController extends AbstractController
     public function like($id, Request $request): Response
     {
         $movie = $this->movieRepository->find($id);
-        $currentSubuser = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
+        $currentSubuser = $this->subuserRepository->find($this->logicHelper->getCurrentSubuserIdFromSession());
 
         $movie->addLikedBy($currentSubuser);
         $entityManager = $this->doctrine->getManager();
@@ -404,7 +363,7 @@ class MoviesController extends AbstractController
     public function dislike($id, Request $request): Response
     {
         $movie = $this->movieRepository->find($id);
-        $currentSubuser = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
+        $currentSubuser = $this->subuserRepository->find($this->logicHelper->getCurrentSubuserIdFromSession());
 
         $movie->removeLikedBy($currentSubuser);
         $entityManager = $this->doctrine->getManager();
@@ -444,14 +403,14 @@ class MoviesController extends AbstractController
                 ]
             );
         }
-        $subuser = $this->subuserRepository->find($this->getCurrentSubuserIdFromSession());
+        $subuser = $this->subuserRepository->find($this->logicHelper->getCurrentSubuserIdFromSession());
         if ($subuser !== null) {
             $userAvatar = $subuser->getAvatar();
             $subuserId = $subuser->getId();
             return $this->render(
                 'movies/list.html.twig', [
-                    'profiles' => $this->getOtherSubusers(),
-                    'movies' => $this->transformArrayForModal( $movieRepository->search($request->query->get('v')),$subuserId),
+                    'profiles' => $this->logicHelper->getOtherSubusers($this->getUser()),
+                    'movies' => $this->logicHelper->transformArrayForModal( $movieRepository->search($request->query->get('v')),$subuserId),
                     'userAvatar' => $userAvatar,
                 ]
             );

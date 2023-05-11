@@ -1,9 +1,14 @@
-**SYMFONY NETFLIX CLONE** (first project)
+**SYMFONY NETFLIX CLONE** 
 
 Required:
 - Docker Engine
 - docker-compose plugin
 - php 8.1
+
+**CONFIGURATION**
+1. ``sudo nano /etc/hosts/``
+2. add this address:
+``127.0.0.1       netflix.symfony``
 
 **INSTALLATION**
 
@@ -13,4 +18,8 @@ Required:
 4. ``docker compose exec -ti php bash``
 5. ``composer install``
 6. ``exit``
-7. project lives on localhost:8080, check it out in the browser.
+
+sites:
+
+- netflix.symfony:8080 -> app
+- netflix.symfony:8081 -> phpmyadmin
