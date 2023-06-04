@@ -18,8 +18,8 @@ Required:
 
 **INSTALLATION**
 
-1. clone the repository (appkey: ATBB5ya9GbUbdHr3cyhW3seVKjHy261E92C5)
-2. go to the pulled repo root ("/netflix")
+1. clone the repository
+2. go to the pulled repo root ("/NetflixSymfony")
 3. ``docker compose up -d``
 4. ``docker compose exec -ti php bash``
 5. ``composer install``
@@ -29,6 +29,3 @@ sites:
 
 - netflix.symfony:8080 -> app
 - netflix.symfony:8081 -> phpmyadmin
-
-useful:
-- set git remote link to ``https://kamilszymik:ATBB5ya9GbUbdHr3cyhW3seVKjHy261E92C5@bitbucket.org/kamilszymik/netflix.git``
