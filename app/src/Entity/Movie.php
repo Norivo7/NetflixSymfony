@@ -52,7 +52,7 @@ class Movie
     private $categories;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Subuser::class, inversedBy="likedMovies")
+     * @ORM\ManyToMany(targetEntity=Profile::class, inversedBy="likedMovies")
      */
     private $likedBy;
 

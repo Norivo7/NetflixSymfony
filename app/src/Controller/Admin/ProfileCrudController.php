@@ -2,30 +2,30 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Subuser;
-use App\Form\SubuserType;
-use App\Repository\SubuserRepository;
+use App\Entity\Profile;
+use App\Form\ProfileType;
+use App\Repository\ProfileRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/admin/subusers')]
-class SubuserCrudController extends AbstractController
+#[Route('/admin/profiles')]
+class ProfileCrudController extends AbstractController
 {
-    #[Route('/', name: 'subuser_crud_index', methods: ['GET'])]
-    public function index(SubuserRepository $subuserRepository): Response
+    #[Route('/', name: 'profile_crud_index', methods: ['GET'])]
+    public function index(ProfileRepository $profileRepository): Response
     {
-        return $this->render('admin/subuser_crud/index.html.twig', [
-            'subusers' => $subuserRepository->findAll(),
+        return $this->render('admin/profile_crud/index.html.twig', [
+            'profiles' => $profileRepository->findAll(),
         ]);
     }
 
-    #[Route('/new', name: 'subuser_crud_new', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'profile_crud_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $subuser = new Subuser();
+        $subuser = new Profile();
         $form = $this->createForm(SubuserType::class, $subuser);
         $form->handleRequest($request);
 

@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Subuser;
-use App\Repository\SubuserRepository;
+use App\Repository\ProfileRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,16 +12,16 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class SubuserController extends AbstractController
+class ProfileController extends AbstractController
 {
-    private SubuserRepository $subuserRepository;
+    private ProfileRepository $profileRepository;
     private ManagerRegistry $doctrine;
     private RequestStack $requestStack;
 
-    public function __construct(SubuserRepository $subuserRepository, ManagerRegistry $doctrine, RequestStack $requestStack)
+    public function __construct(ProfileRepository $profileRepository, ManagerRegistry $doctrine, RequestStack $requestStack)
     {
         $this->doctrine = $doctrine;
-        $this->subuserRepository = $subuserRepository;
+        $this->profileRepository = $profileRepository;
         $this->requestStack = $requestStack;
     }
 
@@ -60,9 +60,9 @@ class SubuserController extends AbstractController
         if (!empty($this->requestStack)) {
             $subuser = $this->requestStack->getSession()->get('filter');
         }
-        $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $this->getUser()));
+        $allSubusers = $this->profileRepository->findBy(array('subaccountOf' => $this->getUser()));
         $subuserId = reset($subuser);
-        $currentSubuser = $this->subuserRepository->find($subuserId);
+        $currentSubuser = $this->profileRepository->find($subuserId);
         $subuserPosition = array_keys($allSubusers, $currentSubuser);
         unset($allSubusers[reset($subuserPosition)]);
         return array_values($allSubusers);
@@ -107,7 +107,7 @@ class SubuserController extends AbstractController
         }
         return $this->render(
             'user/user.html.twig', [
-                'subUsers' => $this->subuserRepository->findBy(array('subaccountOf' => $currentUser))
+                'subUsers' => $this->profileRepository->findBy(array('subaccountOf' => $currentUser))
             ]
         );
     }
@@ -121,7 +121,7 @@ class SubuserController extends AbstractController
     {
         $currentUser = $this->getUser();
 
-        $subusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
+        $subusers = $this->profileRepository->findBy(array('subaccountOf' => $currentUser));
         $subuserCount = count($subusers);
         if ($subuserCount < 5) {
             $this->addDefaultSubuserForUser($currentUser);
@@ -154,7 +154,7 @@ class SubuserController extends AbstractController
             );
         }
 
-        $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $user));
+        $allSubusers = $this->profileRepository->findBy(array('subaccountOf' => $user));
         if (isset($subuserFrontId) && $allSubusers[$subuserFrontId] !== null) {
             $currentSubuser = $allSubusers[$subuserFrontId];
             return $this->render('user/edit.html.twig', [
@@ -181,7 +181,7 @@ class SubuserController extends AbstractController
     {
         $user = $this->getUser();
         $subuserFrontId = $request->get('id');
-        $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $user));
+        $allSubusers = $this->profileRepository->findBy(array('subaccountOf' => $user));
         $currentSubuser = $allSubusers[$subuserFrontId];
         $entityManager->remove($currentSubuser);
         $entityManager->flush();
@@ -200,7 +200,7 @@ class SubuserController extends AbstractController
         $subuserFrontId = $request->get('id');
         $subuserName = $request->get('name');
 
-        $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
+        $allSubusers = $this->profileRepository->findBy(array('subaccountOf' => $currentUser));
 
         $currentSubuser = $allSubusers[$subuserFrontId];
         if (!$currentSubuser) {
@@ -242,7 +242,7 @@ class SubuserController extends AbstractController
             );
         }
         $currentUser = $this->getUser();
-        $subusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
+        $subusers = $this->profileRepository->findBy(array('subaccountOf' => $currentUser));
         return $this->render(
             'user/manage.html.twig', [
                 'subUsers' => $subusers
@@ -260,7 +260,7 @@ class SubuserController extends AbstractController
 
         $currentUserId = $this->getUser();
         $subuserId = $request->get('id');
-        $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUserId));
+        $allSubusers = $this->profileRepository->findBy(array('subaccountOf' => $currentUserId));
         $currentSubuserId = $allSubusers[$subuserId]->getId();
 
 
@@ -279,15 +279,13 @@ class SubuserController extends AbstractController
      */
     public function changeProfileAction(Request $request): Response
     {
-        $subuserId = $request->get('id');
-        $allSubusers = $this->getOtherSubusers();
-        $currentSubuserId = $allSubusers[$subuserId]->getId();
+        $profileIndex = $request->get('index');
+        $otherProfiles = $this->getOtherSubusers();
+        $currentProfileIndex = $otherProfiles[$profileIndex]->getId();
         $this->requestStack->getSession()->set('filter', array(
-            'subuserId' => $currentSubuserId
+            'profileIndex' => $currentProfileIndex
         ));
-
         $route = $request->headers->get('referer');
         return $this->redirect($route);
-
     }
 }

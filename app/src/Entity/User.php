@@ -51,9 +51,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $isVerified = false;
 
     /**
-     * @ORM\OneToMany(targetEntity=Subuser::class, mappedBy="subaccountOf", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Profile::class, mappedBy="subaccountOf", orphanRemoval=true)
      */
-    private $subusers;
+    private $profiles;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -62,7 +62,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function __construct()
     {
-        $this->subusers = new ArrayCollection();
+        $this->profiles = new ArrayCollection();
     }
 
 
@@ -167,29 +167,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection|Subuser[]
+     * @return Collection
      */
-    public function getSubusers(): Collection
+    public function getProfiles(): Collection
     {
-        return $this->subusers;
+        return $this->profiles;
     }
 
-    public function addSubuser(Subuser $subuser): self
+    public function addProfile(Profile $profile): self
     {
-        if (!$this->subusers->contains($subuser)) {
-            $this->subusers[] = $subuser;
-            $subuser->setSubaccountOf($this);
+        if (!$this->profiles->contains($profile)) {
+            $this->profiles[] = $profile;
+            $profile->setSubaccountOf($this);
         }
 
         return $this;
     }
 
-    public function removeSubuser(Subuser $subuser): self
+    public function removeProfile(Profile $profile): self
     {
-        if ($this->subusers->removeElement($subuser)) {
+        if ($this->profiles->removeElement($profile)) {
             // set the owning side to null (unless already changed)
-            if ($subuser->getSubaccountOf() === $this) {
-                $subuser->setSubaccountOf(null);
+            if ($profile->getSubaccountOf() === $this) {
+                $profile->setSubaccountOf(null);
             }
         }
 

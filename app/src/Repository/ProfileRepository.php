@@ -2,32 +2,32 @@
 
 namespace App\Repository;
 
-use App\Entity\Subuser;
+use App\Entity\Profile;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Subuser|null find($id, $lockMode = null, $lockVersion = null)
- * @method Subuser|null findOneBy(array $criteria, array $orderBy = null)
- * @method Subuser[]    findAll()
- * @method Subuser[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Profile|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Profile|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Profile[]    findAll()
+ * @method Profile[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class SubuserRepository extends ServiceEntityRepository
+class ProfileRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Subuser::class);
+        parent::__construct($registry, Profile::class);
     }
 
     /**
      * @param $movieId
-     * @return Subuser[]
+     * @return Profile[]
      */
-    public function getSubusersByLikedMovie($movieId): array
+    public function getProfilesByLikedMovie($movieId): array
     {
-        return $this->createQueryBuilder('subusers')
-            ->select('subusers', 'movie')
-            ->leftJoin('subusers.likedMovies', 'movie')
+        return $this->createQueryBuilder('Profiles')
+            ->select('Profiles', 'movie')
+            ->leftJoin('Profiles.likedMovies', 'movie')
             ->where('movie.id = :movieId')
             ->setParameter('movieId', $movieId)
             ->getQuery()
@@ -37,16 +37,16 @@ class SubuserRepository extends ServiceEntityRepository
 
 
 
-    public function findSubuserById($id)
+    public function findProfileById($id)
     {
-        return $this->createQueryBuilder('subuser')
-            ->andWhere('subuser.id LIKE :val')
+        return $this->createQueryBuilder('Profile')
+            ->andWhere('Profile.id LIKE :val')
             ->setParameter('val', $id)
             ->getQuery()
             ->getResult();
     }
 
-    //  * @return Subuser[] Returns an array of Subuser objects
+    //  * @return Profile[] Returns an array of Profile objects
     //  */
     /*
     public function findByExampleField($value)
@@ -62,7 +62,7 @@ class SubuserRepository extends ServiceEntityRepository
     }
     */
     /*
-    public function findOneBySomeField($value): ?Subuser
+    public function findOneBySomeField($value): ?Profile
     {
         return $this->createQueryBuilder('s')
             ->andWhere('s.exampleField = :val')

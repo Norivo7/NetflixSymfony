@@ -2,16 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\SubuserRepository;
+use App\Repository\ProfileRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 
 /**
- * @ORM\Entity(repositoryClass=SubuserRepository::class)
+ * @ORM\Entity(repositoryClass=ProfileRepository::class)
  */
-class Subuser
+class Profile
 {
     /**
      * for CRUD
@@ -34,7 +34,7 @@ class Subuser
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="subusers")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="profiles")
      * @ORM\JoinColumn(nullable=false)
      */
     private $subaccountOf;

@@ -80,9 +80,10 @@
             <a class="right dropbtn" href="{{ path('profile') }}">
                 <img class="userAvatar" src="{{ userAvatar }}" alt="avatar">
                 <div class="dropdown-content">
-                    {% set profile_id = 0 %}
+                    {% set profile_index = 0 %}
 
                     {% for profile in profiles %}
+                        <a href="{{ path('changeProfile', {'index': profile_index }) }}">konto nr {{ profile_index }}</a>
                         <form id="changeProfile" method="POST">
                             <div class="dropdown-profile">
                                 <a class="profile_wrapper">
@@ -91,7 +92,7 @@
                                             id="text"
                                             type="hidden"
                                             name="id"
-                                            value="{{ profile_id }}"
+                                            value="{{ profile_index }}"
                                     >
                                     <input
                                             class="form-control"
@@ -105,7 +106,7 @@
                                 </a>
                             </div>
                         </form>
-                        {% set profile_id = profile_id + 1 %}
+                        {% set profile_index = profile_index + 1 %}
                     {% endfor %}
                     <a href="{{ path('manageUser') }}"> &#xF4CB; Zarządzaj profilami</a>
                     <hr>

@@ -2,21 +2,21 @@
 
 namespace App\Helpers;
 
-use App\Repository\SubuserRepository;
+use App\Repository\ProfileRepository;
 use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class LogicHelper
 {
-    private SubuserRepository $subuserRepository;
+    private ProfileRepository $subuserRepository;
     private RequestStack $requestStack;
     private UserRepository $userRepository;
 
     public function __construct
     (
-        SubuserRepository $subuserRepository,
-        RequestStack $requestStack,
-        UserRepository $userRepository
+        ProfileRepository $subuserRepository,
+        RequestStack      $requestStack,
+        UserRepository    $userRepository
     )
     {
         $this->subuserRepository = $subuserRepository;
@@ -47,8 +47,7 @@ class LogicHelper
         return array_values($allSubusers);
     }
 
-    //                  TRANSFORMING ARRAYS ( MY HEAD HURTS )
-    //                               FOR LOOP
+    //                  TRANSFORMING ARRAYS
     // for every movie element in movies, check if current subuser liked the movie, then
     // transform movies -> add isLiked value to the array, push "true" or "false" accordingly
     // mandatory for my modal rendering
