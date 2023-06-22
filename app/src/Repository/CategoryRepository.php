@@ -15,6 +15,7 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class CategoryRepository extends ServiceEntityRepository
 {
+    // TODO: remove unused, optimize queries for all repos
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Category::class);

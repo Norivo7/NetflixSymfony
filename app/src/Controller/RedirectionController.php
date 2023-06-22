@@ -17,6 +17,7 @@ class RedirectionController
         $this->request= $request;
     }
 
+//    TODO: separate redirection func to this
     public function handleRegisterRedirect()
     {
         if ($this->request->getMethod() === 'POST' && $this->request->getCurrentRequest()->get('email') !== null) {

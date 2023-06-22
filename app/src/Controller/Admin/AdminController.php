@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminController extends AbstractController
 {
-
+//TODO: find better name, interface cruds in this folder
 
     /**
      * @Route("/admin", name="admin_panel")

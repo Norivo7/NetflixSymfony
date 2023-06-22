@@ -44,7 +44,7 @@ class MoviesController extends AbstractController
         $this->userRepository = $userRepository;
         $this->redirectionController = $redirectionController;
     }
-
+// TODO: debloat MoviesController
     /**
      * @Route("/", name="home")
      */
@@ -57,6 +57,7 @@ class MoviesController extends AbstractController
             ]);
 
         }
+
         $dropdownTitles = array(
             "Czym jest Netflix?",
             "Ile kosztuje korzystanie z serwisu Netflix?",

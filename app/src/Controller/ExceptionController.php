@@ -9,6 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ExceptionController extends AbstractController
 {
+//    TODO: separate all exception handling to this
     /**
      * @Route("/error", name="error")
      * @param Request $request
