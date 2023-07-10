@@ -1,5 +1,6 @@
 **SYMFONY NETFLIX CLONE** 
 
+**project is undergoing serious namespace changes, for now its not available**
 
 This project was my first attempt at creating a big website on Symfony framework.
 As I was in process of learning programming at it's core during it's development - 
@@ -51,6 +52,7 @@ Go to the root directory of the project "/NetflixSymfony", then:
 
 ```bin/console doctrine:migrations:migrate```
 3. last but not least:
+
 
 ``` bin/console doctrine:fixtures:load```
 write "yes" and then enter.
