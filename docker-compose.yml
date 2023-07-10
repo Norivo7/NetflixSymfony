@@ -4,13 +4,16 @@ services:
   database:
     image: mysql:8.0
     command: --default-authentication-plugin=mysql_native_password
+    restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: symfony_docker
       MYSQL_USER: symfony
       MYSQL_PASSWORD: symfony
+      MYSQL_ROOT_PASSWORD: secret
     ports:
-      - '4306:3306'
+      - '3306:3306'
+    expose:
+      - '3306'
     volumes:
       - ./mysql:/var/lib/mysql
       
@@ -29,7 +32,6 @@ services:
       - "8081:80"
     depends_on:
         - database
-    
 
   php:
     build:
@@ -54,3 +56,7 @@ services:
     depends_on:
       - php
       - database
+
+volumes:
+  symfony_docker:
+    driver: local
