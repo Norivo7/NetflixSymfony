@@ -1,6 +1,5 @@
 **SYMFONY NETFLIX CLONE** 
 
-**UNUSABLE FOR NOW, RESOLVING CONFIG PROBLEMS**
 
 This project was my first attempt at creating a big website on Symfony framework.
 As I was in process of learning programming at it's core during it's development - 
@@ -35,6 +34,31 @@ Required:
 4. ``docker compose exec -ti php bash``
 5. ``composer install``
 6. ``exit``
+
+**How to start the project**
+
+Go to the root directory of the project "/NetflixSymfony", then:
+
+```docker-compose up -d```  to start
+
+```docker-compose stop```  to stop
+
+**Credentials for logging in**
+
+as **Admin:**
+
+login: admin@gmail.com
+
+password: admin
+
+as **User:**
+
+login: user@gmail.com   
+password: user
+
+
+
+
 
 sites:
 
