@@ -1,13 +1,15 @@
-**SYMFONY NETFLIX CLONE** 
+## **SYMFONY NETFLIX CLONE** 
+
 
 ##### Table of Contents
 [Intro](#intro)  
-[Emphasis](#emphasis)  
+[TODO (upcoming improvements)](#TODO (upcoming improvements):)  
 ...snip... 
 
 
 
 ## Intro
+## TODO (upcoming improvements)
 
 **project is undergoing serious namespace changes, for now its not available**
 
