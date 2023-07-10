@@ -1,5 +1,14 @@
 **SYMFONY NETFLIX CLONE** 
 
+##### Table of Contents
+[Intro](#intro)  
+[Emphasis](#emphasis)  
+...snip... 
+
+
+
+## Intro
+
 **project is undergoing serious namespace changes, for now its not available**
 
 This project was my first attempt at creating a big website on Symfony framework.
