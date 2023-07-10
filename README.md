@@ -43,7 +43,19 @@ Go to the root directory of the project "/NetflixSymfony", then:
 
 ```docker-compose stop```  to stop
 
-**Credentials for logging in**
+**POST INSTALLATION STEPS**
+1. get into php container:
+
+```docker-compose exec php bash```
+2. then execute:
+
+```bin/console doctrine:migrations:migrate```
+3. last but not least:
+
+``` bin/console doctrine:fixtures:load```
+write "yes" and then enter.
+
+**Credentials for login**
 
 as **Admin:**
 
