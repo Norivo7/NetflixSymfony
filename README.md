@@ -1,15 +1,15 @@
 ## **SYMFONY NETFLIX CLONE** 
 
-
 ##### Table of Contents
-[Intro](#intro)  
-[TODO (upcoming improvements)](#TODO (upcoming improvements):)  
-...snip... 
+1. [Introduction](#introduction)  
+2. [TODO (upcoming improvements)](#TODO)  
+3. [Requirements](#Requirements)
+4. [Installation](#Installation)
+5. [Configuration](#Configuration)
+6. [How-to](#How-to)
+7. [Post-Installation](#Post-Installation)
 
-
-
-## Intro
-## TODO (upcoming improvements)
+## Introduction
 
 **project is undergoing serious namespace changes, for now its not available**
 
@@ -19,7 +19,7 @@ it doesn't contain best practices and knowledge I have learned during my followi
 as a Web Developer. 
 Treat it as an MVP of sorts. Until more changes are done, I'll consider it WIP.
 
-**TODO (upcoming improvements):**
+### TODO
 1. Standardizing the code - more faithful entity names, PSR, SOLID
 2. Optimization ( right now controllers and templates are blotted, modal mechanism is unoptimized as can be)
 3. Rewriting controllers, including redirect mechanisms, error handling, etc.
@@ -28,17 +28,12 @@ Treat it as an MVP of sorts. Until more changes are done, I'll consider it WIP.
 6. re-implementing movie modals (perhaps by request to the data server, paired with ajax)
 7. Content wrappers, Presenters (design patterns)
 
-Required:
+### Requirements
 - Docker Engine
 - docker-compose plugin
 - php 8.1
 
-**CONFIGURATION**
-1. ``sudo nano /etc/hosts/``
-2. add this address:
-``127.0.0.1       netflix.symfony``
-
-**INSTALLATION**
+### Installation
 
 1. clone the repository
 2. go to the pulled repo root ("/NetflixSymfony")
@@ -47,15 +42,21 @@ Required:
 5. ``composer install``
 6. ``exit``
 
-**How to start the project**
+### Configuration
+1. ``sudo nano /etc/hosts/``
+2. add this address:
+   ``127.0.0.1       netflix.symfony``
 
-Go to the root directory of the project "/NetflixSymfony", then:
+
+### How-to
+In order to start up the project, 
+go to the root directory of the project "/NetflixSymfony", then:
 
 ```docker-compose up -d```  to start
 
 ```docker-compose stop```  to stop
 
-**POST INSTALLATION STEPS**
+### Post-Installation
 
 1. get into php container:
 
@@ -84,10 +85,6 @@ as **User:**
 
 login: user@gmail.com   
 password: user
-
-
-
-
 
 sites:
 
