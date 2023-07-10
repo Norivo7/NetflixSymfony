@@ -11,7 +11,7 @@
 
 ## Introduction
 
-**project is undergoing serious namespace changes, for now its not available**
+**project is undergoing serious namespace changes, for now it's not available**
 
 This project was my first attempt at creating a big website on Symfony framework.
 As I was in process of learning programming at it's core during it's development - 
