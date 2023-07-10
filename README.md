@@ -66,6 +66,8 @@ go to the root directory of the project "/NetflixSymfony", then:
 
 ```bin/console doctrine:migrations:migrate```
 
+type "yes" then press enter.
+
 3. last but not least:
 
 
