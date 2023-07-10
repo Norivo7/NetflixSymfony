@@ -1,5 +1,7 @@
 **SYMFONY NETFLIX CLONE** 
 
+**UNUSABLE FOR NOW, RESOLVING CONFIG PROBLEMS**
+
 This project was my first attempt at creating a big website on Symfony framework.
 As I was in process of learning programming at it's core during it's development - 
 it doesn't contain best practices and knowledge I have learned during my following 1-year experience
