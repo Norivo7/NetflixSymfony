@@ -1,4 +1,5 @@
-## **SYMFONY NETFLIX CLONE** 
+## **SYMFONY NETFLIX CLONE**
+**by norivo7**
 
 ##### Table of Contents
 1. [Introduction](#introduction)  
