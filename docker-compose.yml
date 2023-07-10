@@ -1,8 +1,7 @@
-version: '3.8'
+version: '3.4'
 
 services:
   database:
-    container_name: database
     image: mysql:8.0
     command: --default-authentication-plugin=mysql_native_password
     environment:
@@ -17,7 +16,6 @@ services:
       
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: pma
     links:
       - database
     environment:
@@ -34,7 +32,6 @@ services:
     
 
   php:
-    container_name: php
     build:
       context: ./php
     ports:
@@ -45,13 +42,12 @@ services:
       - database
 
   nginx:
-    container_name: nginx
     image: nginx:stable-alpine
     ports:
       - '8080:80'
     environment:
-      - NGINX_HOST = netflix.symfony
-      - NGINX_PORT = 80
+      - NGINX_HOST=netflix.symfony
+      - NGINX_PORT=80
     volumes:
       - ./app:/var/www/symfony_docker
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
