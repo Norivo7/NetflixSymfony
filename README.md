@@ -38,10 +38,11 @@ Treat it as an MVP of sorts. Until more changes are done, I'll consider it WIP.
 
 1. clone the repository
 2. go to the pulled repo root ("/NetflixSymfony")
-3. ``docker compose up -d``
-4. ``docker compose exec -ti php bash``
-5. ``composer install``
-6. ``exit``
+4. ``docker-compose build``
+4. ``docker-compose up -d``
+5. ``docker-compose exec php bash``
+6. ``composer install``
+7. ``exit``
 
 ### Configuration
 1. ``sudo nano /etc/hosts/``
@@ -70,7 +71,6 @@ go to the root directory of the project "/NetflixSymfony", then:
 type "yes" then press enter.
 
 3. last but not least:
-
 
 ```bin/console doctrine:fixtures:load```
 
