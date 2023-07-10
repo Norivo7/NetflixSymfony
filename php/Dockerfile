@@ -13,7 +13,7 @@ RUN npm install npm@latest -g && \
     n latest
 
 
-WORKDIR /var/www/NetflixSymfony
+WORKDIR /var/www/symfony_docker
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
