@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Profile;
-use App\Form\SubuserType;
+use App\Form\ProfileType;
 use App\Repository\ProfileRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,57 +25,57 @@ class ProfileCrudController extends AbstractController
     #[Route('/new', name: 'profile_crud_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $subuser = new Profile();
-        $form = $this->createForm(SubuserType::class, $subuser);
+        $profile = new Profile();
+        $form = $this->createForm(ProfileType::class, $profile);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($subuser);
+            $entityManager->persist($profile);
             $entityManager->flush();
 
-            return $this->redirectToRoute('subuser_crud_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('profile_crud_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/profile_crud/new.html.twig', [
-            'subuser' => $subuser,
+            'profile' => $profile,
             'form' => $form,
         ]);
     }
 
-    #[Route('/{id}', name: 'subuser_crud_show', methods: ['GET'])]
-    public function show(Subuser $subuser): Response
+    #[Route('/{id}', name: 'profile_crud_show', methods: ['GET'])]
+    public function show(Profile $profile): Response
     {
         return $this->render('admin/profile_crud/show.html.twig', [
-            'subuser' => $subuser,
+            'profile' => $profile,
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'subuser_crud_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Subuser $subuser, EntityManagerInterface $entityManager): Response
+    #[Route('/{id}/edit', name: 'profile_crud_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request, Profile $profile, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(SubuserType::class, $subuser);
+        $form = $this->createForm(ProfileType::class, $profile);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('subuser_crud_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('profile_crud_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/profile_crud/edit.html.twig', [
-            'subuser' => $subuser,
+            'profile' => $profile,
             'form' => $form,
         ]);
     }
 
-    #[Route('/{id}', name: 'subuser_crud_delete', methods: ['POST'])]
-    public function delete(Request $request, Subuser $subuser, EntityManagerInterface $entityManager): Response
+    #[Route('/{id}', name: 'profile_crud_delete', methods: ['POST'])]
+    public function delete(Request $request, Profile $profile, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $subuser->getId(), $request->request->get('_token'))) {
-            $entityManager->remove($subuser);
+        if ($this->isCsrfTokenValid('delete' . $profile->getId(), $request->request->get('_token'))) {
+            $entityManager->remove($profile);
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('subuser_crud_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('profile_crud_index', [], Response::HTTP_SEE_OTHER);
     }
 }
