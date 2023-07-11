@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Subuser;
+use App\Entity\Profile;
 use App\Repository\ProfileRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
@@ -55,17 +55,17 @@ class ProfileController extends AbstractController
 
 
 
-    private function getOtherSubusers(): array
+    private function getOtherProfiles(): array
     {
         if (!empty($this->requestStack)) {
-            $subuser = $this->requestStack->getSession()->get('filter');
+            $profile = $this->requestStack->getSession()->get('filter');
         }
-        $allSubusers = $this->profileRepository->findBy(array('subaccountOf' => $this->getUser()));
-        $subuserId = reset($subuser);
-        $currentSubuser = $this->profileRepository->find($subuserId);
-        $subuserPosition = array_keys($allSubusers, $currentSubuser);
-        unset($allSubusers[reset($subuserPosition)]);
-        return array_values($allSubusers);
+        $allProfiles = $this->profileRepository->findBy(array('subaccountOf' => $this->getUser()));
+        $profileID = reset($profile);
+        $currentProfile = $this->profileRepository->find($profileID);
+        $profilePosition = array_keys($allProfiles, $currentProfile);
+        unset($allProfiles[reset($profilePosition)]);
+        return array_values($allProfiles);
     }
 
     private function getRandomAvatarUrl(): string
@@ -78,14 +78,15 @@ class ProfileController extends AbstractController
     }
 
 
-    private function addDefaultSubuserForUser($currentUser) {
+    private function addDefaultProfileForUser($currentUser): void
+    {
 
-        $subuser = new Subuser();
-        $subuser->setName('Nowy');
-        $subuser->setAvatar($this->getRandomAvatarUrl());
-        $subuser->setSubaccountOf($currentUser);
+        $profile = new Profile();
+        $profile->setName('Nowy');
+        $profile->setAvatar($this->getRandomAvatarUrl());
+        $profile->setSubaccountOf($currentUser);
         $entityManager = $this->doctrine->getManager();
-        $entityManager->persist($subuser);
+        $entityManager->persist($profile);
         $entityManager->flush();
     }
 
@@ -114,17 +115,17 @@ class ProfileController extends AbstractController
 
 
     /**
-     * @Route ("manageUser/add", name="add_subuser")
+     * @Route ("manageUser/add", name="add_profile")
      * @return Response
      */
-    public function addSubuser(): Response
+    public function addProfile(): Response
     {
         $currentUser = $this->getUser();
 
-        $subusers = $this->profileRepository->findBy(array('subaccountOf' => $currentUser));
-        $subuserCount = count($subusers);
-        if ($subuserCount < 5) {
-            $this->addDefaultSubuserForUser($currentUser);
+        $profiles = $this->profileRepository->findBy(array('subaccountOf' => $currentUser));
+        $profileCount = count($profiles);
+        if ($profileCount < 5) {
+            $this->addDefaultProfileForUser($currentUser);
             return $this->redirectToRoute('manageUser');
         } else {
             return $this->redirectToRoute('error', [
@@ -140,26 +141,26 @@ class ProfileController extends AbstractController
      */
     public function edit(Request $request): Response
     {
-        $subuserFrontId = $request->get('id');
+        $profileFrontId = $request->get('id');
         $errorRegex = "Profil musi mieć od 3 do 15 liter, żadnych znaków specjalnych i cyfr.";
         $user = $this->getUser();
 
         if ($request->getMethod() === 'POST') {
             $name = $request->request->get('name');
             return $this->redirectToRoute('update', [
-                    'id' => $subuserFrontId,
+                    'id' => $profileFrontId,
                     'name' => $name,
 
                 ]
             );
         }
 
-        $allSubusers = $this->profileRepository->findBy(array('subaccountOf' => $user));
-        if (isset($subuserFrontId) && $allSubusers[$subuserFrontId] !== null) {
-            $currentSubuser = $allSubusers[$subuserFrontId];
+        $allProfiles = $this->profileRepository->findBy(array('subaccountOf' => $user));
+        if (isset($profileFrontId) && $allProfiles[$profileFrontId] !== null) {
+            $currentProfile = $allProfiles[$profileFrontId];
             return $this->render('user/edit.html.twig', [
-                'subuser' => $currentSubuser,
-                'id' => $subuserFrontId,
+                'profile' => $currentProfile,
+                'id' => $profileFrontId,
 //                'errorRegex' => $errorRegex
             ]);
         } else {
@@ -172,7 +173,7 @@ class ProfileController extends AbstractController
     }
 
     /**
-     * @Route ("/manageUser/delete/{id}", name="deleteSubuser")
+     * @Route ("/manageUser/delete/{id}", name="deleteProfile")
      * @param Request $request
      * @param EntityManagerInterface $entityManager
      * @return Response
@@ -180,10 +181,10 @@ class ProfileController extends AbstractController
     public function delete(Request $request, EntityManagerInterface $entityManager): Response
     {
         $user = $this->getUser();
-        $subuserFrontId = $request->get('id');
-        $allSubusers = $this->profileRepository->findBy(array('subaccountOf' => $user));
-        $currentSubuser = $allSubusers[$subuserFrontId];
-        $entityManager->remove($currentSubuser);
+        $profileFrontId = $request->get('id');
+        $allProfiles = $this->profileRepository->findBy(array('subaccountOf' => $user));
+        $currentProfile = $allProfiles[$profileFrontId];
+        $entityManager->remove($currentProfile);
         $entityManager->flush();
         return $this->redirectToRoute('manageUser');
     }
@@ -197,30 +198,30 @@ class ProfileController extends AbstractController
     public function update(Request $request, EntityManagerInterface $entityManager): Response
     {
         $currentUser = $this->getUser();
-        $subuserFrontId = $request->get('id');
-        $subuserName = $request->get('name');
+        $profileFrontId = $request->get('id');
+        $profileName = $request->get('name');
 
-        $allSubusers = $this->profileRepository->findBy(array('subaccountOf' => $currentUser));
+        $allProfiles = $this->profileRepository->findBy(array('subaccountOf' => $currentUser));
 
-        $currentSubuser = $allSubusers[$subuserFrontId];
-        if (!$currentSubuser) {
+        $currentProfile = $allProfiles[$profileFrontId];
+        if (!$currentProfile) {
             return $this->redirectToRoute('error', [
                 'error' => '404: Nie znaleziono profilu.'
             ]);
         } else {
             $regex = "([a-zA-Z]{3,15}\s*)";
-            if (preg_match($regex, $subuserName)) {
-                $currentSubuser->setName($subuserName);
-                $entityManager->persist($currentSubuser);
+            if (preg_match($regex, $profileName)) {
+                $currentProfile->setName($profileName);
+                $entityManager->persist($currentProfile);
                 $entityManager->flush();
                 return $this->redirectToRoute('manageUser', [
-                    'id' => $subuserFrontId,
-                    'subuser' => $currentSubuser
+                    'id' => $profileFrontId,
+                    'profile' => $currentProfile
                 ]);
             }
             $errorRegex = "Profil musi mieć od 3 do 15 liter, żadnych znaków specjalnych i cyfr.";
             return $this->redirectToRoute('edit', [
-                    'id' => $subuserFrontId,
+                    'id' => $profileFrontId,
 
                 ]);
         }
@@ -242,10 +243,10 @@ class ProfileController extends AbstractController
             );
         }
         $currentUser = $this->getUser();
-        $subusers = $this->profileRepository->findBy(array('subaccountOf' => $currentUser));
+        $profiles = $this->profileRepository->findBy(array('subaccountOf' => $currentUser));
         return $this->render(
             'user/manage.html.twig', [
-                'subUsers' => $subusers
+                'subUsers' => $profiles
             ]
         );
     }
@@ -259,13 +260,13 @@ class ProfileController extends AbstractController
     {
 
         $currentUserId = $this->getUser();
-        $subuserId = $request->get('id');
-        $allSubusers = $this->profileRepository->findBy(array('subaccountOf' => $currentUserId));
-        $currentSubuserId = $allSubusers[$subuserId]->getId();
+        $profileId = $request->get('id');
+        $allProfiles = $this->profileRepository->findBy(array('subaccountOf' => $currentUserId));
+        $currentProfileId = $allProfiles[$profileId]->getId();
 
 
         $this->requestStack->getSession()->set('filter', array(
-            'subuserId' => $currentSubuserId
+            'profileId' => $currentProfileId
         ));
 
         return $this->redirectToRoute('browse', [
@@ -280,7 +281,7 @@ class ProfileController extends AbstractController
     public function changeProfileAction(Request $request): Response
     {
         $profileIndex = $request->get('index');
-        $otherProfiles = $this->getOtherSubusers();
+        $otherProfiles = $this->getOtherProfiles();
         $currentProfileIndex = $otherProfiles[$profileIndex]->getId();
         $this->requestStack->getSession()->set('filter', array(
             'profileIndex' => $currentProfileIndex

@@ -26,6 +26,9 @@ Treat it as an MVP of sorts. Until more changes are done, I'll consider it WIP.
 5. implementing some kind of data server -> right now, the database is constructed 'on the go' which is obviously a mistake.
 6. re-implementing movie modals (perhaps by request to the data server, paired with ajax)
 7. Content wrappers, Presenters (design patterns)
+8. Implementing dynamic theme and language change.
+9. onboarding.
+10. 
 
 ### Requirements
 - Docker Engine

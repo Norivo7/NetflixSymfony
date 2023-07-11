@@ -169,14 +169,14 @@ class Movie
 
 
     /**
-     * @return Collection<int, Subuser>
+     * @return Collection<int, Profile>
      */
     public function getLikedBy(): Collection
     {
         return $this->likedBy;
     }
 
-    public function addLikedBy(Subuser $likedBy): self
+    public function addLikedBy(Profile $likedBy): self
     {
         if (!$this->likedBy->contains($likedBy)) {
             $this->likedBy[] = $likedBy;
@@ -185,7 +185,7 @@ class Movie
         return $this;
     }
 
-    public function removeLikedBy(Subuser $likedBy): self
+    public function removeLikedBy(Profile $likedBy): self
     {
         $this->likedBy->removeElement($likedBy);
 

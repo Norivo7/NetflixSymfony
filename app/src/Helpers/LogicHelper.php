@@ -8,18 +8,18 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class LogicHelper
 {
-    private ProfileRepository $subuserRepository;
+    private ProfileRepository $profileRepository;
     private RequestStack $requestStack;
     private UserRepository $userRepository;
 
     public function __construct
     (
-        ProfileRepository $subuserRepository,
+        ProfileRepository $profileRepository,
         RequestStack      $requestStack,
         UserRepository    $userRepository
     )
     {
-        $this->subuserRepository = $subuserRepository;
+        $this->profileRepository = $profileRepository;
         $this->requestStack = $requestStack;
         $this->userRepository = $userRepository;
     }
@@ -29,26 +29,26 @@ class LogicHelper
         return in_array($movieId, array_column($liked, 'id'));
     }
 
-    public function getCurrentSubuserIdFromSession()
+    public function getCurrentProfileIdFromSession()
     {
-        $subuser = $this->requestStack->getSession()->get('filter');
-        if ($subuser !== null) return reset($subuser);
+        $profile = $this->requestStack->getSession()->get('filter');
+        if ($profile !== null) return reset($profile);
         return 'subUser not found';
     }
 
-    public function getOtherSubusers($currentUser): array
+    public function getOtherProfiles($currentUser): array
     {
-        $subuser = $this->requestStack->getSession()->get('filter');
-        $allSubusers = $this->subuserRepository->findBy(array('subaccountOf' => $currentUser));
-        $subuserId = reset($subuser);
-        $currentSubuser = $this->subuserRepository->find($subuserId);
-        $subuserPosition = array_keys($allSubusers, $currentSubuser);
-        unset($allSubusers[reset($subuserPosition)]);
-        return array_values($allSubusers);
+        $profile = $this->requestStack->getSession()->get('filter');
+        $allProfiles = $this->profileRepository->findBy(array('subaccountOf' => $currentUser));
+        $profileId = reset($profile);
+        $currentProfile = $this->profileRepository->find($profileId);
+        $profilePosition = array_keys($allProfiles, $currentProfile);
+        unset($allProfiles[reset($profilePosition)]);
+        return array_values($allProfiles);
     }
 
     //                  TRANSFORMING ARRAYS
-    // for every movie element in movies, check if current subuser liked the movie, then
+    // for every movie element in movies, check if current profile liked the movie, then
     // transform movies -> add isLiked value to the array, push "true" or "false" accordingly
     // mandatory for my modal rendering
 

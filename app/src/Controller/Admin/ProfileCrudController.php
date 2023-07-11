@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Profile;
-use App\Form\ProfileType;
+use App\Form\SubuserType;
 use App\Repository\ProfileRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

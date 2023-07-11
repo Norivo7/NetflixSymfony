@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Subuser;
+use App\Entity\Profile;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Security\EmailVerifier;
@@ -41,7 +41,7 @@ class RegistrationController extends AbstractController
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, LoginFormAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
     {
         $user = new User();
-        $subuser = new Subuser();
+        $profile = new Profile();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
