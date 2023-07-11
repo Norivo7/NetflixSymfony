@@ -58,10 +58,10 @@ class RegistrationController extends AbstractController
                 )
             );
             $user->setRoles(["ROLE_USER"]);
-            $subuser->setSubaccountOf($user);
-            $subuser->setAvatar($this->getRandomAvatarUrl());
-            $subuser->setName("Domyślny");
-            $entityManager->persist($subuser);
+            $profile->setSubaccountOf($user);
+            $profile->setAvatar($this->getRandomAvatarUrl());
+            $profile->setName("Domyślny");
+            $entityManager->persist($profile);
             $entityManager->persist($user);
             $entityManager->flush();
 
