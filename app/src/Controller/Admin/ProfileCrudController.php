@@ -36,7 +36,7 @@ class ProfileCrudController extends AbstractController
             return $this->redirectToRoute('subuser_crud_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('admin/subuser_crud/new.html.twig', [
+        return $this->renderForm('admin/profile_crud/new.html.twig', [
             'subuser' => $subuser,
             'form' => $form,
         ]);
@@ -45,7 +45,7 @@ class ProfileCrudController extends AbstractController
     #[Route('/{id}', name: 'subuser_crud_show', methods: ['GET'])]
     public function show(Subuser $subuser): Response
     {
-        return $this->render('admin/subuser_crud/show.html.twig', [
+        return $this->render('admin/profile_crud/show.html.twig', [
             'subuser' => $subuser,
         ]);
     }
@@ -62,7 +62,7 @@ class ProfileCrudController extends AbstractController
             return $this->redirectToRoute('subuser_crud_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('admin/subuser_crud/edit.html.twig', [
+        return $this->renderForm('admin/profile_crud/edit.html.twig', [
             'subuser' => $subuser,
             'form' => $form,
         ]);

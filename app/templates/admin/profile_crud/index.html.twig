@@ -33,16 +33,16 @@
         </tr>
         </thead>
         <tbody class="tbody">
-        {% for subuser in subusers %}
+        {% for profile in profiles %}
             <tr>
-                <td>{{ subuser.id }}</td>
-                <td>{{ subuser.name }}</td>
-                <td><img src="{{ subuser.avatar }}" style="width: 70px"></td>
-                <td>{{ subuser.subaccountOf }}</td>
+                <td>{{ profile.id }}</td>
+                <td>{{ profile.name }}</td>
+                <td><img src="{{ profile.avatar }}" style="width: 70px"></td>
+                <td>{{ profile.subaccountOf }}</td>
                 <td>
                     <div class="btnWrapper">
-                    <a class="profileButton" href="{{ path('subuser_crud_show', {'id': subuser.id}) }}">Wyświetl</a>
-                    <a class="profileButton" href="{{ path('subuser_crud_edit', {'id': subuser.id}) }}">Edytuj</a>
+                    <a class="profileButton" href="{{ path('profile_crud_show', {'id': profile.id}) }}">Wyświetl</a>
+                    <a class="profileButton" href="{{ path('profile_crud_edit', {'id': profile.id}) }}">Edytuj</a>
                     </div>
                 </td>
             </tr>
@@ -53,6 +53,6 @@
         {% endfor %}
         </tbody>
     </table>
-    <a class="profileButton" href="{{ path('subuser_crud_new') }}">Dodaj</a>
+    <a class="profileButton" href="{{ path('profile_crud_new') }}">Dodaj</a>
     <a class="profileButton" href="{{ path('admin_panel') }}">Wróć</a>
 {% endblock %}

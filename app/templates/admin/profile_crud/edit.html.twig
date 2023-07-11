@@ -1,0 +1,16 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Edytuj profil{% endblock %}
+
+{% block navigation %}{% endblock %}
+
+{% block content %}
+
+    <h2>Edytuj profil</h2>
+    {{ include('admin/profile_crud/_form.html.twig', {'button_label': 'Zaktualizuj'}) }}
+
+    <a class="profileButton" href="{{ path('profile_crud_index') }}">Wróć</a>
+
+    {{ include('admin/profile_crud/_delete_form.html.twig') }}
+
+{% endblock %}
