@@ -21,23 +21,23 @@ class MovieRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param $subuserId
+     * @param $profileId
      * @return Movie[]
      */
-    public function getLikedMoviesBySubuser($subuserId): array
+    public function getLikedMoviesByProfile($profileId): array
     {
         return $this->createQueryBuilder('movie')
             ->select('movie')
             ->addSelect('categories')
-            ->addSelect('subuser')
+            ->addSelect('profile')
             ->addSelect('episodes')
             ->leftJoin('movie.categories', 'categories')
-            ->leftJoin('movie.likedBy', 'subuser')
+            ->leftJoin('movie.likedBy', 'profile')
             ->leftJoin('movie.categories', 'category')
             ->leftJoin('movie.episodes', 'episodes')
-            ->andWhere('subuser.id = :subuserId')
+            ->andWhere('profile.id = :profileId')
             ->andWhere('movie.active = :enabled')
-            ->setParameter('subuserId', $subuserId)
+            ->setParameter('profileId', $profileId)
             ->setParameter('enabled', true)
             ->getQuery()
             ->getArrayResult();
@@ -52,10 +52,10 @@ class MovieRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('movie')
             ->select('movie')
             ->addSelect('categories')
-            ->addSelect('subusers')
+            ->addSelect('profiles')
             ->addSelect('episodes')                      // select what you want
             ->leftJoin('movie.categories', 'categories')
-            ->leftJoin('movie.likedBy', 'subusers')
+            ->leftJoin('movie.likedBy', 'profiles')
             ->leftJoin('movie.categories', 'category')
             ->leftJoin('movie.episodes', 'episodes')   // join the selected table
             ->andWhere('category.name = :categoryName')
@@ -80,10 +80,10 @@ class MovieRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('movie')
             ->select('movie')
             ->addSelect('categories')
-            ->addSelect('subusers')
+            ->addSelect('profiles')
             ->addSelect('episodes')
             ->leftJoin('movie.categories', 'categories')
-            ->leftJoin('movie.likedBy', 'subusers')
+            ->leftJoin('movie.likedBy', 'profiles')
             ->leftJoin('movie.episodes', 'episodes')
             ->orderBy('movie.id', 'ASC')
             ->andWhere('movie.active like :enabled')
@@ -111,10 +111,10 @@ class MovieRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('movie')
             ->select('movie')
             ->addSelect('categories')
-            ->addSelect('subusers')
+            ->addSelect('profiles')
             ->addSelect('episodes')
             ->leftJoin('movie.categories', 'categories')
-            ->leftJoin('movie.likedBy', 'subusers')
+            ->leftJoin('movie.likedBy', 'profiles')
             ->leftJoin('movie.categories', 'category')
             ->leftJoin('movie.episodes', 'episodes')
             ->andWhere('movie.title like :val')
