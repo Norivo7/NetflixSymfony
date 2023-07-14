@@ -25,36 +25,36 @@
             <div class="profilesList">
                 <h1 class="profilesLabel"> Zarządzaj użytkownikami</h1>
                 <ul class="chooseProfile">
-                    {% set subuser_id = 0 %}
-                    {% for subuser in subUsers %}
+                    {% set profile_id = 0 %}
+                    {% for profile in subUsers %}
                     <li class="profile">
                         <form method="POST">
-                            <div class="subuser-wrapper">
-                            <div class="subuser">
+                            <div class="profile-wrapper">
+                            <div class="profile">
                                 <div class="content-overlay"></div>
                                 <input
                                         class="form-control"
                                         id="text"
                                         type="hidden"
                                         name="id"
-                                        value="{{ subuser_id }}"
+                                        value="{{ profile_id }}"
                                 >
                                 <input
                                         class="form-control content-image imageContainer"
-                                        class="subuser__input"
+                                        class="profile__input"
                                         id="round"
                                         type="image"
                                         name="avatar"
-                                        value="{{ subuser.avatar }} "
-                                        src="{{ subuser.avatar }}"
+                                        value="{{ profile.avatar }} "
+                                        src="{{ profile.avatar }}"
                                 >
                                 <span class="profileName">
                                         <input
                                                 class="form-control"
-                                                class="subuser__input"
+                                                class="profile__input"
                                                 type="hidden"
-                                                name="subuser_name"
-                                                value="{{ subuser.name }}">
+                                                name="profile_name"
+                                                value="{{ profile.name }}">
 
                                     </span>
                                 <div class="content-details fadeIn-top fadeIn-right">
@@ -65,16 +65,16 @@
                                     </h3>
                                 </div>
                             </div>
-                            <span class="profileName">{{ subuser.name }}</span>
+                            <span class="profileName">{{ profile.name }}</span>
                             </div>
                         </form>
-                        {% set subuser_id = subuser_id + 1 %}
+                        {% set profile_id = profile_id + 1 %}
                         {% endfor %}
-                        {% if subuser_id < 5 %}
+                        {% if profile_id < 5 %}
                     </li>
 
                     <li class="profile">
-                        <div class="add"><a href="{{ path('add_subuser') }}" class="plus">
+                        <div class="add"><a href="{{ path('add_profile') }}" class="plus">
                                 <i class="bi bi-plus-square" style="font-size: 180px;"></i></a>
                         </div>
                     </li>
@@ -163,7 +163,7 @@
             height: 90%;
         }
 
-        .subuser {
+        .profile {
             position: relative;
             width: 90%;
             max-width: 400px;
@@ -171,12 +171,12 @@
             overflow: hidden;
         }
 
-        .subuser-wrapper:hover {
+        .profile-wrapper:hover {
             color: white;
             font-weight: bold;
             transition: 0.4s;
         }
-        .subuser .content-overlay {
+        .profile .content-overlay {
 
             border-radius: 8px;
             pointer-events: none;
@@ -194,7 +194,7 @@
             transition: all 0.4s ease-in-out 0s;
         }
 
-        .subuser:hover .content-overlay {
+        .profile:hover .content-overlay {
             opacity: 1;
         }
 
@@ -215,7 +215,7 @@
             transition: all 0.3s ease-in-out 0s;
         }
 
-        .subuser:hover .content-details {
+        .profile:hover .content-details {
             pointer-events: none;
             top: 53%;
             left: 50%;
