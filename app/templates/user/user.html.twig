@@ -30,29 +30,29 @@
             <div class="profilesList">
                 <h1 class="profilesLabel"> Kto ogląda?</h1>
                 <ul class="chooseProfile">
-                    {% set subuser_id = 0 %}
-                    {% for subuser in subUsers %}
+                    {% set profile_id = 0 %}
+                    {% for profile in profiles %}
                         <li class="profile">
                             <form method="POST">
-                                <div class="subuser">
+                                <div class="profile">
                                     <input
                                             id="text"
                                             type="hidden"
                                             name="id"
-                                            value="{{ subuser_id }}"
+                                            value="{{ profile_id }}"
                                     >
                                     <input
                                             class="form-control round"
                                             type="image"
                                             name="avatar"
-                                            value="{{ subuser.avatar }} "
-                                            src="{{ subuser.avatar }}"
+                                            value="{{ profile.avatar }} "
+                                            src="{{ profile.avatar }}"
                                     >
-                                    <span class="profileName">{{ subuser.name }}</span>
+                                    <span class="profileName">{{ profile.name }}</span>
                                 </div>
                             </form>
                         </li>
-                        {% set subuser_id = subuser_id + 1 %}
+                        {% set profile_id = profile_id + 1 %}
                     {% endfor %}
                 </ul>
             </div>

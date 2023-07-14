@@ -30,7 +30,7 @@ final class Version1PrimaryTables extends AbstractMigration
     public function down(Schema $schema): void
     {
         $this->addSql('DROP TABLE user');
-        $this->addSql('DROP TABLE subuser');
+        $this->addSql('DROP TABLE profile');
         $this->addSql('DROP TABLE category');
         $this->addSql('DROP TABLE movie');
         $this->addSql('DROP TABLE movie_category');

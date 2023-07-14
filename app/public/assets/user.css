@@ -119,7 +119,7 @@ input.round:hover {
     justify-content: space-between;
     flex: 1;
 }
-.subuser:hover {
+.profile:hover {
     color: white;
     font-weight: bold;
     transition: 0.3s;

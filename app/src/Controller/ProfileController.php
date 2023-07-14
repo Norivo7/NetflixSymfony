@@ -108,7 +108,7 @@ class ProfileController extends AbstractController
         }
         return $this->render(
             'user/user.html.twig', [
-                'subUsers' => $this->profileRepository->findBy(array('subaccountOf' => $currentUser))
+                'profiles' => $this->profileRepository->findBy(array('subaccountOf' => $currentUser))
             ]
         );
     }
@@ -246,7 +246,7 @@ class ProfileController extends AbstractController
         $profiles = $this->profileRepository->findBy(array('subaccountOf' => $currentUser));
         return $this->render(
             'user/manage.html.twig', [
-                'subUsers' => $profiles
+                'profiles' => $profiles
             ]
         );
     }

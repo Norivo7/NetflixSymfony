@@ -33,7 +33,7 @@ class LogicHelper
     {
         $profile = $this->requestStack->getSession()->get('filter');
         if ($profile !== null) return reset($profile);
-        return 'subUser not found';
+        return 'profile not found';
     }
 
     public function getOtherProfiles($currentUser): array

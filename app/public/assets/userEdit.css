@@ -216,7 +216,7 @@ img.round:hover {
     width: 100px;
 }
 
-.subuser:hover {
+.profile:hover {
     color: white;
     font-weight: bold;
     transition: 0.3s;
