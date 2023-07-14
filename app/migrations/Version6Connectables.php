@@ -20,7 +20,6 @@ final class Version6Connectables extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE movie ADD CONSTRAINT FK_1D5EF26F12469DE2 FOREIGN KEY (category_id) REFERENCES category (id)');
         $this->addSql('ALTER TABLE user ADD subscription VARCHAR(255) DEFAULT NULL');
         $this->addSql('ALTER TABLE user ADD password VARCHAR(255) NOT NULL');
         $this->addSql('ALTER TABLE user ADD is_verified TINYINT(1) NOT NULL');
@@ -28,13 +27,7 @@ final class Version6Connectables extends AbstractMigration
 
         $this->addSql('ALTER TABLE movie_category ADD CONSTRAINT FK_DABA824C8F93B6FC FOREIGN KEY (movie_id) REFERENCES movie (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE movie_category ADD CONSTRAINT FK_DABA824C12469DE2 FOREIGN KEY (category_id) REFERENCES category (id) ON DELETE CASCADE');
-        $this->addSql('ALTER TABLE movie DROP FOREIGN KEY FK_1D5EF26F12469DE2');
-        $this->addSql('DROP INDEX IDX_1D5EF26F12469DE2 ON movie');
-        $this->addSql('ALTER TABLE movie ADD liked_by_id INT DEFAULT NULL');
         $this->addSql('ALTER TABLE movie ADD active TINYINT(1) NOT NULL');
-
-        $this->addSql('ALTER TABLE movie ADD CONSTRAINT FK_1D5EF26F12469DE2 FOREIGN KEY (category_id) REFERENCES category (id)');
-        $this->addSql('CREATE INDEX IDX_1D5EF26F12469DE2 ON movie (category_id)');
 
         $this->addSql('CREATE TABLE movie_profile (movie_id INT NOT NULL, profile_id INT NOT NULL, INDEX IDX_74B0E6EC8F93B6FC (movie_id), INDEX IDX_74B0E6ECEC0C7B5A (profile_id), PRIMARY KEY(movie_id, profile_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('ALTER TABLE movie_profile ADD CONSTRAINT FK_74B0E6EC8F93B6FC FOREIGN KEY (movie_id) REFERENCES movie (id) ON DELETE CASCADE');
