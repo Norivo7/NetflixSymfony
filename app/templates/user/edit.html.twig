@@ -20,7 +20,7 @@
 {% block body %}
     <body>
     <form id="myForm" method="post">
-        {% if subuser is defined %}
+        {% if profile is defined %}
             <div class="parent">
                 <div class="div1"><p class="heading">Edytuj profil</p>
                     <hr>
@@ -29,17 +29,17 @@
                     <input id="text"
                            type="hidden"
                            name="avatar"
-                           value="{{ subuser.avatar }}"/>
+                           value="{{ profile.avatar }}"/>
 
                     <img class="avatar"
-                         src="{{ subuser.avatar }}"
+                         src="{{ profile.avatar }}"
                          alt="avatar">
                 </div>
                 <div class="div3">
                     <input class="name"
                            type="text"
                            name="name"
-                           placeholder="{{ subuser.name }}"/>
+                           placeholder="{{ profile.name }}"/>
                     {% if errorRegex is defined %}
                         {{ errorRegex }}
                     {% endif %}
@@ -83,7 +83,7 @@
                         {% if id != 0 %}
                         <form method="post">
                             <div class="deleteBtnContainer">
-                                <a class="deleteButton" href="{{ path('deleteSubuser', {'id': id}) }}">
+                                <a class="deleteButton" href="{{ path('deleteProfile', {'id': id}) }}">
                                     Usuń
                                 </a>
                             </div>
