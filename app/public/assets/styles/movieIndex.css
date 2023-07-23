@@ -510,24 +510,29 @@ h1.category_label {
 /*    }*/
 /*}*/
 
-.dropdown-profile {
-    align-content: center;
-    font-size: 12px;
+
+.profile-nav-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.profile_wrapper {
+.profile-nav-name {
+    align-content: center;
+    font-size: 12px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    width: 30px;
 }
 
-.form-control {
+.profile-nav-avatar {
     width: 30%;
     height: 100%;
     border: none;
     border-radius: 5px;
     padding: 0;
     margin-left: 10px;
+    margin-bottom: 10px;
+
 }

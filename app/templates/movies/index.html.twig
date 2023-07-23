@@ -75,30 +75,10 @@
                     {% set profile_index = 0 %}
 
                     {% for profile in profiles %}
-                        <a href="{{ path('changeProfile', {'index': profile_index }) }}">konto nr {{ profile_index }}</a>
-                        {{ dump(profile) }}
-{#                        <form id="changeProfile" method="POST">#}
-{#                            <div class="dropdown-profile">#}
-{#                                <a class="profile_wrapper">#}
-{#                                    <input#}
-{#                                            class="form-control"#}
-{#                                            id="text"#}
-{#                                            type="hidden"#}
-{#                                            name="id"#}
-{#                                            value="{{ profile_index }}"#}
-{#                                    >#}
-{#                                    <input#}
-{#                                            class="form-control"#}
-{#                                            id="text"#}
-{#                                            type="image"#}
-{#                                            name="id"#}
-{#                                            value="{{ profile.avatar }}"#}
-{#                                            src="{{ profile.avatar }}"#}
-{#                                    >#}
-{#                                    <button class="dropdown_submit">{{ profile.name }}</button>#}
-{#                                </a>#}
-{#                            </div>#}
-{#                        </form>#}
+                        <a class="profile-nav-container" href="{{ path('changeProfile', {'index': profile_index }) }}">
+                            <p class="profile-nav-name">{{ profile.name }}</p>
+                            <img class="profile-nav-avatar" alt="profile img" src="{{ profile.avatar }}">
+                        </a>
                         {% set profile_index = profile_index + 1 %}
                     {% endfor %}
                     <a href="{{ path('manageUser') }}"> &#xF4CB; Zarządzaj profilami</a>
