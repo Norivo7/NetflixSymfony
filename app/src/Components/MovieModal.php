@@ -7,6 +7,8 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent]
 class MovieModal
 {
+    public array $movie;
+
     public int $id;
     public string $link;
     public string $img;

@@ -1,0 +1,59 @@
+{% block javascripts %}
+    <script language = "javascript"
+            src = "https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+    <script language = "javascript">
+        let movieId = window.location.href.split("/").pop();
+        let postMovieId = movieId.replace(/#(\S*)/g, '');
+
+        $(document).ready(function(){
+            $("#loadmovie").on("click", function(event){
+                $.ajax({
+                    url:        '/movie/modal/' . postMovieId,
+                    type:       'POST',
+                    dataType:   'json',
+                    async:      true,
+
+                    success: function(data, status) {
+                        var e = $('<tr><th>Title</th><th>Link</th></tr>');
+                        $('#movie').html('');
+                        $('#movie').append(e);
+                        console.log(data);
+                        movie = data;
+                        var e = $('<tr><td id = "title"></td><td id = "link"></td></tr>');
+
+                        $('#title', e).html(movie['title']);
+                        $('#link', e).html(movie['link']);
+                        $('#movie').append(e);
+                    },
+                    error : function(xhr, textStatus, errorThrown) {
+                        alert('Ajax request failed.');
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .table { border-collapse: collapse; }
+        .table th, td {
+            border-bottom: 1px solid #ddd;
+            width: 250px;
+            text-align: left;
+            align: left;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <body></body>
+    <a id = "loadmovie" href = "#">Load movie information</a>
+    </br>
+    </br>
+
+    <table class = "table">
+        <tbody id = "movie"></tbody>
+    </table>
+{% endblock %}

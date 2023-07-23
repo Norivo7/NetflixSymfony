@@ -11,6 +11,7 @@ use App\Repository\UserRepository;
 use App\Repository\VideoRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
@@ -399,4 +400,26 @@ class MoviesController extends AbstractController
         }
         return $this->redirectToRoute('chooseUser');
     }
+    /**
+     * @Route("/movie/modal/{id}")
+     */
+    public function showModal(int $id, Request $request): JsonResponse|Response
+    {
+        $movie = $this->movieRepository->findOneBy(array('id' => $id));
+        dump($movie);
+        if ($request->isXmlHttpRequest() || $request->query->get('showJson') == 1) {
+            $jsonData = array();
+            $temp = array(
+                'title' => $movie->getTitle(),
+                'link' => $movie->getLink(),
+            );
+            $jsonData = $temp;
+            dump($jsonData);
+            return new JsonResponse($jsonData);
+        } else {
+            return $this->render('movies/ajax.html.twig');
+        }
+    }
+
+
 }

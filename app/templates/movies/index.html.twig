@@ -105,7 +105,9 @@
                 <img class="movie-hero-image" src="{{ movie.img }}" alt="{{ movie.title }}">
             </a>
                 {#            TODO: separate commented to reusable component #}
-{#                <a class="movie-hero" onclick="showModal({{ movie.id }})#}
+                {{ component('MovieModal', { movie: movie }) }}
+
+                {#                <a class="movie-hero" onclick="showModal({{ movie.id }})#}
 {#                        // document.getElementById('navbar').style.background='rgba(0, 0, 0, .7)'#}
 {#                        ">#}
 {#                    <img class="movie-hero-image" src="{{ movie.img }}" alt="{{ movie.title }}">#}
