@@ -68,7 +68,7 @@ class MoviesController extends AbstractController
         );
 
         return $this->render(
-            'base.html.twig', [
+            'root.html.twig', [
                 'dropdownTitles' => $dropdownTitles,
             ]
         );
