@@ -39,11 +39,13 @@ Treat it as an MVP of sorts. Until more changes are done, I'll consider it WIP.
 
 1. clone the repository
 2. go to the pulled repo root ("/NetflixSymfony")
-4. ``docker-compose build``
+3. ``docker-compose build``
 4. ``docker-compose up -d``
 5. ``docker-compose exec php bash``
-6. ``composer install``
-7. ``exit``
+6. ``npm install``
+7. ``npm run build``
+8. ``composer install``
+9. ``exit``
 
 ### Configuration
 1. ``sudo nano /etc/hosts/``
@@ -58,6 +60,21 @@ go to the root directory of the project "/NetflixSymfony", then:
 ```docker-compose up -d```  to start
 
 ```docker-compose stop```  to stop
+
+
+If you want encore to automatically load changes in styles and such:
+
+```
+docker-compose exec php bash
+npm run watch    
+```
+
+Be sure to clean the cache if styles are not reloading/you're facing problems with the cache:
+
+```
+docker-compose exec php bash
+bin/console c:c
+```
 
 ### Post-Installation
 
