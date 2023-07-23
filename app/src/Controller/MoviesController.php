@@ -410,8 +410,14 @@ class MoviesController extends AbstractController
         if ($request->isXmlHttpRequest() || $request->query->get('showJson') == 1) {
             $jsonData = array();
             $temp = array(
-                'title' => $movie->getTitle(),
+                'id' => $movie->getId(),
                 'link' => $movie->getLink(),
+                'img' => $movie->getImg(),
+                'title' => $movie->getTitle(),
+                'description' => $movie->getDescription(),
+                'year' => $movie->getYear(),
+                'categories' => $movie->getCategories(),
+                'episodes' => $movie->getEpisodes()
             );
             $jsonData = $temp;
             dump($jsonData);
