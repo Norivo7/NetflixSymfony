@@ -21,6 +21,10 @@
         {% endblock %}
 {% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/styles/movieIndex.css') }}">
+{% endblock %}
+
 {% block navigation %}
     <div class="navbar_wrapper">
         <div class="navbar">
@@ -72,28 +76,29 @@
 
                     {% for profile in profiles %}
                         <a href="{{ path('changeProfile', {'index': profile_index }) }}">konto nr {{ profile_index }}</a>
-                        <form id="changeProfile" method="POST">
-                            <div class="dropdown-profile">
-                                <a class="profile_wrapper">
-                                    <input
-                                            class="form-control"
-                                            id="text"
-                                            type="hidden"
-                                            name="id"
-                                            value="{{ profile_index }}"
-                                    >
-                                    <input
-                                            class="form-control"
-                                            id="text"
-                                            type="image"
-                                            name="id"
-                                            value="{{ profile.avatar }}"
-                                            src="{{ profile.avatar }}"
-                                    >
-                                    <button class="dropdown_submit">{{ profile.name }}</button>
-                                </a>
-                            </div>
-                        </form>
+                        {{ dump(profile) }}
+{#                        <form id="changeProfile" method="POST">#}
+{#                            <div class="dropdown-profile">#}
+{#                                <a class="profile_wrapper">#}
+{#                                    <input#}
+{#                                            class="form-control"#}
+{#                                            id="text"#}
+{#                                            type="hidden"#}
+{#                                            name="id"#}
+{#                                            value="{{ profile_index }}"#}
+{#                                    >#}
+{#                                    <input#}
+{#                                            class="form-control"#}
+{#                                            id="text"#}
+{#                                            type="image"#}
+{#                                            name="id"#}
+{#                                            value="{{ profile.avatar }}"#}
+{#                                            src="{{ profile.avatar }}"#}
+{#                                    >#}
+{#                                    <button class="dropdown_submit">{{ profile.name }}</button>#}
+{#                                </a>#}
+{#                            </div>#}
+{#                        </form>#}
                         {% set profile_index = profile_index + 1 %}
                     {% endfor %}
                     <a href="{{ path('manageUser') }}"> &#xF4CB; Zarządzaj profilami</a>
@@ -493,8 +498,4 @@ var select = document.getElementById('language');
 </script>
 {% endblock %}
 
-
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('assets/styles/movieIndex.css') }}">
-
-{% endblock %}
+{% block footer %} {% endblock %}

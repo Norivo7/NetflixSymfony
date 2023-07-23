@@ -90,9 +90,11 @@
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.4",
         "fakerphp/faker": "^1.15",
+        "symfony/debug-bundle": "6.0.*",
         "symfony/maker-bundle": "^1.33",
         "symfony/phpunit-bridge": "^6.0",
         "symfony/stopwatch": "6.0.*",
+        "symfony/var-dumper": "6.0.*",
         "symfony/web-profiler-bundle": "6.0.*"
     }
 }
