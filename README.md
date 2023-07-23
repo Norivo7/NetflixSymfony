@@ -111,3 +111,7 @@ sites:
 
 - netflix.symfony:8080 -> app
 - netflix.symfony:8081 -> phpmyadmin
+
+If you have problem with permissions:
+
+sudo chown -R $(whoami) NetflixSymfony
