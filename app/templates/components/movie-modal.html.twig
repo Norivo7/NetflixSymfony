@@ -1,0 +1,83 @@
+<div id="modal{{ id }}" class="modal">
+    <div class="modal-sizing">
+        <div class="modal-content" id="modal-content">
+            <div class="modal-header" style="background-image: url({{ img }})">
+                <a class="modal-image" href="{{ path('show-one', {'id': id}) }}" style="text-decoration: none">
+                    <iframe class="modal-image" src="{{link}}?autoplay=1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture">
+                    </iframe>
+                    <img class="modal-image" src="{{ img }}" alt="movie_image">
+                </a>
+            </div>
+            <div class="modal-desc">
+                <div class="modal-movie-info-primary">
+                    <h2 class="modal-title">{{ title }}</h2>
+                    <p class="modal-movie-description">{{ description }}</p>
+                </div>
+                <div class="modal-movie-info-secondary">
+                    {{ year }}
+                    <a class="profile_button" href="{{ path('show-one', {'id': id}) }}"> Oglądaj teraz </a>
+                    <div class="modal-movie-info-secondary-categories">
+                        <p style="color: gray;display: inline-block">Kategorie:</p>
+                        {% set categoryArray = { } %}   initialize category array
+                        {% for key, category in categories %}
+                            {% set categoryArray = categoryArray|merge({(key~'_'): category.name}) %}  merge to the array, convert key to string, int doesnt work
+                        {% endfor %}
+                        {{ categoryArray|join(', ') }}   implode array
+                    </div>
+                </div>
+            </div>
+            <div>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a class="my-list-button" style="color:red;border: 1px solid red" href="{{ path('hide', {'id': id}) }}">Ukryj film</a>
+            {% endif %}
+            </div>
+            <div style="margin-top: 20px">
+            {% if isLiked == true %}
+                    <a class="my-list-button" href="{{ path('dislike', {'id': id}) }}"> Usuń z mojej listy</a>
+                {% else %}
+                    <a class="my-list-button" href="{{ path('like', {'id': id}) }}"> Dodaj do mojej listy</a>
+            {% endif %}
+            </div>
+            {% if episodes != null %}
+                <div class="modal-movie-episodes">
+                    <div class="modal-movie-episodes-header">
+                        <p>Odcinki</p>
+                        <label>
+                            <select>
+                                    {% for episode in episodes %}
+                                            <option value="{{ episode.season }}">{{ episode.season }}</option>
+                                    {% endfor %}
+                            </select>
+                        </label>
+                    </div>
+                    <div class="episode-wrapper">
+                    {% for key, episode in episodes %}
+                        <div class="season{{ episode.season }}">
+                            <a href="{{ path('watch-one', {'id': episode.id}) }}">
+                            <div class="episode">
+                                <div class="episode-image">
+                                    <div class="episode-number-wrapper">
+                                        <div class="episode-number">{{ key }}</div>
+                                    </div>
+                                    <img style="height: 100px;margin-right: 20px;border-radius: 4px"
+                                         src="{{ asset('images/episode.jpg') }}"
+                                         alt="episode_image"/>
+                                </div>
+                                <div class="episode-content">
+                                    <div class="episode-title">
+                                        {{ episode.name }}
+                                    </div>
+                                    <div class="episode-description">
+                                        {{ episode.description }}
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

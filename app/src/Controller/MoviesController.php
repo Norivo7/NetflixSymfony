@@ -75,22 +75,10 @@ class MoviesController extends AbstractController
     }
 
     /**
-     * @Route("/test", name="test")
-     */
-    public function test(): Response
-    {
-        return $this->render(
-            'test.html.twig'
-        );
-    }
-
-    /**
      * @Route("/browse", name="browse")
      */
     public function index(Request $request): Response
     {
-
-
         $profile = $this->requestStack->getSession()->get('filter');
         if ($profile !== null) {
             $profileId = reset($profile);

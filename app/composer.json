@@ -31,6 +31,7 @@
         "symfony/security-bundle": "6.0.*",
         "symfony/security-http": "6.0.*",
         "symfony/twig-bundle": "6.0.*",
+        "symfony/ux-twig-component": "^2.10",
         "symfony/validator": "6.0.*",
         "symfony/webpack-encore-bundle": "^2.0",
         "symfony/yaml": "6.0.*",
