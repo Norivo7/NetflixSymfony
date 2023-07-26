@@ -31,8 +31,8 @@ Treat it as an MVP of sorts. Until more changes are done, I'll consider it WIP.
 10. 
 
 ### Requirements
-- Docker Engine
-- docker-compose plugin
+- Docker Engine (https://docs.docker.com/engine/install/ubuntu/)
+- docker-compose plugin (should be installed if followed from the above link)
 - php 8.1
 
 ### Installation
