@@ -1,10 +1,10 @@
-<div id="modal{{ movie.id }}" class="modal">
+<div id="modal{{ movie.id }}" class="movie-modal-view">
     <div class="modal-sizing">
         <div class="modal-content" id="modal-content">
             <div class="modal-header" style="background-image: url({{ movie.img }})">
                 <a class="modal-image" href="{{ path('show-one', {'id': movie.id}) }}" style="text-decoration: none">
-                    <iframe class="modal-image" src="{{movie.link}}?autoplay=1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture">
-                    </iframe>
+{#                    <iframe class="modal-image" src="{{movie.link}}?autoplay=1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture">#}
+{#                    </iframe>#}
                     <img class="modal-image" src="{{ movie.img }}" alt="movie_image">
                 </a>
             </div>
@@ -18,11 +18,11 @@
                     <a class="profile_button" href="{{ path('show-one', {'id': movie.id}) }}"> Oglądaj teraz </a>
                     <div class="modal-movie-info-secondary-categories">
                         <p style="color: gray;display: inline-block">Kategorie:</p>
-                        {% set categoryArray = { } %}   initialize category array
+                        {% set categoryArray = { } %}
                         {% for key, category in movie.categories %}
-                            {% set categoryArray = categoryArray|merge({(key~'_'): category.name}) %}  merge to the array, convert key to string, int doesnt work
+                            {% set categoryArray = categoryArray|merge({(key~'_'): category.name}) %}
                         {% endfor %}
-                        {{ categoryArray|join(', ') }}   implode array
+                        {{ categoryArray|join(', ') }}
                     </div>
                 </div>
             </div>
@@ -32,11 +32,11 @@
             {% endif %}
             </div>
             <div style="margin-top: 20px">
-            {% if movie.isLiked == true %}
-                    <a class="my-list-button" href="{{ path('dislike', {'id': movie.id}) }}"> Usuń z mojej listy</a>
-                {% else %}
-                    <a class="my-list-button" href="{{ path('like', {'id': movie.id}) }}"> Dodaj do mojej listy</a>
-            {% endif %}
+{#            {% if movie.isLiked == true %}#}
+{#                    <a class="my-list-button" href="{{ path('dislike', {'id': movie.id}) }}"> Usuń z mojej listy</a>#}
+{#                {% else %}#}
+{#                    <a class="my-list-button" href="{{ path('like', {'id': movie.id}) }}"> Dodaj do mojej listy</a>#}
+{#            {% endif %}#}
             </div>
             {% if movie.episodes != null %}
                 <div class="modal-movie-episodes">

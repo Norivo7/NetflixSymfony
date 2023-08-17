@@ -52,6 +52,14 @@ h1.category_label {
 /*      Modal - Movie Card   */
 /*  ======================#}*/
 
+#movie-modal {
+    position: fixed; /* Stay in place */
+    z-index: -1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%;
+}
 .modal {
     overflow: hidden;
 }
@@ -71,6 +79,8 @@ h1.category_label {
     top: 50px;
     /*left: 30%;*/
     text-align: center;
+    min-height: 600px;
+    min-width: 400px;
     height: 90%;
     width: 45%;
     justify-content: center;

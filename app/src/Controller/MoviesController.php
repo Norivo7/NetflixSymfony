@@ -76,7 +76,7 @@ class MoviesController extends AbstractController
     }
 
     /**
-     * @Route("/browse", name="browse")
+     * @Route("/browse", name="browse", methods={"GET"})
      */
     public function index(Request $request): Response
     {
@@ -97,6 +97,7 @@ class MoviesController extends AbstractController
                 'userAvatar' => $this->profileRepository->find($profileId)->getAvatar()
             ]);
         }
+
         $errorMessage = "404: Nie znaleziono użytkownika.";
         return $this->render('/error/error.html.twig', [
             'error' => $errorMessage,
@@ -401,31 +402,15 @@ class MoviesController extends AbstractController
         return $this->redirectToRoute('chooseUser');
     }
     /**
-     * @Route("/movie/modal/{id}")
+     * @Route("/movie/modal/{id}", name="get-movie", methods={"GET"})
      */
-    public function showModal(int $id, Request $request): JsonResponse|Response
+    public function showModal(int $id, Request $request): ?Response
     {
         $movie = $this->movieRepository->findOneBy(array('id' => $id));
-        dump($movie);
-        if ($request->isXmlHttpRequest() || $request->query->get('showJson') == 1) {
-            $jsonData = array();
-            $temp = array(
-                'id' => $movie->getId(),
-                'link' => $movie->getLink(),
-                'img' => $movie->getImg(),
-                'title' => $movie->getTitle(),
-                'description' => $movie->getDescription(),
-                'year' => $movie->getYear(),
-                'categories' => $movie->getCategories(),
-                'episodes' => $movie->getEpisodes()
-            );
-            $jsonData = $temp;
-            dump($jsonData);
-            return new JsonResponse($jsonData);
-        } else {
-            return $this->render('movies/ajax.html.twig');
+        if ($request->isXmlHttpRequest()) {
+
+            return $this->render('components/MovieModal.html.twig', ['movie' => $movie]);
         }
+        return $this->render('components/MovieModal.html.twig', ['movie' => $movie]);
     }
-
-
 }

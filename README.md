@@ -32,7 +32,6 @@ Treat it as an MVP of sorts. Until more changes are done, I'll consider it WIP.
 
 ### Requirements
 - Docker Engine (https://docs.docker.com/engine/install/ubuntu/)
-- docker-compose plugin (should be installed if followed from the above link)
 - php 8.1
 
 ### Installation
