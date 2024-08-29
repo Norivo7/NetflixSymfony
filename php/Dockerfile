@@ -14,7 +14,7 @@ RUN npm install npm@latest -g && \
     npm install n -g && \
     n latest
 
-WORKDIR /var/www/symfony_docker
+WORKDIR /var/www/symfony_docker/app
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
