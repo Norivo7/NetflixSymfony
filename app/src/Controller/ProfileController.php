@@ -90,12 +90,7 @@ class ProfileController extends AbstractController
         $entityManager->flush();
     }
 
-
-    /**
-     * @Route("/chooseUser", name="chooseUser")
-     * @param Request $request
-     * @return Response
-     */
+    #[Route('/chooseUser', name: 'chooseUser')]
     public function chooseUser(Request $request): Response
     {
         $currentUser = $this->getUser();
@@ -113,11 +108,7 @@ class ProfileController extends AbstractController
         );
     }
 
-
-    /**
-     * @Route ("manageUser/add", name="add_profile")
-     * @return Response
-     */
+    #[Route('/manageUser/add', name: 'add_profile')]
     public function addProfile(): Response
     {
         $currentUser = $this->getUser();
@@ -134,11 +125,7 @@ class ProfileController extends AbstractController
         }
     }
 
-    /**
-     * @Route ("manageUser/edit", name="edit")
-     * @param Request $request
-     * @return Response
-     */
+    #[Route('/manageUser/edit', name: 'edit')]
     public function edit(Request $request): Response
     {
         $profileFrontId = $request->get('id');
@@ -172,12 +159,7 @@ class ProfileController extends AbstractController
 
     }
 
-    /**
-     * @Route ("/manageUser/delete/{id}", name="deleteProfile")
-     * @param Request $request
-     * @param EntityManagerInterface $entityManager
-     * @return Response
-     */
+    #[Route('/manageUser/delete/{id}', name: 'deleteProfile')]
     public function delete(Request $request, EntityManagerInterface $entityManager): Response
     {
         $user = $this->getUser();
@@ -189,12 +171,7 @@ class ProfileController extends AbstractController
         return $this->redirectToRoute('manageUser');
     }
 
-    /**
-     * @Route ("/manageUser/update/{id}", name="update")
-     * @param Request $request
-     * @param EntityManagerInterface $entityManager
-     * @return Response
-     */
+    #[Route('/manageUser/update/{id}', name: 'update')]
     public function update(Request $request, EntityManagerInterface $entityManager): Response
     {
         $currentUser = $this->getUser();
@@ -227,11 +204,7 @@ class ProfileController extends AbstractController
         }
     }
 
-    /**
-     * @Route("/manageUser", name="manageUser")
-     * @param Request $request
-     * @return Response
-     */
+    #[Route('/manageUser', name: 'manageUser')]
     public function manageUser(Request $request): Response
     {
 
@@ -251,11 +224,7 @@ class ProfileController extends AbstractController
         );
     }
 
-    /**
-     * @Route("/success", name="success")
-     * @param Request $request
-     * @return Response
-     */
+    #[Route('/success', name: 'success')]
     public function success(Request $request): Response
     {
 
@@ -273,11 +242,7 @@ class ProfileController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/changeProfile", name="changeProfile")
-     * @param Request $request
-     * @return Response
-     */
+    #[Route('/changeProfile', name: 'changeProfile')]
     public function changeProfileAction(Request $request): Response
     {
         $profileIndex = $request->get('index');

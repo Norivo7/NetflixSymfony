@@ -11,9 +11,8 @@ class MailerController
 {
 
     // TODO: Working Mailer Controller
-    /**
-    * @Route("/email")
-    */
+
+    #[Route('/email', name: 'email')]
     public function sendEmail(MailerInterface $mailer)
     {
         $email = (new Email())

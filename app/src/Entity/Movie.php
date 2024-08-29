@@ -6,71 +6,47 @@ use App\Repository\MovieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\PersistentCollection;
 
-/**
- * @ORM\Entity(repositoryClass=MovieRepository::class)
- * @ORM\Table(name="movie")
- */
+#[ORM\Entity(repositoryClass: MovieRepository::class)]
+#[ORM\Table(name: 'movie')]
 class Movie
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
+    private int $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $title;
+    #[ORM\Column(type: 'string', length: 255)]
+    private string $title;
 
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $description;
+    #[ORM\Column(type: 'text')]
+    private string $description;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $year;
+    #[ORM\Column(type: 'integer')]
+    private int $year;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $img;
+    #[ORM\Column(type: 'string', length: 255)]
+    private string $img;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $link;
+    #[ORM\Column(type: 'string', length: 255)]
+    private string $link;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="movies")
-     * @ORM\JoinTable(name="movie_category")
-     */
-    private $categories;
+    #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'movies')]
+    #[ORM\JoinTable(name: 'movie_category')]
+    private PersistentCollection $categories;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Profile::class, inversedBy="likedMovies")
-     */
-    private $likedBy;
+    #[ORM\ManyToMany(targetEntity: Profile::class, inversedBy: 'likedMovies')]
+    private PersistentCollection $likedBy;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $active;
+    #[ORM\Column(type: 'boolean')]
+    private bool $active;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Video::class, mappedBy="movie")
-     */
-    private $episodes;
+    #[ORM\OneToMany(mappedBy: 'movie', targetEntity: Video::class)]
+    private PersistentCollection $episodes;
 
     public function __construct()
     {
-        $this->categories = new ArrayCollection();
-        $this->likedBy = new ArrayCollection();
-        $this->episodes = new ArrayCollection();
     }
 
 
