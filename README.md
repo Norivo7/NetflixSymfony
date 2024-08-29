@@ -68,7 +68,7 @@ docker compose exec php bash
 npm run watch    
 ```
 
-Be sure to clean the cache if styles are not reloadi-ng/you're facing problems with the cache:
+Be sure to clean the cache if styles are not reloading/you're facing problems with the cache:
 
 ```
 docker compose exec php bash
