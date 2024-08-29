@@ -10,10 +10,7 @@ class AdminController extends AbstractController
 {
 //TODO: find better name, interface cruds in this folder
 
-    /**
-     * @Route("/admin", name="admin_panel")
-     * @return Response
-     */
+    #[Route('/admin', name: 'admin_panel')]
     public function index(): Response
     {
         $userRoles = $this->getUser()->getRoles();

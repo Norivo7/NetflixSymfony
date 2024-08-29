@@ -5,42 +5,28 @@ namespace App\Entity;
 use App\Repository\VideoRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=VideoRepository::class)
- */
+#[ORM\Entity(repositoryClass: VideoRepository::class)]
 class Video
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
+    private int $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $name;
+    #[ORM\Column(type: 'string', length: 255)]
+    private string $name;
 
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $source;
+    #[ORM\Column(type: 'text')]
+    private string $source;
 
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $description;
+    #[ORM\Column(type: 'text')]
+    private string $description;
 
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $season;
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private int $season;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Movie::class, inversedBy="episodes")
-     */
-    private $movie;
+    #[ORM\ManyToOne(targetEntity: Movie::class, inversedBy: 'episodes')]
+    private Movie $movie;
 
     public function getId(): ?int
     {

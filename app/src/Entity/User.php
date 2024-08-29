@@ -6,15 +6,13 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\PersistentCollection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Form\FormTypeInterface;
 
-/**
- * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
- */
+#[ORM\Entity(repositoryClass: UserRepository::class)]
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
 
@@ -22,49 +20,34 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->email;
     }
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
 
-    /**
-     * @ORM\Column(type="string", length=180, unique=true)
-     */
-    private $email;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
+    private int $id;
 
-    /**
-     * @ORM\Column(type="json")
-     */
-    private $roles = [];
+    #[ORM\Column(type: 'string', length: 180, unique: true)]
+    private string $email;
 
-    /**
-     * @var string The hashed password
-     * @ORM\Column(type="string")
-     */
-    private $password;
+    #[ORM\Column(type: 'json')]
+    private array $roles = [];
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $isVerified = false;
+    #[ORM\Column(type: 'string')]
+    private string $password;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Profile::class, mappedBy="subaccountOf", orphanRemoval=true)
-     */
-    private $profiles;
+    #[ORM\Column(type: 'boolean')]
+    private bool $isVerified = false;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $subscription;
+    #[ORM\OneToMany(mappedBy: 'subaccountOf', targetEntity: Profile::class, orphanRemoval: true)]
+    private PersistentCollection $profiles;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private ?string $subscription;
 
     public function __construct()
     {
-        $this->profiles = new ArrayCollection();
+        $this->profiles = new PersistentCollection();
     }
-
 
     public function getId(): ?int
     {
@@ -85,12 +68,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * A visual identifier that represents this user.
-     *
      * @see UserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->email;
+        return $this->email;
     }
 
     /**
@@ -98,7 +80,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return $this->email;
     }
 
     /**
@@ -123,13 +105,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * This method can be removed in Symfony 6.0 - is not needed for apps that do not check user passwords.
-     *
      * @see PasswordAuthenticatedUserInterface
      */
     public function getPassword(): string
     {
-        return (string) $this->password;
+        return $this->password;
     }
+
     public function setPassword(string $password): self
     {
         $this->password = $password;
@@ -148,7 +130,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @see UserInterface
      */
-    public function eraseCredentials()
+    public function eraseCredentials(): void
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
@@ -167,9 +149,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection
+     * @return PersistentCollection
      */
-    public function getProfiles(): Collection
+    public function getProfiles(): PersistentCollection
     {
         return $this->profiles;
     }

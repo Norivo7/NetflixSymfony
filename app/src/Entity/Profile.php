@@ -6,53 +6,37 @@ use App\Repository\ProfileRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\PersistentCollection;
 
-
-/**
- * @ORM\Entity(repositoryClass=ProfileRepository::class)
- */
+#[ORM\Entity(repositoryClass: ProfileRepository::class)]
 class Profile
 {
-    /**
-     * for CRUD
-     * @return mixed
-     */
+
     public function __toString() {
         return $this->name;
     }
 
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
+    private int $id;
 
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $name;
+    #[ORM\Column(type: 'text')]
+    private string $name;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="profiles")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $subaccountOf;
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'profiles')]
+    #[ORM\JoinColumn(nullable: false)]
+    private User $subaccountOf;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $avatar;
+    #[ORM\Column(type: 'string', length: 255)]
+    private ?string $avatar;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Movie::class, mappedBy="likedBy")
-     */
-    private $likedMovies;
+    #[ORM\ManyToMany(targetEntity: Movie::class, mappedBy: 'likedBy')]
+    private PersistentCollection $likedMovies;
 
     public function __construct()
     {
-        $this->likes = new ArrayCollection();
-        $this->likedMovies = new ArrayCollection();
+
     }
 
     public function getId(): ?int
@@ -72,12 +56,12 @@ class Profile
         return $this;
     }
 
-    public function getSubaccountOf(): ?User
+    public function getSubaccountOf(): User
     {
         return $this->subaccountOf;
     }
 
-    public function setSubaccountOf(?User $subaccountOf): self
+    public function setSubaccountOf(User $subaccountOf): self
     {
         $this->subaccountOf = $subaccountOf;
 
@@ -95,6 +79,7 @@ class Profile
 
         return $this;
     }
+
     /**
      * @return Collection<int, Movie>
      */

@@ -6,10 +6,9 @@ use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\PersistentCollection;
 
-/**
- * @ORM\Entity(repositoryClass=CategoryRepository::class)
- */
+#[ORM\Entity(repositoryClass: CategoryRepository::class)]
 class Category
 {
     public function __toString()
@@ -17,26 +16,19 @@ class Category
         return $this->name;
     }
 
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
+    private int $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $name;
+    #[ORM\Column(type: 'string', length: 255)]
+    private string $name;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Movie::class, mappedBy="categories")
-     */
-    private $movies;
+    #[ORM\ManyToMany(targetEntity: Movie::class, mappedBy: 'categories')]
+    private PersistentCollection $movies;
 
     public function __construct()
     {
-        $this->movies = new ArrayCollection();
     }
 
     public function getId(): ?int

@@ -2,25 +2,20 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
 use App\Helpers\LogicHelper;
 use App\Repository\CategoryRepository;
 use App\Repository\MovieRepository;
 use App\Repository\ProfileRepository;
-use App\Repository\UserRepository;
 use App\Repository\VideoRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 class MoviesController extends AbstractController
 {
-    private $userProfiles;
 
     public function __construct
     (
@@ -30,25 +25,10 @@ class MoviesController extends AbstractController
         private RequestStack          $requestStack,
         private VideoRepository       $videoRepository,
         private ManagerRegistry       $doctrine,
-        private LogicHelper           $logicHelper,
-        private UserRepository        $userRepository,
-        private RedirectionController $redirectionController
-    )
-    {
-        $this->movieRepository = $movieRepository;
-        $this->categoryRepository = $categoryRepository;
-        $this->profileRepository = $profileRepository;
-        $this->requestStack = $requestStack;
-        $this->videoRepository = $videoRepository;
-        $this->doctrine = $doctrine;
-        $this->logicHelper = $logicHelper;
-        $this->userRepository = $userRepository;
-        $this->redirectionController = $redirectionController;
-    }
-// TODO: debloat MoviesController
-    /**
-     * @Route("/", name="home")
-     */
+        private LogicHelper           $logicHelper
+    ) { }
+
+    #[Route('/', name: 'home')]
     public function home(Request $request): Response
     {
         if ($request->getMethod() === 'POST' && $request->request->get('email') !== null) {
@@ -75,15 +55,15 @@ class MoviesController extends AbstractController
         );
     }
 
-    /**
-     * @Route("/browse", name="browse", methods={"GET"})
-     */
+    #[Route('/browse', name: 'browse', methods: ['GET'])]
     public function index(Request $request): Response
     {
         $profile = $this->requestStack->getSession()->get('filter');
         if ($profile !== null) {
             $profileId = reset($profile);
-        } else return $this->redirectToRoute('chooseUser');
+        } else {
+            return $this->redirectToRoute('chooseUser');
+        }
 
         $profileFrontId = $request->get('id');
         $allProfiles = $this->profileRepository->findBy(array('subaccountOf' => $this->getUser()));
@@ -104,11 +84,7 @@ class MoviesController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/shows", name="shows")
-     * @param Request $request
-     * @return Response
-     */
+    #[Route('/shows', name: 'shows')]
     public function shows(Request $request): Response
     {
         if ($request->getMethod() === 'POST') {
@@ -134,10 +110,7 @@ class MoviesController extends AbstractController
         return $this->redirectToRoute('chooseUser');
     }
 
-    /**
-     * @Route("/profile", name="profile")
-     * @return Response
-     */
+    #[Route('/profile', name: 'profile')]
     public function profile(): Response
     {
         $currentUser = $this->getUser();
@@ -154,10 +127,7 @@ class MoviesController extends AbstractController
         return $this->redirectToRoute('chooseUser');
     }
 
-    /**
-     * @Route("/subscription", name="subscription")
-     * @return Response
-     */
+    #[Route('/subscription', name: 'subscription')]
     public function subscription(): Response
     {
        $this->getUser();
@@ -172,9 +142,7 @@ class MoviesController extends AbstractController
         return $this->redirectToRoute('chooseUser');
     }
 
-    /**
-     * @Route("/browse/hide/{id}", name="hide")
-     */
+    #[Route('/browse/hide/{id}', name: 'hide')]
     public function hide($id, ManagerRegistry $doctrine): Response
     {
         $entityManager = $doctrine->getManager();
@@ -186,9 +154,7 @@ class MoviesController extends AbstractController
         return $this->redirectToRoute('browse');
     }
 
-    /**
-     * @Route("/show/{id}", name="show-one")
-     */
+    #[Route('/show/{id}', name: 'show-one')]
     public function show($id): Response
     {
         $profileId = $this->logicHelper->getCurrentProfileIdFromSession();
@@ -214,9 +180,7 @@ class MoviesController extends AbstractController
 
     }
 
-    /**
-     * @Route("/watch/{id}", name="watch-one")
-     */
+    #[Route('/watch/{id}', name: 'watch-one')]
     public function watch($id): Response
     {
         $episode = $this->videoRepository->find($id);
@@ -225,11 +189,7 @@ class MoviesController extends AbstractController
             ]);
     }
 
-    /**
-     * @Route("/myList", name="myList")
-     * @param Request $request
-     * @return Response
-     */
+    #[Route('/myList', name: 'myList')]
     public function myList(Request $request): Response
     {
         if ($request->getMethod() === 'POST') {
@@ -253,11 +213,7 @@ class MoviesController extends AbstractController
         return $this->redirectToRoute('chooseUser');
     }
 
-    /**
-     * @Route("/movies", name="movies")
-     * @param Request $request
-     * @return Response
-     */
+    #[Route('/movies', name: 'movies')]
     public function movies(Request $request): Response
     {
         if ($request->getMethod() === 'POST') {
@@ -284,11 +240,7 @@ class MoviesController extends AbstractController
         return $this->redirectToRoute('chooseUser');
     }
 
-    /**
-     * @Route("/new", name="new")
-     * @param Request $request
-     * @return Response
-     */
+    #[Route('/new', name: 'new')]
     public function new(Request $request): Response
     {
         if ($request->getMethod() === 'POST') {
@@ -316,12 +268,7 @@ class MoviesController extends AbstractController
         return $this->redirectToRoute('chooseUser');
     }
 
-    /**
-     * @Route ("/like/{id}", name="like")
-     * @param $id
-     * @param Request $request
-     * @return Response
-     */
+    #[Route('/like/{id}', name: 'like')]
     public function like($id, Request $request): Response
     {
         $movie = $this->movieRepository->find($id);
@@ -337,13 +284,7 @@ class MoviesController extends AbstractController
         return $this->redirect($route);
     }
 
-
-    /**
-     * @Route ("/dislike/{id}", name="dislike")
-     * @param $id
-     * @param Request $request
-     * @return Response
-     */
+    #[Route('/dislike/{id}', name: 'dislike')]
     public function dislike($id, Request $request): Response
     {
         $movie = $this->movieRepository->find($id);
@@ -359,11 +300,7 @@ class MoviesController extends AbstractController
         return $this->redirect($route);
     }
 
-    /**
-     * @Route("/notif", name="notif")
-     * @param Request $request
-     * @return Response
-     */
+    #[Route('/notif', name: 'notif')]
     public function notif(Request $request): Response
     {
         $errorMsg = "501: Nie zaimplementowano.";
@@ -372,12 +309,7 @@ class MoviesController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/search", name="search", methods={"GET"})
-     * @param MovieRepository $movieRepository
-     * @param Request $request
-     * @return Response
-     */
+    #[Route('/search', name: 'search', methods: ['GET'])]
     public function search(MovieRepository $movieRepository, Request $request): Response
     {
         if ($request->getMethod() === 'POST') {
@@ -401,9 +333,8 @@ class MoviesController extends AbstractController
         }
         return $this->redirectToRoute('chooseUser');
     }
-    /**
-     * @Route("/movie/modal/{id}", name="get-movie", methods={"GET"})
-     */
+
+    #[Route('/movie/modal/{id}', name: 'get-movie', methods: ['GET'])]
     public function showModal(int $id, Request $request): ?Response
     {
         $movie = $this->movieRepository->findOneBy(array('id' => $id));
