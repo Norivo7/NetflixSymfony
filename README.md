@@ -32,15 +32,15 @@ Treat it as an MVP of sorts. Until more changes are done, I'll consider it WIP.
 
 ### Requirements
 - Docker Engine (https://docs.docker.com/engine/install/ubuntu/)
-- php 8.1
+- PHP 8.2
 
 ### Installation
 
-1. clone the repository
+1. clone the repository etc. git clone
 2. go to the pulled repo root ("/NetflixSymfony")
-3. ``docker-compose build``
-4. ``docker-compose up -d``
-5. ``docker-compose exec php bash``
+3. ``docker compose build``
+4. ``docker compose up -d``
+5. ``docker compose exec php bash``
 6. ``npm install``
 7. ``npm run build``
 8. ``composer install``
@@ -56,22 +56,22 @@ Treat it as an MVP of sorts. Until more changes are done, I'll consider it WIP.
 In order to start up the project, 
 go to the root directory of the project "/NetflixSymfony", then:
 
-```docker-compose up -d```  to start
+```docker compose up -d```  to start
 
-```docker-compose stop```  to stop
+```docker compose stop```  to stop
 
 
 If you want encore to automatically load changes in styles and such:
 
 ```
-docker-compose exec php bash
+docker compose exec php bash
 npm run watch    
 ```
 
-Be sure to clean the cache if styles are not reloading/you're facing problems with the cache:
+Be sure to clean the cache if styles are not reloadi-ng/you're facing problems with the cache:
 
 ```
-docker-compose exec php bash
+docker compose exec php bash
 bin/console c:c
 ```
 
@@ -79,7 +79,7 @@ bin/console c:c
 
 1. get into php container:
 
-```docker-compose exec php bash```
+```docker compose exec php bash```
 
 2. then execute:
 
