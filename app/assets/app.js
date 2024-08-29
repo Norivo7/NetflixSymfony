@@ -7,8 +7,6 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
-
-
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 
 $('.movie-hero').on('click', function() {
@@ -41,4 +39,3 @@ $('.movie-hero').on('click', function() {
         }
     });
 });
-
