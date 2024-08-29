@@ -22,7 +22,6 @@
 
         <!-- ###+ symfony/framework-bundle ### -->
         <env name="APP_ENV" value="dev"/>
-        <env name="APP_SECRET" value="bba94c85aa1f560aa4553303a7fc9d82"/>
         <!-- ###- symfony/framework-bundle ### -->
         <!-- ###+ doctrine/doctrine-bundle ### -->
         <!-- Format described at https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html#connecting-using-a-url -->

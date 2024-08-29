@@ -2,25 +2,20 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
 use App\Helpers\LogicHelper;
 use App\Repository\CategoryRepository;
 use App\Repository\MovieRepository;
 use App\Repository\ProfileRepository;
-use App\Repository\UserRepository;
 use App\Repository\VideoRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 class MoviesController extends AbstractController
 {
-    private $userProfiles;
 
     public function __construct
     (
@@ -30,22 +25,8 @@ class MoviesController extends AbstractController
         private RequestStack          $requestStack,
         private VideoRepository       $videoRepository,
         private ManagerRegistry       $doctrine,
-        private LogicHelper           $logicHelper,
-        private UserRepository        $userRepository,
-        private RedirectionController $redirectionController
-    )
-    {
-        $this->movieRepository = $movieRepository;
-        $this->categoryRepository = $categoryRepository;
-        $this->profileRepository = $profileRepository;
-        $this->requestStack = $requestStack;
-        $this->videoRepository = $videoRepository;
-        $this->doctrine = $doctrine;
-        $this->logicHelper = $logicHelper;
-        $this->userRepository = $userRepository;
-        $this->redirectionController = $redirectionController;
-    }
-// TODO: debloat MoviesController
+        private LogicHelper           $logicHelper
+    ) { }
 
     #[Route('/', name: 'home')]
     public function home(Request $request): Response
@@ -80,7 +61,9 @@ class MoviesController extends AbstractController
         $profile = $this->requestStack->getSession()->get('filter');
         if ($profile !== null) {
             $profileId = reset($profile);
-        } else return $this->redirectToRoute('chooseUser');
+        } else {
+            return $this->redirectToRoute('chooseUser');
+        }
 
         $profileFrontId = $request->get('id');
         $allProfiles = $this->profileRepository->findBy(array('subaccountOf' => $this->getUser()));
