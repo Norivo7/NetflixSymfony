@@ -15,9 +15,15 @@
         <server name="SHELL_VERBOSITY" value="-1" />
         <server name="SYMFONY_PHPUNIT_REMOVE" value="" />
         <server name="SYMFONY_PHPUNIT_VERSION" value="9.6" />
+
         <!-- ###+ symfony/mailer ### -->
         <!-- MAILER_DSN=null://null -->
         <!-- ###- symfony/mailer ### -->
+
+        <!-- ###+ symfony/framework-bundle ### -->
+        <env name="APP_ENV" value="dev"/>
+        <env name="APP_SECRET" value="bba94c85aa1f560aa4553303a7fc9d82"/>
+        <!-- ###- symfony/framework-bundle ### -->
     </php>
 
     <testsuites>
